@@ -1,0 +1,244 @@
+html {
+    height: 100%;
+}
+
+table, th, td {
+    border: 1px solid;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+body {
+    font-family: Arial, "Times New Roman";
+    color: black;
+    background: #ededed;
+    height: 100%;
+    font-size: 14px;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100%;
+    justify-content: center;
+}
+.container-layout {
+    max-width: 1000px;
+    min-height: 100%;
+    background: white;
+}
+
+#main {
+    padding: 60px 7px 0px 7px;
+}
+
+#main .block .block-title {
+    font-size: 15px;
+    background: #1758DA;
+    padding: 7px;
+    border-top-left-radius: 10px;
+}
+
+#main .block .block-title a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#main .block .block-title a:hover {
+    text-decoration: underline;
+}
+
+#featured-thumbnail {
+    float: left;
+    margin-right: 15px;
+}
+
+.block {
+    margin-bottom: 25px;
+}
+
+.block .main-post .featured-thumbnail img {
+    border: 1px solid #e6e6e6;
+    padding: 3px;
+}
+
+.featured-thumbnail img {
+    margin-bottom: 0;
+    margin-top: 3px;
+    margin-right: 0;
+    height: 110px;
+    width: 146px;
+}
+
+.block .main-post .title {
+    line-height: 25px;
+}
+
+.block .main-post .title a {
+    color: #ff0000;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.main-post .description {
+    margin-bottom: 20px;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.block .main-post .title a:hover {
+    color: #79ACCD;
+}
+
+.block .older-posts ul {
+    margin-left: 40px;
+    list-style-type: square;
+}
+
+.block .older-posts ul li {
+    list-style: disc;
+    line-height: 25px;
+    color: #0000FF;
+    font-size: 14px;
+}
+
+.block .older-posts ul li a {
+    color: #0000FF;
+}
+
+.block .older-posts ul li a:hover {
+    color: #79ACCD;
+}
+
+.sidebar {
+    margin-bottom: 25px;
+}
+
+.widget .widget-content {
+    padding-top: 10px;
+}
+
+.sidebar h3 {
+    background: #1758DA;
+    color: #fff;
+    font-size: 15px;
+    padding: 7px;
+    font-weight: 600;
+    border-top-left-radius: 10px;
+}
+
+.sidebar.support-online h3 {
+    background: green;
+}
+
+.support-online .number-phone {
+    color: red;
+    text-decoration: none;
+}
+
+#footer {
+    border-top: 2px solid gray;
+    padding: 20px 4px 0px 4px;
+}
+
+.company-name {
+    font-size: 15px;
+    color: green;
+    font-weight: 600;
+}
+
+.post-list .category-name {
+    font-size: 15px;
+    background: #1758DA;
+    padding: 7px;
+    border-top-left-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.post-inner {
+    margin-bottom: 20px;
+}
+
+.post-inner .entry-thumb {
+    float: left;
+    width: 29%;
+    margin-right: 5px;
+}
+
+.post-inner .entry-content::before, .post-inner .entry-content::after {
+    content: "";
+    display: table;
+    table-layout: fixed;
+}
+
+.post-inner .entry-content::after {
+    clear: both;
+}
+
+.post-inner .entry-thumb a img {
+    object-position: center center;
+    object-fit: cover;
+    border: 1px solid #e6e6e6;
+    padding: 3px
+}
+.entry-content .entry-title {
+    margin: 0 0 5px 0;
+    line-height: 1.33;
+    font-size: 16px;
+    text-transform: none;
+    font-family: LatoF, Arial, sans-serif;
+}
+
+.entry-content .entry-title a {
+    color: red;
+    text-decoration: none;
+}
+.entry-content .entry-meta {
+    font-size: 12px;
+}
+
+.entry-content .entry-title a:hover {
+    color: #1758DA;
+}
+
+.entry-content .entry-description {
+    color: #121212;
+    text-align: justify;
+    line-height: 1.4;
+}
+
+@media only screen and (max-width: 576px) {
+    .post-inner .entry-thumb a img {
+        height: 95px;
+    }
+}
+
+.page-link {
+    padding: 1px 8px;
+    font-size: 14px;
+    color: #2588DE;
+}
+
+.active>.page-link, .page-link.active {
+    background: #2588DE;
+}
+
+.pagination-block {
+    justify-content: end;
+    margin-bottom: 20px;
+}

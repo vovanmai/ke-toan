@@ -3,24 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Recruitment\CreateRequest;
-use App\Http\Requests\Admin\Recruitment\EditRecruitmentRequest;
-use App\Http\Requests\Admin\Recruitment\UpdateProductRequest;
-use App\Models\Recruitment;
-use App\Services\Admin\Recruitment\ChangeActiveService;
-use App\Services\Admin\Recruitment\CreateService;
-use App\Services\Admin\Recruitment\DeleteService;
-use App\Services\Admin\Recruitment\DetailService;
-use App\Services\Admin\Category\GetAllService;
-use App\Services\Admin\Recruitment\ListService;
-use App\Services\Admin\Recruitment\StoreService;
-use App\Services\Admin\Recruitment\UpdateService;
+use App\Http\Requests\Admin\Page\CreateRequest;
+use App\Http\Requests\Admin\Page\UpdateRequest;
+use App\Services\Admin\Page\ChangeActiveService;
+use App\Services\Admin\Page\DeleteService;
+use App\Services\Admin\Page\DetailService;
+use App\Services\Admin\Page\StoreService;
+use App\Services\Admin\Page\ListService;
+use App\Services\Admin\Page\UpdateService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Exception;
 use Log;
 
-class RecruitmentController extends Controller
+class PageController extends Controller
 {
     public function index (Request $request)
     {
@@ -33,7 +29,7 @@ class RecruitmentController extends Controller
         try {
             $items = resolve(ListService::class)->handle($filters);
 
-            return view('admin.recruitment.index', [
+            return view('admin.page.index', [
                 'items' => $items,
             ]);
         } catch (Exception $exception) {
@@ -44,7 +40,7 @@ class RecruitmentController extends Controller
     public function create ()
     {
         try {
-            return view('admin.recruitment.create');
+            return view('admin.page.create');
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');
@@ -54,16 +50,15 @@ class RecruitmentController extends Controller
     public function store (CreateRequest $request)
     {
         $data = $request->validated();
-
         try {
             $this->beginTransaction();
             resolve(StoreService::class)->handle($data);
             $this->commit();
 
-            session()->flash('success_message', 'Tạo sản phẩm thành công!');
+            session()->flash('success_message', 'Tạo thành công!');
 
-            return redirect()->route('admin.recruitment.list');
-        } catch (Exception $ex) {dd($ex->getMessage());
+            return redirect()->route('admin.page.list');
+        } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');
@@ -73,19 +68,17 @@ class RecruitmentController extends Controller
     public function edit (int $id)
     {
         try {
-            $recruitment = resolve(DetailService::class)->handle($id);
-            return view('admin.recruitment.edit', [
-                'recruitment' => $recruitment,
+            $item = resolve(DetailService::class)->handle($id);
+            return view('admin.page.edit', [
+                'item' => $item,
             ]);
-        } catch (ModelNotFoundException $ex) {
-            return redirect()->route('admin.error.not_found');
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');
         }
     }
 
-    public function update (EditRecruitmentRequest $request, int $id)
+    public function update (UpdateRequest $request, int $id)
     {
         $data = $request->validated();
 
@@ -94,9 +87,9 @@ class RecruitmentController extends Controller
             resolve(UpdateService::class)->handle($id, $data);
             $this->commit();
 
-            session()->flash('success_message', 'Cập nhật tuyển dụng thành công!');
+            session()->flash('success_message', 'Cập nhật thành công!');
 
-            return redirect()->route('admin.recruitment.list');
+            return redirect()->route('admin.page.list');
         } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());
@@ -113,23 +106,26 @@ class RecruitmentController extends Controller
             return response()->success('Xóa danh mục thành công thành công', $result);
         } catch (ModelNotFoundException $exception) {
             return response()->notFound();
-        } catch (Exception $exception) {
+        } catch (Exception $exception) {dd($exception->getMessage());
             $this->rollback();
             return response()->error('Máy chủ bị lỗi', $exception);
         }
     }
 
-    public function changeActive (Request $request, $id)
+    public function changeActive (Request $request, int $id)
     {
+        $data = $request->only([
+            'active'
+        ]);
         try {
-            $data = $request->only([
-                'active',
-            ]);
+            $this->beginTransaction();
             $result = resolve(ChangeActiveService::class)->handle($id, $data);
+            $this->commit();
             return response()->success('Thành công', $result);
         } catch (ModelNotFoundException $exception) {
             return response()->notFound();
         } catch (Exception $exception) {
+            $this->rollback();
             return response()->error('Máy chủ bị lỗi', $exception);
         }
     }

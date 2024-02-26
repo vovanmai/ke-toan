@@ -25,7 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::defaultView('vendor.pagination.default');
+        Paginator::useBootstrap();
+//        Paginator::defaultView('vendor.pagination.default');
         require_once base_path() . '/config/constant.php';
     }
 }

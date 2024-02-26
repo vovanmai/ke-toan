@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Quản lý tuyển dụng</small>
+            <small>Trang</small>
         </h1>
     </section>
 
@@ -13,13 +13,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="edit-recruitment-form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.recruitment.update', ['id' => $recruitment->id]) }}">
+                    <form id="create-post-form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.page.store') }}">
                         @csrf
-                        @method('PUT')
                         <div class="box-header with-border">
-                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Cập nhật tuyển dụng</h3>
+                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tạo mới</h3>
                             <div class="box-tools pull-right">
-                                <a href="{{ route('admin.recruitment.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
+                                <a href="{{ route('admin.post.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
                                     Xem danh sách
                                 </a>
                             </div>
@@ -33,7 +32,7 @@
                                             Tiêu đề<span class="required">(*)</span>
                                         </label>
                                         <div class="field-container">
-                                            <input type="text" name="title" class="form-control" value="{{ $recruitment->title }}">
+                                            <input type="text" name="title" class="form-control" value="{{ old('title') }}">
                                         </div>
                                     </div>
                                     <div class="form-group @error('short_description') has-error @enderror" style="margin-bottom: 30px">
@@ -41,39 +40,7 @@
                                             Mô tả ngắn
                                         </label>
                                         <div class="field-container">
-                                            <input type="text" name="short_description" class="form-control" value="{{ $recruitment->short_description }}">
-                                        </div>
-                                    </div>
-{{--                                    <div class="form-group @error('comment_type') has-error @enderror" style="margin-bottom: 30px">--}}
-{{--                                        <label>--}}
-{{--                                            Kiểu bình luận<span class="required">(*)</span>--}}
-{{--                                        </label>--}}
-{{--                                        <div class="field-container">--}}
-{{--                                            @php--}}
-{{--                                                $commentTypes = [--}}
-{{--                                                    COMMENT_NORMAL => 'Bình luận thường',--}}
-{{--                                                    COMMENT_FACEBOOK => 'Bình luận bằng facebook',--}}
-{{--                                                    COMMENT_NORMAL_AND_FACEBOOK => 'Cả hai',--}}
-{{--                                                ];--}}
-{{--                                            @endphp--}}
-{{--                                            @foreach($commentTypes as $key => $commentType)--}}
-{{--                                                <div style="margin-bottom: 5px">--}}
-{{--                                                    <input type="radio" value="{{ $key }}" name="comment_type" class="radio-green" {{ $key === $recruitment->comment_type ? 'checked' : '' }}>--}}
-{{--                                                    {{ $commentType }}--}}
-{{--                                                </div>--}}
-{{--                                            @endforeach--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-                                </div>
-                                <div class="col-md-5 col-md-offset-1">
-                                    <div class="form-group @error('image') has-error @enderror" style="margin-bottom: 30px">
-                                        <label>
-                                            Ảnh đại diện<span class="required">(*)</span>
-                                        </label>
-                                        <div class="field-container">
-                                            <div id="dropzone-image-preview" class="dropzone">
-
-                                            </div>
+                                            <textarea class="form-control" name="short_description" rows="5">{{ old('short_description') }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +50,7 @@
                                             Chi tiết<span class="required">(*)</span>
                                         </label>
                                         <div class="field-container">
-                                            <textarea name="description" class="form-control" rows="10">{!! $recruitment->description !!}</textarea>
+                                            <textarea name="description" class="form-control" rows="10"></textarea>
                                             @error('description')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
@@ -96,7 +63,7 @@
                             <div class="text-center">
                                 <button type="reset" class="btn btn-default" style="margin-right: 10px">Xóa</button>
                                 <span class="button-create">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i>Cập nhật</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i>Tạo</button>
                                     </span>
                             </div>
                         </div>
@@ -114,7 +81,7 @@
 @push('script')
     <script>
         $(function() {
-            $("#edit-recruitment-form").validate({
+            $("#create-post-form").validate({
                 rules: {
                     title: {
                         required: true,
@@ -131,12 +98,12 @@
                     $(element).closest('.form-group').removeClass('has-error');
                 },
                 messages: {
-                    name: {
-                        required: "Tiêu đề không được rỗng.",
+                    title: {
+                        required: "Không được rỗng.",
                     },
                     short_description: {
-                        maxlength: "Mô tả ngắn không được vượt quá 255 ký tự.",
-                    },
+                        maxlength: "Không được vượt quá 255 ký tự.",
+                    }
                 },
                 errorPlacement: function($error, $element) {
                     $error.appendTo($element.closest(".form-group").find('.field-container'));
@@ -145,12 +112,6 @@
                     toastr.error('Dữ liệu nhập không hợp lệ.', 'Lỗi');
                 },
                 submitHandler: function(form) {
-                    // validate preview image is required
-                    if (!validateRequiredPreviewImage()) {
-                        toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
-                        return;
-                    }
-
                     // Validate description is required
                     var description = CKEDITOR.instances.description.getData();
                     if (description == '') {
@@ -158,7 +119,7 @@
                         return;
                     }
 
-                    // Create recruitment
+                    // Create product
                     form.submit();
                 }
             });
@@ -173,8 +134,10 @@
             filebrowserImageUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
             filebrowserFlashUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}',
             language: 'vi',
+            height: 600
         });
 
+        let uploadedImageDetailMap = {}
         Dropzone.autoDiscover = false;
 
         let uploadedImagePreviewlMap = {}
@@ -186,7 +149,7 @@
                 var time = dt.getTime();
                 return time + file.name;
             },
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            acceptedFiles: ".jpeg,.jpg,.png,.gif,.webp",
             dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
             dictRemoveFile: 'Xóa',
             addRemoveLinks: true,
@@ -195,7 +158,7 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "recruitment_preview_"
+                key: "post_preview_"
             },
             method: 'POST',
             headers: {
@@ -203,7 +166,7 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#edit-recruitment-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
+                $('#create-post-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
 
                 response.data.uuid = uuid
                 uploadedImagePreviewlMap[file.upload.filename] = response.data
@@ -221,43 +184,14 @@
                     myDropZone.removeFile(file);
                 });
 
-                myDropZone.options.maxFiles = 0;
-
-                let imagePreview = {!! isset($recruitment->image) ? json_encode($recruitment->image) : "''" !!};
-
-                let callback = null; // Optional callback when it's done
-                let crossOrigin = null; // Added to the `img` tag for crossOrigin handling
-                let resizeThumbnail = true; // Tells Dropzone whether it should resize the image first
-                myDropZone.displayExistingFile(imagePreview, imagePreview.url, callback, crossOrigin, resizeThumbnail);
-                myDropZone.options.maxFiles = 0
-
             },
             removedfile: function (file) {
-                let myDropzone = this;
                 file.previewElement.remove()
-                if(typeof(file.upload) == 'object') {
-                    if(file.accepted) {
-                        $(`form .${file.upload.uuid}`).remove()
-                        let storeNameRemove = uploadedImagePreviewlMap[file.upload.filename].store_name
-                        removeImageOnServer(storeNameRemove)
-                    }
-                } else {
-                    myDropzone.options.maxFiles = 1
-                    $('#edit-recruitment-form').append(`<input type="hidden" name="remove_preview_image_id" value="${file.id}">`)
-                }
+                let uuid = file.upload.uuid
+                $(`#create-post-form .${uuid}`).remove()
+                let storeNameRemove = uploadedImagePreviewlMap[file.upload.filename].store_name
+                removeImageOnServer(storeNameRemove)
             },
         });
-
-        function validateRequiredPreviewImage() {
-            var check = true;
-            var isRemovedPreviewImage = $('#edit-recruitment-form input[name="remove_preview_image_id"]').length;
-            if(isRemovedPreviewImage) {
-                var previewImage = $('#edit-recruitment-form textarea[name="image"]').length
-                if(previewImage == 0) {
-                    check = false;
-                }
-            }
-            return check;
-        }
     </script>
 @endpush

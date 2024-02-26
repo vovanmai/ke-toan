@@ -26,10 +26,6 @@ class DeleteService
     {
         $recruitment = $this->repository->find($id);
 
-        $previewImageId = $recruitment->previewImage->id;
-
-        resolve(DeleteImagesService::class)->handle($recruitment, [$previewImageId]);
-
-        $this->repository->delete($id);
+        $this->repository->delete($recruitment->id);
     }
 }

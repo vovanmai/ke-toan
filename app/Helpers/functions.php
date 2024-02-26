@@ -353,7 +353,7 @@ if (! function_exists('getPublicFile')) {
     {
         $path = config('filesystems.file_get_folder');
 
-        return asset("{$path}/$filename", config('define.secure'));
+        return "/{$path}/$filename";
     }
 }
 

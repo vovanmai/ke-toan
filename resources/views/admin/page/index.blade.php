@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Quản lý tuyển dụng</small>
+            <small>Trang</small>
         </h1>
     </section>
 
@@ -13,29 +13,31 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="search-recruitment-form" class="form-horizontal" method="GET" action="{{ route('admin.recruitment.list') }}">
+                    <form id="search-post-form" class="form-horizontal" method="GET" action="{{ route('admin.page.list') }}">
                         <div class="box-header with-border">
-                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tìm kiếm tuyển dụng</h3>
+                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tìm kiếm</h3>
                         </div>
                     <!-- /.box-header -->
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group @error('name') has-error @enderror">
+                                    <div class="form-group @error('title') has-error @enderror">
                                         <label for="inputEmail3" class="col-sm-2 control-label">Tiêu đề</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="title" value="{{ old('title') ?? request()->get('title') ?? '' }}" class="form-control">
+                                            <input type="text" name="title" value="{{ request()->get('title') ?? '' }}" class="form-control">
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-md-6">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Ngày tạo</label>
                                         <div class="col-sm-10">
                                             <div class="input-daterange input-group" id="datepicker">
-                                                <input type="text" value="{{ old('created_at_from') ?? request()->get('created_at_from') ?? '' }}" class="form-control" name="created_at_from" />
+                                                <input type="text" value="{{ request()->get('created_at_from') ?? '' }}" class="form-control" name="created_at_from" />
                                                 <span class="input-group-addon">~</span>
-                                                <input type="text" value="{{ old('created_at_to') ?? request()->get('created_at_to') ?? '' }}" class="form-control" name="created_at_to" />
+                                                <input type="text" value="{{ request()->get('created_at_to') ?? '' }}" class="form-control" name="created_at_to" />
                                             </div>
                                         </div>
                                     </div>
@@ -43,7 +45,7 @@
                             </div>
                         </div>
                         <div class="box-footer text-center">
-                            <button type="reset" onclick="resetForm()" class="btn btn-default reset-form-admin" style="margin-right: 2px">
+                            <button type="reset" onclick="resetSearchForm('/admin/p')" class="btn btn-default reset-form-admin" style="margin-right: 2px">
                                 <i class="fa fa fa-eraser"></i> Xóa</button>
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-fw fa-search"></i>Tìm kiếm
@@ -56,9 +58,12 @@
             <div class="col-md-12">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-fw fa-list-ul"></i>Danh sách tuyển dụng</h3>
+                        <h3 class="box-title"><i class="fa fa-fw fa-list-ul"></i>Danh sách</h3>
                         <div class="box-tools pull-right">
-                            <a href="{{ route('admin.recruitment.create') }}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>
+                            <a href="{{ route('admin.page.list') }}" type="button" class="btn btn-success"><i class="fa fa fa-refresh"></i>
+                                Làm mới
+                            </a>
+                            <a href="{{ route('admin.page.create') }}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>
                                 Tạo mới
                             </a>
                         </div>
@@ -68,23 +73,19 @@
                         @if ($items->count())
                             <table class="table table-bordered">
                                 <tr>
-                                    <th>STT</th>
-                                    <th style="width: 30%">Tiêu đề</th>
-                                    <th>Ảnh</th>
-                                    <th>Active</th>
-                                    <th>Lượt xem</th>
-                                    <th>Ngày tạo</th>
-                                    <th style="width: 10%">Action</th>
+                                    <th class="text-center">STT</th>
+                                    <th style="width: 20%">Tiêu đề</th>
+                                    <th class="text-center">Active</th>
+                                    <th class="text-center" style="width: 8%">Lượt xem</th>
+                                    <th class="text-center">Người tạo</th>
+                                    <th class="text-center">Ngày tạo</th>
+                                    <th class="text-center">Ngày cập nhập</th>
+                                    <th class="text-center" style="width: 15%">Action</th>
                                 </tr>
                                 @foreach($items as $key => $item)
                                     <tr class="tr-item-{{$item->id}}">
-                                        <td>{{ $key + 1 }}</td>
+                                        <td class="text-center">{{ $key + 1 }}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td style="text-align: center">
-                                            @if($item->image)
-                                                <img style="height: 130px;width: 110px;object-fit: cover" src="{{ $item->image['url'] }}" alt="">
-                                            @endif
-                                        </td>
                                         <td class="is-active text-center">
                                             @if($item->active)
                                                 <img onclick="changeActive({{ $item->id }}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">
@@ -92,18 +93,23 @@
                                                 <img onclick="changeActive({{ $item->id }}, 1)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/inactive.png" alt="">
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             {{ $item->total_view }}
                                         </td>
-                                        <td>
-                                            <div>{{ $item->created_at }}</div>
-                                            <div>{{ $item->created_at->diffForHumans() }}</div>
+                                        <td class="text-center">
+                                            {{ $item->admin->name }}
                                         </td>
-                                        <td>
-                                            <a href="{{ route('admin.recruitment.edit', ['id' => $item->id]) }}" class="btn btn-primary">
+                                        <td class="text-center">
+                                            {{ $item->created_at }}
+                                        </td>
+                                        <td class="text-center">
+                                            {{ $item->updated_at }}
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="{{ route('admin.page.edit', ['id' => $item->id]) }}" class="btn btn-primary">
                                                 <i class="fa fa-edit"></i> Sửa
                                             </a>
-                                            <button onclick="deleteRecruitment({{ $item->id }})" type="button" class="btn btn-danger">
+                                            <button onclick="deleteItem({{ $item->id }})" type="button" class="btn btn-danger">
                                                 <i class="fa fa-trash"></i> Xóa
                                             </button>
                                         </td>
@@ -116,9 +122,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer clearfix">
-                        <div class="text-right">
-                            {!! $items->links() !!}
-                        </div>
+                        {!! $items->links() !!}
                     </div>
                 </div>
                 <!-- /.box -->
@@ -143,10 +147,10 @@
         });
 
         $(function() {
-            $("#search-recruitment-form").validate({
+            $("#search-post-form").validate({
                 rules: {
                     title: {
-                        maxlength: 255,
+                        maxlength: 100,
                     },
                 },
                 highlight: function(element) {
@@ -156,18 +160,19 @@
                     $(element).closest('.form-group').removeClass('has-error');
                 },
                 messages: {
-
+                    name: {
+                    },
                 },
                 invalidHandler: function(form, validator) {
                     toastr.error('Dữ liệu nhập không hợp lệ.', 'Lỗi');
                 },
                 submitHandler: function(form) {
-                    // Search recruitment
+                    // Search product
                     form.submit();
                 }
             });
         });
-        function deleteRecruitment (id) {
+        function deleteItem (id) {
             Swal.fire({
                 title: 'Bạn có chắc chắn muốn xóa không ?',
                 icon: 'warning',
@@ -181,7 +186,7 @@
                     $.ajax({
                         type: 'delete',
                         dataType: "JSON",
-                        url: `/admin/recruitments/${id}`,
+                        url: `/admin/pages/${id}`,
                         success: function(response)
                         {
                             toastr.success(response.message, 'Thành công');
@@ -202,7 +207,7 @@
                 },
                 type: 'POST',
                 dataType: "JSON",
-                url: `/admin/recruitments/${id}/active`,
+                url: `/admin/pages/${id}/active`,
                 success: function(response)
                 {
                     if (active) {

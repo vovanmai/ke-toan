@@ -37,32 +37,32 @@
                                     </div>
                                     <div class="form-group @error('short_description') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Mô tả ngắn<span class="required">(*)</span>
+                                            Mô tả ngắn
                                         </label>
                                         <div class="field-container">
                                             <input type="text" name="short_description" class="form-control" value="{{ old('short_description') }}">
                                         </div>
                                     </div>
-                                    <div class="form-group @error('comment_type') has-error @enderror" style="margin-bottom: 30px">
-                                        <label>
-                                            Kiểu bình luận<span class="required">(*)</span>
-                                        </label>
-                                        <div class="field-container">
-                                            @php
-                                                $commentTypes = [
-                                                    COMMENT_NORMAL => 'Bình luận thường',
-                                                    COMMENT_FACEBOOK => 'Bình luận bằng facebook',
-                                                    COMMENT_NORMAL_AND_FACEBOOK => 'Cả hai',
-                                                ];
-                                            @endphp
-                                            @foreach($commentTypes as $key => $commentType)
-                                                <div style="margin-bottom: 5px">
-                                                    <input type="radio" value="{{ $key }}" name="comment_type" class="radio-green" {{ $key === COMMENT_NORMAL ? 'checked' : '' }}>
-                                                    {{ $commentType }}
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
+{{--                                    <div class="form-group @error('comment_type') has-error @enderror" style="margin-bottom: 30px">--}}
+{{--                                        <label>--}}
+{{--                                            Kiểu bình luận<span class="required">(*)</span>--}}
+{{--                                        </label>--}}
+{{--                                        <div class="field-container">--}}
+{{--                                            @php--}}
+{{--                                                $commentTypes = [--}}
+{{--                                                    COMMENT_NORMAL => 'Bình luận thường',--}}
+{{--                                                    COMMENT_FACEBOOK => 'Bình luận bằng facebook',--}}
+{{--                                                    COMMENT_NORMAL_AND_FACEBOOK => 'Cả hai',--}}
+{{--                                                ];--}}
+{{--                                            @endphp--}}
+{{--                                            @foreach($commentTypes as $key => $commentType)--}}
+{{--                                                <div style="margin-bottom: 5px">--}}
+{{--                                                    <input type="radio" value="{{ $key }}" name="comment_type" class="radio-green" {{ $key === COMMENT_NORMAL ? 'checked' : '' }}>--}}
+{{--                                                    {{ $commentType }}--}}
+{{--                                                </div>--}}
+{{--                                            @endforeach--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
                                     <div class="form-group @error('image') has-error @enderror" style="margin-bottom: 30px">
@@ -120,7 +120,6 @@
                         maxlength: 255,
                     },
                     short_description: {
-                        required: true,
                         maxlength: 255,
                     },
                 },
@@ -136,6 +135,7 @@
                     },
                     short_description: {
                         required: "Mô tả ngắn không được rỗng.",
+                        maxlength: "Mô tả ngắn không được vượt quá 255 ký tự.",
                     },
                 },
                 errorPlacement: function($error, $element) {
@@ -155,7 +155,7 @@
                     // Validate description is required
                     var description = CKEDITOR.instances.description.getData();
                     if (description == '') {
-                        toastr.error('Vui lòng nhập mô tả sản phầm.', 'Lỗi');
+                        toastr.error('Vui lòng nhập chi tiết.', 'Lỗi');
                         return;
                     }
 

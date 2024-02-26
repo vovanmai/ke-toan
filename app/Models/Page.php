@@ -5,17 +5,16 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Recruitment extends AbstractModel
+class Page extends AbstractModel
 {
     use Sluggable;
-
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'recruitments';
+    protected $table = 'pages';
 
     /**
      * The attributes that are mass assignable.
@@ -23,15 +22,12 @@ class Recruitment extends AbstractModel
      * @var array
      */
     protected $fillable = [
-        'admin_id',
         'title',
         'short_description',
-        'slug',
         'description',
         'active',
-        'image',
-        'total_view',
-        'comment_type',
+        'slug',
+        'admin_id',
     ];
 
     /**
@@ -56,15 +52,5 @@ class Recruitment extends AbstractModel
     public function admin()
     {
         return $this->belongsTo(Admin::class, 'admin_id', 'id');
-    }
-
-    public function getImageAttribute()
-    {
-        $data = json_decode($this->attributes['image'], true);
-
-        if ($data) {
-            $data['url'] = getPublicFile($data['store_name']);
-        }
-        return $data;
     }
 }

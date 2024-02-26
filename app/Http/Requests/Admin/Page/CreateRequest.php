@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Admin\Recruitment;
+namespace App\Http\Requests\Admin\Page;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CreateRequest extends FormRequest
 {
@@ -24,11 +25,13 @@ class CreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'image' => 'required',
+            'title' => [
+                'required',
+                'max:255',
+                Rule::unique('pages'),
+            ],
             'short_description' => 'nullable|max:255',
             'description' => 'required',
-            'comment_type' => 'nullable',
         ];
     }
 
@@ -39,7 +42,6 @@ class CreateRequest extends FormRequest
      */
     public function messages()
     {
-        return [
-        ];
+        return [];
     }
 }

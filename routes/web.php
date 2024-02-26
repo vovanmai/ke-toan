@@ -39,16 +39,5 @@ Route::get('clear', function () {
 // Routes of admin
 require __DIR__ . '/web/admin/index.php';
 
-if (config('define.user_page') == 'user1') {
-    // Routes of user1
-    require __DIR__ . '/web/user/user1/index.php';
-} else if (config('define.user_page') == 'user2') {
-    // Routes of user2
-    require __DIR__ . '/web/user/user2/index.php';
-} else if (config('define.user_page') == 'user3') {
-    // Routes of user2
-    require __DIR__ . '/web/user/user3/index.php';
-} else if (config('define.user_page') == 'user4') {
-    // Routes of user2
-    require __DIR__ . '/web/user/user4/index.php';
-}
+// Routes of user2
+require __DIR__ . '/web/user/index.php';

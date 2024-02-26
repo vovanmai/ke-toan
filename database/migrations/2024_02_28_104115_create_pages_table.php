@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecruitmentsTable extends Migration
+class CreatePagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateRecruitmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('recruitments', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('admin_id')->nullable()->index();
-            $table->string('title');
+            $table->string('title')->unique();
             $table->string('slug')->unique();
-            $table->jsonb('image');
-            $table->boolean('active')->default(true);
-            $table->tinyInteger('comment_type')->default(COMMENT_NORMAL);
             $table->string('short_description')->nullable();
-            $table->text('description');
+            $table->boolean('active')->default(true);
+            $table->text('description')->nullable();
+            $table->unsignedBigInteger('admin_id')->nullable()->index();
             $table->unsignedBigInteger('total_view')->default(0);
             $table->timestamps();
 
@@ -40,6 +38,6 @@ class CreateRecruitmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recruitments');
+        Schema::dropIfExists('pages');
     }
 }

@@ -65,7 +65,7 @@
             </span>
                 </a>
             </li>--}}
-            <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
+            {{--<li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
                 <a href="{{ route('admin.dashboard') }}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
@@ -92,7 +92,7 @@
                 <a href="{{ route('admin.slider.list') }}">
                     <i class="fa fa-sliders"></i> <span>Quản lý banners</span>
                 </a>
-            </li>
+            </li>--}}
 
 {{--            <li class="{{ request()->is('admin/categories*') ? 'active' : '' }}">--}}
 {{--                <a href="{{ route('admin.category.list') }}">--}}
@@ -106,7 +106,7 @@
 {{--                </a>--}}
 {{--            </li>--}}
 
-            <li class="treeview {{ request()->is('admin/categories*') || request()->is('admin/products*') ? 'active' : '' }}">
+           {{-- <li class="treeview {{ request()->is('admin/categories*') || request()->is('admin/products*') ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-product-hunt"></i> <span>Quản lý sản phẩm</span>
                     <span class="pull-right-container">
@@ -142,7 +142,7 @@
                 <a href="{{ route('admin.fee_charge.index') }}">
                     <i class="fa fa-usd"></i> <span>Phụ phí</span>
                 </a>
-            </li>
+            </li>--}}
 
             <li class="treeview {{ request()->is('admin/post-categories*') || request()->is('admin/posts*') ? 'active' : '' }}">
                 <a href="#">
@@ -210,8 +210,15 @@
                     <i class="fa fa-paw"></i> <span>Tuyển dụng</span>
                 </a>
             </li>
+            <li class="{{ request()->is('admin/pages*') ? 'active' : '' }}">
+                <a href="{{ route('admin.page.list') }}">
+                    <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                    <span>Trang</span>
+                </a>
+            </li>
 
-            <li class="{{ request()->is('admin/comments*') ? 'active' : '' }}">
+
+  {{--          <li class="{{ request()->is('admin/comments*') ? 'active' : '' }}">
                 <a href="{{ route('admin.comment.list') }}">
                     <i class="fa fa-comments-o"></i> <span>Bình luận</span>
                     <span class="pull-right-container count-comment">
@@ -221,21 +228,21 @@
                         <small class="label pull-right bg-red">{{ $count ?: null }}</small>
                     </span>
                 </a>
-            </li>
+            </li>--}}
 
-            <li class="{{ request()->is('admin/calendars*') ? 'active' : '' }}">
+            {{--<li class="{{ request()->is('admin/calendars*') ? 'active' : '' }}">
                 <a href="{{ route('admin.calendar.list') }}">
                     <i class="fa fa-calendar-plus-o"></i> <span>Calendar</span>
                 </a>
-            </li>
+            </li>--}}
 
-            <li>
-                @if($appId = getWebsiteSetting('fb_comment_app_id')->fb_comment_app_id ?? null)
-                <a target="_blank" href="{{ "https://developers.facebook.com/tools/comments/{$appId}" }}">
-                    <i class="fa fa-facebook"></i> <span>Bình luận Facebook</span>
-                </a>
-                @endif
-            </li>
+{{--            <li>--}}
+{{--                @if($appId = getWebsiteSetting('fb_comment_app_id')->fb_comment_app_id ?? null)--}}
+{{--                <a target="_blank" href="{{ "https://developers.facebook.com/tools/comments/{$appId}" }}">--}}
+{{--                    <i class="fa fa-facebook"></i> <span>Bình luận Facebook</span>--}}
+{{--                </a>--}}
+{{--                @endif--}}
+{{--            </li>--}}
 
             <li class="{{ request()->is('admin/admins*') ? 'active' : '' }}">
                 <a href="{{ route('admin.admins.list') }}">

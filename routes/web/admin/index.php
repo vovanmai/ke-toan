@@ -47,6 +47,11 @@ Route::namespace("Admin")->middleware('guard:admin')->prefix('admin')->group(fun
         // Routes of post
         require __DIR__ . '/post.php';
 
+
+        // Routes of post
+        require __DIR__ . '/page.php';
+
+
         // Routes of comment
         require __DIR__ . '/comment.php';
 

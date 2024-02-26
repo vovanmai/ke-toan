@@ -26,9 +26,9 @@ class EditRecruitmentRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'image' => 'nullable',
-            'short_description' => 'required|max:255',
+            'short_description' => 'nullable|max:255',
             'description' => 'required',
-            'comment_type' => 'required|in:1,2,3',
+            'comment_type' => 'nullable|in:1,2,3',
         ];
     }
 
