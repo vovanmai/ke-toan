@@ -14,7 +14,10 @@ class PageController extends Controller
     {
         try {
             $item = resolve(DetailService::class)->handle($slug);
-
+//            dd($item);
+//
+//            return view('user.page.detail1');
+//            return view('welcome');
             return view('user.page.detail', [
                 'item' => $item,
             ]);

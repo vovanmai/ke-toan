@@ -27,12 +27,24 @@ class CategoryController extends BaseController
             'title',
         ]);
 
-        $filters['type'] = Category::TYPE_PRODUCT;
 
         try {
             $categories = resolve(ListService::class)->handle($filters);
 
-            return view('admin.category.index', [
+            return view('admin.category.all', [
+                'categories' => $categories,
+            ]);
+        } catch (Exception $exception) {
+            return redirect()->route('admin.error.error');
+        }
+    }
+
+    public function all ()
+    {
+        try {
+            $categories = resolve(GetAllService::class)->handle();
+
+            return view('admin.category.all', [
                 'categories' => $categories,
             ]);
         } catch (Exception $exception) {
@@ -42,16 +54,14 @@ class CategoryController extends BaseController
 
     public function create ()
     {
-        $filters = [
-            'type' => Category::TYPE_PRODUCT,
-        ];
+
         try {
-            $categories = resolve(GetAllService::class)->handle($filters);
+            $categories = resolve(GetAllService::class)->handle();
 
             return view('admin.category.create', [
                 'categories' => $categories,
             ]);
-        } catch (Exception $ex) {dd($ex->getMessage());
+        } catch (Exception $ex) {
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');
         }
@@ -67,7 +77,6 @@ class CategoryController extends BaseController
         ]);
 
         $data['parent_id'] = $data['category_id'] ?? null;
-        $data['type'] = Category::TYPE_PRODUCT;
 
         try {
             resolve(CreateService::class)->handle($data);
@@ -86,10 +95,7 @@ class CategoryController extends BaseController
     public function edit (int $id)
     {
         try {
-            $filters = [
-                'type' => Category::TYPE_PRODUCT,
-            ];
-            $categories = resolve(GetAllService::class)->handle($filters);
+            $categories = resolve(GetAllService::class)->handle();
             $editCategory = resolve(DetailService::class)->handle($id);
 
             return view('admin.category.edit', [
@@ -110,6 +116,7 @@ class CategoryController extends BaseController
             'category_id',
             'description',
         ]);
+
         $data['parent_id'] = $data['category_id'] ?? null;
 
         try {
@@ -117,7 +124,7 @@ class CategoryController extends BaseController
 
             session()->flash('error_msg', trans('message.admin.create_success'));
 
-            return redirect()->route('admin.category.list');
+            return redirect()->route('admin.post.list');
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');

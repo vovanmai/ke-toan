@@ -144,16 +144,16 @@
                 </a>
             </li>--}}
 
-            <li class="treeview {{ request()->is('admin/post-categories*') || request()->is('admin/posts*') ? 'active' : '' }}">
+            <li class="treeview {{ request()->is('admin/posts*') || request()->is('admin/categories*') ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-edit"></i> <span>Quản lý bài viết</span>
                     <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ request()->is('admin/post-categories*') ? 'active' : '' }}">
-                        <a href="{{ route('admin.post_category.list') }}">
+                    <li class="{{ request()->is('admin/categories*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.category.list') }}">
                             <i class="fa fa-list-alt"></i> <span>Danh mục bài viết</span>
                         </a>
                     </li>
@@ -205,11 +205,6 @@
 {{--                </a>--}}
 {{--            </li>--}}
 
-            <li class="{{ request()->is('admin/recruitments*') ? 'active' : '' }}">
-                <a href="{{ route('admin.recruitment.list') }}">
-                    <i class="fa fa-paw"></i> <span>Tuyển dụng</span>
-                </a>
-            </li>
             <li class="{{ request()->is('admin/pages*') ? 'active' : '' }}">
                 <a href="{{ route('admin.page.list') }}">
                     <i class="fa fa-thumb-tack" aria-hidden="true"></i>

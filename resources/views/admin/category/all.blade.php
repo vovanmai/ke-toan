@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form class="form-horizontal" method="GET" action="{{ route('admin.post.list') }}">
+                    <form class="form-horizontal" method="GET" action="{{ route('admin.category.list') }}">
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tìm kiếm danh mục</h3>
                         </div>
@@ -49,7 +49,7 @@
                     <div class="box-header with-border">
                         <h3 class="box-title"><i class="fa fa-fw fa-list-ul"></i>Danh mục bài viết</h3>
                         <div class="box-tools pull-right">
-                            <a href="{{ route('admin.post.list') }}" type="button" class="btn btn-success">
+                            <a href="{{ route('admin.category.list') }}" type="button" class="btn btn-success">
                                 <i class="fa fa-refresh"></i>
                                 Làm mới
                             </a>
@@ -63,9 +63,7 @@
                         <div style="padding: 0px 50px">
                             @foreach($categories as $item)
                             <div class="parent-cat cat-{{ $item->id }}">
-                                <span class="">{{ $item->title }}
-                                    <span class="ml-5" style="color: #0a804a">({{ $item->active_posts_count }})</span>
-                                </span>
+                                <span class="">{{ $item->title }}</span>
                                 <div class="pull-right">
                                     <span class="active">
                                         @if($item->active)
@@ -79,7 +77,7 @@
                                         @endif
                                     </span>
                                     ||
-                                    <a style="color: #367fa9" href="{{ route('admin.post_category.edit', ['id' => $item->id]) }}">
+                                    <a style="color: #367fa9" href="{{ route('admin.post.edit', ['id' => $item->id]) }}">
                                         <i class="fa fa-edit"></i> Sửa
                                     </a>
                                     ||
@@ -88,11 +86,9 @@
                                     </a>
                                 </div>
                             </div>
-                                @foreach($item->children as $item)
+                                @foreach($item->childrenRecursive as $item)
                                 <div class="children-cat cat-{{ $item->id }}">
-                                    <span class="">{{ $item->title }}
-                                        <span class="ml-5" style="color: #0a804a">({{ $item->active_posts_count }})</span>
-                                    </span>
+                                    <span class="">{{ $item->title }}</span>
                                     <div class="pull-right">
                                         <span class="active">
                                             @if($item->active)
@@ -106,7 +102,7 @@
                                             @endif
                                         </span>
                                         ||
-                                        <a style="color: #367fa9" href="{{ route('admin.post_category.edit', ['id' => $item->id]) }}">
+                                        <a style="color: #367fa9" href="{{ route('admin.post.edit', ['id' => $item->id]) }}">
                                             <i class="fa fa-edit"></i> Sửa
                                         </a>
                                         ||

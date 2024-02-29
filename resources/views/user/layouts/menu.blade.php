@@ -97,11 +97,12 @@
             $pages = resolve(\App\Services\User\Page\GetAllService::class)->handle();
         @endphp
         @foreach($pages as $page)
-            <li>
+            <li class="{{ request()->is($page->slug) ? 'active' : ''}}">
                 <a href="{{ route('user.page.detail', ['slug' => $page->slug]) }}">
                     <span class="title">{{ $page->title }}</span>
                 </a>
             </li>
         @endforeach
     </ul>
+    <div style="clear: both"></div>
 </div>

@@ -1,7 +1,6 @@
 @extends('user.layouts.master')
 @section('content')
-    <div style="width: 100%;">
+    <div class="ckeditor-content">
         {!! $item->description !!}
     </div>
-
 @endsection

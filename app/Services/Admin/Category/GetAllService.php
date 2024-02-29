@@ -17,18 +17,15 @@ class GetAllService
     }
 
     /**
-     * @param array $data Data
-     *
      * @return array
      */
-    public function handle (array $filters)
+    public function handle ()
     {
         return $this->repository->with([
             'children' => function ($query) {
                 return $query->select(['*'])->withCount('activePosts');
             }])
             ->withCount('activePosts')
-            ->search($filters)
             ->scopeQuery(function ($query) {
                 return $query->whereNull('parent_id');
             })

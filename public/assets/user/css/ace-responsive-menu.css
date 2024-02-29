@@ -152,7 +152,7 @@ E-mail: samson3d@gmail.com
 ----------------------------------------*/
 .menu-toggle {
     display: none;
-    float: left;
+    /*float: left;*/
     width: 100%;
     background: #0d638f;
 }

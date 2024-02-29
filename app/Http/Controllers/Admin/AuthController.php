@@ -16,7 +16,7 @@ class AuthController extends BaseController
         session(['link' => url()->previous()]);
 
         if (Auth::check()) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('admin.post.list');
         }
         return view('admin.auth.login');
     }
@@ -43,7 +43,7 @@ class AuthController extends BaseController
                         return redirect($link);
                     }
                 }
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('admin.post.list');
             }
         } catch (\Exception $exception) {
             return redirect()

@@ -27,7 +27,7 @@ class GetAllService
      */
     public function handle ()
     {
-        $pages = $this->repository->orderBy('id', 'ASC')->all(['slug', 'title']);
+        $pages = $this->repository->whereByField('active', true)->orderBy('id', 'ASC')->all(['slug', 'title']);
 
         return $pages;
     }

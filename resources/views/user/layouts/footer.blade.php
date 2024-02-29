@@ -1,24 +1,26 @@
 <div id="footer">
-    <div class="row">
-        <div class="col-md-6">
-            <h6 class="company-name">CÔNG TY CỔ PHẦN TỔNG HỢP </h6>
-            <div>
-                <p style="margin-bottom: 5px; font-size: 13px">
-                    <i class="fa fa-phone" aria-hidden="true"></i> Phone:
-                    <a href="tel:0984969752">0984.969.752</a>
-                </p>
-                <p style="margin-bottom: 5px; font-size: 13px">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ:
-                    74 Trương Chí Cương, Quận Hải Châu, Đà Nẵng.
-                </p>
-                <p style="margin-bottom: 5px; font-size: 13px">
-                    <i class="fa fa-envelope" aria-hidden="true"></i> Email:
-                    ketoandpt@gmail.com
-                </p>
-                <p style="margin-bottom: 5px; font-size: 13px">
-                    <i class="fa fa-globe" aria-hidden="true"></i> Website:
-                    <a href="https://ketoandpt.com.vn">ketoandpt.com.vn</a>
-                </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h6 class="company-name">CÔNG TY CỔ PHẦN TỔNG HỢP </h6>
+                <div>
+                    <p style="margin-bottom: 5px; font-size: 13px">
+                        <i class="fa fa-phone" aria-hidden="true"></i> Phone:
+                        <a href="tel:0984969752">0984.969.752</a>
+                    </p>
+                    <p style="margin-bottom: 5px; font-size: 13px">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ:
+                        74 Trương Chí Cương, Quận Hải Châu, Đà Nẵng.
+                    </p>
+                    <p style="margin-bottom: 5px; font-size: 13px">
+                        <i class="fa fa-envelope" aria-hidden="true"></i> Email:
+                        ketoandpt@gmail.com
+                    </p>
+                    <p style="margin-bottom: 5px; font-size: 13px">
+                        <i class="fa fa-globe" aria-hidden="true"></i> Website:
+                        <a href="https://ketoandpt.com.vn">ketoandpt.com.vn</a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>

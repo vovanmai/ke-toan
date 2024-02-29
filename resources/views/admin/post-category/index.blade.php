@@ -49,7 +49,7 @@
                     <div class="box-header with-border">
                         <h3 class="box-title"><i class="fa fa-fw fa-list-ul"></i>Danh mục bài viết</h3>
                         <div class="box-tools pull-right">
-                            <a href="{{ route('admin.post_category.create') }}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>
+                            <a href="{{ route('admin.post.create') }}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>
                                 Tạo mới
                             </a>
                         </div>
