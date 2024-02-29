@@ -77,7 +77,7 @@
                                         @endif
                                     </span>
                                     ||
-                                    <a style="color: #367fa9" href="{{ route('admin.post.edit', ['id' => $item->id]) }}">
+                                    <a style="color: #367fa9" href="{{ route('admin.category.edit', ['id' => $item->id]) }}">
                                         <i class="fa fa-edit"></i> Sửa
                                     </a>
                                     ||
@@ -102,7 +102,7 @@
                                             @endif
                                         </span>
                                         ||
-                                        <a style="color: #367fa9" href="{{ route('admin.post.edit', ['id' => $item->id]) }}">
+                                        <a style="color: #367fa9" href="{{ route('admin.category.edit', ['id' => $item->id]) }}">
                                             <i class="fa fa-edit"></i> Sửa
                                         </a>
                                         ||

@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="form-group @error('short_description') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Mô tả ngắn<span class="required">(*)</span>
+                                            Mô tả ngắn
                                         </label>
                                         <div class="field-container">
                                             <textarea class="form-control" name="short_description" rows="5">{{ old('short_description') ?? $item->short_description }}</textarea>
@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group @error('comment_type') has-error @enderror" style="margin-bottom: 30px">
+                                    {{--<div class="form-group @error('comment_type') has-error @enderror" style="margin-bottom: 30px">
                                         <div class="row">
                                             <div class="col-xs-6">
                                                 <label>
@@ -84,7 +84,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                                 <div class="col-md-6 col-md-offset-1">
                                     <div class="form-group" style="margin-bottom: 30px">
@@ -153,8 +153,7 @@
                         required: true,
                     },
                     short_description: {
-                        required: true,
-                        maxlength: 1000,
+                        maxlength: 255,
                     },
                 },
                 highlight: function(element) {
@@ -169,7 +168,7 @@
                             required: "Tiêu đề không được rỗng.",
                         },
                         short_description: {
-                            required: "Mô tả ngắn không được rỗng.",
+                            maxlength: "Không được quá 255 ký tự",
                         },
                         category_id: {
                             required: "Danh mục không được rỗng.",

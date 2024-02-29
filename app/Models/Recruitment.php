@@ -31,7 +31,6 @@ class Recruitment extends AbstractModel
         'active',
         'image',
         'total_view',
-        'comment_type',
     ];
 
     /**

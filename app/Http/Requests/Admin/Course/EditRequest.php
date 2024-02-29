@@ -28,7 +28,6 @@ class EditRequest extends FormRequest
             'image' => 'nullable',
             'short_description' => 'required|max:255',
             'description' => 'required',
-            'comment_type' => 'required|in:1,2,3',
         ];
     }
 

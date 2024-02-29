@@ -33,7 +33,6 @@ class ListPostService
         $categories = $this->categoryRepository->whereByField('active', true)
             ->orderBy('created_at', 'ASC')
             ->whereNull('parent_id')
-            ->whereByField('type', Category::TYPE_POST)
             ->all();
 
         $categories->map(function ($item) {

@@ -56,11 +56,9 @@ class UpdateService
     {
         $dataUpdate = [
             'title' => $data['title'],
-            'short_description' => $data['short_description'],
+            'short_description' => $data['short_description'] ?? null,
             'category_id' => $data['category_id'],
             'description' => $data['description'],
-            'comment_type' => $data['comment_type'],
-            'is_show_home' => isset($data['is_show_home']),
         ];
 
         if (isset($data['image']) && !empty($data['image'])) {

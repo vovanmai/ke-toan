@@ -8,28 +8,7 @@ class Category extends AbstractModel
 {
     use Sluggable;
 
-    const MAX_GRADE = 2;
-
-    /**
-     * Typ is post
-     *
-     * @var int
-     */
-    const TYPE_POST = 1;
-
-    /**
-     * Typ is document
-     *
-     * @var int
-     */
-    const TYPE_DOCUMENT = 2;
-
-    /**
-     * Typ is product
-     *
-     * @var int
-     */
-    const TYPE_PRODUCT = 3;
+    const MAX_GRADE = 3;
 
     /**
      * The table associated with the model.
@@ -47,7 +26,6 @@ class Category extends AbstractModel
         'title',
         'description',
         'parent_id',
-        'type',
         'active',
     ];
 

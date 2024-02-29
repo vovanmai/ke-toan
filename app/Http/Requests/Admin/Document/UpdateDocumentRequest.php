@@ -28,7 +28,6 @@ class UpdateDocumentRequest extends FormRequest
             'category_id' => 'required|exists:categories,id',
             'short_description' => 'required|max:255',
             'description' => 'required',
-            'comment_type' => 'required|in:1,2,3',
             'preview_file' => 'nullable',
             'detail_images' => 'nullable',
             'remove_detail_image_ids' => 'nullable|array',

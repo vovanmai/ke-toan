@@ -27,7 +27,6 @@ class CategoryController extends BaseController
             'title',
         ]);
 
-
         try {
             $categories = resolve(ListService::class)->handle($filters);
 
@@ -124,7 +123,7 @@ class CategoryController extends BaseController
 
             session()->flash('error_msg', trans('message.admin.create_success'));
 
-            return redirect()->route('admin.post.list');
+            return redirect()->route('admin.category.list');
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');

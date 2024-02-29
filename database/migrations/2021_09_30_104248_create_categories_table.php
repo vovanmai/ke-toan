@@ -17,10 +17,10 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('title')->index();
             $table->boolean('active')->default(true);
-            $table->tinyInteger('type')->default(\App\Models\Category::TYPE_POST);
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('parent_id')->index()->nullable();
+            $table->unsignedInteger('order')->default(1);
             $table->timestamps();
 
             $table->foreign('parent_id')

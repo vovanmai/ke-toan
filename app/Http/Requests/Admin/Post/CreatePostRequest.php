@@ -27,10 +27,8 @@ class CreatePostRequest extends FormRequest
             'title' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
             'image' => 'required',
-            'is_show_home' => 'nullable',
-            'short_description' => 'required|max:1000',
+            'short_description' => 'nullable|max:1000',
             'description' => 'required',
-            'comment_type' => 'required|in:1,2,3',
         ];
     }
 

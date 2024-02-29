@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('category_id')->index();
             $table->unsignedBigInteger('admin_id')->index()->nullable();
             $table->string('title')->index();
-            $table->string('short_description', 1000);
+            $table->string('short_description', 255)->nullable();
             $table->boolean('active')->default(true);
             $table->boolean('is_show_home')->default(false);
             $table->tinyInteger('comment_type')->default(COMMENT_NORMAL);

@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Services\User\User2\Category;
+namespace App\Services\User\Category;
 
 use App\Data\Repositories\Eloquent\CategoryRepository;
-use App\Models\Category;
 
 class GetAllService
 {
@@ -18,22 +17,19 @@ class GetAllService
     }
 
     /**
-     * @param array $data Data
-     *
      * @return array
      */
-    public function handle (int $type = Category::TYPE_POST)
+    public function handle ()
     {
         return $this->repository->with([
             'childrenRecursive' => function ($query) {
                 return $query->where('active', true)
                     ->select(['*']);
             }])
-            ->whereByField('type', $type)
             ->whereByField('active', true)
-            ->scopeQuery(function ($query) {
-                return $query->whereNull('parent_id');
-            })
+            ->orderBy('order', 'ASC')
+            ->orderBy('id', 'ASC')
+            ->whereNull('parent_id')
             ->all();
     }
 }

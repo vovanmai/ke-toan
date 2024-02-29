@@ -29,7 +29,6 @@ class CreateDocumentRequest extends FormRequest
             'short_description' => 'required|max:255',
             'preview_file' => 'required',
             'description' => 'required',
-            'comment_type' => 'required|in:1,2,3',
             'is_free' => 'nullable',
             'file' => 'required',
             'total_page' => 'required',

@@ -30,13 +30,9 @@ class PostController extends Controller
             'created_at_to',
         ]);
 
-        $data = [
-            'type' => Category::TYPE_POST,
-        ];
-
         try {
 
-            $categories = resolve(GetAllService::class)->handle($data);
+            $categories = resolve(GetAllService::class)->handle();
             $items = resolve(ListService::class)->handle($filters);
 
             return view('admin.post.index', [
@@ -51,10 +47,7 @@ class PostController extends Controller
     public function create ()
     {
         try {
-            $data = [
-                'type' => Category::TYPE_POST,
-            ];
-            $categories = resolve(GetAllService::class)->handle($data);
+            $categories = resolve(GetAllService::class)->handle();
 
             if (!$categories->count()) {
                 session()->flash('error_message', 'Vui lòng tạo danh mục trước khi tạo bài viết.');
@@ -91,10 +84,7 @@ class PostController extends Controller
     public function edit (int $id)
     {
         try {
-            $data = [
-                'type' => Category::TYPE_POST,
-            ];
-            $categories = resolve(GetAllService::class)->handle($data);
+            $categories = resolve(GetAllService::class)->handle();
             $item = resolve(DetailService::class)->handle($id);
             return view('admin.post.edit', [
                 'categories' => $categories,

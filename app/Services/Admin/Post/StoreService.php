@@ -43,13 +43,11 @@ class StoreService
     {
         $dataCreate = [
             'title' => $data['title'],
-            'short_description' => $data['short_description'],
+            'short_description' => $data['short_description'] ?? null,
             'admin_id' => Auth::user()->id,
             'category_id' => $data['category_id'],
             'image' => $data['image'],
             'description' => $data['description'],
-            'comment_type' => $data['comment_type'],
-            'is_show_home' => isset($data['is_show_home']),
         ];
 
         return $this->postRepository->create($dataCreate);

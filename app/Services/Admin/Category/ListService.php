@@ -25,8 +25,9 @@ class ListService
     {
         return $this->repository->search($filters)
             ->with('parentRecursive')
+            ->whereNull('parent_id')
             ->orderByColumns([
-                'id' => 'desc',
+                'id' => 'ASC',
             ])
             ->paginate(15);
     }
