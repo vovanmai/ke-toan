@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Services\User\Post\ListByCategoryService;
 use App\Services\User\User2\Comment\ListCommentService;
 use App\Services\User\User2\Post\DetailService;
 use Exception;
@@ -15,19 +16,10 @@ class PostController extends Controller
     public function index ($slug)
     {
         try {
-            $item = resolve(\App\Services\User\User2\Category\DetailService::class)->handle($slug);
-
-            $catIds = !$item->parent ? $item->children->pluck('id')->toArray() : [];
-            $catIds[] = $item->id;
-
-            $items = resolve(ListPostByCategoryService::class)->handle($catIds);
-            return view('user.user2.post.index', [
-                'item' => $item,
+            $items = resolve(ListByCategoryService::class)->handle($slug);
+            return view('user.post.index', [
                 'items' => $items,
-                'websiteTitle' => $item->title,
             ]);
-        } catch (ModelNotFoundException $ex) {
-            return redirect()->route('user.error.not_found');
         } catch (Exception $exception) {
             Log::error($exception);
             return redirect()->route('user.error.error');

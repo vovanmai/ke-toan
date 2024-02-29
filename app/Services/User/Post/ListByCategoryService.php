@@ -2,6 +2,7 @@
 
 namespace App\Services\User\Post;
 
+use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Data\Repositories\Eloquent\PostRepository;
 
 class ListByCategoryService
@@ -11,10 +12,17 @@ class ListByCategoryService
      */
     protected $repository;
 
+    /**
+     * @var CategoryRepository
+     */
+    protected $catRepo;
+
     public function __construct(
-        PostRepository $repository
+        PostRepository $repository,
+        CategoryRepository $catRepo
     ) {
         $this->repository = $repository;
+        $this->catRepo = $catRepo;
     }
 
     /**
@@ -26,10 +34,11 @@ class ListByCategoryService
      */
     public function handle (string $slug)
     {
-        $posts = $this->repository->whereByField('slug', $slug)
+        $cat = $this->catRepo->firstOrFailWhere(['slug' => $slug], ['id']);
+
+        $posts = $this->repository->whereByField('category_id', $cat->id)
             ->whereByField('active', true)
-            ->orderBy('order', 'ASC')
-            ->orderBy('id', 'ASC')
+            ->orderBy('id', 'DESC')
             ->paginate(10);
         return $posts;
     }

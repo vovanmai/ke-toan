@@ -94,9 +94,20 @@
 
         @foreach($categories as $category)
             <li class="{{ request()->is($category->slug) ? 'active' : ''}}">
-                <a href="{{ route('user.page.detail', ['slug' => $category->slug]) }}">
+                <a href="{{ route('user.category.index', ['slug' => $category->slug]) }}">
                     <span class="title">{{ $category->title }}</span>
                 </a>
+
+                @if($category->childrenRecursive->isNotEmpty())
+                    <ul>
+                        @foreach($category->childrenRecursive as $cat)
+                            <li>
+                                <a href="{{ $cat->slug }}">{{ $cat->title }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
+
             </li>
         @endforeach
 
