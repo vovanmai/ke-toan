@@ -316,3 +316,8 @@ tr:nth-child(even){background-color: #f2f2f2}
         margin-left:0.7rem; margin-right:0.7rem; margin-bottom: .5rem;
     }
 }
+
+
+#main-content {
+    margin-bottom: 20px;
+}
