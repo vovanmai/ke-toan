@@ -94,7 +94,7 @@
 
         @foreach($categories as $category)
             <li class="{{ request()->is($category->slug) ? 'active' : ''}}">
-                <a href="{{ route('user.category.index', ['slug' => $category->slug]) }}">
+                <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}">
                     <span class="title">{{ $category->title }}</span>
                 </a>
 

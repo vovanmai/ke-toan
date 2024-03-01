@@ -34,12 +34,16 @@ class ListByCategoryService
      */
     public function handle (string $slug)
     {
-        $cat = $this->catRepo->firstOrFailWhere(['slug' => $slug], ['id']);
+        $category = $this->catRepo->firstOrFailWhere(['slug' => $slug], ['id', 'title']);
 
-        $posts = $this->repository->whereByField('category_id', $cat->id)
+        $posts = $this->repository->whereByField('category_id', $category->id)
             ->whereByField('active', true)
             ->orderBy('id', 'DESC')
             ->paginate(10);
-        return $posts;
+
+        return [
+            'category' => $category,
+            'posts' => $posts,
+        ];
     }
 }
