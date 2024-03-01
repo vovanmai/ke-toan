@@ -3,6 +3,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::namespace("User")->group(function () {
+    Route::get('test', function () {
+       return view('welcome');
+    });
     // Routes of error
     require __DIR__ . '/error.php';
 

@@ -88,7 +88,6 @@ class PageController extends Controller
             $this->commit();
 
             session()->flash('success_message', 'Cập nhật thành công!');
-
             return redirect()->route('admin.page.list');
         } catch (Exception $ex) {
             $this->rollback();

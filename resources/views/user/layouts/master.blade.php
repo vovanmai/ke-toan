@@ -4,8 +4,9 @@
     <div class="container-layout">
         <div id="header">
             <img src="https://daotaoketoanhn.edu.vn/wp-content/uploads/2017/05/Banner1.png" alt="" style="width: 100%">
-            @include('user.layouts.menu')
+            @include('user.layouts.main-menu')
         </div>
+
         <div id="main">
             <div class="container">
                 <div class="row">

@@ -41,6 +41,21 @@
             accoridonExpAll: false //Expands all the accordion menu on click
         });
     });
+    $('#menu > li').hover(function() {
+        // khi thẻ menu li bị hover thì drop down menu thuộc thẻ li đó sẽ trượt xuống(hiện)
+        $('.dropdown_menu', this).slideDown(200);
+    },function() {
+        // khi thẻ menu li bị out không hover nữa thì drop down menu thuộc thẻ li đó sẽ trượt lên(ẩn)
+        $('.dropdown_menu', this).slideUp(200);
+    });
+
+    $('.dropdown_menu > li').hover(function() {
+        // khi thẻ dropdown_menu li bị hover thì submenusubmenu thuộc thẻ li đó sẽ trượt xuống(hiện)
+        $('.submenu', this).slideDown(200);
+    },function() {
+        // khi thẻ dropdown_menu li bị hover thì submenusubmenu thuộc thẻ li đó sẽ trượt lên(ẩnẩn)
+        $('.submenu', this).slideUp(200);
+    });
 </script>
 </body>
 </html>

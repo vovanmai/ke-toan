@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\WebsiteSetting;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -26,7 +27,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-//        Paginator::defaultView('vendor.pagination.default');
-        require_once base_path() . '/config/constant.php';
+
+        $this->app->singleton('web_setting', function () {
+            return WebsiteSetting::first();
+        });
     }
 }
