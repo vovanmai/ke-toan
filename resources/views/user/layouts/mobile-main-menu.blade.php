@@ -1,15 +1,15 @@
 
 <div id="mobile-main-menu">
-    <div class="d-flex justify-content-between align-items-center" style="padding: 15px 15px">
-        <h2>Danh mục</h2>
-        <a href="" style="font-size: 30px; color: black">
+    <div class="d-flex justify-content-between align-items-center" style="padding: 7px 15px; background: #2588DE; color: white">
+        <h2 style="font-weight: 600; margin-bottom: 0px">Danh mục</h2>
+        <a class="hidden-menu" href="javascript:void(0)" style="font-size: 30px; color: white">
             <i class="fa fa-times" aria-hidden="true"></i>
         </a>
     </div>
     <ul>
         <li>
             <div class="d-flex justify-content-between align-items-center">
-                <a href="/" class="active">
+                <a href="/" class="{{ request()->is('/') ? 'active' : ''}}">
                     <i class="fa fa-home" aria-hidden="true"></i>
                     <span>Trang chủ</span>
                 </a>
@@ -26,7 +26,7 @@
             @endphp
             <li>
                 <div class="d-flex justify-content-between align-items-center">
-                    <a href="/">
+                    <a href="{{ route('user.post.index', ['slug' => $firstCat->slug]) }}" class="{{ request()->is('danh-muc/' . $firstCat->slug) ? 'active' : ''}}">
                         <span>{{ $firstCat->title }}</span>
                     </a>
                     @if($hasSubMenu)
@@ -39,7 +39,7 @@
                     <ul class="sub-menu">
                         @foreach($firstCat->childrenRecursive as $secondCat)
                         <li>
-                            <a href="">
+                            <a href="{{ route('user.post.index', ['slug' => $secondCat->slug]) }}" class="{{ request()->is('danh-muc/' . $secondCat->slug) ? 'active' : ''}}">
                                 <span>{{ $secondCat->title }}</span>
                             </a>
                         </li>

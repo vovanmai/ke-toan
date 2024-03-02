@@ -60,7 +60,20 @@
 
     $('#mobile-main-menu > ul > li .button-arrow').click(function() {
         $(this).closest('li').find('.sub-menu').slideToggle();
+        if ($(this).find('.fa-chevron-down').length === 1) {
+            $(this).html('<i class="fa fa-chevron-right" aria-hidden="true"></i>')
+        } else {
+            $(this).html('<i class="fa fa-chevron-down" aria-hidden="true"></i>')
+        }
     });
+
+    $('.hidden-menu').click(function () {
+        $('#mobile-main-menu').hide('slow')
+    })
+
+    $('#toggle-show-menu .toggle-button').click(function () {
+        $('#mobile-main-menu').show('slow')
+    })
 </script>
 </body>
 </html>
