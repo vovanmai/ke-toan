@@ -18,7 +18,7 @@
         <a class="{{ request()->is('danh-muc/' . $firstCat->slug) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $firstCat->slug]) }}">
             <span>{{ $firstCat->title }}</span>
             @if($hasSubMenu)
-                <span class="arrow arrow-down"></span>
+                <i style="margin-left: 10px" class="fa fa-chevron-down" aria-hidden="true"></i>
             @endif
         </a>
         @if($hasSubMenu)
@@ -40,10 +40,12 @@
                     </ul>
                     @endif
                     <a class="{{ request()->is('danh-muc/' . $secondCat->slug) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $secondCat->slug]) }}">
-                        <span>{{ $secondCat->title }}</span>
-                        @if($hasSubMenu)
-                        <span class="arrow arrow-right"></span>
-                        @endif
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>{{ $secondCat->title }}</span>
+                            @if($hasSubMenu)
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                            @endif
+                        </div>
                     </a>
                 </li>
                 @endforeach
