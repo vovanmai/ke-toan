@@ -56,6 +56,11 @@
         // khi thẻ dropdown_menu li bị hover thì submenusubmenu thuộc thẻ li đó sẽ trượt lên(ẩnẩn)
         $('.submenu', this).slideUp(200);
     });
+
+
+    $('#mobile-main-menu > ul > li .button-arrow').click(function() {
+        $(this).closest('li').find('.sub-menu').slideToggle();
+    });
 </script>
 </body>
 </html>

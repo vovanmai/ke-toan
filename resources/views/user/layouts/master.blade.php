@@ -5,6 +5,7 @@
         <div id="header">
             <img src="https://daotaoketoanhn.edu.vn/wp-content/uploads/2017/05/Banner1.png" alt="" style="width: 100%">
             @include('user.layouts.main-menu')
+            @include('user.layouts.mobile-main-menu')
         </div>
 
         <div id="main">
