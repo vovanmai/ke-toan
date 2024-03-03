@@ -43,7 +43,7 @@ body {
 }
 
 #main {
-    padding: 15px 0px 0px 0px;
+    padding: 15px 0px 15px 0px;
 }
 
 #main .block .block-title {
@@ -51,6 +51,10 @@ body {
     background: #1758DA;
     padding: 7px;
     border-top-left-radius: 10px;
+}
+
+#main-content {
+    margin-bottom: 20px;
 }
 
 #main .block .block-title a {
@@ -109,6 +113,7 @@ body {
 .block .older-posts ul {
     margin-left: 40px;
     list-style-type: square;
+    margin-left: 0px;
 }
 
 .block .older-posts ul li {
@@ -154,7 +159,7 @@ body {
 
 #footer {
     border-top: 2px solid gray;
-    padding: 20px 0px 0px 0px;
+    padding: 20px 0px 20px 0px;
 }
 
 .company-name {
@@ -235,13 +240,13 @@ body {
     #toggle-show-menu {
         display: block !important;
     }
-    #menu {
+    #menu-wrap {
         display: none !important;
     }
 }
 
 @media only screen and (min-width: 769px) {
-    #menu {
+    #menu-wrap {
         display: block!important;
     }
 }
@@ -260,34 +265,6 @@ body {
     justify-content: end;
     margin-bottom: 20px;
 }
-
- table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
-}
-
- th,  td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-.ckeditor-content table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
-}
-
-.ckeditor-content th, .ckeditor-content td {
-    text-align: left;
-    padding: 8px;
-}
-
-.ckeditor-content tr:nth-child(even){background-color: #f2f2f2}
 
 .container {
     padding-left: 7px;
@@ -308,6 +285,8 @@ tr:nth-child(even){background-color: #f2f2f2}
     padding: 0px;
     display: table;
     width: 100%;
+    list-style: none;
+    background: #2588DE;
 }
 #menu .active {
     background: #215e93;
@@ -317,12 +296,6 @@ tr:nth-child(even){background-color: #f2f2f2}
     padding: 0px;
 }
 
-
-#menu {
-    list-style: none;
-    height: 45px;
-    background: #2588DE;
-}
 #menu li {
     text-align: left;
     color: #fff;
@@ -441,3 +414,21 @@ tr:nth-child(even){background-color: #f2f2f2}
 #toggle-show-menu {
     display: none;
 }
+
+.ckeditor-content table thead {
+    background: #c3c3c3;
+}
+
+.ckeditor-content table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.ckeditor-content th, .ckeditor-content td {
+    text-align: left;
+    padding: 8px;
+}
+
+.ckeditor-content tr:nth-child(even){background-color: #f2f2f2}
