@@ -26,31 +26,27 @@ class CreateWebsiteSettingRequest extends FormRequest
     public function rules()
     {
         return [
-            'header_slogan' => 'nullable|max:255',
-            'footer_slogan' => 'nullable|max:255',
-            'footer_fb_fan_page' => [
-                'nullable',
-                new CheckHtmlElement(),
-            ],
-            'customer_support_phone' => [
+            'hotline' => [
                 'nullable',
                 new PhoneNumber(),
             ],
-            'contact_map' => [
+            'company_email' => 'nullable|email|max:255',
+            'company_address' => 'nullable|max:255',
+            'company_website_domain' => 'nullable|max:255',
+            'header_banner' => 'nullable',
+            'header_banner_width' => [
                 'nullable',
-                new CheckHtmlElement(),
             ],
-            'contact_email' => 'nullable|email|max:255',
-            'contact_phone' => [
+            'header_banner_height' => 'nullable',
+            'fb_fan_page_script' => [
                 'nullable',
-                new PhoneNumber(),
+//                new CheckHtmlElement(),
             ],
-            'contact_address' => 'nullable|max:255',
-            'logo' => 'nullable|max:255',
-            'logo_width' => 'nullable|integer|min:1',
-            'logo_height' => 'nullable|integer|min:1',
-            'fb_chat' => 'nullable',
-            'fb_comment_app_id' => 'nullable',
+            'google_map_address_company' => [
+                'nullable',
+//                new CheckHtmlElement(),
+            ],
+            'is_remove_header_banner' => 'nullable|boolean'
         ];
     }
 

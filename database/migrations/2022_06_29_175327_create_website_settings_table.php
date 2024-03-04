@@ -15,21 +15,16 @@ class CreateWebsiteSettingsTable extends Migration
     {
         Schema::create('website_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('header_logo')->nullable();
-            $table->string('header_slogan')->nullable();
-            $table->string('footer_slogan')->nullable();
-            $table->jsonb('logo')->nullable();
-            $table->integer('logo_width')->nullable();
-            $table->integer('logo_height')->nullable();
-            $table->text('footer_fb_fan_page')->nullable();
-            $table->string('customer_support_phone')->nullable();
-            $table->text('contact_map')->nullable();
-            $table->string('contact_email')->nullable();
-            $table->string('contact_phone')->nullable();
-            $table->string('contact_address')->nullable();
-            $table->text('fb_chat')->nullable();
+            $table->string('hotline')->nullable();
+            $table->string('company_email')->nullable();
+            $table->string('company_address')->nullable();
+            $table->string('company_website_domain')->nullable();
+            $table->jsonb('header_banner')->nullable();
+            $table->string('header_banner_width', 10)->nullable();
+            $table->string('header_banner_height', 10)->nullable();
+            $table->text('fb_fan_page_script')->nullable();
+            $table->text('google_map_address_company')->nullable();
             $table->unsignedBigInteger('total_view')->default(0);
-            $table->string('fb_comment_app_id')->nullable();
             $table->timestamps();
         });
     }

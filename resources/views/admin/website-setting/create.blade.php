@@ -27,90 +27,46 @@
                         <div class="box-body">
                             <div>
                                 <div class="col-md-5">
-                                    <div class="form-group @error('header_slogan') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group @error('hotline') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Header slogan<span class="required"></span>
+                                            Hotline<span class="required"></span>
                                         </label>
                                         <div class="field-container">
-                                            <input type="text" name="header_slogan" class="form-control" value="{{ old('header_slogan') ?? $setting->header_slogan ?? null }}">
-                                            @error('header_slogan')
+                                            <input type="text" name="hotline" class="form-control" value="{{ old('hotline') ?? $setting->hotline ?? null }}">
+                                            @error('hotline')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group @error('customer_support_phone') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group @error('company_email') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Số điện thoại tư vấn khách hàng<span class="required"></span>
+                                            Email công ty<span class="required"></span>
                                         </label>
                                         <div class="field-container">
-                                            <input type="text" name="customer_support_phone" class="form-control" value="{{ old('customer_support_phone') ?? $setting->customer_support_phone ?? null }}">
-                                            @error('customer_support_phone')
-                                            <span class="help-block">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-group @error('footer_slogan') has-error @enderror" style="margin-bottom: 30px">
-                                        <label>
-                                            Footer slogan<span class="required"></span>
-                                        </label>
-                                        <div class="field-container">
-                                            <input type="text" name="footer_slogan" class="form-control" value="{{ old('footer_slogan') ?? $setting->footer_slogan ?? null }}">
-                                            @error('footer_slogan')
-                                            <span class="help-block">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-group @error('contact_email') has-error @enderror" style="margin-bottom: 30px">
-                                        <label>
-                                            Contact email<span class="required"></span>
-                                        </label>
-                                        <div class="field-container">
-                                            <input type="text" name="contact_email" class="form-control" value="{{ old('contact_email') ?? $setting->contact_email ?? null }}">
+                                            <input type="text" name="company_email" class="form-control" value="{{ old('company_email') ?? $setting->company_email ?? null }}">
                                             @error('contact_email')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group @error('contact_phone') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group @error('company_address') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Contact phone<span class="required"></span>
+                                            Địa chỉ công ty<span class="required"></span>
                                         </label>
                                         <div class="field-container">
-                                            <input type="text" name="contact_phone" class="form-control" value="{{ old('contact_phone') ?? $setting->contact_phone ?? null }}">
-                                            @error('contact_phone')
+                                            <textarea class="form-control" name="company_address" style="width: 100%" rows="5">{{ old('contact_address') ?? $setting->company_address ?? null }}</textarea>
+                                            @error('company_address')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group @error('contact_address') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group @error('company_website_domain') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Contact address<span class="required"></span>
+                                            Địa chỉ tên miền website công ty<span class="required"></span>
                                         </label>
                                         <div class="field-container">
-                                            <textarea class="form-control" name="contact_address" style="width: 100%" rows="5">{{ old('contact_address') ?? $setting->contact_address ?? null }}</textarea>
-                                            @error('contact_address')
-                                            <span class="help-block">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-group @error('fb_chat') has-error @enderror" style="margin-bottom: 30px">
-                                        <label>
-                                            Facebook fanpage chat<span class="required"></span>
-                                        </label>
-                                        <div class="field-container">
-                                            <textarea class="form-control" name="fb_chat" style="width: 100%" rows="5">{{ old('fb_chat') ?? $setting->fb_chat ?? null }}</textarea>
-                                            @error('fb_chat')
-                                            <span class="help-block">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="form-group" style="margin-bottom: 30px">
-                                        <label>
-                                            Facebook comment App Id<span class="required"></span>
-                                        </label>
-                                        <div class="field-container">
-                                            <input type="text" name="fb_comment_app_id" class="form-control" value="{{ old('fb_comment_app_id') ?? $setting->fb_comment_app_id ?? null }}">
-                                            @error('fb_comment_app_id')
+                                            <input type="text" name="company_website_domain" class="form-control" value="{{ old('company_website_domain') ?? $setting->company_website_domain ?? null }}">
+                                            @error('company_website_domain')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -128,55 +84,55 @@
                                     </div>
                                 </div>
                                 <div class="col-md-5 col-md-offset-1">
-                                    <div class="form-group @error('logo') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group @error('header_banner') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Logo<span class="required"></span>
+                                            Header banner<span class="required"></span>
                                         </label>
                                         <div class="field-container">
-                                            <div id="dropzone-logo" class="dropzone">
+                                            <div id="dropzone-header-banner" class="dropzone">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group @error('logo_width') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group @error('header_banner_width') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Chiều rộng logo (đơn vị px)<span class="required"></span>
+                                            Chiều rộng header banner (đơn vị px hoặc %)<span class="required"></span>
                                         </label>
                                         <div class="field-container">
-                                            <input type="text" name="logo_width" class="form-control" value="{{ old('logo_width') ?? $setting->logo_width ?? null }}">
-                                            @error('logo_width')
+                                            <input type="text" name="header_banner_width" class="form-control" value="{{ old('header_banner_width') ?? $setting->header_banner_width ?? null }}">
+                                            @error('header_banner_width')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group @error('logo_height') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group @error('header_banner_height') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Chiều cao logo (đơn vị px)<span class="required"></span>
+                                            Chiều cao header banner (đơn vị px hoặc %)<span class="required"></span>
                                         </label>
                                         <div class="field-container">
-                                            <input type="text" name="logo_height" class="form-control" value="{{ old('logo_height') ?? $setting->logo_height ?? null }}">
-                                            @error('logo_height')
+                                            <input type="text" name="header_banner_height" class="form-control" value="{{ old('header_banner_height') ?? $setting->header_banner_height ?? null }}">
+                                            @error('header_banner_height')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group @error('footer_fb_fan_page') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group @error('fb_fan_page_script') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Footer FB fan page<span class="required"></span>
+                                            FB fan page script<span class="required"></span>
                                         </label>
                                         <div class="field-container">
-                                            <textarea class="form-control" name="footer_fb_fan_page" style="width: 100%" rows="5">{{ old('footer_fb_fan_page') ?? $setting->footer_fb_fan_page ?? null }}</textarea>
-                                            @error('footer_fb_fan_page')
+                                            <textarea class="form-control" name="fb_fan_page_script" style="width: 100%" rows="5">{{ old('fb_fan_page_script') ?? $setting->fb_fan_page_script ?? null }}</textarea>
+                                            @error('fb_fan_page_script')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group @error('contact_map') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group @error('google_map_address_company') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Contact map<span class="required"></span>
+                                            Goole map địa chỉ công ty<span class="required"></span>
                                         </label>
                                         <div class="field-container">
-                                            <textarea class="form-control" name="contact_map" style="width: 100%" rows="5">{{ old('contact_map') ?? $setting->contact_map ?? null }}</textarea>
-                                            @error('contact_map')
+                                            <textarea class="form-control" name="google_map_address_company" style="width: 100%" rows="5">{{ old('google_map_address_company') ?? $setting->google_map_address_company ?? null }}</textarea>
+                                            @error('google_map_address_company')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -207,9 +163,9 @@
     <script>
         Dropzone.autoDiscover = false;
 
-        let uploadedLogoMap = {}
+        let uploadedHeaderBannerMap = {}
 
-        $("#dropzone-logo").dropzone(            {
+        $("#dropzone-header-banner").dropzone(            {
             maxFiles: 1,
             renameFile: function (file) {
                 var dt = new Date();
@@ -225,7 +181,7 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "website_logo_"
+                key: "header_banner_"
             },
             method: 'POST',
             headers: {
@@ -233,10 +189,10 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#create-website-setting-form').append(`<textarea class="${uuid}" hidden name="logo">${JSON.stringify(response.data)}</textarea>`)
+                $('#create-website-setting-form').append(`<textarea class="${uuid}" hidden name="header_banner">${JSON.stringify(response.data)}</textarea>`)
 
                 response.data.uuid = uuid
-                uploadedLogoMap[file.upload.filename] = response.data
+                uploadedHeaderBannerMap[file.upload.filename] = response.data
             },
             error: function (file, response) {
                 return false;
@@ -247,32 +203,33 @@
             init : function() {
                 var myDropZone = this;
                 myDropZone.on('maxfilesexceeded', function(file) {
-                    toastr.error("Logo tối đa là 1 ảnh.", 'Lỗi');
+                    toastr.error("Header banner tối đa là 1 ảnh.", 'Lỗi');
                     myDropZone.removeFile(file);
                 });
 
-                let logo = {!! isset($setting['logo']) ? json_encode($setting['logo']) : "''" !!};
+                let header_banner = {!! isset($setting['header_banner']) ? json_encode($setting['header_banner']) : "''" !!};
 
-                if(logo) {
+                if(header_banner) {
                     let callback = null; // Optional callback when it's done
                     let crossOrigin = null; // Added to the `img` tag for crossOrigin handling
                     let resizeThumbnail = true; // Tells Dropzone whether it should resize the image first
-                    myDropZone.displayExistingFile(logo, logo.url, callback, crossOrigin, resizeThumbnail);
+                    myDropZone.displayExistingFile(header_banner, header_banner.url, callback, crossOrigin, resizeThumbnail);
                     myDropZone.options.maxFiles = 0
                 }
             },
             removedfile: function (file) {
+                console.log(file)
                 let myDropzone = this;
                 file.previewElement.remove()
                 if(typeof(file.upload) == 'object') {
                     if(file.accepted) {
                         $(`form .${file.upload.uuid}`).remove()
-                        let storeNameRemove = uploadedLogoMap[file.upload.filename].store_name
+                        let storeNameRemove = uploadedHeaderBannerMap[file.upload.filename].store_name
                         removeImageOnServer(storeNameRemove)
                     }
                 } else {
                     myDropzone.options.maxFiles = 1
-                    $('#create-website-setting-form').append(`<input type="hidden" name="remove_logo_id" value="${file.id}">`)
+                    $('#create-website-setting-form').append(`<input type="hidden" name="is_remove_header_banner" value="1">`)
                 }
             },
         });
