@@ -9,16 +9,21 @@
             <article>
                 <div class="post-inner">
                     <div class="entry-thumb">
-                        <a href="http://laravel.test/tuyen-dung">
+                        <a href="{{ route('user.post.detail', ['slug' => $post->slug]) }}">
                             <img class="w-100" src="{{ $post->image['url'] ?? null }}" alt="">
                         </a>
                     </div>
                     <div class="entry-content">
                         <h3 class="entry-title">
-                            <a href="https://hbkvietnam.com/vi/tin-tuc/chia-se-kinh-nghiem-lam-ke-toan-tong-hop-it-nguoi-biet-den/" title="Chia sẻ kinh nghiệm làm kế toán tổng hợp ít người biết đến">{{ $post->title }}</a>
+                            <a href="{{ route('user.post.detail', ['slug' => $post->slug]) }}" title="{{ $post->title }}">{{ $post->title }}</a>
                         </h3>
                         <div class="entry-meta">
-                            <span><i class="fa fa-clock-o" aria-hidden="true"></i> {{ $post->created_at->format('d/m/Y H:i') }}</span>
+                            <span>
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $post->created_at->format('d/m/Y H:i') }}
+                            </span> |
+                            <span>
+                                <i class="fa fa-user-o" aria-hidden="true"></i> {{ $post->admin->name }}
+                            </span>
                         </div>
                         <div class="entry-description">
                             <p>{{ $post->short_description }}</p>

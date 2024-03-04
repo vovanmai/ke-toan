@@ -111,7 +111,6 @@ body {
 }
 
 .block .older-posts ul {
-    margin-left: 40px;
     list-style-type: square;
     margin-left: 0px;
 }
@@ -243,6 +242,9 @@ body {
     #menu-wrap {
         display: none !important;
     }
+    body {
+        font-size: 20px !important;
+    }
 }
 
 @media only screen and (min-width: 769px) {
@@ -302,9 +304,9 @@ body {
 }
 #menu li a {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 14px;
     display: block;
-    padding: 12px 15px;
+    padding: 8px 15px;
     color: #fff;
     background-color: #2588DE;
 }
@@ -432,3 +434,17 @@ body {
 }
 
 .ckeditor-content tr:nth-child(even){background-color: #f2f2f2}
+
+
+.post-detail .post-title {
+    color: red;
+}
+.post-detail .addition-info {
+    color: grey;
+    font-size: 13px;
+}
+
+.post-detail .post-short-description {
+    margin-top: 15px;
+    font-weight: bold;
+}

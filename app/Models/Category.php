@@ -8,7 +8,7 @@ class Category extends AbstractModel
 {
     use Sluggable;
 
-    const MAX_GRADE = 3;
+    const MAX_GRADE = 2;
 
     /**
      * The table associated with the model.

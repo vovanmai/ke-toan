@@ -4,6 +4,7 @@ namespace App\Services\User\Post;
 
 use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Data\Repositories\Eloquent\PostRepository;
+use App\Models\Category;
 
 class ListByCategoryService
 {
@@ -34,9 +35,21 @@ class ListByCategoryService
      */
     public function handle (string $slug)
     {
-        $category = $this->catRepo->firstOrFailWhere(['slug' => $slug], ['id', 'title']);
+        $category = $this->catRepo
+            ->with([
+                'childrenRecursive',
+            ])
+            ->firstOrFailWhere(['slug' => $slug], ['id', 'title']);
 
-        $posts = $this->repository->whereByField('category_id', $category->id)
+        $categoryIds = $this->getCategoryIds($category);
+
+        $posts = $this->repository
+            ->with([
+                'admin' => function($query) {
+                    $query->select(['id', 'name']);
+                }
+            ])
+            ->whereIn('category_id', $categoryIds)
             ->whereByField('active', true)
             ->orderBy('id', 'DESC')
             ->paginate(10);
@@ -45,5 +58,19 @@ class ListByCategoryService
             'category' => $category,
             'posts' => $posts,
         ];
+    }
+
+    private function getCategoryIds (Category $category)
+    {
+        $ids = [];
+        $category = $category->toArray();
+
+        array_walk_recursive($category, function ($item, $key) use (&$ids) {
+            if ($key == 'id') {
+                $ids[] = $item;
+            }
+        });
+
+        return $ids;
     }
 }

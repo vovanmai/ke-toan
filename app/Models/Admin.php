@@ -102,7 +102,7 @@ class Admin extends Authenticatable
      */
     public function getRoleNameAttribute()
     {
-        return self::$roles[$this->attributes['role']] ?? null;
+        return self::$roles[$this->attributes['role'] ?? null] ?? null;
     }
 
     /**

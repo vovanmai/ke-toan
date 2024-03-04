@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Services\User\User2\Post;
+namespace App\Services\User\Post;
 
 use App\Data\Repositories\Eloquent\PostRepository;
 use App\Models\Post;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 
 
 class DetailService

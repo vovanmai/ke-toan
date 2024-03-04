@@ -327,4 +327,14 @@ abstract class AppBaseRepository extends BaseRepository
 
         return $this;
     }
+
+    /**
+     * To sql
+     *
+     * @return $this
+     */
+    public function toSql()
+    {
+        return $this->model->toSql();
+    }
 }
