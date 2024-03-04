@@ -17,6 +17,7 @@ class WebsiteSetting extends AbstractModel
      * @var array
      */
     protected $fillable = [
+        'company_name',
         'hotline',
         'company_email',
         'company_address',

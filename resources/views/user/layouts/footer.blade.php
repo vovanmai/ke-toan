@@ -2,23 +2,27 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h6 class="company-name">CÔNG TY CỔ PHẦN TỔNG HỢP </h6>
+                @php
+                    $setting = app('web_setting');
+
+                @endphp
+                <h6 class="company-name">{{ $setting->company_name }}</h6>
                 <div>
                     <p style="margin-bottom: 5px; font-size: 13px">
                         <i class="fa fa-phone" aria-hidden="true"></i> Phone:
-                        <a href="tel:0984969752">0984.969.752</a>
+                        <a href="tel:0984969752">{{ $setting->hotline ?? null }}</a>
                     </p>
                     <p style="margin-bottom: 5px; font-size: 13px">
                         <i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ:
-                        74 Trương Chí Cương, Quận Hải Châu, Đà Nẵng.
+                        {{ $setting->company_address ?? null }}
                     </p>
                     <p style="margin-bottom: 5px; font-size: 13px">
                         <i class="fa fa-envelope" aria-hidden="true"></i> Email:
-                        ketoandpt@gmail.com
+                        {{ $setting->company_email ?? null }}
                     </p>
                     <p style="margin-bottom: 5px; font-size: 13px">
                         <i class="fa fa-globe" aria-hidden="true"></i> Website:
-                        <a href="https://ketoandpt.com.vn">ketoandpt.com.vn</a>
+                        <a href="https://ketoandpt.com.vn">{{ $setting->company_website_domain ?? null }}</a>
                     </p>
                 </div>
             </div>

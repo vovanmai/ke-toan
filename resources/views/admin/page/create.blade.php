@@ -33,6 +33,9 @@
                                         </label>
                                         <div class="field-container">
                                             <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+                                            @error('title')
+                                            <span class="help-block">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group @error('short_description') has-error @enderror" style="margin-bottom: 30px">

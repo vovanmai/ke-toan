@@ -27,6 +27,17 @@
                         <div class="box-body">
                             <div>
                                 <div class="col-md-5">
+                                    <div class="form-group @error('company_name') has-error @enderror" style="margin-bottom: 30px">
+                                        <label>
+                                            Tên công ty<span class="required"></span>
+                                        </label>
+                                        <div class="field-container">
+                                            <input type="text" name="company_name" class="form-control" value="{{ old('company_name') ?? $setting->company_name ?? null }}">
+                                            @error('hotline')
+                                            <span class="help-block">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="form-group @error('hotline') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
                                             Hotline<span class="required"></span>

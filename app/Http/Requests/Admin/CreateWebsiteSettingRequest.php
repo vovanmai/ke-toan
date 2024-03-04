@@ -31,6 +31,7 @@ class CreateWebsiteSettingRequest extends FormRequest
                 new PhoneNumber(),
             ],
             'company_email' => 'nullable|email|max:255',
+            'company_name' => 'nullable|max:255',
             'company_address' => 'nullable|max:255',
             'company_website_domain' => 'nullable|max:255',
             'header_banner' => 'nullable',
