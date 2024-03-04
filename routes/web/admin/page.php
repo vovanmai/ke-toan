@@ -8,5 +8,6 @@ Route::prefix('pages')->group(function () {
     Route::get('{id}/edit', 'PageController@edit')->name('admin.page.edit');
     Route::put('{id}', 'PageController@update')->name('admin.page.update');
     Route::post('{id}/active', 'PageController@changeActive')->name('admin.page.active');
+    Route::post('{id}/show-on-menu', 'PageController@changeShowOnMenu')->name('admin.page.show_on_menu');
     Route::delete('{id}', 'PageController@destroy')->name('admin.page.destroy');
 });

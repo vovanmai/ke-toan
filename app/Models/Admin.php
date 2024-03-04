@@ -30,7 +30,7 @@ class Admin extends Authenticatable
      *
      * @var int
      */
-    const ROLE_MANAGER = 3;
+    const ROLE_EDITOR = 3;
 
     /**
      * Role is viewer (Only view)
@@ -91,7 +91,7 @@ class Admin extends Authenticatable
     public static $roles = [
         self::ROLE_SUPPER_ADMIN => 'Supper admin',
         self::ROLE_ADMIN => 'Admin',
-        self::ROLE_MANAGER => 'Manager',
+        self::ROLE_EDITOR => 'Editor',
         self::ROLE_VIEWER => 'Viewer',
     ];
 
@@ -132,7 +132,7 @@ class Admin extends Authenticatable
      */
     public function isManager()
     {
-        return $this->attributes['role'] === self::ROLE_MANAGER;
+        return $this->attributes['role'] === self::ROLE_EDITOR;
     }
 
     public function getAvatarAttribute()

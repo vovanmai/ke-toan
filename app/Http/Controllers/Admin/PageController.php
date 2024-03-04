@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Page\CreateRequest;
 use App\Http\Requests\Admin\Page\UpdateRequest;
 use App\Services\Admin\Page\ChangeActiveService;
+use App\Services\Admin\Page\ChangeShowOnMenuService;
 use App\Services\Admin\Page\DeleteService;
 use App\Services\Admin\Page\DetailService;
 use App\Services\Admin\Page\StoreService;
@@ -119,6 +120,24 @@ class PageController extends Controller
         try {
             $this->beginTransaction();
             $result = resolve(ChangeActiveService::class)->handle($id, $data);
+            $this->commit();
+            return response()->success('Thành công', $result);
+        } catch (ModelNotFoundException $exception) {
+            return response()->notFound();
+        } catch (Exception $exception) {
+            $this->rollback();
+            return response()->error('Máy chủ bị lỗi', $exception);
+        }
+    }
+
+    public function changeShowOnMenu (Request $request, int $id)
+    {
+        $data = $request->only([
+            'show_on_menu'
+        ]);
+        try {
+            $this->beginTransaction();
+            $result = resolve(ChangeShowOnMenuService::class)->handle($id, $data);
             $this->commit();
             return response()->success('Thành công', $result);
         } catch (ModelNotFoundException $exception) {

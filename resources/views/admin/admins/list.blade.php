@@ -17,7 +17,7 @@
                         <span class="badge bg-red">{{ $admin->role_name }}</span>
                     @elseif ($admin->role == \App\Models\Admin::ROLE_ADMIN)
                         <span class="badge bg-green">{{ $admin->role_name }}</span>
-                    @elseif ($admin->role == \App\Models\Admin::ROLE_MANAGER)
+                    @elseif ($admin->role == \App\Models\Admin::ROLE_EDITOR)
                         <span class="badge bg-yellow">{{ $admin->role_name }}</span>
                     @else
                         <span class="badge bg-success">{{ $admin->role_name }}</span>

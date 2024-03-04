@@ -19,7 +19,7 @@ class PageController extends Controller
             ]);
         } catch (ModelNotFoundException $ex) {
             return redirect()->route('user.error.not_found');
-        } catch (Exception $exception) {dd($exception);
+        } catch (Exception $exception) {
             Log::error($exception);
             return redirect()->route('user.error.error');
         }

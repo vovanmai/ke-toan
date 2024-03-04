@@ -75,7 +75,9 @@
                                 <tr>
                                     <th class="text-center">STT</th>
                                     <th style="width: 20%">Tiêu đề</th>
+                                    <th>Đường dẫn</th>
                                     <th class="text-center">Active</th>
+                                    <th class="text-center">Hiển thị trên menu</th>
                                     <th class="text-center" style="width: 8%">Lượt xem</th>
                                     <th class="text-center">Người tạo</th>
                                     <th class="text-center">Ngày tạo</th>
@@ -86,11 +88,21 @@
                                     <tr class="tr-item-{{$item->id}}">
                                         <td class="text-center">{{ $key + 1 }}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td class="is-active text-center">
+                                        <td>
+                                            <a href="{{ route('user.page.detail', ['slug' => $item->slug]) }}">{{ route('user.page.detail', ['slug' => $item->slug]) }}</a>
+                                        </td>
+                                       enu <td class="is-active text-center">
                                             @if($item->active)
                                                 <img onclick="changeActive({{ $item->id }}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">
                                             @else
                                                 <img onclick="changeActive({{ $item->id }}, 1)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/inactive.png" alt="">
+                                            @endif
+                                        </td>
+                                        <td class="is-show-on-menu text-center">
+                                            @if($item->show_on_menu)
+                                                <img onclick="changeShowOnMenu({{ $item->id }}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">
+                                            @else
+                                                <img onclick="changeShowOnMenu({{ $item->id }}, 1)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/inactive.png" alt="">
                                             @endif
                                         </td>
                                         <td class="text-center">
@@ -217,6 +229,30 @@
                     }
 
                     $(`.tr-item-${id} .is-active`).html(image)
+                },
+                error: function(error) {
+                    toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');
+                }
+            });
+        }
+
+        function changeShowOnMenu (id, active) {
+            $.ajax({
+                data: {
+                    show_on_menu: active
+                },
+                type: 'POST',
+                dataType: "JSON",
+                url: `/admin/pages/${id}/show-on-menu`,
+                success: function(response)
+                {
+                    if (active) {
+                        var image = `<img onclick="changeShowOnMenu(${id}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">`
+                    } else {
+                        var image = `<img onclick="changeShowOnMenu(${id}, 1)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/inactive.png" alt="">`
+                    }
+
+                    $(`.tr-item-${id} .is-show-on-menu`).html(image)
                 },
                 error: function(error) {
                     toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');

@@ -28,6 +28,7 @@ class Page extends AbstractModel
         'active',
         'slug',
         'admin_id',
+        'show_on_menu',
     ];
 
     /**

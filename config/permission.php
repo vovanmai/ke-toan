@@ -20,7 +20,7 @@ return [
                 'DELETE',
             ]
         ],
-        Admin::ROLE_MANAGER => [
+        Admin::ROLE_EDITOR => [
             'method' => [
                 'GET',
                 'POST',
