@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
+use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Category extends AbstractModel
 {
-    use Sluggable;
+    use Sluggable, HasEagerLimit;
 
     const MAX_GRADE = 2;
 

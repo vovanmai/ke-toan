@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Post extends AbstractModel
 {
-    use Sluggable;
+    use Sluggable, HasEagerLimit;
 
     /**
      * The table associated with the model.

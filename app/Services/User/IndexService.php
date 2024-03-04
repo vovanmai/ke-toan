@@ -62,7 +62,6 @@ class IndexService
             })
             ->orderBy('id', 'ASC')
             ->all();
-//        dd($categories->toArray());
         return [
             'categories' => $categories
         ];

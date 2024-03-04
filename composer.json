@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.5",
         "predis/predis": "^2.0",
         "prettus/l5-repository": "^2.7",
+        "staudenmeir/eloquent-eager-limit": "^1.0",
         "unisharp/laravel-filemanager": "^2.2"
     },
     "require-dev": {

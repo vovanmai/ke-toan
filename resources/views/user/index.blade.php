@@ -9,17 +9,17 @@
             @endphp
             <div class="block">
                 <h2 class="block-title">
-                    <a href="https://daotaoketoanhn.edu.vn/khoa-hoc-ke-toan/">{{ $category->title }}</a>
+                    <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
                 </h2>
                 <div class="block-wrap">
                     <div class="main-post">
-                        <a href="https://daotaoketoanhn.edu.vn/khoa-hoc-ke-toan-xay-dung-can-tho-9063/" title="{{ $firstPost->title }}" rel="nofollow" id="featured-thumbnail">
+                        <a href="{{ route('user.post.detail', ['slug' => $firstPost->slug]) }}" title="{{ $firstPost->title }}" rel="nofollow" id="featured-thumbnail">
                             <div class="featured-thumbnail">
                                 <img src="{{ $firstPost->image['url'] }}" class="attachment-featured size-featured wp-post-image">
                             </div>
                         </a>
                         <h3 class="title">
-                            <a href="https://daotaoketoanhn.edu.vn/khoa-hoc-ke-toan-xay-dung-can-tho-9063/" title="{{ $firstPost->title }}">{{ $firstPost->title }}</a>
+                            <a href="{{ route('user.post.detail', ['slug' => $firstPost->slug]) }}" title="{{ $firstPost->title }}">{{ $firstPost->title }}</a>
                         </h3>
                         <p class="description">{{ $firstPost->short_description }}</p>
                     </div>
