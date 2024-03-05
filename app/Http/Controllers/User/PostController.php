@@ -28,6 +28,10 @@ class PostController extends Controller
     {
         try {
             $post = resolve(DetailService::class)->handle($slug);
+            makeSEO([
+                'title' => $post->title,
+                'description' => $post->short_description,
+            ]);
             return view('user.post.detail', [
                 'item' => $post
             ]);
