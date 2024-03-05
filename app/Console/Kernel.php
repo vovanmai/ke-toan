@@ -25,8 +25,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('command:requested-user-report')->cron('30 6,8,10,12,14,16,18,19,20,21,22 * * *');;
-        $schedule->command('command:send-mail-to-customer')->cron('0 7 */2 * *');
+//        $schedule->command('command:requested-user-report')->cron('30 6,8,10,12,14,16,18,19,20,21,22 * * *');;
+//        $schedule->command('command:send-mail-to-customer')->cron('0 7 */2 * *');
+        $schedule->command('sitemap:generate')->daily();
     }
 
     /**

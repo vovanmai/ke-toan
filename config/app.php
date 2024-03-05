@@ -1,5 +1,7 @@
 <?php
 
+use Spatie\Sitemap\SitemapServiceProvider;
+
 return [
 
     /*
@@ -177,6 +179,7 @@ return [
         App\Providers\ResponseServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        SitemapServiceProvider::class,
 
     ],
 

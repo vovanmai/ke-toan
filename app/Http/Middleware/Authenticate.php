@@ -16,7 +16,7 @@ class Authenticate extends Middleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next, ...$guards)
     {
         if (!Auth::check()) {
             return redirect()->route('admin.login');

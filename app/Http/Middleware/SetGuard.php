@@ -18,9 +18,9 @@ class SetGuard extends Middleware
      *
      * @throws \Illuminate\Auth\AuthenticationException
      */
-    public function handle($request, Closure $next, $guard)
+    public function handle($request, Closure $next, ...$guards)
     {
-        Auth::shouldUse($guard);
+        Auth::shouldUse($guards[0]);
         return $next($request);
     }
 }
