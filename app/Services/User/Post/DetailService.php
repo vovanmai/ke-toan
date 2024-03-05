@@ -25,6 +25,9 @@ class DetailService
     {
         $post = $this->repository->with([
             'admin',
+            'category' => function ($query) {
+                $query->with(['parentRecursive']);
+            },
         ])->firstOrFailWhere([
             'slug' => $slug,
             'active' => true,

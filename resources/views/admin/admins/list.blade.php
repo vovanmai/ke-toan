@@ -1,8 +1,8 @@
 <tbody>
     @if($admins->isNotEmpty())
         @foreach($admins as $key => $admin)
-            <tr class="tr-admin-{{$admin->id}}">
-                <td>{{ $key + 1 }}</td>
+            <tr class="tr-admin-{{ $admin->id }}">
+                <td>{{ $admin->id }}</td>
                 <td>{{ $admin->name }}</td>
                 <td>
                     {{ $admin->email }}

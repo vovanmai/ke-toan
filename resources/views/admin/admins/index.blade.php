@@ -85,7 +85,7 @@
                     <div class="box-body table-responsive">
                         <table class="table table-bordered">
                             <thead>
-                                <th style="width: 5%">STT</th>
+                                <th style="width: 5%">ID</th>
                                 <th>Tên</th>
                                 <th>Email</th>
                                 <th>Ảnh đại diện</th>

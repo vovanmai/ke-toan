@@ -27,7 +27,6 @@ class ListService
     {
         return $this->repository->search($filters)
             ->orderByColumns([
-                'updated_at' => 'desc',
                 'id' => 'desc',
             ])
             ->paginate(15, [

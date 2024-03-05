@@ -33,7 +33,7 @@ class PostController extends Controller
             ]);
         } catch (ModelNotFoundException $exception) {
             return redirect()->route('user.error.not_found');
-        } catch (Exception $exception) {
+        } catch (Exception $exception) {dd($exception);
             Log::error($exception);
             return redirect()->route('user.error.error');
         }

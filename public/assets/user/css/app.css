@@ -180,7 +180,7 @@ body {
 }
 
 .post-inner {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .post-inner .entry-thumb {
@@ -229,6 +229,10 @@ body {
     color: #121212;
     text-align: justify;
     line-height: 1.4;
+}
+
+.entry-content .entry-description p {
+    margin-bottom: 0px;
 }
 
 @media only screen and (max-width: 576px) {

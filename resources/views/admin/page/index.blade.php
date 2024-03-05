@@ -73,7 +73,7 @@
                         @if ($items->count())
                             <table class="table table-bordered">
                                 <tr>
-                                    <th class="text-center">STT</th>
+                                    <th class="text-center">ID</th>
                                     <th style="width: 20%">Tiêu đề</th>
                                     <th>Đường dẫn</th>
                                     <th class="text-center">Active</th>
@@ -86,12 +86,12 @@
                                 </tr>
                                 @foreach($items as $key => $item)
                                     <tr class="tr-item-{{$item->id}}">
-                                        <td class="text-center">{{ $key + 1 }}</td>
+                                        <td class="text-center">{{ $item->id }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td>
                                             <a href="{{ route('user.page.detail', ['slug' => $item->slug]) }}">{{ route('user.page.detail', ['slug' => $item->slug]) }}</a>
                                         </td>
-                                       enu <td class="is-active text-center">
+                                        <td class="is-active text-center">
                                             @if($item->active)
                                                 <img onclick="changeActive({{ $item->id }}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">
                                             @else

@@ -1,5 +1,8 @@
 @extends('user.layouts.master')
 @section('content')
+    <div>
+        @include('user.layouts.breadcrumb')
+    </div>
     <div class="post-detail">
         <h4 class="post-title">
             {{ $item->title }}

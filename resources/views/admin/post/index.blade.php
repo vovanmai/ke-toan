@@ -94,7 +94,7 @@
                         @if ($items->count())
                             <table class="table table-bordered">
                                 <tr>
-                                    <th>STT</th>
+                                    <th>ID</th>
                                     <th style="width: 20%">Tiêu đề</th>
                                     <th class="text-center">Xem</th>
                                     <th>Ảnh</th>
@@ -107,7 +107,7 @@
                                 </tr>
                                 @foreach($items as $key => $item)
                                     <tr class="tr-item-{{$item->id}}">
-                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $item->id }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td class="text-center">
                                             <a target="_blank" href="{{ route('user.post.detail', ['slug' => $item->slug]) }}">Xem</a>
