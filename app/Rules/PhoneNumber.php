@@ -25,7 +25,7 @@ class PhoneNumber implements Rule
      */
     public function passes($attribute, $value)
     {
-        $regex = "/^0{1}(\d){9,10}$/";
+        $regex = "/^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$/";
 
         if ($value && !preg_match($regex, $value)) {
             return false;

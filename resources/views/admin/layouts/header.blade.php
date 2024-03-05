@@ -70,7 +70,7 @@
 {{--    <div id="preloading"></div>--}}
     <header class="main-header">
         <!-- Logo -->
-        <a href="{{ route('admin.admins.list') }}" class="logo">
+        <a href="{{ route('admin.post.list') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>DPT</b></span>
             <!-- logo for regular state and mobile devices -->

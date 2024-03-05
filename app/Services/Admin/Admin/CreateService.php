@@ -59,6 +59,6 @@ class CreateService
     public function sendMail(array $data)
     {
         $data['login_url'] = URL::to('/admin/login');
-        Mail::queue(new SendSuccessRegisteredAdminMail($data));
+        Mail::send(new SendSuccessRegisteredAdminMail($data));
     }
 }

@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="form-group" style="margin-bottom: 30px">
                                         <label>
-                                            Lượt truy cập<span class="required"></span>
+                                            Lượt truy cập trang chủ<span class="required"></span>
                                         </label>
                                         <div class="field-container">
                                             <input type="text" disabled name="total_view" class="form-control" value="{{ number_format(old('total_view') ?? $setting->total_view ?? null) }}">

@@ -17,7 +17,7 @@
                 <h3><i class="fa fa-warning text-red"></i> Có một lỗi gì đó trong khi truy cập đến máy chủ.</h3>
 
                 <p>
-                    Vui lòng <a href="{{ route('admin.admins.list') }}">quay lại trang chủ</a>
+                    Vui lòng <a href="{{ route('admin.post.list') }}">quay lại trang chủ</a>
                 </p>
 
 {{--                <form class="search-form">--}}

@@ -96,6 +96,7 @@
                                 <tr>
                                     <th>STT</th>
                                     <th style="width: 20%">Tiêu đề</th>
+                                    <th class="text-center">Xem</th>
                                     <th>Ảnh</th>
                                     <th style="width: 10%">Danh mục</th>
                                     <th class="text-center">Active</th>
@@ -108,6 +109,9 @@
                                     <tr class="tr-item-{{$item->id}}">
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $item->title }}</td>
+                                        <td class="text-center">
+                                            <a target="_blank" href="{{ route('user.post.detail', ['slug' => $item->slug]) }}">Xem</a>
+                                        </td>
                                         <td style="text-align: center">
                                             @if($item->image)
                                                 <img style="height: 130px;width: 110px;object-fit: cover" src="{{ $item->image['url'] }}" alt="">

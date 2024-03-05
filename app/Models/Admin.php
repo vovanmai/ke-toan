@@ -30,14 +30,21 @@ class Admin extends Authenticatable
      *
      * @var int
      */
-    const ROLE_EDITOR = 3;
+    const ROLE_MANAGER = 3;
+
+    /**
+     * Role is editor (Create, edit, list)
+     *
+     * @var int
+     */
+    const ROLE_EDITOR = 4;
 
     /**
      * Role is viewer (Only view)
      *
      * @var int
      */
-    const ROLE_VIEWER = 4;
+    const ROLE_VIEWER = 5;
 
     /**
      * The table associated with the model.
@@ -91,6 +98,7 @@ class Admin extends Authenticatable
     public static $roles = [
         self::ROLE_SUPPER_ADMIN => 'Supper admin',
         self::ROLE_ADMIN => 'Admin',
+        self::ROLE_MANAGER => 'Manager',
         self::ROLE_EDITOR => 'Editor',
         self::ROLE_VIEWER => 'Viewer',
     ];

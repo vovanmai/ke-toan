@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Admin;
 use Closure;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Http\Request;
@@ -21,11 +22,32 @@ class CheckRolePermission extends Middleware
     {
         $user = Auth::user();
 
-        $permission = config('permission.admin');
+        $pagesNotPermission = [
+            Admin::ROLE_EDITOR => [
+                'admin/admins*',
+                'admin/website-setting*',
+            ],
+            Admin::ROLE_VIEWER => [
+                'admin/admins*',
+                'admin/website-setting*',
+            ],
+        ];
 
-        $methods = $permission[$user->role]['method'];
+        $hasPermission = true;
 
-        if (!in_array($request->getMethod(), $methods)) {
+        $pages = $pagesNotPermission[$user->role] ?? null;
+
+
+        if ($pages) {
+            foreach ($pages as $page) {
+                if (request()->is($page)) {
+                    $hasPermission = false;
+                    break;
+                }
+            }
+        }
+
+        if (!$hasPermission) {
             if($request->ajax()) {
                 return response()->error('Bạn không có quyền thực hiện tác vụ này.', [], Response::HTTP_FORBIDDEN);
             }

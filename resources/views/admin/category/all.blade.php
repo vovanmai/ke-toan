@@ -62,9 +62,12 @@
                     <div class="box-body">
                         <div style="padding: 0px 50px">
                             @foreach($categories as $item)
-                            <div class="parent-cat cat-{{ $item->id }}">
-                                <span class="">{{ $item->title }}</span>
-                                <div class="pull-right">
+                            <div style="display: flex; justify-content: space-between" class="parent-cat cat-{{ $item->id }}">
+                                <div>
+                                    <span>{{ $item->title }}</span> |
+                                    <span>{{ $item->posts_count  }}</span>
+                                </div>
+                                <div>
                                     <span class="active">
                                         @if($item->active)
                                             <a style="color: green" href="javascript:void(0)" onclick="changeActive({{ $item->id }}, 0)">
@@ -87,8 +90,11 @@
                                 </div>
                             </div>
                                 @foreach($item->childrenRecursive as $item)
-                                <div class="children-cat cat-{{ $item->id }}">
-                                    <span class="">{{ $item->title }}</span>
+                                <div style="display: flex; justify-content: space-between" class="children-cat cat-{{ $item->id }}">
+                                    <div>
+                                        <span>{{ $item->title }}</span> |
+                                        <span>{{ $item->posts_count  }}</span>
+                                    </div>
                                     <div class="pull-right">
                                         <span class="active">
                                             @if($item->active)

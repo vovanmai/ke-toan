@@ -24,11 +24,16 @@ class ListService
     public function handle (array $filters)
     {
         return $this->repository->search($filters)
-            ->with('parentRecursive')
+            ->with([
+                'childrenRecursive' => function ($query) {
+                    $query->withCount('posts');
+                },
+            ])
             ->whereNull('parent_id')
+            ->withCount('posts')
             ->orderByColumns([
                 'id' => 'ASC',
             ])
-            ->paginate(15);
+            ->all();
     }
 }

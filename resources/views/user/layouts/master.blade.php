@@ -3,7 +3,25 @@
 <div class="wrapper">
     <div class="container-layout">
         <div id="header">
-            <img src="https://daotaoketoanhn.edu.vn/wp-content/uploads/2017/05/Banner1.png" alt="" style="width: 100%">
+            @php
+                $setting = app('web_setting');
+                $headerBanner = $setting->header_banner ?? null;
+                $style = 'margin: auto; object-fit: contain; background-repeat: no-repeat; background-position: center;';
+                if ($headerBanner) {
+                    $style .= " background: url('{$headerBanner['url']}');";
+                    if ($setting->header_banner_height ?? null) {
+                        $style .= " height: {$setting->header_banner_height};";
+                    }
+
+                    if ($setting->header_banner_width ?? null) {
+                        $style .= " width: {$setting->header_banner_width};";
+                    }
+                }
+            @endphp
+            @if($headerBanner)
+            <div id="header-banner" style="{{$style}}">
+            </div>
+            @endif
             <div id="toggle-show-menu">
                 <div style="background: #2588DE; color: white; padding: 10px 7px; display: flex; justify-content: space-between; align-items: center">
                     <h4 style="margin-bottom: 0px">Danh mục</h4>

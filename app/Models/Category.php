@@ -87,4 +87,12 @@ class Category extends AbstractModel
         return $this->hasMany(Post::class, 'category_id', 'id')
             ->where('active', '=', false);
     }
+
+    /**
+     * Get the posts of category.
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'category_id', 'id');
+    }
 }

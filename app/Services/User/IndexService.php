@@ -4,6 +4,7 @@ namespace App\Services\User;
 
 use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Data\Repositories\Eloquent\PostRepository;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 
@@ -32,6 +33,8 @@ class IndexService
      */
     public function handle ()
     {
+        $this->increaseViewCount();
+
         $categories = $this->catRepo
             ->with([
                 'activePosts' => function ($query) {
@@ -62,8 +65,30 @@ class IndexService
             })
             ->orderBy('id', 'ASC')
             ->all();
+
         return [
             'categories' => $categories
         ];
+    }
+
+    /**
+     * Increase view count of post
+     *
+     * @return void
+     */
+    public function increaseViewCount()
+    {
+        $ip = request()->ip();
+
+        $lock = Cache::lock("page_index_{$ip}", 30);
+
+        if ($lock->get()) {
+            $webSetting = app('web_setting');
+
+            if ($webSetting) {
+                $webSetting->total_view = $webSetting->total_view + 1;
+                $webSetting->save();
+            }
+        }
     }
 }

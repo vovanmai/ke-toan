@@ -16,7 +16,7 @@
             <div class="error-content">
                 <h3><i class="fa fa-warning text-red"></i> Bạn không có quyền truy cập. Vui lòng liên hệ đến Admin của hệ thống.</h3>
                 <p>
-                    Vui lòng <a href="{{ route('admin.admins.list') }}">quay lại trang chủ</a>
+                    Vui lòng <a href="{{ route('admin.post.list') }}">quay lại trang chủ</a>
                 </p>
 
 {{--                <form class="search-form">--}}
