@@ -2,11 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class SetGuard extends Middleware
+class SetGuard
 {
     /**
      * Handle an incoming request.
@@ -18,9 +17,9 @@ class SetGuard extends Middleware
      *
      * @throws \Illuminate\Auth\AuthenticationException
      */
-    public function handle($request, Closure $next, ...$guards)
+    public function handle($request, Closure $next, $guard)
     {
-        Auth::shouldUse($guards[0]);
+        Auth::shouldUse($guard);
         return $next($request);
     }
 }

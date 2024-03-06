@@ -4,12 +4,10 @@ namespace App\Http\Middleware;
 
 use App\Models\Admin;
 use Closure;
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
-class CheckRolePermission extends Middleware
+class CheckRolePermission
 {
     /**
      * Handle an incoming request.
@@ -18,7 +16,7 @@ class CheckRolePermission extends Middleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, ...$guards)
+    public function handle($request, Closure $next)
     {
         $user = Auth::user();
 

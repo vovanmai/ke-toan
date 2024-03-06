@@ -3,11 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckActive extends Middleware
+class CheckActive
 {
     /**
      * Handle an incoming request.
@@ -16,7 +14,7 @@ class CheckActive extends Middleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, ...$guards)
+    public function handle($request, Closure $next)
     {
         $user = Auth::user();
 
