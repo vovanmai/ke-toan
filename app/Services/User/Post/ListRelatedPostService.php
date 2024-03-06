@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\User\User2\Post;
+namespace App\Services\User\Post;
 
 use App\Data\Repositories\Eloquent\PostRepository;
 

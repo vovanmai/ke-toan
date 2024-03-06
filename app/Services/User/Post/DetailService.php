@@ -2,6 +2,7 @@
 
 namespace App\Services\User\Post;
 
+use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Data\Repositories\Eloquent\PostRepository;
 use App\Models\Post;
 use Illuminate\Support\Facades\Cache;
@@ -14,15 +15,29 @@ class DetailService
      */
     protected $repository;
 
-    public function __construct(PostRepository $repository) {
+    /**
+     * @var CategoryRepository
+     */
+    protected $catRepo;
+
+    public function __construct(
+        PostRepository $repository,
+        CategoryRepository $catRepo
+    ) {
         $this->repository = $repository;
+        $this->catRepo = $catRepo;
     }
 
     /**
      * @return array
      */
-    public function handle ($slug)
+    public function handle (string $cat, string $slug)
     {
+        $cat = $this->catRepo->firstOrFailWhere([
+            'slug' => $cat,
+            'active' => true,
+        ], ['id']);
+
         $post = $this->repository->with([
             'admin',
             'category' => function ($query) {
@@ -31,6 +46,7 @@ class DetailService
         ])->firstOrFailWhere([
             'slug' => $slug,
             'active' => true,
+            'category_id' => $cat->id,
         ]);
 
         $this->increaseViewCount($post);

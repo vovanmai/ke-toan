@@ -21,7 +21,7 @@
 
         <div class="share-like-social">
             <div class="fb-like"
-                 data-href="{{ route('user.post.detail', ['slug' => $item->slug]) }}"
+                 data-href="{{ route('user.post.detail', ['slug' => $item->slug, 'category' => $item->category->slug]) }}"
                  data-width=""
                  data-layout=""
                  data-action=""

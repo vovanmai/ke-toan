@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\WebsiteSetting;
-use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\User\User2\Category;
+namespace App\Services\User\Category;
 
 use App\Data\Repositories\Eloquent\CategoryRepository;
 

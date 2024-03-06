@@ -39,7 +39,7 @@ class ListByCategoryService
             ->with([
                 'childrenRecursive',
             ])
-            ->firstOrFailWhere(['slug' => $slug], ['id', 'title']);
+            ->firstOrFailWhere(['slug' => $slug], ['id', 'title', 'slug']);
 
         $categoryIds = $this->getCategoryIds($category);
 
@@ -47,7 +47,8 @@ class ListByCategoryService
             ->with([
                 'admin' => function($query) {
                     $query->select(['id', 'name']);
-                }
+                },
+                'category',
             ])
             ->whereIn('category_id', $categoryIds)
             ->whereByField('active', true)

@@ -68,7 +68,7 @@ class Handler extends ExceptionHandler
      * @throws \Throwable
      */
     public function render($request, Throwable $e)
-    {
+    {dd($e->getMessage());
         if ($e instanceof NotFoundHttpException || $e instanceof MethodNotAllowedHttpException) {
             $route = $request->is('admin*') ? 'admin' : 'user';
 
@@ -78,7 +78,7 @@ class Handler extends ExceptionHandler
 
             $this->requestLog($request);
 
-            return redirect()->route("user.not_found");
+            return redirect()->route("user.error.not_found");
         }
 
         if ($e instanceof TypeError) {

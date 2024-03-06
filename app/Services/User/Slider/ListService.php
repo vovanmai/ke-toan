@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\User\User2\Slider;
+namespace App\Services\User\Slider;
 
 use App\Data\Repositories\Eloquent\SliderRepository;
 

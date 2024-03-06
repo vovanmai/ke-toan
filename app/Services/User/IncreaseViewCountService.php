@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\User\User2;
+namespace App\Services\User;
 
 use App\Data\Repositories\Eloquent\WebsiteSettingRepository;
 use Illuminate\Support\Facades\Cache;

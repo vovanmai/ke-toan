@@ -9,13 +9,13 @@
             <article>
                 <div class="post-inner">
                     <div class="entry-thumb">
-                        <a href="{{ route('user.post.detail', ['slug' => $post->slug]) }}">
+                        <a href="{{ route('user.post.detail', ['slug' => $post->category->slug, 'category' => $category->slug,]) }}">
                             <img class="w-100" src="{{ $post->image['url'] ?? null }}" alt="">
                         </a>
                     </div>
                     <div class="entry-content">
                         <h3 class="entry-title">
-                            <a href="{{ route('user.post.detail', ['slug' => $post->slug]) }}" title="{{ $post->title }}">{{ $post->title }}</a>
+                            <a href="{{ route('user.post.detail', ['slug' => $post->slug, 'category' => $post->category->slug]) }}" title="{{ $post->title }}">{{ $post->title }}</a>
                         </h3>
                         <div class="entry-meta">
                             <span>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\User\User2\Auth;
+namespace App\Services\User\Auth;
 
 use App\Data\Repositories\Eloquent\UserRepository;
 use Illuminate\Support\Facades\Validator;

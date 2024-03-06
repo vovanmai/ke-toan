@@ -15,7 +15,7 @@ class IndexController extends Controller
         try {
             $data = resolve(IndexService::class)->handle();
             return view('user.index', $data);
-        } catch (Exception $exception) {dd($exception);
+        } catch (Exception $exception) {
             Log::error($exception);
             return redirect()->route('user.error.error');
         }

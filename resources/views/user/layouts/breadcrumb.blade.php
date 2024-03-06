@@ -14,7 +14,7 @@
                     $slugs[] = $data ?? null;
                 }
             });
-            $cats = array_combine($slugs, $titles);
+            $cats = array_reverse(array_combine($slugs, $titles));
         @endphp
         <li class="breadcrumb-item"><a href="/">
             <i class="fa fa-home" aria-hidden="true"></i> Home</a>

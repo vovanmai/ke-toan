@@ -24,10 +24,10 @@ class PostController extends Controller
         }
     }
 
-    public function show (string $slug)
+    public function show (string $cat, string $slug)
     {
         try {
-            $post = resolve(DetailService::class)->handle($slug);
+            $post = resolve(DetailService::class)->handle($cat, $slug);
             makeSEO([
                 'title' => $post->title,
                 'description' => $post->short_description,
