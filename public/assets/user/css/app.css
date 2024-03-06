@@ -253,6 +253,9 @@ body {
     body {
         font-size: 16px !important;
     }
+    #to-top {
+        display: none !important;
+     }
 }
 
 @media only screen and (min-width: 769px) {
@@ -466,13 +469,13 @@ body {
 
 .facebook-chat {
     position: fixed;
-    bottom: 32px;
+    bottom: 70px;
     right: 27px;
 }
 
 .phone1 {
     position: fixed;
-    bottom: 110px;
+    bottom: 145px;
     width: 167px;
     z-index: 10001;
     height: 80px;
@@ -705,7 +708,7 @@ body {
 
 .zalo {
     position: fixed;
-    bottom: 200px;
+    bottom: 240px;
     width: 167px;
     z-index: 10001;
     height: 80px;
@@ -767,4 +770,21 @@ body {
     opacity: 0.99;
     animation: quick-alo-circle-img-anim 1s infinite ease-in-out;
     transform-origin: 50% 50%;
+}
+
+#to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 34px;
+    padding: 10px 15px;
+    border: 1px solid #ffc550;
+    background: transparent;
+    border-radius: 50%;
+    color: #ffc550;
+    cursor: pointer;
+}
+
+#to-top:hover {
+    background: #ffc550;
+    color: white;
 }

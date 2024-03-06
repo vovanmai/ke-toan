@@ -36,3 +36,20 @@ var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
     return new bootstrap.Popover(popoverTriggerEl)
 })
+
+$(window).scroll(function() {
+    console.log($(this).scrollTop())
+    if ($(this).scrollTop()) {
+        $('#to-top').fadeIn();
+    } else {
+        $('#to-top').fadeOut();
+    }
+});
+
+$("#to-top").click(function () {
+    //1 second of animation time
+    //html works for FFX but not Chrome
+    //body works for Chrome but not FFX
+    //This strange selector seems to work universally
+    $("html, body").animate({scrollTop: 0}, 200);
+});
