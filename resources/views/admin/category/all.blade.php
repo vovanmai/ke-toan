@@ -80,6 +80,18 @@
                                         @endif
                                     </span>
                                     ||
+                                    <div class="show-on-menu" style="display: inline-block; width: 171px">
+                                        @if($item->show_on_menu)
+                                            <a style="color: green" href="javascript:void(0)" onclick="changeShowOnMenu({{ $item->id }}, 0)">
+                                                <i class="fa fa-check"> Hiển thị trên menu</i>
+                                            </a>
+                                        @else
+                                            <a style="color: gray" href="javascript:void(0)" onclick="changeShowOnMenu({{ $item->id }}, 1)">
+                                                <i class="fa fa-ban"> Không hiển thị trên menu</i>
+                                            </a>
+                                        @endif
+                                    </div>
+                                    ||
                                     <a style="color: #367fa9" href="{{ route('admin.category.edit', ['id' => $item->id]) }}">
                                         <i class="fa fa-edit"></i> Sửa
                                     </a>
@@ -107,6 +119,18 @@
                                                 </a>
                                             @endif
                                         </span>
+                                        ||
+                                        <div class="show-on-menu" style="display: inline-block; width: 171px">
+                                            @if($item->show_on_menu)
+                                                <a style="color: green" href="javascript:void(0)" onclick="changeShowOnMenu({{ $item->id }}, 0)">
+                                                <i class="fa fa-check"> Hiển thị trên menu</i>
+                                            </a>
+                                            @else
+                                                <a style="color: gray" href="javascript:void(0)" onclick="changeShowOnMenu({{ $item->id }}, 1)">
+                                                <i class="fa fa-ban"> Không hiển thị trên menu</i>
+                                            </a>
+                                            @endif
+                                        </div>
                                         ||
                                         <a style="color: #367fa9" href="{{ route('admin.category.edit', ['id' => $item->id]) }}">
                                             <i class="fa fa-edit"></i> Sửa
@@ -245,6 +269,34 @@
                     }
 
                     $(`.cat-${id} .active`).html(html)
+                },
+                error: function(error) {
+                    toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');
+                }
+            });
+        }
+
+        function changeShowOnMenu (id, showOnMenu) {
+            $.ajax({
+                data: {
+                    show_on_menu: showOnMenu
+                },
+                type: 'POST',
+                dataType: "JSON",
+                url: `/admin/categories/${id}/show-on-menu`,
+                success: function(response)
+                {
+                    if (showOnMenu) {
+                        var html = `<a style="color: green" href="javascript:void(0)" onclick="changeShowOnMenu(${id}, 0)">
+                            <i class="fa fa-check"> Hiển thị trên menu</i>
+                        </a>`
+                    } else {
+                        var html = `<a style="color: gray" href="javascript:void(0)" onclick="changeShowOnMenu(${id}, 1)">
+                            <i class="fa fa-ban"> Không hiển thị trên menu</i>
+                        </a>`
+                    }
+
+                    $(`.cat-${id} .show-on-menu`).html(html)
                 },
                 error: function(error) {
                     toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');

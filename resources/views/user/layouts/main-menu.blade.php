@@ -16,7 +16,7 @@
                 $hasSubMenu = $firstCat->childrenRecursive->isNotEmpty()
             @endphp
             <li>
-                <a class="{{ request()->is('danh-muc/' . $firstCat->slug) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $firstCat->slug]) }}">
+                <a class="{{ request()->is($firstCat->slug) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $firstCat->slug]) }}">
                     <span>{{ $firstCat->title }}</span>
                     @if($hasSubMenu)
                         <i style="margin-left: 10px" class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -33,14 +33,14 @@
                                     <ul class="submenu">
                                         @foreach($secondCat->childrenRecursive as $thirdCat)
                                             <li>
-                                                <a class="{{ request()->is('danh-muc/' . $thirdCat->slug) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $thirdCat->slug]) }}">
+                                                <a class="{{ request()->is($thirdCat->slug) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $thirdCat->slug]) }}">
                                                     <span>{{ $thirdCat->title }}</span>
                                                 </a>
                                             </li>
                                         @endforeach
                                     </ul>
                                 @endif
-                                <a class="{{ request()->is('danh-muc/' . $secondCat->slug) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $secondCat->slug]) }}">
+                                <a class="{{ request()->is($secondCat->slug) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $secondCat->slug]) }}">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span>{{ $secondCat->title }}</span>
                                         @if($hasSubMenu)

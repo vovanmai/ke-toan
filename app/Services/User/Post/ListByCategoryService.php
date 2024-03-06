@@ -37,9 +37,21 @@ class ListByCategoryService
     {
         $category = $this->catRepo
             ->with([
-                'childrenRecursive',
+                'childrenRecursive' => function ($query) {
+                    $query->where('active', true);
+                },
             ])
-            ->firstOrFailWhere(['slug' => $slug], ['id', 'title', 'slug']);
+            ->firstOrFailWhere(
+                [
+                    'slug' => $slug,
+                    'active' => true,
+                ],
+                [
+                    'id',
+                    'title',
+                    'slug',
+                ]
+            );
 
         $categoryIds = $this->getCategoryIds($category);
 

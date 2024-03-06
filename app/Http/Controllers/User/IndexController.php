@@ -5,12 +5,11 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Services\User\IndexService;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class IndexController extends Controller
 {
-    public function index (Request $request)
+    public function index ()
     {
         try {
             $data = resolve(IndexService::class)->handle();

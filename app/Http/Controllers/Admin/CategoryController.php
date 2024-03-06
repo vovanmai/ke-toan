@@ -156,4 +156,19 @@ class CategoryController extends BaseController
             return response()->error('Máy chủ bị lỗi', $exception);
         }
     }
+
+    public function changeShowOnMenu (Request $request, int $id)
+    {
+        $data = $request->only([
+            'show_on_menu',
+        ]);
+        try {
+            resolve(ChangActiveService::class)->handle($id, $data);
+            return response()->success('Thành công');
+        } catch (ModelNotFoundException $exception) {
+            return response()->notFound();
+        } catch (Exception $exception) {
+            return response()->error('Máy chủ bị lỗi', $exception);
+        }
+    }
 }

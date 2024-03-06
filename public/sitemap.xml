@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    <url>
+        <loc>http://laravel.test/pages_sitemap.xml</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>http://laravel.test</loc>
+            <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+            </url>
+    <url>
+        <loc>http://laravel.test/sitemap.xml</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+            </url>
+    <url>
+        <loc>http://laravel.test/gioi-thieu.html</loc>
+        <lastmod>2024-03-06T14:02:33+07:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+            </url>
+    <url>
+        <loc>http://laravel.test/dich-vu-ke-toan</loc>
+        <lastmod>2024-03-05T17:06:38+07:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+            </url>
+    <url>
+        <loc>http://laravel.test/thanh-lap-cong-ty</loc>
+        <lastmod>2024-03-06T08:44:28+07:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+            </url>
+    <url>
+        <loc>http://laravel.test/ke-toan-thue</loc>
+        <lastmod>2024-03-06T13:52:25+07:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+            </url>
+    <url>
+        <loc>http://laravel.test/thanh-lap-cong-ty/ly-do-nen-hoc-ngay-khoa-ke-toan-thuc-hanh-tren-excel.html</loc>
+        <lastmod>2024-03-06T13:53:24+07:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    <image:image>
+    <image:loc>http://laravel.test/storage/uploads/1709692666988dao-tao-ke-toan-thuc-te-chuyen-sauwebp.webp</image:loc>
+    <image:caption>LÝ DO NÊN HỌC NGAY KHÓA KẾ TOÁN THỰC HÀNH TRÊN EXCEL</image:caption>
+    <image:license>http://laravel.test</image:license>
+</image:image>
+        </url>
+    <url>
+        <loc>http://laravel.test/ke-toan-thue/ke-toan-thue-bao-gom-nhung-gi-nhiem-vu-va-vai-tro-cua-ke-toan-thue-trong-doanh-nghiep.html</loc>
+        <lastmod>2024-03-06T13:52:45+07:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    <image:image>
+    <image:loc>http://laravel.test/storage/uploads/1709707861017ktthuepng.png</image:loc>
+    <image:caption>Kế toán thuế bao gồm những gì? Nhiệm vụ và vai trò của kế toán thuế trong doanh nghiệp</image:caption>
+    <image:license>http://laravel.test</image:license>
+</image:image>
+        </url>
+</urlset>
