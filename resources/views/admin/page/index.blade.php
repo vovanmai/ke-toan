@@ -89,7 +89,7 @@
                                         <td class="text-center">{{ $item->id }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td>
-                                            <a href="{{ route('user.page.detail', ['slug' => $item->slug]) }}">{{ route('user.page.detail', ['slug' => $item->slug]) }}</a>
+                                            <a target="_blank" href="{{ route('user.page.detail', ['slug' => $item->slug]) }}">{{ route('user.page.detail', ['slug' => $item->slug]) }}</a>
                                         </td>
                                         <td class="is-active text-center">
                                             @if($item->active)

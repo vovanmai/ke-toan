@@ -110,7 +110,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td class="text-center">
-                                            <a target="_blank" href="{{ route('user.post.detail', ['slug' => $item->slug]) }}">Xem</a>
+                                            <a target="_blank" href="{{ route('user.post.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}">Xem</a>
                                         </td>
                                         <td style="text-align: center">
                                             @if($item->image)

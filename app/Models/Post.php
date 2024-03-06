@@ -31,9 +31,7 @@ class Post extends AbstractModel
         'description',
         'image',
         'active',
-        'is_show_home',
         'total_view',
-        'comment_type',
     ];
 
     /**

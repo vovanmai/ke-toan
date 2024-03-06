@@ -6,9 +6,8 @@
             @php
                 $setting = app('web_setting');
                 $headerBanner = $setting->header_banner ?? null;
-                $style = 'margin: auto; object-fit: contain; background-repeat: no-repeat; background-position: center;';
+                $style = 'object-fit: cover; display: block;';
                 if ($headerBanner) {
-                    $style .= " background: url('{$headerBanner['url']}');";
                     if ($setting->header_banner_height ?? null) {
                         $style .= " height: {$setting->header_banner_height};";
                     }
@@ -19,8 +18,7 @@
                 }
             @endphp
             @if($headerBanner)
-            <div id="header-banner" style="{{$style}}">
-            </div>
+                <img style="{{ $style }}" src="{{ $headerBanner['url'] }}">
             @endif
             <div id="toggle-show-menu">
                 <div style="background: #2588DE; color: white; padding: 10px 7px; display: flex; justify-content: space-between; align-items: center">

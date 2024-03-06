@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Post;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
@@ -47,7 +48,22 @@ class CreateSiteMap extends Command
                     Url::create(route('user.index'))
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
                         ->setPriority(1)
+                )->add(
+                    Url::create(customAsset('sitemap.xml'))
+                        ->setPriority(0.5)
                 );
+
+            Page::orderBy('id', 'ASC')->chunk(100, function ($pages) use ($siteMap) {
+                foreach ($pages as $page) {
+                    $siteMap
+                        ->add(
+                            Url::create(route('user.page.detail', ['slug' => $page->slug]))
+                                ->setPriority(0.3)
+                                ->setLastModificationDate($page->updated_at)
+                                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+                        );
+                }
+            });
 
             Category::orderBy('id', 'ASC')->chunk(100, function ($categories) use ($siteMap) {
                 foreach ($categories as $category) {
@@ -67,9 +83,15 @@ class CreateSiteMap extends Command
                         ->add(
                             Url::create(route('user.post.detail', ['category' => $post->category->slug, 'slug' => $post->slug]))
                                 ->setPriority(0.5)
-                                ->addImage(customAsset($post->image['url'] ?? ''), $post->title)
+                                ->addImage(
+                                    customAsset($post->image['url'] ?? ''),
+                                    $post->title,
+                                    '',
+                                    '',
+                                    config('app.url')
+                                )
                                 ->setLastModificationDate($post->updated_at)
-                                ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
                         );
                 }
             });
