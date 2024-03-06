@@ -5,8 +5,10 @@ namespace App\Console\Commands;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\SitemapIndex;
 use Spatie\Sitemap\Tags\Url;
 
 class CreateSiteMap extends Command
@@ -44,6 +46,7 @@ class CreateSiteMap extends Command
     {
         try {
             $siteMap = Sitemap::create()
+                ->add('/pages_sitemap.xml')
                 ->add(
                     Url::create(route('user.index'))
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)

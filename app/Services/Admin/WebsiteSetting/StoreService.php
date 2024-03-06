@@ -25,8 +25,10 @@ class StoreService
     public function handle (array $data)
     {
         if (!empty($data['is_remove_header_banner'])) {
-            $data['header_banner'] = null;
-            unset($data['is_remove_header_banner']);
+            if (empty($data['header_banner'])) {
+                $data['header_banner'] = null;
+                unset($data['is_remove_header_banner']);
+            }
         }
 
         $setting = $this->repository->first();
