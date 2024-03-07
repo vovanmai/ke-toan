@@ -1,9 +1,11 @@
 <?php
 
+use Artesaos\SEOTools\Facades\JsonLd;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
+use Artesaos\SEOTools\Facades\TwitterCard;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Storage;
 
 if (!function_exists('currentUserLogin')) {
 
@@ -455,24 +457,32 @@ if (! function_exists('makeSEO')) {
      */
     function makeSEO(array $data)
     {
-        if (isset($data['title'])) {
-            SEOTools::setTitle($data['title']);
+        SEOMeta::setCanonical(request()->url());
+        if (!empty($data['title'])) {
+            SEOMeta::setTitle($data['title']);
+            OpenGraph::setTitle($data['title']);
+            JsonLd::setTitle($data['title']);
+            TwitterCard::setTitle($data['title']);
+            JsonLd::setTitle($data['title']);
         }
 
-        if (isset($data['description'])) {
-            SEOTools::setDescription($data['description']);
+        if (!empty($data['description'])) {
+            SEOMeta::setDescription($data['description']);
+            OpenGraph::setDescription($data['description']);
+            JsonLd::setDescription($data['description']);
+            TwitterCard::setDescription($data['description']);
+            JsonLd::setDescription($data['description']);
         }
 
-        SEOTools::setCanonical(request()->url());
-//
-        SEOTools::opengraph()->setUrl(request()->url());
-        SEOTools::opengraph()->addProperty('type', 'news');
+        OpenGraph::addProperty('type', 'articles');
 
-        if (isset($data['image'])) {
-            SEOTools::opengraph()->addProperty('image', $data['image']);
+        if (!empty($data['image'])) {
+            OpenGraph::addProperty('image', $data['image']['url']);
+            OpenGraph::addProperty('image:width', $data['image']['origin_width']);
+            OpenGraph::addProperty('image:height', $data['image']['origin_height']);
+            JsonLd::addImage($data['image']['url']);
         }
-//
-//        SEOTools::twitter()->setImage(asset($post->image['url']));
-//        SEOTools::twitter()->setUrl(request()->url());
+        JsonLd::addValue('datePublished', Carbon::now());
+        JsonLd::setType('NewsArticle');
     }
 }

@@ -36,11 +36,11 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'Khám phá Rừng Dừa Bảy Mẫu Hội An với giá vé rẻ nhất của chúng tôi...', // set false to total remove
-            'description' => 'Khám phá Rừng Dừa Bảy Mẫu Hội An với giá vé rẻ nhất của chúng tôi...', // set false to total remove
+            'title'       => '', // set false to total remove
+            'description' => '', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
-            'type'        => 'news',
-            'site_name'   => 'Trung tâm đào tạo kế toán DPT',
+            'type'        => '',
+            'site_name'   => 'Bài viết Kế Toán DPT',
             'images'      => [],
             'locale' => 'vi_VN',
         ],
@@ -59,10 +59,10 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'       => 'Khám phá Rừng Dừa Bảy Mẫu Hội An với giá vé rẻ nhất của chúng tôi...', // set false to total remove
-            'description' => 'Khám phá Rừng Dừa Bảy Mẫu Hội An với giá vé rẻ nhất của chúng tôi...', // set false to total remove
+            'title'       => true, // set false to total remove
+            'description' => '', // set false to total remove
             'url'         => null, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
-            'type'        => 'news',
+            'type'        => '',
             'images'      => [],
         ],
     ],

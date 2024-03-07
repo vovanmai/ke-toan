@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Services\Admin\Admin\CreateService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Log;
 use Exception;
@@ -35,9 +33,12 @@ class CommonController extends BaseController
                 $extension
             );
             $originName = $file->getClientOriginalName();
+
             $size = $file->getSize();
 
             $file->storeAs(getFileContainFolder(), $storeName);
+            $originHeight = Image::make($file)->height();
+            $originWidth = Image::make($file)->width();
 
             if ($resizeHeight || $resizeWidth) {
                 $image = Image::make(storage_path('/app/' . getFileContainFolder() . '/' . $storeName));
@@ -50,6 +51,8 @@ class CommonController extends BaseController
                 'origin_name' => $originName,
                 'size' => $size,
                 'extension' => $extension,
+                'origin_height' => $originHeight,
+                'origin_width' => $originWidth,
             ]);
         } catch (Exception $ex) {
             Log::info($ex->getMessage());

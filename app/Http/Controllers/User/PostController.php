@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Services\User\Post\DetailService;
 use App\Services\User\Post\ListByCategoryService;
+use Artesaos\SEOTools\Facades\JsonLd;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Log;
@@ -31,14 +32,14 @@ class PostController extends Controller
             makeSEO([
                 'title' => $post->title,
                 'description' => $post->short_description,
-                'image' => $post->image['url'],
+                'image' => $post->image,
             ]);
             return view('user.post.detail', [
                 'item' => $post
             ]);
         } catch (ModelNotFoundException $exception) {
             return redirect()->route('user.error.not_found');
-        } catch (Exception $exception) {dd($exception);
+        } catch (Exception $exception) {
             Log::error($exception);
             return redirect()->route('user.error.error');
         }
