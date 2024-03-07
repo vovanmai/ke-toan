@@ -31,7 +31,7 @@
                     </a>
                     @if($hasSubMenu)
                     <div class="button-arrow">
-                        <i style="padding-left: 20px" class="fa fa-chevron-down" aria-hidden="true"></i>
+                        <i class="fas fa-chevron-down"></i>
                     </div>
                     @endif
                 </div>

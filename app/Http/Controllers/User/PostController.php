@@ -31,6 +31,7 @@ class PostController extends Controller
             makeSEO([
                 'title' => $post->title,
                 'description' => $post->short_description,
+                'image' => $post->image['url'],
             ]);
             return view('user.post.detail', [
                 'item' => $post

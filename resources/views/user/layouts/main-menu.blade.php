@@ -2,7 +2,7 @@
     <ul id="menu">
         <li>
             <a href="/" class="{{ request()->is('/') ? 'active' : null }}">
-                <i class="fa fa-home" aria-hidden="true"></i>
+                <i class="fas fa-home"></i>
                 <span>Trang chủ</span>
             </a>
         </li>
@@ -19,7 +19,7 @@
                 <a class="{{ request()->is($firstCat->slug) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $firstCat->slug]) }}">
                     <span>{{ $firstCat->title }}</span>
                     @if($hasSubMenu)
-                        <i style="margin-left: 10px" class="fa fa-chevron-down" aria-hidden="true"></i>
+                        <i class="fas fa-chevron-down"></i>
                     @endif
                 </a>
                 @if($hasSubMenu)

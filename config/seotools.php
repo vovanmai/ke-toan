@@ -9,8 +9,8 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => 'Rừng Dừa Bảy Mẫu: https://www.rungduabaymauhoian.com', // set false to total remove
-            'titleBefore'  => null, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
+            'title'        => 'Kế toán DPT: https://www.ketoandpt.com', // set false to total remove
+            'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
             'description'  => 'Khám phá Rừng Dừa Bảy Mẫu Hội An với giá vé rẻ nhất của chúng tôi...', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [],
@@ -40,7 +40,7 @@ return [
             'description' => 'Khám phá Rừng Dừa Bảy Mẫu Hội An với giá vé rẻ nhất của chúng tôi...', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => 'news',
-            'site_name'   => 'Giá vé rẻ Rừng Dừa Bảy Mẫu',
+            'site_name'   => 'Trung tâm đào tạo kế toán DPT',
             'images'      => [],
             'locale' => 'vi_VN',
         ],

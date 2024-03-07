@@ -788,3 +788,54 @@ body {
     background: #ffc550;
     color: white;
 }
+
+.box-social {
+    box-shadow: #00000059 1px 1px 5px;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    color: black;
+    background: white;
+    top: 35px;
+    right: 0;
+    border-radius: 3px;
+    min-width: 100px;
+}
+
+.button-show-share {
+    border-radius: 3px;
+}
+
+.link-share-social {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.link-share-social i {
+    height: 30px; line-height: 30px; width: 30px; color: white; text-align: center
+}
+
+.share-facebook i {
+    background: #4267B2
+}
+
+.share-messenger {
+    margin-left: 15px;
+}
+
+.share-messenger i {
+    background: #0078FF
+}
+
+.group-share-socical {
+    display: flex;
+}
+
+.wrapper-share-social-mobile button {
+    border: none;
+    padding: 4px 10px;
+    font-size: 13px;
+    background-color: #78B43C;
+    color: white;
+    border-radius: 3px;
+}

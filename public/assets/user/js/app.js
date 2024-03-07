@@ -32,13 +32,7 @@ $('#toggle-show-menu .toggle-button').click(function () {
     $('#mobile-main-menu').show('slow')
 })
 
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-    return new bootstrap.Popover(popoverTriggerEl)
-})
-
 $(window).scroll(function() {
-    console.log($(this).scrollTop())
     if ($(this).scrollTop()) {
         $('#to-top').fadeIn();
     } else {
@@ -53,3 +47,43 @@ $("#to-top").click(function () {
     //This strange selector seems to work universally
     $("html, body").animate({scrollTop: 0}, 200);
 });
+
+$(".button-show-share").click(function() {
+    $('.box-social').slideToggle(200);
+});
+
+$(document).click(function (e) {
+    const element = $('.wrapper-share-social')
+    if (!element.is(e.target) && element.has(e.target).length === 0) {
+        $('.wrapper-share-social .box-social').hide()
+    }
+});
+
+async function shareOnSocial (type, url, pageTitle = '123' , popupWinWidth = 1200, popupWinHeight = 650) {
+    let left = (screen.width - popupWinWidth) / 2;
+    let top = (screen.height - popupWinHeight) / 4;
+    switch (type) {
+        case 'facebook':
+            const urlSocial = 'https://www.facebook.com/sharer/sharer.php?u=' + url
+            window.open(urlSocial, pageTitle, 'resizable=yes, width=' + popupWinWidth + ', height=' + popupWinHeight + ', top=' + top + ', left=' + left);
+            break
+    }
+}
+
+
+
+if (navigator.share) {
+    $('.wrapper-share-social').hide()
+} else {
+    $('.wrapper-share-social-mobile').hide()
+}
+
+async function shareNavigator(url) {
+    const data = {
+        url: url,
+    }
+    try {
+        navigator.share(data).then();
+    } catch (error) {
+    }
+}
