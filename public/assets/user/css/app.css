@@ -839,3 +839,35 @@ body {
     color: white;
     border-radius: 3px;
 }
+
+.highlight-post a {
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    color: #262626;
+}
+
+.highlight-post a img {
+    width: 40%;
+    height: auto;
+    margin-right: 15px;
+    float: left;
+}
+
+.highlight-post a:hover {
+    background: #e8e8e8;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+form label.error {
+    color: red;
+}

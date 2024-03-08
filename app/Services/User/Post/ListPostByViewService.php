@@ -27,6 +27,13 @@ class ListPostByViewService
     public function handle ()
     {
         return $this->repository->whereByField('active', true)
-            ->orderBy('total_view', 'DESC')->limit(15);
+            ->with('category')
+            ->orderBy('total_view', 'DESC')
+            ->limit(5, [
+                'slug',
+                'title',
+                'image',
+                'category_id',
+            ]);
     }
 }

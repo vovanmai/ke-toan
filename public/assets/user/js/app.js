@@ -87,3 +87,60 @@ async function shareNavigator(url) {
     } catch (error) {
     }
 }
+
+jQuery.validator.addMethod(
+    "regex",
+    function(value, element, regexp) {
+        return this.optional(element) || (new RegExp(regexp)).test(value);
+    },"erreur expression reguliere"
+);
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+$('#request-question').validate({
+    rules: {
+        name: {
+            required: true,
+            maxlength: 50,
+        },
+        phone: {
+            required: true,
+            regex: /^[0-9]{10,11}$/,
+        },
+        content: {
+            required: true,
+            maxlength: 1000,
+        },
+    },
+    messages: {
+        name: {
+            required: "Vui lòng nhập.",
+            maxlength: "Tối đa 50 ký tự.",
+        },
+        phone: {
+            required: "Vui lòng nhập.",
+            regex: "Số điện thoại không hợp lệ.",
+        },
+        content: {
+            required: "Vui lòng nhập.",
+            maxlength: "Tối đa 1000 ký tự.",
+        },
+    },
+    submitHandler: function() {
+        const data = {
+            name: $('#request-question input[name=name]').val(),
+            phone: $('#request-question input[name=phone]').val(),
+            content: $('#request-question textarea[name=content]').val(),
+        }
+        $.post("support-and-consultation", data, function() {
+            $('#request-question input[name=name]').val('')
+            $('#request-question input[name=phone]').val('')
+            $('#request-question textarea[name=content]').val('')
+            alert("Gửi thành công. Cảm ơn bạn đã gởi câu hỏi. Chúng tôi sẽ liên hệ bạn ngay sau khi tiếp nhận.");
+        });
+    }
+});
