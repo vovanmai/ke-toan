@@ -20,6 +20,7 @@ class CreateWebsiteSettingsTable extends Migration
             $table->string('company_email')->nullable();
             $table->string('company_address')->nullable();
             $table->string('company_website_domain')->nullable();
+            $table->string('link_fan_page_facebook')->nullable();
             $table->jsonb('header_banner')->nullable();
             $table->string('header_banner_width', 10)->nullable();
             $table->string('header_banner_height', 10)->nullable();

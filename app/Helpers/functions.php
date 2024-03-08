@@ -474,7 +474,7 @@ if (! function_exists('makeSEO')) {
             JsonLd::setDescription($data['description']);
         }
 
-        OpenGraph::addProperty('type', 'articles');
+        OpenGraph::addProperty('type', 'article');
 
         if (!empty($data['image'])) {
             OpenGraph::addProperty('image', $data['image']['url']);
@@ -484,5 +484,27 @@ if (! function_exists('makeSEO')) {
         }
         JsonLd::addValue('datePublished', Carbon::now());
         JsonLd::setType('NewsArticle');
+
+        if (!empty($data['created_at'])) {
+            $dataArticle['published_time'] = $data['created_at']->toIso8601String();
+        }
+
+        if (!empty($data['updated_at'])) {
+            $dataArticle['modified_time'] = $data['updated_at']->toIso8601String();
+        }
+
+//        OpenGraph::setType('article')
+//            ->setArticle($dataArticle);
+
+//        OpenGraph::setType('article')
+//            ->setArticle([
+//                'publisher' => app('web_setting')->link_fan_page_facebook ?? null,
+//                'published_time' => 'datetime',
+//                'modified_time' => 'datetime',
+//                'expiration_time' => 'datetime',
+//                'author' => 'profile / array',
+//                'section' => 'string',
+//                'tag' => 'string / array'
+//            ]);
     }
 }

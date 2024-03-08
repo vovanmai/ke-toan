@@ -82,6 +82,17 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="form-group @error('link_fan_page_facebook') has-error @enderror" style="margin-bottom: 30px">
+                                        <label>
+                                            Đường dẫn Fanpage Facebook<span class="required"></span>
+                                        </label>
+                                        <div class="field-container">
+                                            <input type="text" name="link_fan_page_facebook" class="form-control" value="{{ old('link_fan_page_facebook') ?? $setting->link_fan_page_facebook ?? null }}">
+                                            @error('link_fan_page_facebook')
+                                            <span class="help-block">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="form-group" style="margin-bottom: 30px">
                                         <label>
                                             Lượt truy cập trang chủ<span class="required"></span>

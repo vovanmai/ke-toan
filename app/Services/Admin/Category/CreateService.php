@@ -34,6 +34,10 @@ class CreateService
             throw new ValidatorException(new MessageBag(['parent_id' => 'Danh mục tối đa ' . Category::MAX_GRADE . ' cấp.']));
         }
 
+        $data['description'] = empty($data['description']) ? $data['title'] : $data['description'];
+        $data['show_on_menu'] = true;
+        $data['active'] = true;
+
         return $this->repository->create($data);
     }
 

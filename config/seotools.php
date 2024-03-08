@@ -40,7 +40,7 @@ return [
             'description' => '', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => '',
-            'site_name'   => 'Bài viết Kế Toán DPT',
+            'site_name'   => 'Trung tâm đào tạo kế toán chuyên nghiệp DPT',
             'images'      => [],
             'locale' => 'vi_VN',
         ],

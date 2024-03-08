@@ -844,9 +844,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
     padding: 10px;
-    display: block;
+    display: table;
     text-decoration: none;
     color: #262626;
+}
+.highlight-post p {
+    margin: 0;
 }
 
 .highlight-post a img {

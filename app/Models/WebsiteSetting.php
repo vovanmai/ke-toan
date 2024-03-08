@@ -27,6 +27,7 @@ class WebsiteSetting extends AbstractModel
         'header_banner_height',
         'fb_fan_page_script',
         'google_map_address_company',
+        'link_fan_page_facebook',
     ];
 
     public function getHeaderBannerAttribute()

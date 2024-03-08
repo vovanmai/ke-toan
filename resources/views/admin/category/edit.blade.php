@@ -62,9 +62,7 @@
                                     Mô tả<span class="required"></span>
                                 </label>
                                 <div class="col-md-6">
-                                    <textarea name="description" class="form-control" rows="3" placeholder="">
-                                        {{ $editCategory->description }}
-                                    </textarea>
+                                    <textarea name="description" class="form-control" rows="3" placeholder="">{{ $editCategory->description }}</textarea>
                                     @error('description')
                                     <span class="help-block">{{ $message }}</span>
                                     @enderror

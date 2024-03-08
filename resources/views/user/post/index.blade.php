@@ -9,7 +9,7 @@
             <article>
                 <div class="post-inner">
                     <div class="entry-thumb">
-                        <a href="{{ route('user.post.detail', ['slug' => $post->category->slug, 'category' => $category->slug,]) }}">
+                        <a href="{{ route('user.post.detail', ['slug' => $post->slug, 'category' => $post->category->slug,]) }}">
                             <img class="w-100" src="{{ $post->image['url'] ?? null }}" alt="">
                         </a>
                     </div>

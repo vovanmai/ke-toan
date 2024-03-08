@@ -33,6 +33,8 @@ class PostController extends Controller
                 'title' => $post->title,
                 'description' => $post->short_description,
                 'image' => $post->image,
+                'created_at' => $post->created_at,
+                'updated_at' => $post->updated_at,
             ]);
             return view('user.post.detail', [
                 'item' => $post
