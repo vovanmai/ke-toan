@@ -18,6 +18,7 @@ class CreateSupportAndConsultationTable extends Migration
             $table->string('name', 50);
             $table->string('phone', 11);
             $table->string('content', 1000);
+            $table->boolean('is_read')->default(false);
             $table->timestamps();
         });
     }

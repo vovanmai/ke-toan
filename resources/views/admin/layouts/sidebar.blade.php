@@ -212,6 +212,13 @@
                 </a>
             </li>
 
+            <li class="{{ request()->is('admin/support-and-consultation*') ? 'active' : '' }}">
+                <a href="{{ route('admin.consultation.list') }}">
+                    <i class="fa fa-question" aria-hidden="true"></i>
+                    <span>Hỗ trợ & tư vấn</span>
+                </a>
+            </li>
+
 
   {{--          <li class="{{ request()->is('admin/comments*') ? 'active' : '' }}">
                 <a href="{{ route('admin.comment.list') }}">

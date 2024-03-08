@@ -871,3 +871,18 @@ body {
 form label.error {
     color: red;
 }
+
+#support-and-consultation {
+    margin-bottom: 20px
+}
+
+#support-and-consultation h5 {
+    background: red;
+    letter-spacing: 1px;
+    margin: 0;
+    font-weight: 700;
+    text-align: center;
+    padding: 7px;
+    font-size: 18px;
+    color: white;
+}

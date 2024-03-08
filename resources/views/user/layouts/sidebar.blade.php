@@ -27,8 +27,8 @@
         </div>
     </div>
 
-    <div style="margin-bottom: 20px">
-        <h5 style="background: red; letter-spacing: 1px; margin: 0; font-weight: 700; text-align: center; padding: 7px; font-size: 18px; color: white">HỖ TRỢ & TƯ VẤN</h5>
+    <div id="support-and-consultation">
+        <h5>HỖ TRỢ & TƯ VẤN</h5>
         <div style="border: 1px solid red; padding: 15px">
             <form id="request-question" action="javascript:void(0)">
                 <div class="mb-3">

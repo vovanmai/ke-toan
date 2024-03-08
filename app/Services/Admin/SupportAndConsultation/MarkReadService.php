@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Services\Admin\Contact;
+namespace App\Services\Admin\SupportAndConsultation;
 
-use App\Data\Repositories\Eloquent\ContactRepository;
+use App\Data\Repositories\Eloquent\SupportAndConsultationRepository;
 
-class MaskReadContactService
+class MarkReadService
 {
     /**
-     * @var ContactRepository
+     * @var SupportAndConsultationRepository
      */
     protected $repository;
 
-    public function __construct(ContactRepository $repository)
+    public function __construct(SupportAndConsultationRepository $repository)
     {
         $this->repository = $repository;
     }

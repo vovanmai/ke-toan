@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="box-footer text-center">
-                            <button type="reset" onclick="resetSearchForm('/admin/p')" class="btn btn-default reset-form-admin" style="margin-right: 2px">
+                            <button type="reset" onclick="resetSearchForm('/admin/pages')" class="btn btn-default reset-form-admin" style="margin-right: 2px">
                                 <i class="fa fa fa-eraser"></i> Xóa</button>
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-fw fa-search"></i>Tìm kiếm

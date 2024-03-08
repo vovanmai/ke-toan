@@ -28,5 +28,8 @@ Route::namespace("Admin")->middleware('guard:admin')->prefix('admin')->group(fun
 
         // Routes of post
         require __DIR__ . '/page.php';
+
+        // Routes of post
+        require __DIR__ . '/support-and-consultation.php';
     });
 });

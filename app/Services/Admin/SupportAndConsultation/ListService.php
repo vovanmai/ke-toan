@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Services\Admin\Contact;
+namespace App\Services\Admin\SupportAndConsultation;
 
-use App\Data\Repositories\Eloquent\ContactRepository;
+use App\Data\Repositories\Eloquent\SupportAndConsultationRepository;
 use Carbon\Carbon;
 
 class ListService
 {
 
     /**
-     * @var ContactRepository
+     * @var SupportAndConsultationRepository
      */
     protected $repository;
 
-    public function __construct(ContactRepository $repository)
+    public function __construct(SupportAndConsultationRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -29,7 +29,7 @@ class ListService
 
         return $this->repository->search($filters)
             ->orderByColumns([
-                'id' => 'desc',
+                'id' => 'DESC',
             ])
             ->paginate(10);
     }
@@ -43,9 +43,12 @@ class ListService
      */
     private function updateFilters (array $filters)
     {
+        if (isset($filters['is_read'])) {
+            $filters['is_read'] = false;
+        }
+
         if (isset($filters['created_at_from'])) {
             $filters['created_at_from'] = Carbon::parse($filters['created_at_from']);
-
         }
 
         if (isset($filters['created_at_to'])) {
