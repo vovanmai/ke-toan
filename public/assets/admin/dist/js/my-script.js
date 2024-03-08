@@ -120,3 +120,16 @@ $('input[type="checkbox"].flat-red').iCheck({
     checkboxClass: 'icheckbox_flat-green',
     radioClass: 'iradio_flat-green'
 });
+
+
+function copyLink(element) {
+    // Get the text field
+    const copyText = $(element).attr('href')
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText);
+    toastr.success("Sao chép thành công", 'Thành công')
+}
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});

@@ -89,7 +89,10 @@
                                         <td class="text-center">{{ $item->id }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td>
-                                            <a target="_blank" href="{{ route('user.page.detail', ['slug' => $item->slug]) }}">{{ route('user.page.detail', ['slug' => $item->slug]) }}</a>
+                                            <a class="copy-link" target="_blank" href="{{ route('user.page.detail', ['slug' => $item->slug]) }}">{{ route('user.page.detail', ['slug' => $item->slug]) }}</a>
+                                            <a style="color: #5a5858; cursor: pointer; margin-left: 15px" onclick="copyLink(`.tr-item-{{$item->id}} .copy-link`)">
+                                                <i class="fa fa-clipboard" aria-hidden="true"></i>
+                                            </a>
                                         </td>
                                         <td class="is-active text-center">
                                             @if($item->active)

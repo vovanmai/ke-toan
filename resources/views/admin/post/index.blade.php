@@ -96,7 +96,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th style="width: 20%">Tiêu đề</th>
-                                    <th class="text-center">Xem</th>
+                                    <th class="text-center">Đường dẫn</th>
                                     <th>Ảnh</th>
                                     <th style="width: 10%">Danh mục</th>
                                     <th class="text-center">Active</th>
@@ -110,7 +110,10 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td class="text-center">
-                                            <a target="_blank" href="{{ route('user.post.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}">Xem</a>
+                                            <a class="copy-link" target="_blank" href="{{ route('user.post.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}">Link</a>
+                                            <a style="color: #5a5858; cursor: pointer; margin-left: 15px" onclick="copyLink(`.tr-item-{{$item->id}} .copy-link`)">
+                                                <i class="fa fa-clipboard" aria-hidden="true"></i>
+                                            </a>
                                         </td>
                                         <td style="text-align: center">
                                             @if($item->image)
