@@ -7,7 +7,7 @@
                     $hotline = $setting->hotline ?? '';
                     $newHotline = str_replace('.', '', $hotline)
                 @endphp
-                <h6 class="company-name">{{ $setting->company_name }}</h6>
+                <h6 class="company-name">{{ $setting->company_name ?? null }}</h6>
                 <div>
                     <p style="margin-bottom: 5px; font-size: 13px">
                         <i class="fa fa-phone" aria-hidden="true"></i> Phone:
