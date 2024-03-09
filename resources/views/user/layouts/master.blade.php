@@ -31,6 +31,7 @@
         </div>
 
         <div id="main">
+            @include('user.layouts.main-banner')
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-12">
