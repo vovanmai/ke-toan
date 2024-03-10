@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Quản lý slider</small>
+            <small>Quản lý Banner</small>
         </h1>
     </section>
 
@@ -13,9 +13,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="search-recruitment-form" class="form-horizontal" method="GET" action="{{ route('admin.slider.list') }}">
+                    <form id="search-recruitment-form" class="form-horizontal" method="GET" action="{{ route('admin.main_banner.list') }}">
                         <div class="box-header with-border">
-                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tìm kiếm slider</h3>
+                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tìm kiếm</h3>
                         </div>
                     <!-- /.box-header -->
                         <div class="box-body">
@@ -56,9 +56,9 @@
             <div class="col-md-12">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-fw fa-list-ul"></i>Danh sách sliders</h3>
+                        <h3 class="box-title"><i class="fa fa-fw fa-list-ul"></i>Danh sách</h3>
                         <div class="box-tools pull-right">
-                            <a href="{{ route('admin.slider.create') }}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>
+                            <a href="{{ route('admin.main_banner.create') }}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>
                                 Tạo mới
                             </a>
                         </div>
@@ -109,7 +109,7 @@
                                             {{ $item->updated_at }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.slider.edit', ['id' => $item->id]) }}" class="btn btn-primary">
+                                            <a href="{{ route('admin.main_banner.edit', ['id' => $item->id]) }}" class="btn btn-primary">
                                                 <i class="fa fa-edit"></i> Sửa
                                             </a>
                                             <button onclick="deleteItem({{ $item->id }})" type="button" class="btn btn-danger">
@@ -190,7 +190,7 @@
                     $.ajax({
                         type: 'delete',
                         dataType: "JSON",
-                        url: `/admin/sliders/${id}`,
+                        url: `/admin/main-banners/${id}`,
                         success: function(response)
                         {
                             toastr.success(response.message, 'Thành công');
@@ -211,7 +211,7 @@
                 },
                 type: 'POST',
                 dataType: "JSON",
-                url: `/admin/sliders/${id}/active`,
+                url: `/admin/main-banners/${id}/active`,
                 success: function(response)
                 {
                     if (active) {

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Services\Admin\Slider;
+namespace App\Services\Admin\MainBanner;
 
-use App\Data\Repositories\Eloquent\SliderRepository;
+use App\Data\Repositories\Eloquent\MainBannerRepository;
 
 class UpdateService
 {
 
     /**
-     * @var SliderRepository
+     * @var MainBannerRepository
      */
     protected $repository;
 
-    public function __construct(SliderRepository $repository)
+    public function __construct(MainBannerRepository $repository)
     {
         $this->repository = $repository;
     }

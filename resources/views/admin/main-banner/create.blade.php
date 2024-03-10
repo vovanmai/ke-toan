@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Quản lý slider</small>
+            <small>Quản lý Banner</small>
         </h1>
     </section>
 
@@ -13,12 +13,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="create-slider-form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.slider.store') }}">
+                    <form id="create-main-banner-form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.main_banner.store') }}">
                         @csrf
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tạo mới</h3>
                             <div class="box-tools pull-right">
-                                <a href="{{ route('admin.slider.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
+                                <a href="{{ route('admin.main_banner.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
                                     Xem danh sách
                                 </a>
                             </div>
@@ -29,7 +29,7 @@
                                 <div class="col-md-5">
                                     <div class="form-group @error('title') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Tiêu đề<span class="required">(*)</span>
+                                            Tiêu đề
                                         </label>
                                         <div class="field-container">
                                             <input type="text" name="title" class="form-control" value="{{ old('title') }}">
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="form-group @error('title_color') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Màu chữ tiêu đề<span class="required"></span>
+                                            Màu chữ tiêu đề
                                         </label>
                                         <div class="field-container">
                                             <input type="text" name="title_color" class="form-control my-colorpicker1" value="{{ old('title_color') }}">
@@ -46,7 +46,7 @@
 
                                     <div class="form-group @error('link') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Đường dẫn<span class="required">(*)</span>
+                                            Đường dẫn
                                         </label>
                                         <div class="field-container">
                                             <textarea class="form-control" name="link" style="width: 100%" rows="5"></textarea>
@@ -59,7 +59,7 @@
                                 <div class="col-md-5 col-md-offset-1">
                                     <div class="form-group @error('short_description') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Mô tả ngắn<span class="required">(*)</span>
+                                            Mô tả ngắn
                                         </label>
                                         <div class="field-container">
                                             <input type="text" name="short_description" class="form-control" value="{{ old('short_description') }}">
@@ -108,7 +108,7 @@
 @push('script')
     <script>
         $(function() {
-            $("#create-slider-form").validate({
+            $("#create-main-banner-form").validate({
                 rules: {
                     title: {
                         required: false,
@@ -119,7 +119,7 @@
                         maxlength: 255,
                     },
                     link: {
-                        required: true,
+                        required: false,
                         maxlength: 255,
                     },
                 },
@@ -148,26 +148,15 @@
                 },
                 submitHandler: function(form) {
                     // validate preview image is required
-                    var numberImage = $('#create-slider-form textarea[name="image"]').length;
+                    var numberImage = $('#create-main-banner-form textarea[name="image"]').length;
                     if (numberImage == 0) {
-                        toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
+                        toastr.error('Vui lòng chọn ảnh.', 'Lỗi');
                         return;
                     }
-                    // Create slider
+                    // Create main-banner
                     form.submit();
                 }
             });
-        });
-
-
-        CKEDITOR.replace('description', {
-            filebrowserBrowseUrl: '{{ asset('assets/admin/plugins/ckfinder/ckfinder.html') }}',
-            filebrowserImageBrowseUrl: '{{ asset('assets/admin/plugins/ckfinder/ckfinder.html?type=Images') }}',
-            filebrowserFlashBrowseUrl: '{{ asset('assets/admin/plugins/ckfinder/ckfinder.html?type=Flash') }}',
-            filebrowserUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
-            filebrowserImageUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
-            filebrowserFlashUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}',
-            language: 'vi',
         });
 
         Dropzone.autoDiscover = false;
@@ -190,7 +179,7 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "slider_"
+                key: "main_banner_"
             },
             method: 'POST',
             headers: {
@@ -198,7 +187,7 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#create-slider-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
+                $('#create-main-banner-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
 
                 response.data.uuid = uuid
                 uploadedImageMap[file.upload.filename] = response.data
@@ -212,14 +201,14 @@
             init : function() {
                 var myDropZone = this;
                 myDropZone.on('maxfilesexceeded', function(file) {
-                    toastr.error("Ảnh đại diện tối đa là 1 ảnh.", 'Lỗi');
+                    toastr.error("Vui lòng chọn .", 'Lỗi');
                     myDropZone.removeFile(file);
                 });
 
             },
             removedfile: function (file) {
                 file.previewElement.remove()
-                let uuid = file.upload.uuid
+                let uuid = file.upload.uuidảnh
                 $(`#create-product-form .${uuid}`).remove()
                 let storeNameRemove = uploadedImageMap[file.upload.filename].store_name
                 removeImageOnServer(storeNameRemove)

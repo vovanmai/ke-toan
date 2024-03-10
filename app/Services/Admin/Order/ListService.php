@@ -3,7 +3,7 @@
 namespace App\Services\Admin\Order;
 
 use App\Data\Repositories\Eloquent\OrderRepository;
-use App\Data\Repositories\Eloquent\SliderRepository;
+use App\Data\Repositories\Eloquent\MainBannerRepository;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\URL;
 

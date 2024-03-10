@@ -89,7 +89,7 @@
             </li>
 
             <li class="{{ request()->is('admin/sliders*') ? 'active' : '' }}">
-                <a href="{{ route('admin.slider.list') }}">
+                <a href="{{ route('admin.main-banner.list') }}">
                     <i class="fa fa-sliders"></i> <span>Quản lý banners</span>
                 </a>
             </li>--}}
@@ -209,6 +209,12 @@
                 <a href="{{ route('admin.page.list') }}">
                     <i class="fa fa-thumb-tack" aria-hidden="true"></i>
                     <span>Trang</span>
+                </a>
+            </li>
+            <li class="{{ request()->is('admin/main-banners*') ? 'active' : '' }}">
+                <a href="{{ route('admin.main_banner.list') }}">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    <span>Quản lý Banner</span>
                 </a>
             </li>
 

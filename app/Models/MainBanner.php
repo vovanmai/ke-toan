@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Slider extends AbstractModel
+class MainBanner extends AbstractModel
 {
 
     /**
@@ -12,7 +12,7 @@ class Slider extends AbstractModel
      *
      * @var string
      */
-    protected $table = 'sliders';
+    protected $table = 'main_banners';
 
     /**
      * The attributes that are mass assignable.

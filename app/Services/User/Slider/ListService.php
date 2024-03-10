@@ -2,16 +2,16 @@
 
 namespace App\Services\User\Slider;
 
-use App\Data\Repositories\Eloquent\SliderRepository;
+use App\Data\Repositories\Eloquent\MainBannerRepository;
 
 class ListService
 {
     /**
-     * @var SliderRepository
+     * @var MainBannerRepository
      */
     protected $repository;
 
-    public function __construct(SliderRepository $repository) {
+    public function __construct(MainBannerRepository $repository) {
         $this->repository = $repository;
     }
 

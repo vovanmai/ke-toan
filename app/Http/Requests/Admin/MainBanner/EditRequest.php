@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Slider;
+namespace App\Http\Requests\Admin\MainBanner;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EditSliderRequest extends FormRequest
+class EditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,7 @@ class EditSliderRequest extends FormRequest
             'title' => 'nullable|max:255',
             'image' => 'nullable',
             'short_description' => 'nullable|max:255',
-            'link' => 'required',
+            'link' => 'nullable',
             'title_color' => 'nullable',
             'short_description_color' => 'nullable',
         ];

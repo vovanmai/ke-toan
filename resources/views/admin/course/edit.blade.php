@@ -181,7 +181,7 @@
                         toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
                         return;
                     }
-                    // Create slider
+                    // Create main-banner
                     form.submit();
                 }
             });
@@ -261,7 +261,7 @@
 
         function validateRequiredImage() {
             var check = true;
-            var isRemovedPreview = $('#slider input[name="remove_image_id"]').length;
+            var isRemovedPreview = $('#main-banner input[name="remove_image_id"]').length;
             if(isRemovedPreview) {
                 var image = $('#edit-form textarea[name="image"]').length
                 if(image == 0) {

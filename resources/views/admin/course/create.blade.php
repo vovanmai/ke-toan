@@ -162,7 +162,7 @@
                         toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
                         return;
                     }
-                    // Create slider
+                    // Create main-banner
                     form.submit();
                 }
             });
