@@ -904,7 +904,7 @@ form label.error {
 
 .main-banner-swiper {
     width: 100%;
-    height: 300px;
+    height: auto;
 }
 
 .main-banner-swiper .swiper-button-next, .main-banner-swiper .swiper-button-prev {
