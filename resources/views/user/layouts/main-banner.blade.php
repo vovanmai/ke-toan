@@ -1,13 +1,15 @@
 @if($isHomePage ?? false)
+    @php
+        $mainBanners = resolve(\App\Services\User\MainBanner\ListService::class)->handle();
+    @endphp
     <!-- Main banner -->
     <div class="swiper main-banner-swiper">
         <div class="swiper-wrapper">
+            @foreach($mainBanners as $banner)
             <div class="swiper-slide">
-                <img src="https://www.pace.edu.vn/uploads/banners/pace-institute-of-management-vie.jpg" alt="">
+                <img src="{{ $banner->image['url'] }}" alt="">
             </div>
-            <div class="swiper-slide">
-                <img src="https://resize.sudospaces.com/ketoanleanh/2020/08/khoa-hoc-ke-toan-tong-hop-1.jpg.webp" alt="">
-            </div>
+            @endforeach
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>

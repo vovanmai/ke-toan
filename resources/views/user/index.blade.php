@@ -13,10 +13,8 @@
                 </h2>
                 <div class="block-wrap">
                     <div class="main-post">
-                        <a href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}" title="{{ $firstPost->title }}" rel="nofollow" id="featured-thumbnail">
-                            <div class="featured-thumbnail">
-                                <img src="{{ $firstPost->image['url'] }}" class="attachment-featured size-featured wp-post-image">
-                            </div>
+                        <a class="featured-thumbnail" href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}" title="{{ $firstPost->title }}" rel="nofollow">
+                            <img src="{{ $firstPost->image['url'] }}">
                         </a>
                         <h3 class="title">
                             <a href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}" title="{{ $firstPost->title }}">{{ $firstPost->title }}</a>

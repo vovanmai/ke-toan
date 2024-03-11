@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\User\Slider;
+namespace App\Services\User\MainBanner;
 
 use App\Data\Repositories\Eloquent\MainBannerRepository;
 
@@ -20,8 +20,11 @@ class ListService
      *
      * @return array
      */
-    public function handle (array $data, int $limit = 3)
+    public function handle ()
     {
-        return $this->repository->search($data)->orderBy('created_at', 'DESC')->limit($limit);
+        return $this->repository->search([
+            'active' => true,
+        ])->orderBy('id', 'DESC')
+            ->all();
     }
 }

@@ -19,10 +19,10 @@
                         </h3>
                         <div class="entry-meta">
                             <span>
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> {{ $post->created_at->format('d/m/Y H:i') }}
+                                <i class="far fa-clock" aria-hidden="true"></i> {{ $post->created_at->format('d/m/Y H:i') }}
                             </span> |
                             <span>
-                                <i class="fa fa-user-o" aria-hidden="true"></i> {{ $post->admin->name }}
+                                <i class="far fa-user" aria-hidden="true"></i> {{ $post->admin->name }}
                             </span>
                         </div>
                         <div class="entry-description">

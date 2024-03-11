@@ -71,9 +71,10 @@ body {
     text-decoration: underline;
 }
 
-#featured-thumbnail {
+.featured-thumbnail {
     float: left;
     margin-right: 15px;
+    width: 27%;
 }
 
 .block {
@@ -92,7 +93,7 @@ body {
     margin-top: 3px;
     margin-right: 0;
     height: auto;
-    width: 146px;
+    width: 100%;
 }
 
 .block .main-post .title {
@@ -225,6 +226,8 @@ body {
 }
 .entry-content .entry-meta {
     font-size: 12px;
+    margin-bottom: 5px;
+    color: grey;
 }
 
 .entry-content .entry-title a:hover {
@@ -320,7 +323,7 @@ body {
 }
 #menu li a {
     text-decoration: none;
-    font-size: 17px;
+    font-size: 16px;
     display: block;
     padding: 12px 15px;
     color: #fff;
