@@ -18,6 +18,7 @@ class CreateMainBannersTable extends Migration
             $table->string('title')->nullable();
             $table->string('title_color', 25)->nullable();
             $table->jsonb('image');
+            $table->smallInteger('order');
             $table->boolean('active')->default(true);
             $table->string('short_description')->nullable();
             $table->string('short_description_color', 25)->nullable();

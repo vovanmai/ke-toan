@@ -8,7 +8,8 @@
     <div class="widget sidebar support-online">
         <h3>Hỗ trợ trực tuyến</h3>
         <div class="widget-content">
-            <a class="number-phone" href="tel:{{ $newHotline }}">Hotline or Zalo:
+            <a class="number-phone" href="tel:{{ $newHotline }}">
+                <img style="width: 60px; height: 60px; margin-right: 10px" src="/assets/user/img/hot-line.png" alt="">
                 <span style="color: blue; text-decoration: underline">{{ $hotline }}</span>
                 (Mr Phương)</a>
         </div>

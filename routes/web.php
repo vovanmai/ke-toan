@@ -36,8 +36,13 @@ Route::get('clear', function () {
     return 'Status: ok';
 });
 
+Route::get('test', function () {
+    return view('welcome');
+});
+
 // Routes of admin
 require __DIR__ . '/web/admin/index.php';
 
 // Routes of user2
 require __DIR__ . '/web/user/index.php';
+

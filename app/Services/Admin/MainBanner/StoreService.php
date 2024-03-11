@@ -24,6 +24,10 @@ class StoreService
      */
     public function handle (array $data)
     {
+        $maxOrder = $this->repository->orderBy('order', 'DESC')->first(['order']);
+
+        $data['order'] = isset($maxOrder->order) ? $maxOrder->order + 1 : 0;
+
         return $this->repository->create($data);
     }
 }

@@ -33,7 +33,7 @@ class DetailService
      */
     public function handle (string $cat, string $slug)
     {
-        $cat = $this->catRepo->firstOrFailWhere([
+        $this->catRepo->firstOrFailWhere([
             'slug' => $cat,
             'active' => true,
         ], ['id']);
@@ -46,7 +46,6 @@ class DetailService
         ])->firstOrFailWhere([
             'slug' => $slug,
             'active' => true,
-            'category_id' => $cat->id,
         ]);
 
         $this->increaseViewCount($post);

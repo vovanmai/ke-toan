@@ -11,6 +11,9 @@ class Category extends AbstractModel
 
     const MAX_GRADE = 2;
 
+    const TYPE_DISPLAY_HORIZONTAL = 1;
+    const TYPE_DISPLAY_VERTICAL = 2;
+
     /**
      * The table associated with the model.
      *
@@ -29,6 +32,7 @@ class Category extends AbstractModel
         'parent_id',
         'active',
         'show_on_menu',
+        'display_type',
     ];
 
     /**

@@ -75,7 +75,8 @@
                                     </div>
                                     <div class="form-group @error('image') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Ảnh<span class="required">(*)</span>
+                                            Ảnh (Yêu cầu kích thước 72x36Inch) Nên tạo từ phần mền <a style="text-decoration: underline" href="https://www.canva.com">Canva</a>
+                                            <span class="required">(*)</span>
                                         </label>
                                         <div class="field-container">
                                             <div id="dropzone-image" class="dropzone">
@@ -170,7 +171,7 @@
                 var time = dt.getTime();
                 return time + file.name;
             },
-            acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            acceptedFiles: ".jpeg,.jpg,.png,.gif,.webp",
             dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
             dictRemoveFile: 'Xóa',
             addRemoveLinks: true,

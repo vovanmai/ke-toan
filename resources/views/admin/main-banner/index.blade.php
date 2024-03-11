@@ -68,7 +68,6 @@
                         @if ($items->count())
                             <table class="table table-bordered">
                                 <tr>
-                                    <th>STT</th>
                                     <th>ID</th>
                                     <th>Tiêu đề</th>
                                     <th>Đường dẫn</th>
@@ -81,7 +80,6 @@
                                 </tr>
                                 @foreach($items as $key => $item)
                                     <tr class="tr-item-{{$item->id}}">
-                                        <td>{{ $key + 1 }}</td>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td>
@@ -122,12 +120,6 @@
                         @else
                             <div style="font-weight: bold" class="text-center">Không có dữ liệu</div>
                         @endif
-                    </div>
-                    <!-- /.box-body -->
-                    <div class="box-footer clearfix">
-                        <div class="text-right">
-                            {!! $items->links() !!}
-                        </div>
                     </div>
                 </div>
                 <!-- /.box -->

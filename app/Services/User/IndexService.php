@@ -5,7 +5,6 @@ namespace App\Services\User;
 use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Data\Repositories\Eloquent\PostRepository;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 
 
 class IndexService
@@ -36,35 +35,26 @@ class IndexService
         $this->increaseViewCount();
 
         $categories = $this->catRepo
-            ->with([
-                'activePosts' => function ($query) {
-                    return $query->orderBy('id', 'DESC')
-                        ->select([
-                            'id',
-                            'category_id',
-                            'slug',
-                            'title',
-                            'short_description',
-                            'image',
-                    ])->limit(5);
-                }
-            ])
-            ->scopeQuery(function ($query) {
-                return $query->where(function ($query) {
-                    $query->whereNull('parent_id')
-                        ->whereNotExists(function ($query) {
-                            $query->select(DB::raw(1))
-                                ->from('categories as cats')
-                                ->whereColumn('categories.id', 'cats.parent_id');
-                        })
-                        ->orWhereNotNull('parent_id');
-                });
-            })
-            ->whereHas('activePosts', function ($query) {
-                return $query;
-            })
+            ->with('childrenRecursive')
+            ->whereByField('active', true)
+            ->whereNull('parent_id')
+            ->orderBy('order', 'ASC')
             ->orderBy('id', 'ASC')
             ->all();
+
+        foreach ($categories as &$category) {
+            $catIds = [];
+            $categoryData = $category->toArray();
+            array_walk_recursive($categoryData, function ($item, $key) use (&$catIds) {
+                if ($key == 'id') {
+                    $catIds[] = $item;
+                }
+            });
+
+            $category->activePosts = $this->repository->whereIn('category_id', $catIds)
+                ->whereByField('active', true)
+                ->all();
+        }
 
         return [
             'categories' => $categories

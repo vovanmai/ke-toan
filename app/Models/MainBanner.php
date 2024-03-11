@@ -28,6 +28,7 @@ class MainBanner extends AbstractModel
         'image',
         'active',
         'link',
+        'order',
     ];
 
     /**

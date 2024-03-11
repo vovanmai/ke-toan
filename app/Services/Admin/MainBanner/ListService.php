@@ -29,9 +29,9 @@ class ListService
 
         return $this->repository->search($filters)
             ->orderByColumns([
-                'id' => 'desc',
+                'order' => 'ASC',
             ])
-            ->paginate(10);
+            ->all();
     }
 
     /**
