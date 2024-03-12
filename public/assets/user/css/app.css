@@ -292,6 +292,7 @@ body {
 .pagination-block {
     justify-content: end;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 /*.container {*/
@@ -907,6 +908,8 @@ form label.error {
     padding: 7px;
     font-size: 18px;
     color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #request-question button[type=submit] {

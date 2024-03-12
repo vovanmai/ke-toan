@@ -3,6 +3,7 @@
 namespace App\Services\User\Post;
 
 use App\Data\Repositories\Eloquent\PostRepository;
+use App\Models\Category;
 
 class ListPostByViewService
 {
@@ -28,6 +29,9 @@ class ListPostByViewService
     {
         return $this->repository->whereByField('active', true)
             ->with('category')
+            ->whereHas('category', function ($query) {
+                $query->where('display_type', Category::TYPE_DISPLAY_LIST);
+            })
             ->orderBy('total_view', 'DESC')
             ->limit(5, [
                 'slug',

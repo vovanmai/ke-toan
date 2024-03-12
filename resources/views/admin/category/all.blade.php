@@ -92,6 +92,18 @@
                                         @endif
                                     </div>
                                     ||
+                                    <div class="display-type" style="display: inline-block; width: 171px">
+                                        @if($item->display_type === \App\Models\Category::TYPE_DISPLAY_LIST)
+                                            <a style="color: green" href="javascript:void(0)" onclick="changeDisplayType({{ $item->id }}, {{ \App\Models\Category::TYPE_DISPLAY_GRID }})">
+                                                Hiển thị dạng danh sách
+                                            </a>
+                                        @else
+                                            <a style="color: gray" href="javascript:void(0)" onclick="changeDisplayType({{ $item->id }}, {{ \App\Models\Category::TYPE_DISPLAY_LIST }})">
+                                                Hiển thị dạng lưới
+                                            </a>
+                                        @endif
+                                    </div>
+                                    ||
                                     <a style="color: #367fa9" href="{{ route('admin.category.edit', ['id' => $item->id]) }}">
                                         <i class="fa fa-edit"></i> Sửa
                                     </a>
@@ -129,6 +141,18 @@
                                                 <a style="color: gray" href="javascript:void(0)" onclick="changeShowOnMenu({{ $item->id }}, 1)">
                                                 <i class="fa fa-ban"> Không hiển thị trên menu</i>
                                             </a>
+                                            @endif
+                                        </div>
+                                        ||
+                                        <div class="display-type" style="display: inline-block; width: 171px">
+                                            @if($item->display_type === \App\Models\Category::TYPE_DISPLAY_LIST)
+                                                <a style="color: green" href="javascript:void(0)" onclick="changeDisplayType({{ $item->id }}, {{ \App\Models\Category::TYPE_DISPLAY_GRID }})">
+                                                    Hiển thị dạng danh sách
+                                                </a>
+                                            @else
+                                                <a style="color: gray" href="javascript:void(0)" onclick="changeDisplayType({{ $item->id }}, {{ \App\Models\Category::TYPE_DISPLAY_LIST }})">
+                                                    Hiển thị dạng lưới
+                                                </a>
                                             @endif
                                         </div>
                                         ||
@@ -297,6 +321,34 @@
                     }
 
                     $(`.cat-${id} .show-on-menu`).html(html)
+                },
+                error: function(error) {
+                    toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');
+                }
+            });
+        }
+
+        function changeDisplayType (id, displayType) {
+            $.ajax({
+                data: {
+                    display_type: displayType
+                },
+                type: 'POST',
+                dataType: "JSON",
+                url: `/admin/categories/${id}/display-type`,
+                success: function(response)
+                {
+                    if (displayType === 1) {
+                        var html = `<a style="color: green" href="javascript:void(0)" onclick="changeDisplayType(${id}, 2)">
+                            Hiển thị dạng danh sách
+                        </a>`
+                    } else {
+                        var html = `<a style="color: gray" href="javascript:void(0)" onclick="changeDisplayType(${id}, 1)">
+                            Hiển thị dạng lưới
+                        </a>`
+                    }
+
+                    $(`.cat-${id} .display-type`).html(html)
                 },
                 error: function(error) {
                     toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');

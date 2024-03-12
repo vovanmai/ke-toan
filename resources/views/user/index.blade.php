@@ -12,7 +12,7 @@
                 <h2 class="block-title">
                     <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
                 </h2>
-                @if($category->display_type === \App\Models\Category::TYPE_DISPLAY_HORIZONTAL)
+                @if($category->display_type === \App\Models\Category::TYPE_DISPLAY_LIST)
                 <div class="block-wrap display-horizontal">
                     <div class="main-post">
                         <a class="featured-thumbnail" href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}" title="{{ $firstPost->title }}" rel="nofollow">

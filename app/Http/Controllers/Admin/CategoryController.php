@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Category\CreateRequest;
 use App\Http\Requests\Admin\Category\EditRequest;
 use App\Models\Category;
 use App\Services\Admin\Category\ChangActiveService;
+use App\Services\Admin\Category\ChangDisplayTypeService;
 use App\Services\Admin\Category\CreateService;
 use App\Services\Admin\Category\DeleteService;
 use App\Services\Admin\Category\DetailService;
@@ -164,6 +165,21 @@ class CategoryController extends BaseController
         ]);
         try {
             resolve(ChangActiveService::class)->handle($id, $data);
+            return response()->success('Thành công');
+        } catch (ModelNotFoundException $exception) {
+            return response()->notFound();
+        } catch (Exception $exception) {
+            return response()->error('Máy chủ bị lỗi', $exception);
+        }
+    }
+
+    public function changeDisplayType (Request $request, int $id)
+    {
+        $data = $request->only([
+            'display_type',
+        ]);
+        try {
+            resolve(ChangDisplayTypeService::class)->handle($id, $data);
             return response()->success('Thành công');
         } catch (ModelNotFoundException $exception) {
             return response()->notFound();
