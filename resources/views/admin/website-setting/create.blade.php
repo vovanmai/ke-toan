@@ -38,6 +38,17 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="form-group @error('company_tax_code') has-error @enderror" style="margin-bottom: 30px">
+                                        <label>
+                                            Mã số thuế công ty<span class="required"></span>
+                                        </label>
+                                        <div class="field-container">
+                                            <input type="text" name="company_tax_code" class="form-control" value="{{ old('company_tax_code') ?? $setting->company_tax_code ?? null }}">
+                                            @error('company_tax_code')
+                                            <span class="help-block">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="form-group @error('hotline') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
                                             Hotline<span class="required"></span>

@@ -33,6 +33,7 @@ class Category extends AbstractModel
         'active',
         'show_on_menu',
         'display_type',
+        'order',
     ];
 
     /**

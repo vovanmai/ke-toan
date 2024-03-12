@@ -167,8 +167,9 @@ body {
 }
 
 #footer {
-    border-top: 2px solid gray;
+    border-top: 1px solid #bab8b8;
     padding: 20px 0px 20px 0px;
+    background: url("/assets/user/img/footer-background.jpg");
 }
 
 .company-name {

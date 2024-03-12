@@ -32,6 +32,7 @@ class CreateWebsiteSettingRequest extends FormRequest
             ],
             'company_email' => 'nullable|email|max:255',
             'company_name' => 'nullable|max:255',
+            'company_tax_code' => 'nullable|max:20',
             'company_address' => 'nullable|max:255',
             'company_website_domain' => 'nullable|max:255',
             'link_fan_page_facebook' => 'nullable|max:255',

@@ -1,30 +1,48 @@
 <div id="footer">
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-md-6">--}}
+{{--                @php--}}
+{{--                    $setting = app('web_setting');--}}
+{{--                    $hotline = $setting->hotline ?? '';--}}
+{{--                    $newHotline = str_replace('.', '', $hotline)--}}
+{{--                @endphp--}}
+{{--                <h6 class="company-name">{{ $setting->company_name ?? null }}</h6>--}}
+{{--                <div>--}}
+{{--                    <p style="margin-bottom: 5px; font-size: 13px">--}}
+{{--                        <i class="fa fa-phone" aria-hidden="true"></i> Phone:--}}
+{{--                        <a href="tel:0984969752">{{ $setting->hotline ?? null }}</a>--}}
+{{--                    </p>--}}
+{{--                    <p style="margin-bottom: 5px; font-size: 13px">--}}
+{{--                        <i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ:--}}
+{{--                        {{ $setting->company_address ?? null }}--}}
+{{--                    </p>--}}
+{{--                    <p style="margin-bottom: 5px; font-size: 13px">--}}
+{{--                        <i class="fa fa-envelope" aria-hidden="true"></i> Email:--}}
+{{--                        {{ $setting->company_email ?? null }}--}}
+{{--                    </p>--}}
+{{--                    <p style="margin-bottom: 5px; font-size: 13px">--}}
+{{--                        <i class="fa fa-globe" aria-hidden="true"></i> Website:--}}
+{{--                        <a href="https://ketoandpt.com.vn">{{ $setting->company_website_domain ?? null }}</a>--}}
+{{--                    </p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+    @php
+        $setting = app('web_setting');
+        $hotline = $setting->hotline ?? '';
+        $newHotline = str_replace('.', '', $hotline)
+    @endphp
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                @php
-                    $setting = app('web_setting');
-                    $hotline = $setting->hotline ?? '';
-                    $newHotline = str_replace('.', '', $hotline)
-                @endphp
-                <h6 class="company-name">{{ $setting->company_name ?? null }}</h6>
-                <div>
-                    <p style="margin-bottom: 5px; font-size: 13px">
-                        <i class="fa fa-phone" aria-hidden="true"></i> Phone:
-                        <a href="tel:0984969752">{{ $setting->hotline ?? null }}</a>
-                    </p>
-                    <p style="margin-bottom: 5px; font-size: 13px">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ:
-                        {{ $setting->company_address ?? null }}
-                    </p>
-                    <p style="margin-bottom: 5px; font-size: 13px">
-                        <i class="fa fa-envelope" aria-hidden="true"></i> Email:
-                        {{ $setting->company_email ?? null }}
-                    </p>
-                    <p style="margin-bottom: 5px; font-size: 13px">
-                        <i class="fa fa-globe" aria-hidden="true"></i> Website:
-                        <a href="https://ketoandpt.com.vn">{{ $setting->company_website_domain ?? null }}</a>
-                    </p>
+            <div class="col-md-12">
+                <div style="padding-top: 20px">
+                    <h5 class="text-center" style="color: white; font-weight: bold">{{ $setting->company_name ?? null }}</h5>
+                    <h6 class="text-center" style="color: white">Mã số thuế : {{ $setting->company_tax_code ?? null }}</h6>
+                    <h6 class="text-center" style="color: white">Địa chỉ : {{ $setting->company_address ?? null }}</h6>
+                    <h6 class="text-center" style="color: white">Hotline : <a style="color: white" href="tel:{{$newHotline}}">{{ $hotline ?? null }}</a> </h6>
+                    <h6 class="text-center" style="color: white">Website : <a style="color: white" href="{{$setting->company_website_domain ?? null}}">{{ $setting->company_website_domain ?? null }}</a> </h6>
                 </div>
             </div>
         </div>
