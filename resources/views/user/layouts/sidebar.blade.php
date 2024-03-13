@@ -17,7 +17,7 @@
     </div>
 
     <div class="widget sidebar highlight-post">
-        <h3>Khóa học nổi b</h3>
+        <h3>Khóa học nổi bật</h3>
         <div class="widget-content">
             @foreach($courses as $course)
                 <a href="{{ route('user.course.detail', ['category' => $course->category->slug, 'slug' => $course->slug]) }}">

@@ -145,7 +145,6 @@ $('#request-question').validate({
     }
 });
 
-
 var swiper = new Swiper(".main-banner-swiper", {
     spaceBetween: 30,
     centeredSlides: true,
@@ -160,5 +159,34 @@ var swiper = new Swiper(".main-banner-swiper", {
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
+    },
+});
+
+const thumbCourseGallery = new Swiper(".mySwiper", {
+    spaceBetween: 3,
+    slidesPerView: 9,
+    freeMode: true,
+    watchSlidesProgress: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+new Swiper(".mySwiper2", {
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    spaceBetween: 10,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+        swiper: thumbCourseGallery,
     },
 });
