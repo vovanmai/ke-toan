@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Admin\Category;
+namespace App\Services\Admin\CourseCategory;
 
 use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Data\Validators\Exceptions\ValidatorException;
@@ -30,8 +30,8 @@ class CreateService
 
         $grade = $this->getGradeNumber($parentCat);
 
-        if ($grade >= Category::MAX_GRADE) {
-            throw new ValidatorException(new MessageBag(['parent_id' => 'Danh mục tối đa ' . Category::MAX_GRADE . ' cấp.']));
+        if ($grade >= Category::MAX_GRADE_COURSE) {
+            throw new ValidatorException(new MessageBag(['parent_id' => 'Danh mục tối đa ' . Category::MAX_GRADE_COURSE . ' cấp.']));
         }
 
         $data['description'] = empty($data['description']) ? $data['title'] : $data['description'];

@@ -23,6 +23,7 @@ class CreateCategoriesTable extends Migration
             $table->unsignedBigInteger('parent_id')->index()->nullable();
             $table->unsignedInteger('order')->default(1);
             $table->unsignedInteger('display_type')->default(\App\Models\Category::TYPE_DISPLAY_LIST);
+            $table->unsignedSmallInteger('type')->default(\App\Models\Category::TYPE_POST);
             $table->timestamps();
 
             $table->foreign('parent_id')

@@ -19,6 +19,12 @@ Route::namespace("Admin")->middleware('guard:admin')->prefix('admin')->group(fun
         // Routes of post
         require __DIR__ . '/post.php';
 
+        // Routes of category
+        require __DIR__ . '/course-category.php';
+
+        // Routes of post
+        require __DIR__ . '/course.php';
+
         // Routes of post
         require __DIR__ . '/main-banner.php';
 

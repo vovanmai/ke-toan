@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Admin\Category;
+namespace App\Services\Admin\CourseCategory;
 
 use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Models\Category;

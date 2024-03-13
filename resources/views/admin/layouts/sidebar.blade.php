@@ -144,6 +144,29 @@
                 </a>
             </li>--}}
 
+            <li class="treeview {{ request()->is('admin/courses*') || request()->is('admin/course-categories*') ? 'active' : '' }}">
+                <a href="#">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <span>Quản lý khóa khọc</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ request()->is('admin/course-categories*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.course_category.list') }}">
+                            <i class="fa fa-list-alt"></i> <span>Danh mục khóa học</span>
+                        </a>
+                    </li>
+
+                    <li class="{{ request()->is('admin/courses*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.course.list') }}">
+                            <i class="fa fa-book"></i> <span>Khóa học</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="treeview {{ request()->is('admin/posts*') || request()->is('admin/categories*') ? 'active' : '' }}">
                 <a href="#">
                     <i class="fa fa-edit"></i> <span>Quản lý bài viết</span>
