@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Post\CreatePostRequest;
-use App\Http\Requests\Admin\Post\UpdatePostRequest;
+use App\Http\Requests\Admin\Course\CreateRequest;
+use App\Http\Requests\Admin\Course\UpdateRequest;
 use App\Models\Category;
-use App\Services\Admin\Post\ChangeActiveService;
-use App\Services\Admin\Post\DeleteService;
-use App\Services\Admin\Post\DetailService;
-use App\Services\Admin\Post\StoreService;
+use App\Services\Admin\Course\ChangeActiveService;
+use App\Services\Admin\Course\DeleteService;
+use App\Services\Admin\Course\DetailService;
+use App\Services\Admin\Course\StoreService;
 use App\Services\Admin\Category\GetAllService;
-use App\Services\Admin\Post\ListService;
-use App\Services\Admin\Post\UpdateService;
+use App\Services\Admin\Course\ListService;
+use App\Services\Admin\Course\UpdateService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Exception;
@@ -32,10 +32,10 @@ class CourseController extends Controller
 
         try {
 
-            $categories = resolve(GetAllService::class)->handle();
+            $categories = resolve(GetAllService::class)->handle(Category::TYPE_COURSE);
             $items = resolve(ListService::class)->handle($filters);
 
-            return view('admin.post.index', [
+            return view('admin.course.index', [
                 'categories' => $categories,
                 'items' => $items,
             ]);
@@ -47,14 +47,14 @@ class CourseController extends Controller
     public function create ()
     {
         try {
-            $categories = resolve(GetAllService::class)->handle();
+            $categories = resolve(GetAllService::class)->handle(Category::TYPE_COURSE);
 
             if (!$categories->count()) {
-                session()->flash('error_message', 'Vui lòng tạo danh mục trước khi tạo bài viết.');
+                session()->flash('error_message', 'Vui lòng tạo danh mục trước khi tạo khóa học.');
                 return redirect()->back();
             }
 
-            return view('admin.post.create', [
+            return view('admin.course.create', [
                 'categories' => $categories,
             ]);
         } catch (Exception $ex) {
@@ -63,7 +63,7 @@ class CourseController extends Controller
         }
     }
 
-    public function store (CreatePostRequest $request)
+    public function store (CreateRequest $request)
     {
         $data = $request->validated();
         try {
@@ -73,7 +73,7 @@ class CourseController extends Controller
 
             session()->flash('success_message', 'Tạo bài viết thành công!');
 
-            return redirect()->route('admin.post.list');
+            return redirect()->route('admin.course.list');
         } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());
@@ -84,9 +84,9 @@ class CourseController extends Controller
     public function edit (int $id)
     {
         try {
-            $categories = resolve(GetAllService::class)->handle();
+            $categories = resolve(GetAllService::class)->handle(Category::TYPE_COURSE);
             $item = resolve(DetailService::class)->handle($id);
-            return view('admin.post.edit', [
+            return view('admin.course.edit', [
                 'categories' => $categories,
                 'item' => $item,
             ]);
@@ -96,7 +96,7 @@ class CourseController extends Controller
         }
     }
 
-    public function update (UpdatePostRequest $request, int $id)
+    public function update (UpdateRequest $request, int $id)
     {
         $data = $request->validated();
 
@@ -107,8 +107,8 @@ class CourseController extends Controller
 
             session()->flash('success_message', 'Cập nhật bài viết thành công!');
 
-            return redirect()->route('admin.post.list');
-        } catch (Exception $ex) {dd($ex->getMessage());
+            return redirect()->route('admin.course.list');
+        } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');

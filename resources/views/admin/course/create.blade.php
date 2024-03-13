@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Quản lý bài viết</small>
+            <small>Quản lý khoá học</small>
         </h1>
     </section>
 
@@ -13,12 +13,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="create-post-form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.post.store') }}">
+                    <form id="create-post-form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.course.store') }}">
                         @csrf
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tạo mới bài viết</h3>
                             <div class="box-tools pull-right">
-                                <a href="{{ route('admin.post.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
+                                <a href="{{ route('admin.course.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
                                     Xem danh sách
                                 </a>
                             </div>

@@ -8,6 +8,28 @@
         </li>
 
         @php
+            $courseCategories = resolve(\App\Services\User\Category\GetAllService::class)->handle(\App\Models\Category::TYPE_COURSE);
+        @endphp
+
+        <li>
+            <a class="{{ request()->is('khoa-hoc-ke-toan') ? 'active' : ''}}" href="{{ route('user.course.list_all') }}">
+                <span>Khóa học kế toán</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown_menu">
+                @foreach($courseCategories as $courseCat)
+                    <li>
+                        <a class="{{ request()->is('khoa-hoc/' . $courseCat->slug) ? 'active' : ''}}" href="{{ route('user.course.index', ['category' => $courseCat->slug]) }}">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>{{ $courseCat->title }}</span>
+                            </div>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </li>
+
+        @php
             $categories = resolve(\App\Services\User\Category\GetAllService::class)->handle();
         @endphp
 

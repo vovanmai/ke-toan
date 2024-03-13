@@ -11,5 +11,5 @@ Route::prefix('courses')->group(function () {
     Route::put('{id}', 'CourseController@update')->name('admin.course.update');
 
     Route::delete('{id}', 'CourseController@destroy')->name('admin.course.destroy');
-    Route::post('{id}/active', 'CourseController@changActive')->name('admin.course.active');
+    Route::post('{id}/active', 'CourseController@changeActive')->name('admin.course.active');
 });

@@ -13,13 +13,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="edit-post-form" class="form-horizontal" method="POST" action="{{ route('admin.post.update', ['id' => $item]) }}">
+                    <form id="edit-post-form" class="form-horizontal" method="POST" action="{{ route('admin.course.update', ['id' => $item]) }}">
                         @csrf
                         @method('PUT')
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-edit"></i>Cập nhật bài viết</h3>
                             <div class="box-tools pull-right">
-                                <a href="{{ route('admin.post.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
+                                <a href="{{ route('admin.course.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
                                     Xem danh sách
                                 </a>
                             </div>

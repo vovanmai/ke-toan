@@ -19,9 +19,12 @@
         <li class="breadcrumb-item"><a href="/">
             <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
         </li>
+        <li class="breadcrumb-item">
+            <a href="{{ route('user.course.list_all') }}">Khóa học kế toán</a>
+        </li>
         @foreach($cats as $slug => $catTitle)
             <li class="breadcrumb-item">
-                <a href="{{ route('user.post.index', ['slug' => $slug]) }}">{{ $catTitle }}</a>
+                <a href="{{ route('user.course.index', ['category' => $slug]) }}">{{ $catTitle }}</a>
             </li>
         @endforeach
         <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>

@@ -3,6 +3,7 @@
 namespace App\Services\User\Category;
 
 use App\Data\Repositories\Eloquent\CategoryRepository;
+use App\Models\Category;
 
 class GetAllService
 {
@@ -19,7 +20,7 @@ class GetAllService
     /**
      * @return array
      */
-    public function handle ()
+    public function handle (int $type = Category::TYPE_POST)
     {
         return $this->repository->with([
             'childrenRecursive' => function ($query) {
@@ -27,6 +28,7 @@ class GetAllService
                     ->where('show_on_menu', true)
                     ->select(['*']);
             }])
+            ->whereByField('type', $type)
             ->whereByField('active', true)
             ->whereByField('show_on_menu', true)
             ->orderBy('order', 'ASC')

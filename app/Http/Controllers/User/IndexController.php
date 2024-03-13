@@ -13,7 +13,6 @@ class IndexController extends Controller
     {
         try {
             $data = resolve(IndexService::class)->handle();
-            $data['isHomePage'] = true;
             return view('user.index', $data);
         } catch (Exception $exception) {
             Log::error($exception);

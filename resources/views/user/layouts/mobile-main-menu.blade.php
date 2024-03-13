@@ -17,6 +17,30 @@
         </li>
 
         @php
+            $courseCategories = resolve(\App\Services\User\Category\GetAllService::class)->handle(\App\Models\Category::TYPE_COURSE);
+        @endphp
+
+        <li>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="{{ route('user.course.list_all') }}" class="{{ request()->is('khoa-hoc-ke-toan') ? 'active' : ''}}">
+                    <span>Khóa học kế toán</span>
+                </a>
+                <div class="button-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            <ul class="sub-menu">
+                @foreach($courseCategories as $courseCat)
+                    <li>
+                        <a href="{{ route('user.course.index', ['category' => $courseCat->slug]) }}" class="{{ request()->is('khoa-hoc/' . $courseCat->slug) ? 'active' : ''}}">
+                            <span>{{ $courseCat->title }}</span>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </li>
+
+        @php
             $categories = resolve(\App\Services\User\Category\GetAllService::class)->handle();
         @endphp
 

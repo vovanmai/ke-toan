@@ -13,8 +13,9 @@ class CourseRepository extends AppBaseRepository
      */
     protected $fieldSearchable = [
         'title' => ['column' => 'courses.title', 'operator' => 'like', 'type' => 'normal'],
-        'created_at_from' => ['column' => 'recruitments.created_at', 'operator' => '>=', 'type' => 'date'],
-        'created_at_to' => ['column' => 'recruitments.created_at', 'operator' => '<=', 'type' => 'date'],
+        'category_ids' => ['column' => 'courses.category_id', 'operator' => 'in', 'type' => 'normal'],
+        'created_at_from' => ['column' => 'courses.created_at', 'operator' => '>=', 'type' => 'date'],
+        'created_at_to' => ['column' => 'courses.created_at', 'operator' => '<=', 'type' => 'date'],
     ];
 
     /**

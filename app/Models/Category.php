@@ -107,4 +107,12 @@ class Category extends AbstractModel
     {
         return $this->hasMany(Post::class, 'category_id', 'id');
     }
+
+    /**
+     * Get the posts of category.
+     */
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'category_id', 'id');
+    }
 }

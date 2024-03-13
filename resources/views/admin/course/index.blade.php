@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Danh sách bài viết</small>
+            <small>Danh sách khóa học</small>
         </h1>
     </section>
 
@@ -13,9 +13,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="search-post-form" class="form-horizontal" method="GET" action="{{ route('admin.post.list') }}">
+                    <form id="search-post-form" class="form-horizontal" method="GET" action="{{ route('admin.course.list') }}">
                         <div class="box-header with-border">
-                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tìm kiếm bài viết</h3>
+                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tìm kiếm</h3>
                         </div>
                     <!-- /.box-header -->
                         <div class="box-body">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <div class="box-footer text-center">
-                            <button type="reset" onclick="resetSearchForm('/admin/posts')" class="btn btn-default reset-form-admin" style="margin-right: 2px">
+                            <button type="reset" onclick="resetSearchForm('/admin/courses')" class="btn btn-default reset-form-admin" style="margin-right: 2px">
                                 <i class="fa fa fa-eraser"></i> Xóa</button>
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-fw fa-search"></i>Tìm kiếm
@@ -79,12 +79,12 @@
             <div class="col-md-12">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-fw fa-list-ul"></i>Danh sách bài viết</h3>
+                        <h3 class="box-title"><i class="fa fa-fw fa-list-ul"></i>Danh sách</h3>
                         <div class="box-tools pull-right">
-                            <a href="{{ route('admin.post.list') }}" type="button" class="btn btn-success"><i class="fa fa fa-refresh"></i>
+                            <a href="{{ route('admin.course.list') }}" type="button" class="btn btn-success"><i class="fa fa fa-refresh"></i>
                                 Làm mới
                             </a>
-                            <a href="{{ route('admin.post.create') }}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>
+                            <a href="{{ route('admin.course.create') }}" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>
                                 Tạo mới
                             </a>
                         </div>
@@ -110,7 +110,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td class="text-center">
-                                            <a class="copy-link" target="_blank" href="{{ route('user.post.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}">Link</a>
+                                            <a class="copy-link" target="_blank" href="{{ route('user.course.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}">Link</a>
                                             <a style="color: #5a5858; cursor: pointer; margin-left: 15px" onclick="copyLink(`.tr-item-{{$item->id}} .copy-link`)">
                                                 <i class="fa fa-clipboard" aria-hidden="true"></i>
                                             </a>
@@ -140,7 +140,7 @@
                                             {{ $item->updated_at }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.post.edit', ['id' => $item->id]) }}" class="btn btn-primary">
+                                            <a href="{{ route('admin.course.edit', ['id' => $item->id]) }}" class="btn btn-primary">
                                                 <i class="fa fa-edit"></i> Sửa
                                             </a>
                                             <button onclick="deleteItem({{ $item->id }})" type="button" class="btn btn-danger">
@@ -220,7 +220,7 @@
                     $.ajax({
                         type: 'delete',
                         dataType: "JSON",
-                        url: `/admin/posts/${id}`,
+                        url: `/admin/courses/${id}`,
                         success: function(response)
                         {
                             toastr.success(response.message, 'Thành công');
@@ -241,7 +241,7 @@
                 },
                 type: 'POST',
                 dataType: "JSON",
-                url: `/admin/posts/${id}/active`,
+                url: `/admin/courses/${id}/active`,
                 success: function(response)
                 {
                     if (active) {

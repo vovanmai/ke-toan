@@ -25,13 +25,13 @@ class Course extends AbstractModel
     protected $fillable = [
         'admin_id',
         'title',
+        'category_id',
         'short_description',
         'slug',
         'image',
         'active',
         'description',
         'total_view',
-        'comment_type',
     ];
 
     /**
@@ -49,6 +49,16 @@ class Course extends AbstractModel
     }
 
     /**
+     * Product belong to category
+     *
+     * @return BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    /**
      * Recruitment belong to Admin
      *
      * @return BelongsTo
@@ -63,7 +73,7 @@ class Course extends AbstractModel
         $data = json_decode($this->attributes['image'], true);
 
         if ($data) {
-            $data['url'] = asset(getPublicFile($data['store_name']));
+            $data['url'] = getPublicFile($data['store_name']);
         }
         return $data;
     }

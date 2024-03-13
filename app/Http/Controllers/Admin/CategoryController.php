@@ -28,6 +28,8 @@ class CategoryController extends BaseController
             'title',
         ]);
 
+        $filters['type'] = Category::TYPE_POST;
+
         try {
             $categories = resolve(ListService::class)->handle($filters);
 

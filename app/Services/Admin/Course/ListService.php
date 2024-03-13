@@ -28,6 +28,7 @@ class ListService
         $filters = $this->updateFilters($filters);
 
         return $this->repository->search($filters)
+            ->with(['category'])
             ->orderByColumns([
                 'id' => 'desc',
             ])

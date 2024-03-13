@@ -4,6 +4,7 @@
         $hotline = $webSetting->hotline ?? '';
         $newHotline = str_replace('.', '', $hotline);
         $posts = resolve(\App\Services\User\Post\ListPostByViewService::class)->handle();
+        $courses = resolve(\App\Services\User\Course\ListByViewService::class)->handle();
     @endphp
     <div class="widget sidebar support-online">
         <h3>Hỗ trợ trực tuyến</h3>
@@ -14,6 +15,21 @@
                 (Mr Phương)</a>
         </div>
     </div>
+
+    <div class="widget sidebar highlight-post">
+        <h3>Khóa học nổi b</h3>
+        <div class="widget-content">
+            @foreach($courses as $course)
+                <a href="{{ route('user.course.detail', ['category' => $course->category->slug, 'slug' => $course->slug]) }}">
+                    <img src="{{ $course['image']['url'] }}" alt="{{ $course->title }}">
+                    <p style="text-decoration: none;">
+                        {{ $course->title }}
+                    </p>
+                </a>
+            @endforeach
+        </div>
+    </div>
+
     <div class="widget sidebar highlight-post">
         <h3>Bài viết nổi bật</h3>
         <div class="widget-content">

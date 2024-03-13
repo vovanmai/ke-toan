@@ -30,7 +30,7 @@ class ListService
                 },
             ])
             ->whereNull('parent_id')
-            ->withCount('posts')
+            ->withCount('courses')
             ->orderByColumns([
                 'id' => 'ASC',
             ])

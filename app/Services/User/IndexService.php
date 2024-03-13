@@ -3,6 +3,7 @@
 namespace App\Services\User;
 
 use App\Data\Repositories\Eloquent\CategoryRepository;
+use App\Data\Repositories\Eloquent\CourseRepository;
 use App\Data\Repositories\Eloquent\PostRepository;
 use Illuminate\Support\Facades\Cache;
 
@@ -15,16 +16,23 @@ class IndexService
     protected $catRepo;
 
     /**
+     * @var CourseRepository
+     */
+    protected $courseRepository;
+
+    /**
      * @var PostRepository
      */
     protected $repository;
 
     public function __construct(
         CategoryRepository $catRepo,
+        CourseRepository $courseRepository,
         PostRepository $repository
     ) {
         $this->repository = $repository;
         $this->catRepo = $catRepo;
+        $this->courseRepository = $courseRepository;
     }
 
     /**
@@ -56,8 +64,14 @@ class IndexService
                 ->all();
         }
 
+
+        $courses = $this->courseRepository->whereByField('active', true)
+            ->orderBy('id', 'DESC')
+            ->all();
+
         return [
-            'categories' => $categories
+            'categories' => $categories,
+            'courses' => $courses,
         ];
     }
 

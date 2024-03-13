@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Post\CreatePostRequest;
 use App\Http\Requests\Admin\Post\UpdatePostRequest;
-use App\Models\Category;
 use App\Services\Admin\Post\ChangeActiveService;
 use App\Services\Admin\Post\DeleteService;
 use App\Services\Admin\Post\DetailService;

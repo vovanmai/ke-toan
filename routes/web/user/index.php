@@ -7,6 +7,9 @@ Route::namespace("User")->group(function () {
     require __DIR__ . '/error.php';
     require __DIR__ . '/page.php';
 
+    Route::get('khoa-hoc-ke-toan', 'CourseController@getAll')->name('user.course.list_all');
+    require __DIR__ . '/course.php';
+
     // Route index
     Route::get('', 'IndexController@index')->name('user.index');
 
