@@ -933,6 +933,10 @@ form label.error {
     height: auto;
 }
 
+.main-banner-swiper .swiper-slide{
+    width: 100%;
+}
+
 .main-banner-swiper .swiper-button-next, .main-banner-swiper .swiper-button-prev {
     color: grey;
 }
@@ -951,15 +955,14 @@ form label.error {
 }
 
 .swiper-slide .banner {
-    position: relative;
     width: 100%;
-    height: auto
+    height: 100%;
 }
 
 .swiper-slide .banner img {
     display: block;
     width: 100%;
-    height: 100%;
+    max-height: 540px;
     object-fit: cover;
 }
 
