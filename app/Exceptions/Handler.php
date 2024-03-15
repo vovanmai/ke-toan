@@ -78,7 +78,7 @@ class Handler extends ExceptionHandler
 
             $this->requestLog($request);
 
-            return redirect()->route("{$route}.error.not_found");
+            return redirectredirect()->route("{$route}.error.not_found");
         }
 
         if ($e instanceof TypeError || $e instanceof \Exception) {

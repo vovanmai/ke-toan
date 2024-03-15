@@ -240,6 +240,12 @@
                     <span>Quản lý Banner</span>
                 </a>
             </li>
+            <li class="{{ request()->is('admin/course-images*') ? 'active' : '' }}">
+                <a href="{{ route('admin.course_image.list') }}">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    <span>Hình ảnh khóa học</span>
+                </a>
+            </li>
 
             <li class="{{ request()->is('admin/support-and-consultation*') ? 'active' : '' }}">
                 <a href="{{ route('admin.consultation.list') }}">

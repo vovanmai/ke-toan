@@ -35,89 +35,89 @@
     </div>
     @endif
 
-{{--    <div id="course-gallery" class="block">--}}
-{{--        <h2 class="block-title">--}}
-{{--            <a href="{{ route('user.course.list_all') }}">Hình ảnh các khóa học</a>--}}
-{{--        </h2>--}}
-{{--        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">--}}
-{{--            <div class="swiper-wrapper">--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://w.ladicdn.com/s1250x950/621a11dec113db0016a6225a/tut-off-hcm-20231025083552-pyhay.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="swiper-button-next"></div>--}}
-{{--            <div class="swiper-button-prev"></div>--}}
-{{--        </div>--}}
-{{--        <div thumbsSlider="" class="swiper mySwiper">--}}
-{{--            <div class="swiper-wrapper">--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://w.ladicdn.com/s1250x950/621a11dec113db0016a6225a/tut-off-hcm-20231025083552-pyhay.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />--}}
-{{--                </div>--}}
-{{--                <div class="swiper-slide">--}}
-{{--                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="swiper-button-next"></div>--}}
-{{--            <div class="swiper-button-prev"></div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div id="course-gallery" class="block">
+        <h2 class="block-title">
+            <a href="{{ route('user.course.list_all') }}">Hình ảnh các khóa học</a>
+        </h2>
+        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="http://laravel.test/storage/uploads/17104772610949d1091cd-43dd-46da-9baf-4b3cbe3a81b9jpeg.jpeg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="http://laravel.test/storage/uploads/17104772610949d1091cd-43dd-46da-9baf-4b3cbe3a81b9jpeg.jpeg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
 
     @foreach($categories as $category)
         @if($category->activePosts->isNotEmpty())

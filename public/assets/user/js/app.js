@@ -164,12 +164,21 @@ var swiper = new Swiper(".main-banner-swiper", {
 
 const thumbCourseGallery = new Swiper(".mySwiper", {
     spaceBetween: 3,
-    slidesPerView: 9,
     freeMode: true,
     watchSlidesProgress: true,
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+    breakpoints: {
+        390: {
+            slidesPerView: 4,
+        },
+        640: {
+            slidesPerView: 5,
+        },
+        768: {
+            slidesPerView: 6,
+        },
+        1024: {
+            slidesPerView: 9,
+        },
     },
     navigation: {
         nextEl: ".swiper-button-next",

@@ -26,6 +26,9 @@ Route::namespace("Admin")->middleware('guard:admin')->prefix('admin')->group(fun
         require __DIR__ . '/course.php';
 
         // Routes of post
+        require __DIR__ . '/course-image.php';
+
+        // Routes of post
         require __DIR__ . '/main-banner.php';
 
         // Routes of error

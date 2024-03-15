@@ -220,7 +220,7 @@
                 var time = dt.getTime();
                 return time + file.name;
             },
-            acceptedFiles: ".jpeg,.jpg,.png,.gif,.webp",
+            acceptedFiles: ".jpeg,.jpeg,.jpg,.png,.gif,.webp",
             dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
             dictRemoveFile: 'Xóa',
             addRemoveLinks: true,
