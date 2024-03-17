@@ -30,7 +30,7 @@ class ListService
             ->orderByColumns([
                 'id' => 'DESC',
             ])
-            ->paginate(10);
+            ->paginate(18);
     }
 
     /**

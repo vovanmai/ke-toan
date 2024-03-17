@@ -50,11 +50,11 @@
                     <div class="box-header with-border">
                         <h3 class="box-title"><i class="fa fa-fw fa-list-ul"></i>Danh sách</h3>
                         <div class="box-tools pull-right">
-                            <a href="{{ route('admin.page.list') }}" type="button" class="btn btn-success"><i class="fa fa fa-refresh"></i>
+                            <a href="{{ route('admin.course_image.list') }}" type="button" class="btn btn-success"><i class="fa fa fa-refresh"></i>
                                 Làm mới
                             </a>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-course-image-modal">
-                                <i class="fa fa-plus"></i> Thêm ảnh
+                                <i class="fa fa-upload" aria-hidden="true"></i> Thêm ảnh
                             </button>
                             @include('admin.course-image.create')
                         </div>

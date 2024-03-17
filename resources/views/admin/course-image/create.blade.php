@@ -70,6 +70,10 @@
 
         function createCourseImages () {
             const listFiles = $('input[name=files]')[0].files
+            if (listFiles.length === 0) {
+                toastr.error("Vui lòng chọn hình ảnh.", 'Lỗi');
+                return ;
+            }
             let promises = []
             for (const file of listFiles) {
                 promises.push(uploadToServer(file))

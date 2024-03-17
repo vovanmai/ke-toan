@@ -117,11 +117,12 @@ body {
 }
 
 .course-images > div {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     float: left;
     margin-right: 15px;
     margin-bottom: 15px;
+    transition: opacity 0.5s;
 }
 
 .course-images > div:hover {
@@ -136,3 +137,6 @@ body {
     height: 100%;
 }
 
+.box-footer nav {
+    text-align: right;
+}
