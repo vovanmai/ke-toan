@@ -162,40 +162,34 @@ var swiper = new Swiper(".main-banner-swiper", {
     },
 });
 
-const thumbCourseGallery = new Swiper(".mySwiper", {
+var swiperCourseImage = new Swiper(".thumb-course-images", {
     spaceBetween: 3,
-    freeMode: true,
-    watchSlidesProgress: true,
+    slidesPerView: 5,
+    // Responsive breakpoints
     breakpoints: {
-        390: {
-            slidesPerView: 4,
-        },
-        640: {
+        // when window width is >= 320px
+        576: {
             slidesPerView: 5,
         },
+        // when window width is >= 640px
         768: {
-            slidesPerView: 6,
+            slidesPerView: 7,
         },
-        1024: {
+        1200: {
             slidesPerView: 9,
         },
     },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
 });
-new Swiper(".mySwiper2", {
+new Swiper(".course-images", {
     autoplay: {
         delay: 2500,
         disableOnInteraction: false,
     },
-    spaceBetween: 10,
+    thumbs: {
+        swiper: swiperCourseImage,
+    },
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-    },
-    thumbs: {
-        swiper: thumbCourseGallery,
     },
 });

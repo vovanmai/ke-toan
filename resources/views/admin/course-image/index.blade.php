@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="search-post-form" class="form-horizontal" method="GET" action="{{ route('admin.page.list') }}">
+                    <form id="search-post-form" class="form-horizontal" method="GET" action="{{ route('admin.course_image.list') }}">
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tìm kiếm</h3>
                         </div>
@@ -64,7 +64,7 @@
                         <div class="course-images">
                             @foreach($items as $item)
                             <div>
-                                <img src="{{ $item->image['url'] ?? '' }}" alt="">
+                                <img loading="lazy" src="{{ $item->image['url'] ?? '' }}" alt="">
                             </div>
                             @endforeach
                         </div>

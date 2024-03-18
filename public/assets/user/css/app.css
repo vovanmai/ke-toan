@@ -266,6 +266,14 @@ body {
         padding: 8px 10px !important;
         font-size: 16px !important;
     }
+
+    #course-gallery .course-images .swiper-slide {
+        height: 200px !important;
+    }
+
+    #course-gallery .thumb-course-images .swiper-slide {
+        height: 50px !important;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -304,21 +312,6 @@ body {
     margin-bottom: 20px;
     margin-top: 20px;
 }
-
-/*.container {*/
-/*    padding-left: 7px;*/
-/*    padding-right: 7px;*/
-/*}*/
-
-/*.row {*/
-/*    margin-left: -7px;*/
-/*    margin-right: -7px;*/
-/*}*/
-
-/*.row > * {*/
-/*    padding-left: 7px;*/
-/*    padding-right: 7px;*/
-/*}*/
 
 #menu {
     padding: 0px;
@@ -1029,12 +1022,7 @@ form label.error {
     color: #2380bd;
 }
 
-#course-gallery .swiper {
-    width: 100%;
-    height: 100%;
-}
-
-#course-gallery .swiper-slide {
+#course-gallery .course-images .swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -1044,55 +1032,35 @@ form label.error {
     height: 500px;
 }
 
-#course-gallery .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+#course-gallery .course-images .swiper-slide img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
-#course-gallery .swiper {
-    width: 100%;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#course-gallery .swiper-slide {
-    background-size: cover;
-    background-position: center;
-}
-
-#course-gallery .mySwiper2 {
-    height: 80%;
-    width: 100%;
-}
-
-#course-gallery .mySwiper {
-    height: 20%;
+#course-gallery .thumb-course-images {
     box-sizing: border-box;
     padding: 3px 0;
 }
 
-#course-gallery .mySwiper .swiper-slide {
-    width: 25%;
-    height: 70px;
-    opacity: 0.4;
-}
-
-#course-gallery .mySwiper .swiper-slide-thumb-active {
-    opacity: 1;
-}
-
-#course-gallery .swiper-slide img {
+#course-gallery .thumb-course-images .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+#course-gallery .thumb-course-images .swiper-slide {
+    height: 70px;
+    opacity: 0.5;
+}
+
+#course-gallery .thumb-course-images .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
 #course-gallery .swiper-button-next, #course-gallery .swiper-button-prev {
-    color: white;
+    color: black;
 }
 
 #course-gallery .swiper-button-next:after, #course-gallery .swiper-button-prev:after {
