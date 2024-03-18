@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\Admin\CourseImage\DeleteService;
 use App\Services\Admin\CourseImage\ListService;
 use App\Services\Admin\CourseImage\StoreService;
 use Illuminate\Http\Request;
@@ -39,6 +40,16 @@ class CourseImageController extends Controller
         try {
             resolve(StoreService::class)->handle($data);
             session()->flash('success_message', 'Thêm hành công!');
+            return response()->success('Thành công');
+        } catch (Exception $exception) {
+            return response()->error('Máy chủ bị lỗi', $exception);
+        }
+    }
+
+    public function destroy (int $id)
+    {
+        try {
+            resolve(DeleteService::class)->handle($id);
             return response()->success('Thành công');
         } catch (Exception $exception) {
             return response()->error('Máy chủ bị lỗi', $exception);

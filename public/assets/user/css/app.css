@@ -1025,11 +1025,11 @@ form label.error {
 #course-gallery .course-images .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 500px;
+    background: #e3e3e3;
 }
 
 #course-gallery .course-images .swiper-slide img {

@@ -57,14 +57,15 @@
                                 <i class="fa fa-upload" aria-hidden="true"></i> Thêm ảnh
                             </button>
                             @include('admin.course-image.create')
+                            @include('admin.course-image.detail')
                         </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="course-images">
                             @foreach($items as $item)
-                            <div>
-                                <img loading="lazy" src="{{ $item->image['url'] ?? '' }}" alt="">
+                            <div class="image-{{ $item->id }}">
+                                <img target-id="{{ $item->id }}" loading="lazy" src="{{ $item->image['url'] ?? '' }}" alt="">
                             </div>
                             @endforeach
                         </div>
@@ -94,6 +95,14 @@
             timePicker: true,
             //autoclose: true,
         });
+
+        $('.course-images div img').click(function () {
+            const imageUrl = $(this).attr('src')
+            const id = $(this).attr('target-id')
+            $('#detail-course-image-modal img').attr('src', imageUrl)
+            $('#detail-course-image-modal input[type=hidden]').val(id)
+            $('#detail-course-image-modal').modal()
+        })
 
         $(function() {
             $("#search-post-form").validate({
@@ -147,54 +156,6 @@
                     });
                 }
             })
-        }
-
-        function changeActive (id, active) {
-            $.ajax({
-                data: {
-                    active: active
-                },
-                type: 'POST',
-                dataType: "JSON",
-                url: `/admin/pages/${id}/active`,
-                success: function(response)
-                {
-                    if (active) {
-                        var image = `<img onclick="changeActive(${id}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">`
-                    } else {
-                        var image = `<img onclick="changeActive(${id}, 1)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/inactive.png" alt="">`
-                    }
-
-                    $(`.tr-item-${id} .is-active`).html(image)
-                },
-                error: function(error) {
-                    toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');
-                }
-            });
-        }
-
-        function changeShowOnMenu (id, active) {
-            $.ajax({
-                data: {
-                    show_on_menu: active
-                },
-                type: 'POST',
-                dataType: "JSON",
-                url: `/admin/pages/${id}/show-on-menu`,
-                success: function(response)
-                {
-                    if (active) {
-                        var image = `<img onclick="changeShowOnMenu(${id}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">`
-                    } else {
-                        var image = `<img onclick="changeShowOnMenu(${id}, 1)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/inactive.png" alt="">`
-                    }
-
-                    $(`.tr-item-${id} .is-show-on-menu`).html(image)
-                },
-                error: function(error) {
-                    toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');
-                }
-            });
         }
     </script>
 @endpush

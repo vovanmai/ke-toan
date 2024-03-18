@@ -18,7 +18,9 @@
                 }
             @endphp
             @if($headerBanner)
-                <img style="{{ $style }}" src="{{ $headerBanner['url'] }}">
+                <a href="/">
+                    <img style="{{ $style }}" src="{{ $headerBanner['url'] }}">
+                </a>
             @endif
             <div id="toggle-show-menu">
                 <div style="background: #2588DE; color: white; padding: 10px 7px; display: flex; justify-content: space-between; align-items: center">

@@ -17,7 +17,7 @@ class CommonController extends BaseController
     {
         $file = $request->file('file');
 
-//        $key = $request->get('key', '');
+        $key = $request->get('key', '') . time();
         $resizeHeight = $request->get('resize_height');
         $resizeWidth = $request->get('resize_width');
 //        $security = $request->get('security', false);
@@ -25,14 +25,10 @@ class CommonController extends BaseController
 
         try {
             $extension = $file->getClientOriginalExtension();
-            $name = $file->getClientOriginalName();
-
-            $storeName = sprintf(
-                "%s.%s",
-                Str::slug($name),
-                $extension
-            );
             $originName = $file->getClientOriginalName();
+            $fileInfo = pathinfo($file->getClientOriginalName());
+
+            $storeName = $key . '-' . Str::slug($fileInfo['filename']) . '.' . $fileInfo['extension'];
 
             $size = $file->getSize();
 

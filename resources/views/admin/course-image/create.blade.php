@@ -46,6 +46,7 @@
             return new Promise(function(resolve, reject) {
                 const formData = new FormData()
                 formData.append('file', file)
+                formData.append('key', 'hinh-anh-khoa-hoc-')
                 $.ajax({
                     data: formData,
                     type: 'POST',
@@ -53,9 +54,6 @@
                     processData: false,
                     contentType: false,
                     cache:false,
-                    params: {
-                        key: "course-image-"
-                    },
                     success: function(response)
                     {
                         resolve(response.data);
