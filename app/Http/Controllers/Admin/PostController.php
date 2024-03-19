@@ -72,11 +72,11 @@ class PostController extends Controller
 
             session()->flash('success_message', 'Tạo bài viết thành công!');
 
-            return redirect()->route('admin.post.list');
+            return response()->success('Thành công');
         } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());
-            return redirect()->route('admin.error.error');
+            return response()->error('Lỗi', []);
         }
     }
 
@@ -106,11 +106,11 @@ class PostController extends Controller
 
             session()->flash('success_message', 'Cập nhật bài viết thành công!');
 
-            return redirect()->route('admin.post.list');
+            return response()->success('Thành công');
         } catch (Exception $ex) {dd($ex->getMessage());
             $this->rollback();
             Log::info($ex->getMessage());
-            return redirect()->route('admin.error.error');
+            return response()->error('Lỗi', []);
         }
     }
 

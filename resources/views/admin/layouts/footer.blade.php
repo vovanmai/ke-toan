@@ -234,8 +234,9 @@
 <script src="{{ customAsset('assets/admin/bower_components/fullcalendar/dist/locale-all.js') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <script src="{{ customAsset('assets/admin/dist/js/jquery.validate.min.js') }}"></script>
-<script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
 <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+<script src="/ckeditor.js"></script>
+<script src="{{ customAsset('assets/admin/dist/js/custom-ckeditor.js') }}"></script>
 <script src="{{ customAsset('assets/admin/dist/js/my-script.js') }}"></script>
 <script>
 

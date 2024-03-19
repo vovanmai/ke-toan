@@ -179,6 +179,10 @@ var swiperCourseImage = new Swiper(".thumb-course-images", {
             slidesPerView: 9,
         },
     },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
 });
 new Swiper(".course-images", {
     autoplay: {

@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -68,7 +69,17 @@ class Handler extends ExceptionHandler
      * @throws \Throwable
      */
     public function render($request, Throwable $e)
-    {dd($e);
+    {
+        if ($e instanceof ValidationException) {
+            if ($request->expectsJson()) {
+                return response()->error(
+                    'Dữ liệu nhập không hợp lê.',
+                    Arr::first($e->errors()),
+                    Response::HTTP_UNPROCESSABLE_ENTITY
+                );
+            }
+        }
+
         if ($e instanceof NotFoundHttpException || $e instanceof MethodNotAllowedHttpException) {
             $route = $request->is('admin*') ? 'admin' : 'user';
 
@@ -84,16 +95,6 @@ class Handler extends ExceptionHandler
         if ($e instanceof TypeError || $e instanceof \Exception) {
             $route = $request->is('admin*') ? 'admin' : 'user';
             return redirect()->route("{$route}.error.error");
-        }
-
-        if ($e instanceof ValidationException) {
-            if ($request->expectsJson()) {
-                return response()->error(
-                    'Dữ liệu nhập không hợp lê.',
-                    $e->errors(),
-                    Response::HTTP_UNPROCESSABLE_ENTITY
-                );
-            }
         }
 
         return parent::render($request, $e);

@@ -56,6 +56,28 @@ class CommonController extends BaseController
         }
     }
 
+    public function uploadFromCkeditor (Request $request)
+    {
+        $file = $request->file('upload');
+
+
+        try {
+            $fileInfo = pathinfo($file->getClientOriginalName());
+
+            $storeName = time() . '-' . Str::slug($fileInfo['filename']) . '.' . $fileInfo['extension'];
+
+
+            $file->storeAs(getFileContainFolder(), $storeName);
+
+            return response()->success('Thành công', [
+                'default' => '/' . config('filesystems.file_get_folder') . '/' . $storeName,
+            ]);
+        } catch (Exception $ex) {
+            Log::info($ex->getMessage());
+            return response()->error('Có lỗi khi truy cập đến máy chủ.');
+        }
+    }
+
     public function deleteFile (Request $request)
     {
         $storeName = $request->get('store_name');

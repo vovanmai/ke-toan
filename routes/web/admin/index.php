@@ -7,6 +7,10 @@ Route::namespace("Admin")->middleware('guard:admin')->prefix('admin')->group(fun
     Route::middleware(['auth', 'permission', 'active'])->group(function () {
         Route::get('logout', 'AuthController@logout')->name('admin.logout');
 
+        Route::post('upload-from-ckeditor', function (\Illuminate\Http\Request $request) {
+            dd($request->file('upload'));
+        });
+
         // Routes of common
         require __DIR__ . '/common.php';
 
