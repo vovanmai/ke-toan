@@ -470,7 +470,10 @@ body {
 
 .ckeditor-content tr:nth-child(even){background-color: #f2f2f2}
 
-
+.ckeditor-content figure img {
+    width: 100% !important;
+    height: auto !important;
+}
 .post-detail .post-title {
     color: red;
 }

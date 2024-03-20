@@ -48,6 +48,7 @@ class StoreService
             'category_id' => $data['category_id'],
             'image' => $data['image'],
             'description' => $data['description'],
+            'active' => $data['active'] ?? false,
         ];
 
         return $this->postRepository->create($dataCreate);

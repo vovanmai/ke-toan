@@ -17,7 +17,10 @@
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-edit"></i>Cập nhật bài viết</h3>
                             <div class="box-tools pull-right">
-                                <a href="{{ route('admin.post.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Lưu</button>
+                                <button type="button" onclick="updateItem(0)" class="btn btn-default"><i class="fa fa-edit"></i> Lưu và tiếp tục chỉnh sửa</button>
+                                <a target="_blank" href="{{ route('user.post.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}" class="btn btn-info"><i class="fa fa-eye"></i> Xem bài viết</a>
+                                <a href="{{ route('admin.post.list') }}" type="button" class="btn btn-success"><i class="fa fa-fw fa-list-alt"></i>
                                     Xem danh sách
                                 </a>
                             </div>
@@ -71,6 +74,14 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group" style="margin-bottom: 30px">
+                                        <label>
+                                            Active
+                                        </label>
+                                        <div class="field-container">
+                                            <input style="width: 20px; height: 20px" type="checkbox" {{ $item->active ? 'checked' : '' }} name="active">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group" style="margin-bottom: 30px">
@@ -88,9 +99,9 @@
                         </div>
                         <div class="box-footer text-center">
                             <div class="text-center">
-                                <span class="button-create">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i>Cập nhật</button>
-                                    </span>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Lưu</button>
+                                <button type="button" onclick="updateItem(0)" class="btn btn-default"><i class="fa fa-edit"></i> Lưu và tiếp tục chỉnh sửa</button>
+                                <a target="_blank" href="{{ route('user.post.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}" class="btn btn-info"><i class="fa fa-eye"></i> Xem bài viết</a>
                             </div>
                         </div>
                     </form>
@@ -106,6 +117,51 @@
 
 @push('script')
     <script>
+        function updateItem (goToList = 1) {
+            if ($("form").valid()) {
+                if (!validateRequiredPreviewImage()) {
+                    toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
+                    return;
+                }
+
+                // Validate description is required
+                var description = editor.getData();
+                if (description == '<p>&nbsp;</p>') {
+                    toastr.error('Vui lòng nhập chi tiết.', 'Lỗi');
+                    return;
+                }
+
+                const data = {
+                    category_id: $("input[name='category_id']:checked").val(),
+                    title: $("input[name='title']").val(),
+                    short_description: $("textarea[name='short_description']").val(),
+                    description: description,
+                    image: $('#edit-post-form textarea[name="image"]').val(),
+                    active: $('input[name="active"]').is(":checked") ? 1 : 0
+                }
+
+                $.ajax({
+                    data: data,
+                    type: 'POST',
+                    url: "{{ route('admin.post.update', ['id' => request()->id]) }}",
+                    cache: false,
+                    success: function(response)
+                    {
+                        if (goToList) {
+                            window.location.href = '/admin/posts'
+                        } else {
+                            window.location.href = "/admin/posts/{{$item->id}}/edit"
+                        }
+                    },
+                    error: function(error) {
+                        if (error.status === 422) {
+                            toastr.error(error.responseJSON.errors[0], 'Lỗi')
+                        }
+                    }
+                });
+            }
+        }
+
         $(function() {
             $("form").validate({
                 rules: {
@@ -145,49 +201,11 @@
                 invalidHandler: function(form, validator) {
                     toastr.error('Dữ liệu nhập không hợp lệ.', 'Lỗi');
                 },
-                submitHandler: function(form) {
-                    // Validate preview image is required
-                    if (!validateRequiredPreviewImage()) {
-                        toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
-                        return;
-                    }
-
-                    // Validate description is required
-                    var description = editor.getData();
-                    if (description == '<p>&nbsp;</p>') {
-                        toastr.error('Vui lòng nhập chi tiết.', 'Lỗi');
-                        return;
-                    }
-
-                    const data = {
-                        category_id: $("input[name='category_id']:checked").val(),
-                        title: $("input[name='title']").val(),
-                        description: description,
-                        image: $('#edit-post-form textarea[name="image"]').val()
-                    }
-
-                    updatePost(data);
+                submitHandler: function() {
+                    updateItem()
                 }
             });
         });
-
-        function updatePost (data) {
-            $.ajax({
-                data: data,
-                type: 'POST',
-                url: "{{ route('admin.post.update', ['id' => request()->id]) }}",
-                cache: false,
-                success: function(response)
-                {
-                    window.location.href = '/admin/posts'
-                },
-                error: function(error) {
-                    if (error.status === 422) {
-                        toastr.error(error.responseJSON.errors[0], 'Lỗi')
-                    }
-                }
-            });
-        }
 
 
         let uploadedImageDetailMap = {}
@@ -241,12 +259,13 @@
                 myDropzone.options.maxFiles = 0;
 
                 let imagePreview = {!! isset($item->image) ? json_encode($item->image) : "''" !!};
-
-                let callback = null; // Optional callback when it's done
-                let crossOrigin = null; // Added to the `img` tag for crossOrigin handling
-                let resizeThumbnail = true; // Tells Dropzone whether it should resize the image first
-                myDropzone.displayExistingFile(imagePreview, imagePreview.url, callback, crossOrigin, resizeThumbnail);
-                myDropzone.options.maxFiles = 0
+                if (imagePreview) {
+                    let callback = null; // Optional callback when it's done
+                    let crossOrigin = null; // Added to the `img` tag for crossOrigin handling
+                    let resizeThumbnail = true; // Tells Dropzone whether it should resize the image first
+                    myDropzone.displayExistingFile(imagePreview, imagePreview.url, callback, crossOrigin, resizeThumbnail);
+                    myDropzone.options.maxFiles = 0
+                }
             },
             removedfile: function (file) {
                 let myDropzone = this;

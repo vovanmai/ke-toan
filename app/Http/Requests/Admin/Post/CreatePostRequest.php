@@ -34,6 +34,7 @@ class CreatePostRequest extends FormRequest
             'image' => 'required',
             'short_description' => 'nullable|max:1000',
             'description' => 'required',
+            'active' => 'required|boolean',
         ];
     }
 

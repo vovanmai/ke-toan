@@ -105,13 +105,13 @@ class CourseController extends Controller
             resolve(UpdateService::class)->handle($id, $data);
             $this->commit();
 
-            session()->flash('success_message', 'Cập nhật bài viết thành công!');
+            session()->flash('success_message', 'Cập nhật khóa học thành công!');
 
-            return redirect()->route('admin.course.list');
+            return response()->success('Thành công');
         } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());
-            return redirect()->route('admin.error.error');
+            return response()->error('Máy chủ bị lỗi');
         }
     }
 

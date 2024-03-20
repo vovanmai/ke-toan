@@ -44,7 +44,7 @@ class CommonController extends BaseController
 
             return response()->success('Thành công', [
                 'store_name' => $storeName,
-                'origin_name' => $originName,
+                'name' => $originName,
                 'size' => $size,
                 'extension' => $extension,
                 'origin_height' => $originHeight,

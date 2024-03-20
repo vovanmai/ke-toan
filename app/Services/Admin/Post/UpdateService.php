@@ -59,6 +59,7 @@ class UpdateService
             'short_description' => $data['short_description'] ?? null,
             'category_id' => $data['category_id'],
             'description' => $data['description'],
+            'active' => $data['active'] ?? false,
         ];
 
         if (isset($data['image']) && !empty($data['image'])) {

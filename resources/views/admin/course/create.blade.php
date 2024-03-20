@@ -43,7 +43,7 @@
                                             <textarea class="form-control" name="short_description" rows="5">{{ old('short_description') }}</textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group @error('preview_image') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group" style="margin-bottom: 30px">
                                         <label>
                                             Ảnh đại diện<span class="required">(*)</span>
                                         </label>
@@ -53,38 +53,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{--<div class="form-group @error('comment_type') has-error @enderror" style="margin-bottom: 30px">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <label>
-                                                    Kiểu bình luận<span class="required">(*)</span>
-                                                </label>
-                                                <div class="field-container">
-                                                    @php
-                                                        $commentTypes = [
-                                                            COMMENT_NORMAL => 'Bình luận thường',
-                                                            COMMENT_FACEBOOK => 'Bình luận bằng facebook',
-                                                            COMMENT_NORMAL_AND_FACEBOOK => 'Cả hai',
-                                                        ];
-                                                    @endphp
-                                                    @foreach($commentTypes as $key => $commentType)
-                                                        <div style="margin-bottom: 5px">
-                                                            <input type="radio" value="{{ $key }}" name="comment_type" class="radio-green" {{ $key === COMMENT_NORMAL ? 'checked' : '' }}>
-                                                            {{ $commentType }}
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <label>
-                                                    <span>Hiển thị nội dung bài viết trên trang chủ</span>
-                                                </label>
-                                                <div class="field-container">
-                                                    <input type="checkbox" class="flat-red" name="is_show_home">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>--}}
                                 </div>
                                 <div class="col-md-6 col-md-offset-1">
                                     <div class="form-group" style="margin-bottom: 30px">
@@ -101,6 +69,14 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group" style="margin-bottom: 30px">
+                                        <label>
+                                            Active
+                                        </label>
+                                        <div class="field-container">
+                                            <input style="width: 20px; height: 20px" type="checkbox" name="active">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group @error('description') has-error @enderror" style="margin-bottom: 30px">
@@ -108,10 +84,7 @@
                                             Chi tiết<span class="required">(*)</span>
                                         </label>
                                         <div class="field-container">
-                                            <textarea name="description" class="form-control" rows="10"></textarea>
-                                            @error('description')
-                                            <span class="help-block">{{ $message }}</span>
-                                            @enderror
+                                            <textarea name="description" id="description-editor"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -184,34 +157,47 @@
                     }
 
                     // Validate description is required
-                    var description = CKEDITOR.instances.description.getData();
-                    if (description == '') {
+                    var description = editor.getData();
+                    if (description == '<p>&nbsp;</p>') {
                         toastr.error('Vui lòng nhập chi tiết.', 'Lỗi');
                         return;
                     }
 
-                    // Create product
-                    form.submit();
+                    const data = {
+                        category_id: $("input[name='category_id']:checked").val(),
+                        title: $("input[name='title']").val(),
+                        short_description: $("textarea[name='short_description']").val(),
+                        description: description,
+                        image: $('#create-post-form textarea[name="image"]').val(),
+                        active: $('input[name="active"]').is(":checked") ? 1 : 0
+                    }
+                    createItem(data)
                 }
             });
         });
 
-
-        CKEDITOR.replace('description', {
-            filebrowserBrowseUrl: '{{ asset('assets/admin/plugins/ckfinder/ckfinder.html') }}',
-            filebrowserImageBrowseUrl: '{{ asset('assets/admin/plugins/ckfinder/ckfinder.html?type=Images') }}',
-            filebrowserFlashBrowseUrl: '{{ asset('assets/admin/plugins/ckfinder/ckfinder.html?type=Flash') }}',
-            filebrowserUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
-            filebrowserImageUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
-            filebrowserFlashUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}',
-            language: 'vi',
-            height: 600
-        });
+        function createItem (data) {
+            $.ajax({
+                data: data,
+                type: 'POST',
+                url: "{{ route('admin.course.store') }}",
+                cache: false,
+                success: function(response)
+                {
+                    window.location.href = '/admin/courses'
+                },
+                error: function(error) {
+                    if (error.status === 422) {
+                        toastr.error(error.responseJSON.errors[0], 'Lỗi')
+                    }
+                }
+            });
+        }
 
         let uploadedImageDetailMap = {}
         Dropzone.autoDiscover = false;
 
-        let uploadedImagePreviewlMap = {}
+        let uploadedImagePreviewMap = {}
 
         $("#dropzone-image-preview").dropzone(            {
             maxFiles: 1,
@@ -240,7 +226,7 @@
                 $('#create-post-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
 
                 response.data.uuid = uuid
-                uploadedImagePreviewlMap[file.upload.filename] = response.data
+                uploadedImagePreviewMap[file.upload.filename] = response.data
             },
             error: function (file, response) {
                 return false;
@@ -260,7 +246,7 @@
                 file.previewElement.remove()
                 let uuid = file.upload.uuid
                 $(`#create-post-form .${uuid}`).remove()
-                let storeNameRemove = uploadedImagePreviewlMap[file.upload.filename].store_name
+                let storeNameRemove = uploadedImagePreviewMap[file.upload.filename].store_name
                 removeImageOnServer(storeNameRemove)
             },
         });

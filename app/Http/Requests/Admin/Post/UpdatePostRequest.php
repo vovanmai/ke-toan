@@ -35,6 +35,7 @@ class UpdatePostRequest extends FormRequest
             'image' => 'nullable',
             'short_description' => 'nullable|max:255',
             'description' => 'required',
+            'active' => 'required|boolean',
         ];
     }
 

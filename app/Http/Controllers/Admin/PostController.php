@@ -107,7 +107,7 @@ class PostController extends Controller
             session()->flash('success_message', 'Cập nhật bài viết thành công!');
 
             return response()->success('Thành công');
-        } catch (Exception $ex) {dd($ex->getMessage());
+        } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());
             return response()->error('Lỗi', []);

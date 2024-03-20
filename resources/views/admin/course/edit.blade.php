@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Quản lý bài viết</small>
+            <small>Cập nhật khóa học</small>
         </h1>
     </section>
 
@@ -17,9 +17,14 @@
                         @csrf
                         @method('PUT')
                         <div class="box-header with-border">
-                            <h3 class="box-title"><i class="fa fa-fw fa-edit"></i>Cập nhật bài viết</h3>
+                            <h3 class="box-title"><i class="fa fa-fw fa-edit"></i>Cập nhật khóa học</h3>
                             <div class="box-tools pull-right">
-                                <a href="{{ route('admin.course.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Lưu</button>
+                                <button type="button" onclick="updateItem(0)" class="btn btn-default"><i class="fa fa-edit"></i> Lưu và tiếp tục chỉnh sửa</button>
+                               <a href="{{ route('user.course.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}" type="button" class="btn btn-info">
+                                   <i class="fa fa-eye"></i> Xem khóa học
+                                </a>
+                                <a href="{{ route('admin.course.list') }}" type="button" class="btn btn-success"><i class="fa fa-fw fa-list-alt"></i>
                                     Xem danh sách
                                 </a>
                             </div>
@@ -53,38 +58,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{--<div class="form-group @error('comment_type') has-error @enderror" style="margin-bottom: 30px">
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <label>
-                                                    Kiểu bình luận<span class="required">(*)</span>
-                                                </label>
-                                                <div class="field-container">
-                                                    @php
-                                                        $commentTypes = [
-                                                            COMMENT_NORMAL => 'Bình luận thường',
-                                                            COMMENT_FACEBOOK => 'Bình luận bằng facebook',
-                                                            COMMENT_NORMAL_AND_FACEBOOK => 'Cả hai',
-                                                        ];
-                                                    @endphp
-                                                    @foreach($commentTypes as $key => $commentType)
-                                                        <div style="margin-bottom: 5px">
-                                                            <input type="radio" value="{{ $key }}" name="comment_type" class="radio-green" {{ $key == $item->comment_type ? 'checked' : '' }}>
-                                                            {{ $commentType }}
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <label>
-                                                    <span>Hiển thị nội dung bài viết trên trang chủ</span>
-                                                </label>
-                                                <div class="field-container">
-                                                    <input type="checkbox" class="flat-red" {{ $item->is_show_home ? 'checked' : '' }} name="is_show_home">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>--}}
                                 </div>
                                 <div class="col-md-6 col-md-offset-1">
                                     <div class="form-group" style="margin-bottom: 30px">
@@ -105,6 +78,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="field-container">
+                                        <input style="width: 20px; height: 20px" type="checkbox" {{ $item->active ? 'checked' : '' }} name="active">
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group @error('description') has-error @enderror" style="margin-bottom: 30px">
@@ -113,10 +89,9 @@
                                         </label>
 
                                         <div class="field-container">
-                                            <textarea name="description" class="form-control" rows="30">{!! $item->description !!}</textarea>
-                                            @error('description')
-                                            <span class="help-block">{{ $message }}</span>
-                                            @enderror
+                                            <textarea name="description" id="description-editor">
+                                                {!! $item->description !!}
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -124,9 +99,11 @@
                         </div>
                         <div class="box-footer text-center">
                             <div class="text-center">
-                                <span class="button-create">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i>Cập nhật</button>
-                                    </span>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Lưu</button>
+                                <button type="button" onclick="updateItem(0)" class="btn btn-default"><i class="fa fa-edit"></i> Lưu và tiếp tục chỉnh sửa</button>
+                                <a target="_blank" href="{{ route('user.course.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}" class="btn btn-info">
+                                    <i class="fa fa-eye"></i> Xem khóa học
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -142,6 +119,51 @@
 
 @push('script')
     <script>
+        function updateItem (goToList = 1) {
+            if ($("form").valid()) {
+                if (!validateRequiredPreviewImage()) {
+                    toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
+                    return;
+                }
+
+                // Validate description is required
+                var description = editor.getData();
+                if (description == '<p>&nbsp;</p>') {
+                    toastr.error('Vui lòng nhập chi tiết.', 'Lỗi');
+                    return;
+                }
+
+                const data = {
+                    category_id: $("input[name='category_id']:checked").val(),
+                    title: $("input[name='title']").val(),
+                    short_description: $("textarea[name='short_description']").val(),
+                    description: description,
+                    image: $('#edit-post-form textarea[name="image"]').val(),
+                    active: $('input[name="active"]').is(":checked") ? 1 : 0
+                }
+
+                $.ajax({
+                    data: data,
+                    type: 'POST',
+                    url: "{{ route('admin.course.update', ['id' => request()->id]) }}",
+                    cache: false,
+                    success: function(response)
+                    {
+                        if (goToList) {
+                            window.location.href = '/admin/courses'
+                        } else {
+                            window.location.href = "/admin/courses/{{$item->id}}/edit"
+                        }
+                    },
+                    error: function(error) {
+                        if (error.status === 422) {
+                            toastr.error(error.responseJSON.errors[0], 'Lỗi')
+                        }
+                    }
+                });
+            }
+        }
+
         $(function() {
             $("form").validate({
                 rules: {
@@ -182,33 +204,9 @@
                     toastr.error('Dữ liệu nhập không hợp lệ.', 'Lỗi');
                 },
                 submitHandler: function(form) {
-                    // Validate preview image is required
-                    if (!validateRequiredPreviewImage()) {
-                        toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
-                        return;
-                    }
-
-                    var description = CKEDITOR.instances.description.getData();
-
-                    if (description == '') {
-                        toastr.error('Vui lòng nhập mô tả sản phầm.', 'Lỗi');
-                        return;
-                    }
-
-                    form.submit();
+                    updateItem()
                 }
             });
-        });
-
-        CKEDITOR.replace('description', {
-            filebrowserBrowseUrl: '{{ customAsset('assets/admin/plugins/ckfinder/ckfinder.html') }}',
-            filebrowserImageBrowseUrl: '{{ customAsset('assets/admin/plugins/ckfinder/ckfinder.html?type=Images') }}',
-            filebrowserFlashBrowseUrl: '{{ customAsset('assets/admin/plugins/ckfinder/ckfinder.html?type=Flash') }}',
-            filebrowserUploadUrl: '{{ customAsset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
-            filebrowserImageUploadUrl: '{{ customAsset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
-            filebrowserFlashUploadUrl: '{{ customAsset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}',
-            language: 'vi',
-            height: 600
         });
         let uploadedImageDetailMap = {}
 
@@ -261,12 +259,13 @@
                 myDropzone.options.maxFiles = 0;
 
                 let imagePreview = {!! isset($item->image) ? json_encode($item->image) : "''" !!};
-
-                let callback = null; // Optional callback when it's done
-                let crossOrigin = null; // Added to the `img` tag for crossOrigin handling
-                let resizeThumbnail = true; // Tells Dropzone whether it should resize the image first
-                myDropzone.displayExistingFile(imagePreview, imagePreview.url, callback, crossOrigin, resizeThumbnail);
-                myDropzone.options.maxFiles = 0
+                if (imagePreview) {
+                    let callback = null; // Optional callback when it's done
+                    let crossOrigin = null; // Added to the `img` tag for crossOrigin handling
+                    let resizeThumbnail = true; // Tells Dropzone whether it should resize the image first
+                    myDropzone.displayExistingFile(imagePreview, imagePreview.url, callback, crossOrigin, resizeThumbnail);
+                    myDropzone.options.maxFiles = 0
+                }
             },
             removedfile: function (file) {
                 let myDropzone = this;

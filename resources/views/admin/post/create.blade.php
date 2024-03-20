@@ -68,6 +68,14 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group" style="margin-bottom: 30px">
+                                        <label>
+                                            Active
+                                        </label>
+                                        <div class="field-container">
+                                            <input style="width: 20px; height: 20px" type="checkbox" name="active">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group" style="margin-bottom: 30px">
@@ -75,7 +83,7 @@
                                             Chi tiết<span class="required">(*)</span>
                                         </label>
                                         <div class="field-container">
-                                            <div name="description" id="description-editor"></div>
+                                            <textarea name="description" id="description-editor"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -157,8 +165,10 @@
                     const data = {
                         category_id: $("input[name='category_id']:checked").val(),
                         title: $("input[name='title']").val(),
+                        short_description: $("textarea[name='short_description']").val(),
                         description: description,
-                        image: $('#create-post-form textarea[name="image"]').val()
+                        image: $('#create-post-form textarea[name="image"]').val(),
+                        active: $('input[name="active"]').is(":checked") ? 1 : 0
                     }
                     createPost(data)
                 }
@@ -192,9 +202,7 @@
         $("#dropzone-image-preview").dropzone(            {
             maxFiles: 1,
             renameFile: function (file) {
-                var dt = new Date();
-                var time = dt.getTime();
-                return time + file.name;
+                return file.name;
             },
             acceptedFiles: ".jpeg,.jpeg,.jpg,.png,.gif,.webp",
             dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",

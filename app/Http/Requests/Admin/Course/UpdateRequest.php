@@ -4,6 +4,7 @@ namespace App\Http\Requests\Admin\Course;
 
 use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -25,11 +26,16 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
+            'title' => [
+                'required',
+                'max:255',
+                Rule::unique('courses')->ignore(request()->route('id'), 'id'),
+            ],
             'category_id' => 'required|exists:categories,id',
             'image' => 'nullable',
             'short_description' => 'nullable|max:255',
             'description' => 'required',
+            'active' => 'required|boolean',
         ];
     }
 
