@@ -235,7 +235,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <script src="{{ customAsset('assets/admin/dist/js/jquery.validate.min.js') }}"></script>
 <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
-<script src="/ckeditor.js"></script>
+<script src="/assets/admin/plugins/ckeditor.js"></script>
 <script src="{{ customAsset('assets/admin/dist/js/custom-ckeditor.js') }}"></script>
 <script src="{{ customAsset('assets/admin/dist/js/my-script.js') }}"></script>
 <script>

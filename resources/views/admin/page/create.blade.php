@@ -53,10 +53,7 @@
                                             Chi tiết<span class="required">(*)</span>
                                         </label>
                                         <div class="field-container">
-                                            <textarea name="description" class="form-control" rows="10"></textarea>
-                                            @error('description')
-                                            <span class="help-block">{{ $message }}</span>
-                                            @enderror
+                                            <textarea name="description" id="description-editor"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -116,8 +113,8 @@
                 },
                 submitHandler: function(form) {
                     // Validate description is required
-                    var description = CKEDITOR.instances.description.getData();
-                    if (description == '') {
+                    var description = editor.getData();
+                    if (description == '<p>&nbsp;</p>') {
                         toastr.error('Vui lòng nhập chi tiết.', 'Lỗi');
                         return;
                     }
@@ -126,75 +123,6 @@
                     form.submit();
                 }
             });
-        });
-
-
-        CKEDITOR.replace('description', {
-            filebrowserBrowseUrl: '{{ asset('assets/admin/plugins/ckfinder/ckfinder.html') }}',
-            filebrowserImageBrowseUrl: '{{ asset('assets/admin/plugins/ckfinder/ckfinder.html?type=Images') }}',
-            filebrowserFlashBrowseUrl: '{{ asset('assets/admin/plugins/ckfinder/ckfinder.html?type=Flash') }}',
-            filebrowserUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
-            filebrowserImageUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
-            filebrowserFlashUploadUrl: '{{ asset('assets/admin/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}',
-            language: 'vi',
-            height: 600
-        });
-
-        let uploadedImageDetailMap = {}
-        Dropzone.autoDiscover = false;
-
-        let uploadedImagePreviewlMap = {}
-
-        $("#dropzone-image-preview").dropzone(            {
-            maxFiles: 1,
-            renameFile: function (file) {
-                var dt = new Date();
-                var time = dt.getTime();
-                return time + file.name;
-            },
-            acceptedFiles: ".jpeg,.jpeg,.jpg,.png,.gif,.webp",
-            dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
-            dictRemoveFile: 'Xóa',
-            addRemoveLinks: true,
-            uploadMultiple: false,
-            autoProcessQueue: true,
-            timeout: 60000,
-            url: '/admin/upload-file',
-            params: {
-                key: "post_preview_"
-            },
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (file, response) {
-                let uuid = file.upload.uuid
-                $('#create-post-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
-
-                response.data.uuid = uuid
-                uploadedImagePreviewlMap[file.upload.filename] = response.data
-            },
-            error: function (file, response) {
-                return false;
-            },
-            accept: function(file, done) {
-                done()
-            },
-            init : function() {
-                var myDropZone = this;
-                myDropZone.on('maxfilesexceeded', function(file) {
-                    toastr.error("Ảnh đại diện tối đa là 1 ảnh.", 'Lỗi');
-                    myDropZone.removeFile(file);
-                });
-
-            },
-            removedfile: function (file) {
-                file.previewElement.remove()
-                let uuid = file.upload.uuid
-                $(`#create-post-form .${uuid}`).remove()
-                let storeNameRemove = uploadedImagePreviewlMap[file.upload.filename].store_name
-                removeImageOnServer(storeNameRemove)
-            },
         });
     </script>
 @endpush
