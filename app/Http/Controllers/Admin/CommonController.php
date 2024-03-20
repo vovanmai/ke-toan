@@ -20,7 +20,6 @@ class CommonController extends BaseController
         $key = $request->get('key', '') . time();
         $resizeHeight = $request->get('resize_height');
         $resizeWidth = $request->get('resize_width');
-//        $security = $request->get('security', false);
 
 
         try {
@@ -32,14 +31,16 @@ class CommonController extends BaseController
 
             $size = $file->getSize();
 
-            $file->storeAs(getFileContainFolder(), $storeName);
+
             $originHeight = Image::make($file)->height();
             $originWidth = Image::make($file)->width();
 
             if ($resizeHeight || $resizeWidth) {
-                $image = Image::make(storage_path('/app/' . getFileContainFolder() . '/' . $storeName));
+                $image = Image::make($file);
                 $image->resize($resizeWidth, $resizeHeight);
                 $image->save(storage_path('/app/' . getFileContainFolder() . '/' . $storeName));
+            } else {
+                $file->storeAs(getFileContainFolder(), $storeName);
             }
 
             return response()->success('Thành công', [

@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="form-group @error('preview_image') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
-                                            Ảnh đại diện<span class="required">(*)</span>
+                                            Ảnh (Kích thước 453x303 pixel) Nên tạo từ phần mền <a style="text-decoration: underline" href="https://www.canva.com">Canva</a>
                                         </label>
                                         <div class="field-container">
                                             <div id="dropzone-image-preview" class="dropzone">
@@ -213,7 +213,9 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "post_preview_"
+                key: "post_preview_",
+                resize_height: 303,
+                resize_width: 453,
             },
             method: 'POST',
             headers: {

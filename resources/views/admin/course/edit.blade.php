@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="form-group" style="margin-bottom: 30px">
                                         <label>
-                                            Ảnh đại diện<span class="required">(*)</span>
+                                            Ảnh <span class="required">(*)</span> (Kích thước 320x320 pixel) Nên tạo từ phần mền <a style="text-decoration: underline" href="https://www.canva.com">Canva</a>
                                         </label>
                                         <div class="field-container">
                                             <div id="dropzone-image-preview" class="dropzone">
@@ -229,7 +229,9 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "post_preview_"
+                key: "c_preview_",
+                resize_height: 320,
+                resize_width: 320,
             },
             method: 'POST',
             headers: {

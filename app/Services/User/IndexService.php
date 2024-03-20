@@ -61,13 +61,13 @@ class IndexService
 
             $category->activePosts = $this->repository->whereIn('category_id', $catIds)
                 ->whereByField('active', true)
-                ->all();
+                ->limit(6);
         }
 
 
         $courses = $this->courseRepository->whereByField('active', true)
             ->orderBy('id', 'DESC')
-            ->all();
+            ->limit(9);
 
         return [
             'categories' => $categories,

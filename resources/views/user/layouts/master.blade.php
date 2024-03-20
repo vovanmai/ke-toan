@@ -24,7 +24,9 @@
             @endif
             <div id="toggle-show-menu">
                 <div style="background: #2588DE; color: white; padding: 10px 7px; display: flex; justify-content: space-between; align-items: center">
-                    <h4 style="margin-bottom: 0px">Danh mục</h4>
+                    <a href="/" style="color: white; font-weight: bold; text-decoration: none">
+                        <i class="fa fa-home" aria-hidden="true"></i> Trang chủ
+                    </a>
                     <i style="font-size: 20px" class="fa fa-bars toggle-button" aria-hidden="true"></i>
                 </div>
             </div>

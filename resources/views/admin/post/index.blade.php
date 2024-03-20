@@ -44,14 +44,6 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-{{--                                    <div class="form-group">--}}
-{{--                                        <label class="col-sm-2 control-label">Giá</label>--}}
-{{--                                        <div class="col-sm-10">--}}
-{{--                                            <input type="text" value="{{ old('price') ?? request()->get('price') ?? '' }}" name="price" class="form-control">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Ngày tạo</label>
                                         <div class="col-sm-10">
@@ -117,7 +109,7 @@
                                         </td>
                                         <td style="text-align: center">
                                             @if($item->image)
-                                                <img style="height: 130px;width: 110px;object-fit: cover" src="{{ $item->image['url'] }}" alt="">
+                                                <img style="height: 50px; width: 50px; object-fit: cover" src="{{ $item->image['url'] }}" alt="">
                                             @endif
                                         </td>
                                         <td>

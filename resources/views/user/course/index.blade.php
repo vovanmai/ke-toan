@@ -11,7 +11,7 @@
                         <div class="col-12 col-sm-6 col-md-4">
                             <a href="{{ route('user.course.detail', ['slug' => $item->slug, 'category' => $item->category->slug]) }}" class="item" style="border: 1px solid #eaebed; border-radius: 10px; overflow: hidden; display: block; text-decoration: none">
                                 <div>
-                                    <img style="width: 100%; height: 280px; object-fit: cover" src="{{ $item->image['url'] }}" alt="">
+                                    <img style="width: 100%; height: auto; object-fit: cover" src="{{ $item->image['url'] }}" alt="">
                                 </div>
 
                                 <h5 class="title" title="{{ $item->title }}">{{ $item->title }}</h5>

@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="form-group" style="margin-bottom: 30px">
                                         <label>
-                                            Ảnh đại diện<span class="required">(*)</span>
+                                            Ảnh (Kích thước 453x303 pixel) Nên tạo từ phần mền <a style="text-decoration: underline" href="https://www.canva.com">Canva</a>
                                         </label>
                                         <div class="field-container">
                                             <div id="dropzone-image-preview" class="dropzone">
@@ -63,9 +63,9 @@
                                         <div class="field-container">
                                             <div style="border: 1px solid #d2d6de; padding: 10px 20px; max-height: 480px; overflow-y: auto;">
                                                 @foreach($categories as $cat)
-                                                    <?php
+                                                    @php
                                                         $editCategory = $item->category;
-                                                    ?>
+                                                    @endphp
                                                         @include('admin.component.edit-child-category-other', [
                                                             'category' => $cat,
                                                             'editCategory' => $editCategory,
@@ -216,9 +216,7 @@
         $("#dropzone-image-preview").dropzone(            {
             maxFiles: 1,
             renameFile: function (file) {
-                var dt = new Date();
-                var time = dt.getTime();
-                return time + file.name;
+                return file.name;
             },
             acceptedFiles: ".jpeg,.jpeg,.jpg,.png,.gif,.webp",
             dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
@@ -229,7 +227,9 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "post_preview_"
+                key: "post_preview_",
+                resize_height: 303,
+                resize_width: 453,
             },
             method: 'POST',
             headers: {

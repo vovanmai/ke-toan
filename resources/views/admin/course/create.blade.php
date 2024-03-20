@@ -16,7 +16,7 @@
                     <form id="create-post-form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.course.store') }}">
                         @csrf
                         <div class="box-header with-border">
-                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tạo mới bài viết</h3>
+                            <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tạo mới khóa học</h3>
                             <div class="box-tools pull-right">
                                 <a href="{{ route('admin.course.list') }}" type="button" class="btn btn-primary"><i class="fa fa-fw fa-list-alt"></i>
                                     Xem danh sách
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="form-group" style="margin-bottom: 30px">
                                         <label>
-                                            Ảnh đại diện<span class="required">(*)</span>
+                                            Ảnh <span class="required">(*)</span> (Kích thước 320x320 pixel) Nên tạo từ phần mền <a style="text-decoration: underline" href="https://www.canva.com">Canva</a>
                                         </label>
                                         <div class="field-container">
                                             <div id="dropzone-image-preview" class="dropzone">
@@ -215,7 +215,9 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "post_preview_"
+                key: "post_preview_",
+                resize_height: 320,
+                resize_width: 320,
             },
             method: 'POST',
             headers: {

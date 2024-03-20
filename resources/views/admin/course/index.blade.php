@@ -117,7 +117,7 @@
                                         </td>
                                         <td style="text-align: center">
                                             @if($item->image)
-                                                <img style="height: 130px;width: 110px;object-fit: cover" src="{{ $item->image['url'] }}" alt="">
+                                                <img style="height: 50px;width: 50px;object-fit: cover" src="{{ $item->image['url'] }}" alt="">
                                             @endif
                                         </td>
                                         <td>
