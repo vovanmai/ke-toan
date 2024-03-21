@@ -30,6 +30,7 @@ class EditRequest extends FormRequest
             'link' => 'nullable',
             'title_color' => 'nullable',
             'short_description_color' => 'nullable',
+            'active' => 'required|boolean',
         ];
     }
 

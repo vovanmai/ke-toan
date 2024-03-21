@@ -70,7 +70,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Tiêu đề</th>
-                                    <th>Đường dẫn</th>
+                                    <th style="width: 20%">Đường dẫn</th>
                                     <th>Ảnh</th>
                                     <th>Mô tả ngắn</th>
                                     <th>Active</th>
@@ -87,7 +87,7 @@
                                         </td>
                                         <td style="text-align: center">
                                             @if($item->image)
-                                                <img style="height: 130px;width: 110px;object-fit: cover" src="{{ getPublicFile($item->image['store_name']) }}" alt="">
+                                                <img style="height: 50px;width: 50px;object-fit: cover" src="{{ getPublicFile($item->image['store_name']) }}" alt="">
                                             @endif
                                         </td>
                                         <td>

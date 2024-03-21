@@ -13,8 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="create-post-form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.page.store') }}">
-                        @csrf
+                    <form id="create-page-form" class="form-horizontal">
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tạo mới</h3>
                             <div class="box-tools pull-right">
@@ -38,6 +37,16 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="form-group" style="margin-bottom: 30px">
+                                        <label>
+                                            Active
+                                        </label>
+                                        <div class="field-container">
+                                            <input style="width: 20px; height: 20px" type="checkbox" name="active">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-md-offset-1">
                                     <div class="form-group @error('short_description') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
                                             Mô tả ngắn
@@ -48,7 +57,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-group @error('description') has-error @enderror" style="margin-bottom: 30px">
+                                    <div class="form-group" style="margin-bottom: 30px">
                                         <label>
                                             Chi tiết<span class="required">(*)</span>
                                         </label>
@@ -81,7 +90,7 @@
 @push('script')
     <script>
         $(function() {
-            $("#create-post-form").validate({
+            $("#create-page-form").validate({
                 rules: {
                     title: {
                         required: true,
@@ -119,8 +128,28 @@
                         return;
                     }
 
-                    // Create product
-                    form.submit();
+                    const data = {
+                        title: $("input[name='title']").val(),
+                        short_description: $("textarea[name='short_description']").val(),
+                        description: description,
+                        active: $('input[name="active"]').is(":checked") ? 1 : 0
+                    }
+
+                    $.ajax({
+                        data: data,
+                        type: 'POST',
+                        url: "{{ route('admin.page.store') }}",
+                        cache: false,
+                        success: function(response)
+                        {
+                            window.location.href = '/admin/pages'
+                        },
+                        error: function(error) {
+                            if (error.status === 422) {
+                                toastr.error(error.responseJSON.errors[0], 'Lỗi')
+                            }
+                        }
+                    });
                 }
             });
         });

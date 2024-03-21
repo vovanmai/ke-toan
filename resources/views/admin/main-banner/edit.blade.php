@@ -13,9 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="edit-main-banner-form" class="form-horizontal" method="POST" action="{{ route('admin.main_banner.update', ['id' => $item->id]) }}">
-                        @csrf
-                        @method('PUT')
+                    <form id="edit-main-banner-form" class="form-horizontal">
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Cập nhật slide</h3>
                             <div class="box-tools pull-right">
@@ -34,6 +32,14 @@
                                         </label>
                                         <div class="field-container">
                                             <input type="text" name="title" class="form-control" value="{{ old('title') ?? $item->title }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 30px">
+                                        <label>
+                                            Active
+                                        </label>
+                                        <div class="field-container">
+                                            <input {{ $item->active ? 'checked' : '' }} style="width: 20px; height: 20px" type="checkbox" name="active" value="{{ $item->active ? '1' : '0' }}">
                                         </div>
                                     </div>
                                     <div class="form-group @error('title_color') has-error @enderror" style="margin-bottom: 30px">
@@ -153,8 +159,32 @@
                         toastr.error('Vui lòng chọn ảnh.', 'Lỗi');
                         return;
                     }
-                    // Create main-banner
-                    form.submit();
+
+                    const data = {
+                        title: $("input[name='title']").val(),
+                        title_color: $("input[name='title_color']").val(),
+                        short_description_color: $("input[name='short_description_color']").val(),
+                        link: $("textarea[name='link']").val(),
+                        short_description: $("textarea[name='short_description']").val(),
+                        active: $('input[name="active"]').is(":checked") ? 1 : 0,
+                        image: $('#edit-main-banner-form input[name="remove_image_id"]').val()
+                    }
+
+                    $.ajax({
+                        data: data,
+                        type: 'POST',
+                        url: "{{ route('admin.main_banner.update', ['id' => $item->id]) }}",
+                        cache: false,
+                        success: function(response)
+                        {
+                            window.location.href = '/admin/main-banners'
+                        },
+                        error: function(error) {
+                            if (error.status === 422) {
+                                toastr.error(error.responseJSON.errors[0], 'Lỗi')
+                            }
+                        }
+                    });
                 }
             });
         });

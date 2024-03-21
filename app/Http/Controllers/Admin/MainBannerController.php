@@ -59,7 +59,7 @@ class MainBannerController extends Controller
             session()->flash('success_message', 'Tạo thành công!');
 
             return redirect()->route('admin.main_banner.list');
-        } catch (Exception $ex) {dd($ex);
+        } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');

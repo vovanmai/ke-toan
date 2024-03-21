@@ -34,6 +34,7 @@ class StoreService
             'short_description' => $data['short_description'] ?? null,
             'admin_id' => Auth::user()->id,
             'description' => $data['description'],
+            'active' => $data['active'] ?? false,
         ];
 
         return $this->repository->create($dataCreate);

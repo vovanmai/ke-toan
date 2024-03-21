@@ -32,6 +32,7 @@ class CreateRequest extends FormRequest
             ],
             'short_description' => 'nullable|max:255',
             'description' => 'required',
+            'active' => 'required|boolean',
         ];
     }
 

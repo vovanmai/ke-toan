@@ -13,8 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="create-main-banner-form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('admin.main_banner.store') }}">
-                        @csrf
+                    <form id="create-main-banner-form" class="form-horizontal">
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-search"></i>Tạo mới</h3>
                             <div class="box-tools pull-right">
@@ -35,6 +34,14 @@
                                             <input type="text" name="title" class="form-control" value="{{ old('title') }}">
                                         </div>
                                     </div>
+                                    <div class="form-group" style="margin-bottom: 30px">
+                                        <label>
+                                            Active
+                                        </label>
+                                        <div class="field-container">
+                                            <input style="width: 20px; height: 20px" type="checkbox" name="active">
+                                        </div>
+                                    </div>
                                     <div class="form-group @error('title_color') has-error @enderror" style="margin-bottom: 30px">
                                         <label>
                                             Màu chữ tiêu đề
@@ -49,7 +56,7 @@
                                             Đường dẫn
                                         </label>
                                         <div class="field-container">
-                                            <textarea class="form-control" name="link" style="width: 100%" rows="5"></textarea>
+                                            <textarea class="form-control" name="link" style="width: 100%" rows="2"></textarea>
                                             @error('link')
                                             <span class="help-block">{{ $message }}</span>
                                             @enderror
@@ -91,8 +98,8 @@
                             <div class="text-center">
                                 <button type="reset" class="btn btn-default" style="margin-right: 10px">Xóa</button>
                                 <span class="button-create">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i>Tạo</button>
-                                    </span>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i>Tạo</button>
+                                </span>
                             </div>
                         </div>
                     </form>
@@ -147,15 +154,38 @@
                 invalidHandler: function(form, validator) {
                     toastr.error('Dữ liệu nhập không hợp lệ.', 'Lỗi');
                 },
-                submitHandler: function(form) {
+                submitHandler: function() {
                     // validate preview image is required
                     var numberImage = $('#create-main-banner-form textarea[name="image"]').length;
                     if (numberImage == 0) {
                         toastr.error('Vui lòng chọn ảnh.', 'Lỗi');
                         return;
                     }
-                    // Create main-banner
-                    form.submit();
+                    const data = {
+                        title: $("input[name='title']").val(),
+                        title_color: $("input[name='title_color']").val(),
+                        short_description_color: $("input[name='short_description_color']").val(),
+                        link: $("textarea[name='link']").val(),
+                        short_description: $("textarea[name='short_description']").val(),
+                        active: $('input[name="active"]').is(":checked") ? 1 : 0,
+                        image: $('#create-main-banner-form textarea[name="image"]').val()
+                    }
+
+                    $.ajax({
+                        data: data,
+                        type: 'POST',
+                        url: "{{ route('admin.main_banner.store') }}",
+                        cache: false,
+                        success: function(response)
+                        {
+                            window.location.href = '/admin/main-banners'
+                        },
+                        error: function(error) {
+                            if (error.status === 422) {
+                                toastr.error(error.responseJSON.errors[0], 'Lỗi')
+                            }
+                        }
+                    });
                 }
             });
         });

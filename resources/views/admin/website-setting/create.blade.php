@@ -201,9 +201,7 @@
         $("#dropzone-header-banner").dropzone(            {
             maxFiles: 1,
             renameFile: function (file) {
-                var dt = new Date();
-                var time = dt.getTime();
-                return time + file.name;
+                return file.name;
             },
             acceptedFiles: ".jpeg,.jpg,.png,.gif",
             dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",

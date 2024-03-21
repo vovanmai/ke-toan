@@ -27,6 +27,7 @@ class StoreService
         $maxOrder = $this->repository->orderBy('order', 'DESC')->first(['order']);
 
         $data['order'] = isset($maxOrder->order) ? $maxOrder->order + 1 : 0;
+        $data['active'] = $data['active'] ?? false;
 
         return $this->repository->create($data);
     }

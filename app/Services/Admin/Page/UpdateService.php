@@ -28,6 +28,7 @@ class UpdateService
             'title' => $data['title'],
             'short_description' => $data['short_description'] ?? null,
             'description' => $data['description'],
+            'active' => $data['active'] ?? false,
             'admin_id' => auth()->id(),
         ];
 

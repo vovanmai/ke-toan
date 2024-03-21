@@ -8,7 +8,7 @@ Route::prefix('main-banners')->group(function () {
     Route::post('', 'MainBannerController@store')->name('admin.main_banner.store');
 
     Route::get('{id}/edit', 'MainBannerController@edit')->name('admin.main_banner.edit');
-    Route::put('{id}', 'MainBannerController@update')->name('admin.main_banner.update');
+    Route::post('{id}', 'MainBannerController@update')->name('admin.main_banner.update');
 
     Route::delete('{id}', 'MainBannerController@destroy')->name('admin.main_banner.destroy');
     Route::post('{id}/active', 'MainBannerController@changActive')->name('admin.main_banner.active');

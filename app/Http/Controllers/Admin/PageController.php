@@ -58,7 +58,7 @@ class PageController extends Controller
 
             session()->flash('success_message', 'Tạo thành công!');
 
-            return redirect()->route('admin.page.list');
+            return response()->success('Thành công');
         } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());
@@ -89,7 +89,7 @@ class PageController extends Controller
             $this->commit();
 
             session()->flash('success_message', 'Cập nhật thành công!');
-            return redirect()->route('admin.page.list');
+            return response()->success('Thành công');
         } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());

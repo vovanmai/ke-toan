@@ -24,6 +24,7 @@ class UpdateService
      */
     public function handle (int $id, array $data)
     {
+        $data['active'] = $data['active'] ?? false;
         return $this->repository->update($data, $id);
     }
 }
