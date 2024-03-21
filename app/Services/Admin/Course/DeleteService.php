@@ -3,9 +3,13 @@
 namespace App\Services\Admin\Course;
 
 use App\Data\Repositories\Eloquent\CourseRepository;
+use App\Services\Admin\Traits\RemoveFileTrait;
+use Illuminate\Support\Facades\Storage;
 
 class DeleteService
 {
+    use RemoveFileTrait;
+
     /**
      * @var CourseRepository
      */
@@ -24,6 +28,10 @@ class DeleteService
     public function handle (int $id)
     {
         $item = $this->repository->find($id);
+
+        if ($fileName = $item->image['store_name'] ?? null) {
+            $this->removeFile($fileName);
+        }
 
         $this->repository->delete($item->id);
     }

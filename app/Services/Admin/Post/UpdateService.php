@@ -42,7 +42,9 @@ class UpdateService
     {
         $item = $this->postRepository->find($id);
 
-        $this->removeFile($item->image['store_name'] ?? null, $data['image'] ?? null);
+        if ($data['image'] ?? null) {
+            $this->removeFile($item->image['store_name'] ?? null);
+        }
 
         return $this->updatePost($id, $data);
     }

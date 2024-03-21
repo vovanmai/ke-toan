@@ -12,10 +12,10 @@ trait RemoveFileTrait
      *
      * @return array
      */
-    public function removeFile (string $oldPath = null, string $newFile = null)
+    public function removeFile (string $pathName = null)
     {
-        if ($newFile && $oldPath && Storage::exists(getFileContainFolder() . '/' . $oldPath)) {
-            Storage::delete(getFileContainFolder() . '/' . $oldPath);
+        if ($pathName && Storage::exists(getFileContainFolder() . '/' . $pathName)) {
+            Storage::delete(getFileContainFolder() . '/' . $pathName);
         }
     }
 }

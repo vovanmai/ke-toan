@@ -3,10 +3,13 @@
 namespace App\Services\Admin\CourseImage;
 
 use App\Data\Repositories\Eloquent\CourseImageRepository;
+use App\Services\Admin\Traits\RemoveFileTrait;
 use Illuminate\Support\Facades\Storage;
 
 class DeleteService
 {
+    use RemoveFileTrait;
+
     /**
      * @var CourseImageRepository
      */
@@ -24,10 +27,13 @@ class DeleteService
      */
     public function handle (int $id)
     {
+        $item = $this->repository->find($id);
 
-        $image = $this->repository->find($id);
-        Storage::delete(getFileContainFolder() . '/' . $image->image['store_name']);
+        if ($fileName = $item->image['store_name'] ?? null) {
+            $this->removeFile($fileName);
+        }
 
-        return $image->delete();
+
+        return $item->delete();
     }
 }

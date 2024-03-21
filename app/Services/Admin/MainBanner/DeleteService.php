@@ -3,9 +3,12 @@
 namespace App\Services\Admin\MainBanner;
 
 use App\Data\Repositories\Eloquent\MainBannerRepository;
+use App\Services\Admin\Traits\RemoveFileTrait;
 
 class DeleteService
 {
+    use RemoveFileTrait;
+
     /**
      * @var MainBannerRepository
      */
@@ -24,6 +27,10 @@ class DeleteService
     public function handle (int $id)
     {
         $item = $this->repository->find($id);
+
+        if ($fileName = $item->image['store_name'] ?? null) {
+            $this->removeFile($fileName);
+        }
 
         $this->repository->delete($item->id);
     }

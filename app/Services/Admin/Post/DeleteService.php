@@ -3,11 +3,14 @@
 namespace App\Services\Admin\Post;
 
 use App\Data\Repositories\Eloquent\PostRepository;
+use App\Services\Admin\Traits\RemoveFileTrait;
 use App\Services\Common\Image\DeleteImagesService;
 use Illuminate\Support\Facades\Storage;
 
 class DeleteService
 {
+    use RemoveFileTrait;
+
     /**
      * @var PostRepository
      */
@@ -27,8 +30,8 @@ class DeleteService
     {
         $post = $this->repository->find($id);
 
-        if ($fileName = $post->image['store_name']) {
-            Storage::delete(getFileContainFolder() . '/' . $fileName);
+        if ($fileName = $post->image['store_name'] ?? null) {
+            $this->removeFile($fileName);
         }
 
         $this->repository->delete($id);
