@@ -83,10 +83,11 @@ $.extend($.validator.messages, {
 function removeImageOnServer(storeName) {
     $.ajax({
         type: 'DELETE',
-        dataType: "JSON",
-        url: "/admin/delete-file?" + $.param({
+        data: {
             store_name: storeName
-        }),
+        },
+        dataType: "JSON",
+        url: "/admin/delete-file?",
         success: function(response)
         {
             console.log("Remove file image success")

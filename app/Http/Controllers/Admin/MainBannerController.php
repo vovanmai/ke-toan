@@ -91,8 +91,7 @@ class MainBannerController extends Controller
             $this->commit();
 
             session()->flash('success_message', 'Cập nhật thành công!');
-
-            return redirect()->route('admin.main_banner.list');
+            return response()->success('Thành công');
         } catch (Exception $ex) {
             $this->rollback();
             Log::info($ex->getMessage());

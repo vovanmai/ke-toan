@@ -3,9 +3,12 @@
 namespace App\Services\Admin\MainBanner;
 
 use App\Data\Repositories\Eloquent\MainBannerRepository;
+use App\Services\Admin\Traits\RemoveFileTrait;
 
 class UpdateService
 {
+
+    use RemoveFileTrait;
 
     /**
      * @var MainBannerRepository
@@ -25,6 +28,11 @@ class UpdateService
     public function handle (int $id, array $data)
     {
         $data['active'] = $data['active'] ?? false;
+
+        $item = $this->repository->find($id);
+
+        $this->removeFile($item->image['store_name'] ?? null, $data['image'] ?? null);
+
         return $this->repository->update($data, $id);
     }
 }

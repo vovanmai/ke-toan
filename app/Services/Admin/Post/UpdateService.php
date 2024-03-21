@@ -7,15 +7,14 @@ use App\Data\Repositories\Eloquent\PostRepository;
 use App\Models\Image;
 use App\Models\Post;
 use App\Models\Product;
-use App\Services\Common\Image\CreateImagesService;
+use App\Services\Admin\Traits\RemoveFileTrait;
 use App\Services\Common\Image\CreateOrUpdateImageService;
-use App\Services\Common\Image\DeleteImagesService;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class UpdateService
 {
+    use RemoveFileTrait;
+
     /**
      * @var PostRepository
      */
@@ -41,6 +40,10 @@ class UpdateService
      */
     public function handle (int $id, array $data)
     {
+        $item = $this->postRepository->find($id);
+
+        $this->removeFile($item->image['store_name'] ?? null, $data['image'] ?? null);
+
         return $this->updatePost($id, $data);
     }
 
@@ -67,18 +70,5 @@ class UpdateService
         }
 
         return $this->postRepository->update($dataUpdate, $id);
-    }
-
-    /**
-     * updatePreviewImage
-     *
-     * @param Post   $post   Post
-     * @param string $images Images
-     *
-     * @return void
-     */
-    public function updatePreviewImage (Post $post, $oldImage, $newImage)
-    {
-        resolve(CreateOrUpdateImageService::class)->handle($post, $newImage, $oldImage, Image::TYPE_PREVIEW);
     }
 }

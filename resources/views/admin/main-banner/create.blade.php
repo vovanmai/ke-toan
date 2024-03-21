@@ -115,6 +115,7 @@
 
 @push('script')
     <script>
+        let imagePreview = null;
         $(function() {
             $("#create-main-banner-form").validate({
                 rules: {
@@ -156,8 +157,7 @@
                 },
                 submitHandler: function() {
                     // validate preview image is required
-                    var numberImage = $('#create-main-banner-form textarea[name="image"]').length;
-                    if (numberImage == 0) {
+                    if (!imagePreview) {
                         toastr.error('Vui lòng chọn ảnh.', 'Lỗi');
                         return;
                     }
@@ -168,7 +168,7 @@
                         link: $("textarea[name='link']").val(),
                         short_description: $("textarea[name='short_description']").val(),
                         active: $('input[name="active"]').is(":checked") ? 1 : 0,
-                        image: $('#create-main-banner-form textarea[name="image"]').val()
+                        image: imagePreview,
                     }
 
                     $.ajax({
@@ -192,14 +192,10 @@
 
         Dropzone.autoDiscover = false;
 
-        let uploadedImageMap = {}
-
         $("#dropzone-image").dropzone(            {
             maxFiles: 1,
             renameFile: function (file) {
-                var dt = new Date();
-                var time = dt.getTime();
-                return time + file.name;
+                return file.name;
             },
             acceptedFiles: ".jpeg,.jpeg,.jpeg,.jpg,.png,.gif,.webp",
             dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
@@ -217,11 +213,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (file, response) {
-                let uuid = file.upload.uuid
-                $('#create-main-banner-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
-
-                response.data.uuid = uuid
-                uploadedImageMap[file.upload.filename] = response.data
+                imagePreview = JSON.stringify(response.data)
             },
             error: function (file, response) {
                 return false;
@@ -239,10 +231,8 @@
             },
             removedfile: function (file) {
                 file.previewElement.remove()
-                let uuid = file.upload.uuidảnh
-                $(`#create-product-form .${uuid}`).remove()
-                let storeNameRemove = uploadedImageMap[file.upload.filename].store_name
-                removeImageOnServer(storeNameRemove)
+                removeImageOnServer(JSON.parse(file.xhr.response).data.store_name)
+                imagePreview = null
             },
         });
     </script>

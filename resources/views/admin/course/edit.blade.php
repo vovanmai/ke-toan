@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="edit-post-form" class="form-horizontal" method="POST" action="{{ route('admin.course.update', ['id' => $item]) }}">
+                    <form id="edit-course-form" class="form-horizontal" method="POST" action="{{ route('admin.course.update', ['id' => $item]) }}">
                         @csrf
                         @method('PUT')
                         <div class="box-header with-border">
@@ -119,9 +119,11 @@
 
 @push('script')
     <script>
+        let removedImage = false;
+        let imagePreview = null;
         function updateItem (goToList = 1) {
             if ($("form").valid()) {
-                if (!validateRequiredPreviewImage()) {
+                if (removedImage && !imagePreview) {
                     toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
                     return;
                 }
@@ -138,8 +140,8 @@
                     title: $("input[name='title']").val(),
                     short_description: $("textarea[name='short_description']").val(),
                     description: description,
-                    image: $('#edit-post-form textarea[name="image"]').val(),
-                    active: $('input[name="active"]').is(":checked") ? 1 : 0
+                    image: imagePreview,
+                    active: $('input[name="active"]').is(":checked") ? 1 : 0,
                 }
 
                 $.ajax({
@@ -208,10 +210,7 @@
                 }
             });
         });
-        let uploadedImageDetailMap = {}
-
         Dropzone.autoDiscover = false;
-        let uploadedImagePreviewlMap = {}
 
         $("#dropzone-image-preview").dropzone(            {
             maxFiles: 1,
@@ -229,7 +228,7 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "c_preview_",
+                key: "course_preview_",
                 resize_height: 320,
                 resize_width: 320,
             },
@@ -238,12 +237,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (file, response) {
-                let uuid = file.upload.uuid
-                $('#edit-post-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
-
-                response.data.uuid = uuid
-
-                uploadedImagePreviewlMap[file.upload.filename] = response.data
+                imagePreview = JSON.stringify(response.data)
             },
             error: function (file, response) {
                 return false;
@@ -274,27 +268,13 @@
                 file.previewElement.remove()
                 if(typeof(file.upload) == 'object') {
                     if(file.accepted) {
-                        $(`form .${file.upload.uuid}`).remove()
-                        let storeNameRemove = uploadedImagePreviewlMap[file.upload.filename].store_name
-                        removeImageOnServer(storeNameRemove)
+                        removeImageOnServer(JSON.parse(file.xhr.response).data.store_name)
                     }
                 } else {
                     myDropzone.options.maxFiles = 1
-                    $('#edit-post-form').append(`<input type="hidden" name="remove_preview_image_id" value="${file.id}">`)
                 }
+                removedImage = true
             },
         });
-
-        function validateRequiredPreviewImage() {
-            var check = true;
-            var isRemovedPreviewImage = $('#edit-post-form input[name="remove_preview_image_id"]').length;
-            if(isRemovedPreviewImage) {
-                var previewImage = $('#edit-post-form textarea[name="image"]').length
-                if(previewImage == 0) {
-                    check = false;
-                }
-            }
-            return check;
-        }
     </script>
 @endpush

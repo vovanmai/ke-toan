@@ -10,5 +10,5 @@ Route::prefix('admins')->group(function () {
     Route::post('{id}/active', 'AdminController@changeActive')->name('admin.admin.active');
 
     Route::get('{id}/edit', 'AdminController@edit')->name('admin.admin.edit');
-    Route::put('{id}', 'AdminController@update')->name('admin.admins.update');
+    Route::post('{id}', 'AdminController@update')->name('admin.admins.update');
 });

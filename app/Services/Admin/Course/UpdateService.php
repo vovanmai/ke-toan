@@ -3,9 +3,11 @@
 namespace App\Services\Admin\Course;
 
 use App\Data\Repositories\Eloquent\CourseRepository;
+use App\Services\Admin\Traits\RemoveFileTrait;
 
 class UpdateService
 {
+    use RemoveFileTrait;
 
     /**
      * @var CourseRepository
@@ -24,6 +26,10 @@ class UpdateService
      */
     public function handle (int $id, array $data)
     {
+        $item = $this->repository->find($id);
+
+        $this->removeFile($item->image['store_name'] ?? null, $data['image'] ?? null);
+
         return $this->repository->update($data, $id);
     }
 }

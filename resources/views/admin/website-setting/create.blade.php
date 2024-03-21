@@ -254,13 +254,11 @@
                 file.previewElement.remove()
                 if(typeof(file.upload) == 'object') {
                     if(file.accepted) {
-                        $(`form .${file.upload.uuid}`).remove()
                         let storeNameRemove = uploadedHeaderBannerMap[file.upload.filename].store_name
                         removeImageOnServer(storeNameRemove)
                     }
                 } else {
                     myDropzone.options.maxFiles = 1
-                    $('#create-website-setting-form').append(`<input type="hidden" name="is_remove_header_banner" value="1">`)
                 }
             },
         });

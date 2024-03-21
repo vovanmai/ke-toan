@@ -108,6 +108,7 @@
 
 @push('script')
     <script>
+        let avatar = null
         const checkRoles = JSON.parse('{{ json_encode(array_keys($roles)) }}');
         $(function() {
             $("form").validate({
@@ -179,19 +180,17 @@
                     toastr.error('Dữ liệu nhập không hợp lệ.', 'Lỗi');
                 },
                 submitHandler: function() {
-                    const formData = new FormData()
-                    const avatar = $('textarea[name="avatar"]').val()
-                    formData.append('name', $('input[name="name"]').val())
-                    formData.append('email', $('input[name="email"]').val())
-                    formData.append('password', $('input[name="password"]').val())
-                    formData.append('password_confirmation', $('input[name="password_confirmation"]').val())
-                    formData.append('role', $('select option:selected').val())
-                    formData.append('avatar', avatar ? avatar : null)
+                    const data = {
+                        avatar: avatar,
+                        name: $('input[name="name"]').val(),
+                        email: $('input[name="email"]').val(),
+                        password: $('input[name="password"]').val(),
+                        password_confirmation: $('input[name="password_confirmation"]').val(),
+                        role: $('select option:selected').val(),
+                    }
                     $.ajax({
-                        data: formData,
+                        data: data,
                         type: 'POST',
-                        processData: false,
-                        contentType: false,
                         cache:false,
                         url: `/admin/admins`,
                         success: function(response)
@@ -202,16 +201,10 @@
                         error: function(error) {
                             const responseError = error.responseJSON
                             if (error.status == 422) {
-                                if (responseError.errors.email) {
-                                    $("form .form-group-email").addClass('has-error');
-                                    $("form .form-group-email .help-block").html(responseError.errors.email);
-                                    $("form .form-group-email .help-block").show();
-                                } else {
-                                    $("form .form-group-email").removeClass('has-error');
-                                    $("form .form-group-email .help-block").html('');
-                                }
+                                toastr.error(responseError.errors[0], 'Lỗi');
+                            } else {
+                                toastr.error(responseError.message, 'Lỗi');
                             }
-                            toastr.error(responseError.message, 'Lỗi');
                         }
                     });
                 }
@@ -230,11 +223,10 @@
             $("form .help-block").hide();
         }
 
-        let uploadMap = {}
         let maxAvatar = 1
         Dropzone.autoDiscover = false;
 
-        $("#dropzone-admin-avatar").dropzone(            {
+        $("#dropzone-admin-avatar").dropzone({
             maxFiles: maxAvatar,
             renameFile: function (file) {
                 var dt = new Date();
@@ -257,11 +249,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (file, response) {
-                let uuid = file.upload.uuid
-                $('#create-admin-form').append(`<textarea class="${uuid}" hidden name="avatar">${JSON.stringify(response.data)}</textarea>`)
-
-                response.data.uuid = uuid
-                uploadMap[file.upload.filename] = response.data
+                avatar = JSON.stringify(response.data)
             },
             error: function (file, response) {
                 return false;
@@ -278,10 +266,8 @@
             },
             removedfile: function (file) {
                 file.previewElement.remove()
-                let uuid = file.upload.uuid
-                $(`form .${uuid}`).remove()
-                let storeNameRemove = uploadMap[file.upload.filename].store_name
-                removeImageOnServer(storeNameRemove)
+                removeImageOnServer(JSON.parse(file.xhr.response).data.store_name)
+                avatar = null
             },
         });
     </script>

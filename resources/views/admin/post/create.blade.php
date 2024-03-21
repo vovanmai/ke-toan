@@ -110,6 +110,8 @@
 
 @push('script')
     <script>
+        let imagePreview = null;
+
         $(function() {
             $("#create-post-form").validate({
                 rules: {
@@ -149,8 +151,7 @@
                 },
                 submitHandler: function(form) {
                     // validate preview image is required
-                    var numberPreviewImage = $('#create-post-form textarea[name="image"]').length;
-                    if (numberPreviewImage == 0) {
+                    if (!imagePreview) {
                         toastr.error('Vui lòng chọn ảnh đại diện.', 'Lỗi');
                         return;
                     }
@@ -167,8 +168,8 @@
                         title: $("input[name='title']").val(),
                         short_description: $("textarea[name='short_description']").val(),
                         description: description,
-                        image: $('#create-post-form textarea[name="image"]').val(),
-                        active: $('input[name="active"]').is(":checked") ? 1 : 0
+                        image: imagePreview,
+                        active: $('input[name="active"]').is(":checked") ? 1 : 0,
                     }
                     createPost(data)
                 }
@@ -194,12 +195,9 @@
             });
         }
 
-        let uploadedImageDetailMap = {}
         Dropzone.autoDiscover = false;
 
-        let uploadedImagePreviewlMap = {}
-
-        $("#dropzone-image-preview").dropzone(            {
+        $("#dropzone-image-preview").dropzone({
             maxFiles: 1,
             renameFile: function (file) {
                 return file.name;
@@ -222,11 +220,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (file, response) {
-                let uuid = file.upload.uuid
-                $('#create-post-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
-
-                response.data.uuid = uuid
-                uploadedImagePreviewlMap[file.upload.filename] = response.data
+                imagePreview = JSON.stringify(response.data)
             },
             error: function (file, response) {
                 return false;
@@ -244,10 +238,8 @@
             },
             removedfile: function (file) {
                 file.previewElement.remove()
-                let uuid = file.upload.uuid
-                $(`#create-post-form .${uuid}`).remove()
-                let storeNameRemove = uploadedImagePreviewlMap[file.upload.filename].store_name
-                removeImageOnServer(storeNameRemove)
+                removeImageOnServer(JSON.parse(file.xhr.response).data.store_name)
+                imagePreview = null
             },
         });
     </script>

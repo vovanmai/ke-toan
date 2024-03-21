@@ -115,6 +115,8 @@
 
 @push('script')
     <script>
+        let removedImage = false;
+        let imagePreview = null;
         $(function() {
             $("#edit-main-banner-form").validate({
                 rules: {
@@ -155,7 +157,7 @@
                     toastr.error('Dữ liệu nhập không hợp lệ.', 'Lỗi');
                 },
                 submitHandler: function(form) {
-                    if (!validateRequiredImage()) {
+                    if (removedImage && !imagePreview) {
                         toastr.error('Vui lòng chọn ảnh.', 'Lỗi');
                         return;
                     }
@@ -165,11 +167,10 @@
                         title_color: $("input[name='title_color']").val(),
                         short_description_color: $("input[name='short_description_color']").val(),
                         link: $("textarea[name='link']").val(),
-                        short_description: $("textarea[name='short_description']").val(),
+                        short_description: $("input[name='short_description']").val(),
                         active: $('input[name="active"]').is(":checked") ? 1 : 0,
-                        image: $('#edit-main-banner-form input[name="remove_image_id"]').val()
+                        image: imagePreview,
                     }
-
                     $.ajax({
                         data: data,
                         type: 'POST',
@@ -191,14 +192,10 @@
 
         Dropzone.autoDiscover = false;
 
-        let uploadedImageMap = {}
-
         $("#dropzone-image").dropzone(            {
             maxFiles: 1,
             renameFile: function (file) {
-                var dt = new Date();
-                var time = dt.getTime();
-                return time + file.name;
+                return file.name;
             },
             acceptedFiles: ".jpeg,.jpeg,.jpg,.png,.gif,.webp",
             dictDefaultMessage: "Bạn có thể kéo ảnh hoặc click để chọn",
@@ -209,18 +206,14 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "slider_"
+                key: "main_banner_"
             },
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (file, response) {
-                let uuid = file.upload.uuid
-                $('#edit-main-banner-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
-
-                response.data.uuid = uuid
-                uploadedImageMap[file.upload.filename] = response.data
+                imagePreview = JSON.stringify(response.data)
             },
             error: function (file, response) {
                 return false;
@@ -250,27 +243,13 @@
                 file.previewElement.remove()
                 if(typeof(file.upload) == 'object') {
                     if(file.accepted) {
-                        $(`form .${file.upload.uuid}`).remove()
-                        let storeNameRemove = uploadedLogoMap[file.upload.filename].store_name
-                        removeImageOnServer(storeNameRemove)
+                        removeImageOnServer(JSON.parse(file.xhr.response).data.store_name)
                     }
                 } else {
                     myDropzone.options.maxFiles = 1
-                    $('#edit-main-banner-form').append(`<input type="hidden" name="remove_image_id" value="${file.id}">`)
                 }
+                removedImage = true
             },
         });
-
-        function validateRequiredImage() {
-            var check = true;
-            var isRemovedPreview = $('#edit-main-banner-form input[name="remove_image_id"]').length;
-            if(isRemovedPreview) {
-                var image = $('#edit-main-banner-form textarea[name="image"]').length
-                if(image == 0) {
-                    check = false;
-                }
-            }
-            return check;
-        }
     </script>
 @endpush

@@ -29,7 +29,7 @@ class ListService
 
         return $this->repository->search($filters)
             ->orderByColumns([
-                'order' => 'ASC',
+                'id' => 'DESC',
             ])
             ->all();
     }

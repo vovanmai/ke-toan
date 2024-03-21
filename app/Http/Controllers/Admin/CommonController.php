@@ -67,7 +67,6 @@ class CommonController extends BaseController
 
             $storeName = time() . '-' . Str::slug($fileInfo['filename']) . '.' . $fileInfo['extension'];
 
-
             $file->storeAs(getFileContainFolder(), $storeName);
 
             return response()->success('Thành công', [
@@ -85,8 +84,7 @@ class CommonController extends BaseController
 
         try {
             Storage::delete(getFileContainFolder() . '/' . $storeName);
-            return response()->success('Thành công', [
-            ]);
+            return response()->success('Thành công');
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
             return response()->error('Có lỗi khi truy cập đến máy chủ.');

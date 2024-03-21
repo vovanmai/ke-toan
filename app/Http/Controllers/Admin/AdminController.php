@@ -33,17 +33,13 @@ class AdminController extends BaseController
         ]);
 
         try {
-            if ($request->ajax()) {
-                $admins = resolve(ListService::class)->handle($filters);
-                return view('admin.admins.list', [
-                    'admins' => $admins,
-                ]);
-            }
+            $admins = resolve(ListService::class)->handle($filters);
 
             $roles = resolve(CommonService::class)->getRoles(true);
 
             return view('admin.admins.index', [
                 'roles' => $roles,
+                'admins' => $admins,
             ]);
         } catch (Exception $exception) {
             Log::info($exception->getMessage());
@@ -125,9 +121,7 @@ class AdminController extends BaseController
 
             session()->flash('success_message', 'Sửa admin thành công!');
 
-            return response()->success(
-                'Cập nhật admin thành công.',
-            );
+            return response()->success('Cập nhật admin thành công.');
         } catch (ForbiddenException $ex) {
             return response()->error(
                 'Không có quyền.',
