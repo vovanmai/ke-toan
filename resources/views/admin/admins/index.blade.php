@@ -132,10 +132,20 @@
                                             {{ $admin->login_at ? getTimeAgo($admin->login_at) : null }}
                                         </td>
                                         <td>
-                                            {{ $admin->created_at }}
+                                            <div>
+                                                {{ $admin->created_at->diffForHumans() }}
+                                            </div>
+                                            <div>
+                                                {{ $admin->created_at }}
+                                            </div>
                                         </td>
                                         <td>
-                                            {{ $admin->updated_at }}
+                                            <div>
+                                                {{ $admin->updated_at->diffForHumans() }}
+                                            </div>
+                                            <div>
+                                                {{ $admin->updated_at }}
+                                            </div>
                                         </td>
                                         <td>
                                             <a href="{{ route('admin.admin.edit', ['id' => $admin->id]) }}" class="btn btn-primary">

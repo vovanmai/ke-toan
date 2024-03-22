@@ -74,7 +74,7 @@
                             <table class="table table-bordered">
                                 <tr>
                                     <th class="text-center">ID</th>
-                                    <th style="width: 20%">Tiêu đề</th>
+                                    <th>Tiêu đề</th>
                                     <th>Đường dẫn</th>
                                     <th class="text-center">Active</th>
                                     <th class="text-center">Hiển thị trên menu</th>
@@ -114,11 +114,21 @@
                                         <td class="text-center">
                                             {{ $item->admin->name }}
                                         </td>
-                                        <td class="text-center">
-                                            {{ $item->created_at }}
+                                        <td>
+                                            <div>
+                                                {{ $item->created_at->diffForHumans() }}
+                                            </div>
+                                            <div>
+                                                {{ $item->created_at }}
+                                            </div>
                                         </td>
-                                        <td class="text-center">
-                                            {{ $item->updated_at }}
+                                        <td>
+                                            <div>
+                                                {{ $item->updated_at->diffForHumans() }}
+                                            </div>
+                                            <div>
+                                                {{ $item->updated_at }}
+                                            </div>
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.page.edit', ['id' => $item->id]) }}" class="btn btn-primary">

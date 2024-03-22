@@ -149,7 +149,7 @@ var swiper = new Swiper(".main-banner-swiper", {
     spaceBetween: 30,
     centeredSlides: true,
     autoplay: {
-        delay: 2500,
+        delay: 5000,
         disableOnInteraction: false,
     },
     pagination: {
@@ -186,7 +186,7 @@ var swiperCourseImage = new Swiper(".thumb-course-images", {
 });
 new Swiper(".course-images", {
     autoplay: {
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false,
     },
     thumbs: {

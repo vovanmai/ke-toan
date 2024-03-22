@@ -33,7 +33,6 @@ class DeleteService
             $this->removeFile($fileName);
         }
 
-
         return $item->delete();
     }
 }

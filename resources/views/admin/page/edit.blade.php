@@ -13,9 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form id="edit-page-form" class="form-horizontal" method="POST" action="{{ route('admin.page.update', ['id' => $item]) }}">
-                        @csrf
-                        @method('PUT')
+                    <form id="edit-page-form" class="form-horizontal">
                         <div class="box-header with-border">
                             <h3 class="box-title"><i class="fa fa-fw fa-edit"></i>Cập nhật bài viết</h3>
                             <div class="box-tools pull-right">

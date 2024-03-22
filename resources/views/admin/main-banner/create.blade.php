@@ -208,7 +208,9 @@
             timeout: 60000,
             url: '/admin/upload-file',
             params: {
-                key: "main_banner_"
+                key: "main_banner_",
+                // resize_width: 1200,
+                // resize_height: 400,
             },
             method: 'POST',
             headers: {

@@ -134,10 +134,20 @@
                                             {{ $item->total_view }}
                                         </td>
                                         <td>
-                                            {{ $item->created_at }}
+                                            <div>
+                                                {{ $item->created_at->diffForHumans() }}
+                                            </div>
+                                            <div>
+                                                {{ $item->created_at }}
+                                            </div>
                                         </td>
                                         <td>
-                                            {{ $item->updated_at }}
+                                            <div>
+                                                {{ $item->updated_at->diffForHumans() }}
+                                            </div>
+                                            <div>
+                                                {{ $item->updated_at }}
+                                            </div>
                                         </td>
                                         <td>
                                             <a href="{{ route('admin.course.edit', ['id' => $item->id]) }}" class="btn btn-primary">
