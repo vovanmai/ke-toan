@@ -135,7 +135,6 @@
                         </div>
                         <div class="box-footer text-center">
                             <div class="text-center">
-                                <button type="reset" class="btn btn-default" style="margin-right: 10px">Xóa</button>
                                 <span class="button-create">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i>Cập nhật</button>
                                 </span>
@@ -169,6 +168,15 @@
                         maxlength: 20,
                     },
                     company_email: {
+                        maxlength: 255,
+                    },
+                    company_address: {
+                        maxlength: 255,
+                    },
+                    company_website_domain: {
+                        maxlength: 255,
+                    },
+                    link_fan_page_facebook: {
                         maxlength: 255,
                     },
                 },
@@ -206,6 +214,13 @@
                         company_email: $("input[name='company_email']").val(),
                         header_banner: headerBanner,
                         is_remove_header_banner: removedHeaderBanner ? 1 : 0,
+                        company_address: $("textarea[name='company_address']").val(),
+                        company_website_domain: $("input[name='company_website_domain']").val(),
+                        link_fan_page_facebook: $("input[name='link_fan_page_facebook']").val(),
+                        header_banner_width: $("input[name='header_banner_width']").val(),
+                        header_banner_height: $("input[name='header_banner_height']").val(),
+                        fb_fan_page_script: $("textarea[name='fb_fan_page_script']").val(),
+                        google_map_address_company: $("textarea[name='google_map_address_company']").val(),
                     }
                     $.ajax({
                         data: data,
@@ -219,6 +234,8 @@
                         error: function(error) {
                             if (error.status === 422) {
                                 toastr.error(error.responseJSON.errors[0], 'Lỗi')
+                            } else {
+                                toastr.error("Máy chủ bị lỗi.", 'Lỗi')
                             }
                         }
                     });

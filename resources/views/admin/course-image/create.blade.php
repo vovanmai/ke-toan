@@ -13,7 +13,7 @@
                             Chọn hình ảnh<span class="required">(*)</span>
                         </label>
                         <div class="col-md-8">
-                            <input type="file" name="files" multiple class="form-control">
+                            <input type="file" name="files" multiple accept="image/*" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -59,6 +59,7 @@
                         resolve(response.data);
                     },
                     error: function(error) {
+                        toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');
                     }
                 });
             });
@@ -88,7 +89,7 @@
                         window.location.href = '/admin/course-images'
                     },
                     error: function(error) {
-
+                        toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');
                     }
                 });
             })

@@ -158,6 +158,8 @@
                     error: function(error) {
                         if (error.status === 422) {
                             toastr.error(error.responseJSON.errors[0], 'Lỗi')
+                        } else {
+                            toastr.error("Máy chủ bị lỗi.", 'Lỗi')
                         }
                     }
                 });

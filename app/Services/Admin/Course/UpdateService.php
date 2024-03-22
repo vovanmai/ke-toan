@@ -30,6 +30,8 @@ class UpdateService
 
         if ($data['image'] ?? null) {
             $this->removeFile($item->image['store_name'] ?? null);
+        } else {
+            unset($data['image']);
         }
 
         return $this->repository->update($data, $id);
