@@ -31,7 +31,7 @@ class CreatePostRequest extends FormRequest
                 Rule::unique('posts'),
             ],
             'category_id' => 'required|exists:categories,id',
-            'image' => 'required',
+            'image' => 'required|array',
             'short_description' => 'nullable|max:1000',
             'description' => 'required',
             'active' => 'required|boolean',

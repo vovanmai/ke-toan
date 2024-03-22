@@ -248,7 +248,7 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#edit-product-form').append(`<textarea class="${uuid}" hidden name="detail_images[]">${JSON.stringify(response.data)}</textarea>`)
+                $('#edit-product-form').append(`<textarea class="${uuid}" hidden name="detail_images[]">${response.data}</textarea>`)
 
                 response.data.uuid = uuid
                 uploadedImageDetailMap[file.upload.filename] = response.data
@@ -321,7 +321,7 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#edit-product-form').append(`<textarea class="${uuid}" hidden name="preview_image">${JSON.stringify(response.data)}</textarea>`)
+                $('#edit-product-form').append(`<textarea class="${uuid}" hidden name="preview_image">${response.data}</textarea>`)
 
                 response.data.uuid = uuid
 

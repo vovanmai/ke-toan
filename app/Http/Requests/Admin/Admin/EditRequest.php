@@ -31,7 +31,7 @@ class EditRequest extends FormRequest
             'email' => 'required|email|max:50|unique:admins,email,' . $this->route()->id, ',id',
             'password' => 'nullable|min:6|max:12',
             'password_confirmation' => 'same:password',
-            'avatar' => 'nullable',
+            'avatar' => 'nullable|array',
             'role' => 'required|in:' . implode(',', $roles),
         ];
     }

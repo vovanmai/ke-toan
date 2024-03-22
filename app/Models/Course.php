@@ -35,6 +35,15 @@ class Course extends AbstractModel
     ];
 
     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'image' => 'array',
+    ];
+
+    /**
      * Return the sluggable configuration array for this model.
      *
      * @return array

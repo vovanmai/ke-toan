@@ -31,6 +31,15 @@ class WebsiteSetting extends AbstractModel
         'link_fan_page_facebook',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'header_banner' => 'array',
+    ];
+
     public function getHeaderBannerAttribute()
     {
         $data = json_decode($this->attributes['header_banner'], true);

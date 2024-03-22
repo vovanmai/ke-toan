@@ -25,7 +25,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'title' => 'nullable|max:255',
-            'image' => 'required',
+            'image' => 'required|array',
             'short_description' => 'nullable|max:255',
             'link' => 'nullable',
             'title_color' => 'nullable',

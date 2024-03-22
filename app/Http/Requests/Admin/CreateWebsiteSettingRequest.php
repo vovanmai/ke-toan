@@ -35,7 +35,7 @@ class CreateWebsiteSettingRequest extends FormRequest
             'company_address' => 'nullable|max:255',
             'company_website_domain' => 'nullable|max:255',
             'link_fan_page_facebook' => 'nullable|max:255',
-            'header_banner' => 'nullable',
+            'header_banner' => 'nullable|array',
             'header_banner_width' => [
                 'nullable',
             ],

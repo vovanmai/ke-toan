@@ -32,6 +32,15 @@ class MainBanner extends AbstractModel
     ];
 
     /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'image' => 'array',
+    ];
+
+    /**
      * Recruitment belong to Admin
      *
      * @return BelongsTo

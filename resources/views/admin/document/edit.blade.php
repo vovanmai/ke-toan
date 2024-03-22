@@ -275,7 +275,7 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#edit-document-form').append(`<textarea class="${uuid}" hidden name="preview_file">${JSON.stringify(response.data)}</textarea>`)
+                $('#edit-document-form').append(`<textarea class="${uuid}" hidden name="preview_file">${response.data}</textarea>`)
 
                 response.data.uuid = uuid
 
@@ -348,7 +348,7 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#edit-document-form').append(`<textarea class="${uuid}" hidden name="file">${JSON.stringify(response.data)}</textarea>`)
+                $('#edit-document-form').append(`<textarea class="${uuid}" hidden name="file">${response.data}</textarea>`)
 
                 response.data.uuid = uuid
 

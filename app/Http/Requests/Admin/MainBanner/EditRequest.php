@@ -25,7 +25,7 @@ class EditRequest extends FormRequest
     {
         return [
             'title' => 'nullable|max:255',
-            'image' => 'nullable',
+            'image' => 'nullable|array',
             'short_description' => 'nullable|max:255',
             'link' => 'nullable',
             'title_color' => 'nullable',

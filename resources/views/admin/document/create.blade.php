@@ -285,7 +285,7 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#create-document-form').append(`<textarea class="${uuid}" hidden name="preview_file">${JSON.stringify(response.data)}</textarea>`)
+                $('#create-document-form').append(`<textarea class="${uuid}" hidden name="preview_file">${response.data}</textarea>`)
 
                 response.data.uuid = uuid
                 uploadedImagePreviewlMap[file.upload.filename] = response.data
@@ -349,7 +349,7 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#create-document-form').append(`<textarea class="${uuid}" hidden name="file">${JSON.stringify(response.data)}</textarea>`)
+                $('#create-document-form').append(`<textarea class="${uuid}" hidden name="file">${response.data}</textarea>`)
 
                 response.data.uuid = uuid
                 uploadedFullFilelMap[file.upload.filename] = response.data

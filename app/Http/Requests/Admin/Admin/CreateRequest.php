@@ -31,7 +31,7 @@ class CreateRequest extends FormRequest
             'email' => 'required|email|max:50|unique:admins',
             'password' => 'required|min:6|max:12',
             'password_confirmation' => 'required|same:password',
-            'avatar' => 'nullable',
+            'avatar' => 'nullable|array',
             'role' => 'required|in:' . implode(',', $roles),
         ];
     }

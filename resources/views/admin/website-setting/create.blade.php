@@ -250,7 +250,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (file, response) {
-                headerBanner = JSON.stringify(response.data)
+                headerBanner = response.data
             },
             error: function (file, response) {
                 return false;

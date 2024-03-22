@@ -221,7 +221,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: function (file, response) {
-                imagePreview = JSON.stringify(response.data)
+                imagePreview = response.data
             },
             error: function (file, response) {
                 return false;

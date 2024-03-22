@@ -203,7 +203,7 @@
             },
             success: function (file, response) {
                 let uuid = file.upload.uuid
-                $('#edit-recruitment-form').append(`<textarea class="${uuid}" hidden name="image">${JSON.stringify(response.data)}</textarea>`)
+                $('#edit-recruitment-form').append(`<textarea class="${uuid}" hidden name="image">${response.data}</textarea>`)
 
                 response.data.uuid = uuid
                 uploadedImagePreviewlMap[file.upload.filename] = response.data

@@ -32,7 +32,7 @@ class UpdateRequest extends FormRequest
                 Rule::unique('courses')->ignore(request()->route('id'), 'id'),
             ],
             'category_id' => 'required|exists:categories,id',
-            'image' => 'nullable',
+            'image' => 'nullable|array',
             'short_description' => 'nullable|max:255',
             'description' => 'required',
             'active' => 'required|boolean',
