@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Admin;
 
-use App\Rules\CheckHtmlElement;
 use App\Rules\PhoneNumber;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,13 +25,13 @@ class CreateWebsiteSettingRequest extends FormRequest
     public function rules()
     {
         return [
+            'company_name' => 'nullable|max:255',
+            'company_tax_code' => 'nullable|max:20',
             'hotline' => [
                 'nullable',
                 new PhoneNumber(),
             ],
             'company_email' => 'nullable|email|max:255',
-            'company_name' => 'nullable|max:255',
-            'company_tax_code' => 'nullable|max:20',
             'company_address' => 'nullable|max:255',
             'company_website_domain' => 'nullable|max:255',
             'link_fan_page_facebook' => 'nullable|max:255',

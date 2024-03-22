@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateWebsiteSettingRequest;
 use App\Services\Admin\WebsiteSetting\StoreService;
 use Exception;
-use Log;
+use Illuminate\Support\Facades\Log;
 
 class WebsiteSettingController extends Controller
 {
@@ -31,12 +31,10 @@ class WebsiteSettingController extends Controller
         try {
             resolve(StoreService::class)->handle($data);
 
-            session()->flash('success_message', 'Thiết lập thành công!');
-
-            return redirect()->back();
+            return response()->success('Thành công');
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
-            return redirect()->route('admin.error.error');
+            return response()->error('Lỗi', []);
         }
     }
 }

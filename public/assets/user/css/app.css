@@ -891,6 +891,9 @@ body {
     height: 80px;
     object-fit: cover;
 }
+.highlight-post a {
+    transition: background-color 0.5s;
+}
 
 .highlight-post a:hover {
     background: #e8e8e8;

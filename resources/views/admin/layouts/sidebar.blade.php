@@ -288,7 +288,7 @@
             </li>
 
             <li class="{{ request()->is('admin/website-setting*') ? 'active' : '' }}">
-                <a href="{{ route('admin.website_setting.create') }}">
+                <a href="{{ route('admin.website_setting.edit') }}">
                     <i class="fa fa-fw fa-gears"></i> <span>Cài đặt</span>
                 </a>
             </li>
