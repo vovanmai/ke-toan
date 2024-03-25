@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class RequestLog
@@ -17,29 +18,20 @@ class RequestLog
      */
     public function handle(Request $request, Closure $next)
     {
-        $now = now();
-        $url = $request->getUri();
-        $parseUrl = parse_url($url);
+        $query = $request->query();
 
-        $path = trim($parseUrl['path'], '/');
-        $path = $path === '' ? '/' : $path;
-
-        Log::info(sprintf(
-            'Requested time: %s| Path: %s | IP: %s| Agent: %s',
-            $now->format('Y-m-d H:i:s'),
-            $path,
-            $request->ip(),
-            $request->userAgent()
-        ));
-
-
-        \App\Models\RequestLog::create([
-            'requested_at' => $now,
-            'path' => $path,
-            'query' => $parseUrl['query'] ?? null,
-            'ip' => $request->ip(),
-            'user_agent' => $request->userAgent(),
-        ]);
+        try {
+            DB::table('request_logs')->insert([
+                'method' => $request->method(),
+                'path' => $request->path(),
+                'query' => !empty($query) ? json_encode($request->query()) : null,
+                'ip' => $request->ip(),
+                'user_agent' => $request->userAgent(),
+                'created_at' => now(),
+            ]);
+        } catch (\Exception $exception) {
+            Log::error('Request Log: =>>>>>>> Error: ' . $exception->getMessage());
+        }
 
         return $next($request);
     }

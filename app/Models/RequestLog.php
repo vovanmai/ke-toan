@@ -17,8 +17,8 @@ class RequestLog extends AbstractModel
      * @var array
      */
     protected $fillable = [
-        'requested_at',
         'path',
+        'method',
         'query',
         'ip',
         'user_agent',

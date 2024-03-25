@@ -287,6 +287,13 @@
                 </a>
             </li>
 
+            <li class="{{ request()->is('admin/request-logs*') ? 'active' : '' }}">
+                <a href="{{ route('admin.request_log.list') }}">
+                    <i class="fa fa-history" aria-hidden="true"></i>
+                    <span>Lịch sử truy cập</span>
+                </a>
+            </li>
+
             <li class="{{ request()->is('admin/website-setting*') ? 'active' : '' }}">
                 <a href="{{ route('admin.website_setting.edit') }}">
                     <i class="fa fa-fw fa-gears"></i> <span>Cài đặt</span>

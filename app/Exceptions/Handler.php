@@ -87,9 +87,7 @@ class Handler extends ExceptionHandler
                 return redirect()->route("admin.error.not_found");
             }
 
-            $this->requestLog($request);
-
-            return redirectredirect()->route("{$route}.error.not_found");
+            return redirect()->route("{$route}.error.not_found");
         }
 
         if ($e instanceof TypeError || $e instanceof \Exception) {
@@ -103,6 +101,7 @@ class Handler extends ExceptionHandler
     public function requestLog($request)
     {
         $now = now();
+
         $url = $request->getUri();
         $parseUrl = parse_url($url);
 

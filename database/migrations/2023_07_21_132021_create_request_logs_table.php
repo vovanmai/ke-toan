@@ -15,12 +15,13 @@ class CreateRequestLogsTable extends Migration
     {
         Schema::create('request_logs', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('requested_at');
             $table->string('path');
-            $table->string('query', 500)->nullable();
+            $table->string('method', '15');
+            $table->jsonb('query')->nullable();
+            $table->jsonb('params')->nullable();
             $table->string('ip');
             $table->string('user_agent', 500);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

@@ -41,6 +41,7 @@ Route::namespace("Admin")->middleware('guard:admin')->prefix('admin')->group(fun
 
         // Routes of website setting
         require __DIR__ . '/website_setting.php';
+        require __DIR__ . '/request-log.php';
 
         // Routes of post
         require __DIR__ . '/page.php';

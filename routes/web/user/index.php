@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::namespace("User")->group(function () {
+Route::namespace("User")->middleware(['request.log'])->group(function () {
     // Routes of error
     require __DIR__ . '/error.php';
     require __DIR__ . '/page.php';
