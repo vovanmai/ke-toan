@@ -97,14 +97,68 @@ function MyCustomUploadAdapterPlugin( editor ) {
 }
 
 let editor;
+//
+// ClassicEditor
+//     .create(document.querySelector('#description-editor'), {
+//         extraPlugins: [ MyCustomUploadAdapterPlugin ],
+//     })
+//     .then( newEditor => {
+//         editor = newEditor;
+//     } )
+//     .catch( error => {
+//         console.log( error );
+//     } );
 
-ClassicEditor
-    .create(document.querySelector('#description-editor'), {
+
+const watchdog = new CKSource.EditorWatchdog();
+
+window.watchdog = watchdog;
+
+watchdog.setCreator( ( element, config ) => {
+    return CKSource.Editor
+        .create( element, config )
+        .then( newEditor => {
+            editor = newEditor;
+            return newEditor
+        });
+} );
+
+watchdog.setDestructor(editor => {
+    return editor.destroy();
+});
+
+watchdog.on('error', handleCkeditorError);
+
+watchdog
+    .create(document.querySelector( '#description-editor'), {
         extraPlugins: [ MyCustomUploadAdapterPlugin ],
+        fontSize: {
+            options: [
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+            ],
+            supportAllValues: true
+        },
     })
-    .then( newEditor => {
-        editor = newEditor;
-    } )
-    .catch( error => {
-        console.log( error );
-    } );
+    .catch( handleCkeditorError );
+
+function handleCkeditorError( error ) {
+    console.error( error );
+}
