@@ -12,7 +12,7 @@
             <a class="number-phone" href="tel:{{ $newHotline }}">
                 <img style="width: 60px; height: 60px; margin-right: 10px" src="/assets/user/img/hot-line.png" alt="">
                 <span style="color: blue; text-decoration: underline">{{ $hotline }}</span>
-                (Mr Phương)</a>
+                ({{ $webSetting->hotline_name ?? null }})</a>
         </div>
     </div>
 

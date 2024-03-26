@@ -6,9 +6,9 @@
         </h2>
         <div class="post-wrap">
             <div class="display-vertical">
-                <div class="row g-4">
+                <div class="row g-3 g-lg-4">
                     @foreach($items as $item)
-                        <div class="col-12 col-sm-6 col-md-4">
+                        <div class="col-6 col-sm-6 col-md-4">
                             <a href="{{ route('user.course.detail', ['slug' => $item->slug, 'category' => $item->category->slug]) }}" class="item" style="border: 1px solid #eaebed; border-radius: 10px; overflow: hidden; display: block; text-decoration: none">
                                 <div>
                                     <img style="width: 100%; height: auto; object-fit: cover" src="{{ $item->image['url'] }}" alt="{{ $item->title }}">
