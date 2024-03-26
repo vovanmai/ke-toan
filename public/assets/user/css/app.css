@@ -169,6 +169,8 @@ body {
 .support-online .number-phone {
     color: red;
     text-decoration: none;
+    font-size: 16px;
+    display: block;
 }
 
 #footer {
@@ -351,7 +353,7 @@ body {
     position: absolute;
     list-style: none;
     display: none;
-    width: 200px;
+    width: 202px;
 }
 #menu > li:hover > a {
     background-color: #215e93;

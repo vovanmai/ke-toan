@@ -18,6 +18,7 @@ class CreateWebsiteSettingsTable extends Migration
             $table->string('company_name')->nullable();
             $table->string('company_tax_code', 20)->nullable();
             $table->string('hotline')->nullable();
+            $table->string('hotline_name', 20)->nullable();
             $table->string('company_email')->nullable();
             $table->string('company_address')->nullable();
             $table->string('company_website_domain')->nullable();
@@ -26,6 +27,7 @@ class CreateWebsiteSettingsTable extends Migration
             $table->string('header_banner_width', 10)->nullable();
             $table->string('header_banner_height', 10)->nullable();
             $table->text('fb_fan_page_script')->nullable();
+            $table->text('zalo_fan_page_chat_script')->nullable();
             $table->text('google_map_address_company')->nullable();
             $table->unsignedBigInteger('total_view')->default(0);
             $table->timestamps();

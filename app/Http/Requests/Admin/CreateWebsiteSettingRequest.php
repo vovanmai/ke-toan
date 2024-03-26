@@ -31,6 +31,7 @@ class CreateWebsiteSettingRequest extends FormRequest
                 'nullable',
                 new PhoneNumber(),
             ],
+            'hotline_name' => 'nullable|max:20',
             'company_email' => 'nullable|email|max:255',
             'company_address' => 'nullable|max:255',
             'company_website_domain' => 'nullable|max:255',
@@ -41,6 +42,10 @@ class CreateWebsiteSettingRequest extends FormRequest
             ],
             'header_banner_height' => 'nullable',
             'fb_fan_page_script' => [
+                'nullable',
+//                new CheckHtmlElement(),
+            ],
+            'zalo_fan_page_chat_script' => [
                 'nullable',
 //                new CheckHtmlElement(),
             ],

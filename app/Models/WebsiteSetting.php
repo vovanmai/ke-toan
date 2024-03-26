@@ -20,6 +20,7 @@ class WebsiteSetting extends AbstractModel
         'company_name',
         'company_tax_code',
         'hotline',
+        'hotline_name',
         'company_email',
         'company_address',
         'company_website_domain',
@@ -27,6 +28,7 @@ class WebsiteSetting extends AbstractModel
         'header_banner_width',
         'header_banner_height',
         'fb_fan_page_script',
+        'zalo_fan_page_chat_script',
         'google_map_address_company',
         'link_fan_page_facebook',
     ];

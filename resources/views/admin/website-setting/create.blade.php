@@ -49,6 +49,14 @@
                                     </div>
                                     <div class="form-group" style="margin-bottom: 30px">
                                         <label>
+                                            Tên hotline<span class="required"></span>
+                                        </label>
+                                        <div class="field-container">
+                                            <input type="text" name="hotline_name" class="form-control" value="{{ $setting->hotline_name ?? null }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 30px">
+                                        <label>
                                             Email công ty<span class="required"></span>
                                         </label>
                                         <div class="field-container">
@@ -124,6 +132,14 @@
                                     </div>
                                     <div class="form-group" style="margin-bottom: 30px">
                                         <label>
+                                             Zalo fan page chat script<span class="required"></span>
+                                        </label>
+                                        <div class="field-container">
+                                            <textarea class="form-control" name="zalo_fan_page_chat_script" style="width: 100%" rows="5">{{ $setting->zalo_fan_page_chat_script ?? null }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 30px">
+                                        <label>
                                             Goole map địa chỉ công ty<span class="required"></span>
                                         </label>
                                         <div class="field-container">
@@ -167,6 +183,9 @@
                     hotline: {
                         maxlength: 20,
                     },
+                    hotline_name: {
+                        maxlength: 20,
+                    },
                     company_email: {
                         maxlength: 255,
                     },
@@ -196,6 +215,9 @@
                     hotline: {
                         maxlength: "Không được quá 20 ký tự",
                     },
+                    hotline_name: {
+                        maxlength: "Không được quá 20 ký tự",
+                    },
                     company_email: {
                         maxlength: "Không được quá 255 ký tự",
                     },
@@ -211,6 +233,7 @@
                         company_name: $("input[name='company_name']").val(),
                         company_tax_code: $("input[name='company_tax_code']").val(),
                         hotline: $("input[name='hotline']").val(),
+                        hotline_name: $("input[name='hotline_name']").val(),
                         company_email: $("input[name='company_email']").val(),
                         header_banner: headerBanner,
                         is_remove_header_banner: removedHeaderBanner ? 1 : 0,
@@ -220,6 +243,7 @@
                         header_banner_width: $("input[name='header_banner_width']").val(),
                         header_banner_height: $("input[name='header_banner_height']").val(),
                         fb_fan_page_script: $("textarea[name='fb_fan_page_script']").val(),
+                        zalo_fan_page_chat_script: $("textarea[name='zalo_fan_page_chat_script']").val(),
                         google_map_address_company: $("textarea[name='google_map_address_company']").val(),
                     }
                     $.ajax({
