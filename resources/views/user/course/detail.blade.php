@@ -27,7 +27,7 @@
                         class="button-show-share"
                         style="border: none; padding: 4px 10px; font-size: 13px; background-color: #78B43C; color: white;"
                         type="button">
-                        <i class="fa fa-share" aria-hidden="true"></i>
+                        <i class="fas fa-share" aria-hidden="true"></i>
                         Share
                     </button>
                     <div class="box-social">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="wrapper-share-social-mobile">
                     <button type="button" onclick="shareNavigator('{{ route('user.post.detail', ['category' => $item->category->slug, 'slug' => $item->slug]) }}')">
-                        <i class="fa fa-share" aria-hidden="true"></i> Share
+                        <i class="fas fa-share" aria-hidden="true"></i> Share
                     </button>
                 </div>
             </div>
