@@ -22,10 +22,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/favicon/site.webmanifest">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!--FontAwesome-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" type="text/css" />
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="/css/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/user/css/app.css" rel="stylesheet" type="text/css" />
 </head>
