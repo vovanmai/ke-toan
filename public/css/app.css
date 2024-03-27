@@ -641,7 +641,6 @@ body {
   background-color: rgba(0, 161, 255, 0.5);
   border-radius: 100%;
   border: 2px solid transparent;
-  opacity: 0.1;
   animation: quick-alo-circle-fill-anim 2.3s infinite ease-in-out;
   transition: all 0.5s;
   transform-origin: 50% 50%;
@@ -653,7 +652,7 @@ body {
   height: 45px;
   top: 22px;
   left: 80px;
-  background: url("/assets/user/img/zl.png") no-repeat center center;
+  background: url("/img/zl.png") no-repeat center center;
   border-radius: 100%;
   border: 2px solid transparent;
   opacity: 0.99;
