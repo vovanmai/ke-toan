@@ -25,6 +25,5 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/vendor/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
     <link href="/css/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
-{{--    <link href="/assets/user/css/app.css" rel="stylesheet" type="text/css" />--}}
     <link href="/css/app.css" rel="stylesheet" type="text/css" />
 </head>

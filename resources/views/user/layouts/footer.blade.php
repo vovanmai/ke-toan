@@ -90,6 +90,6 @@
 <script src="/js/jquery.min.js" type="text/javascript"></script>
 <script src="/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="/js/swiper-bundle.min.js" type="text/javascript"></script>
-<script src="/assets/user/js/app.js" type="text/javascript"></script>
+<script src="/js/app.js" type="text/javascript"></script>
 </body>
 </html>
