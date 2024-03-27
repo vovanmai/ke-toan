@@ -1,14 +1,48 @@
-import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
-import { SimpleUploadAdapter } from '@ckeditor/ckeditor5-upload';
+import 'bootstrap';
 
-ClassicEditor
-    .create( document.querySelector( '#editor' ), {
-        extraPlugins: [ SimpleUploadAdapter ],
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
-        simpleUpload: {
-            uploadUrl: '/your/upload/url',
+import $ from "jquery";
+window.$ = window.jQuery = $;
+
+import "jquery-validation";
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+$("form[name='registration']").validate({
+    // Specify validation rules
+    rules: {
+        // The key name on the left side is the name attribute
+        // of an input field. Validation rules are defined
+        // on the right side
+        firstname: "required",
+        lastname: "required",
+        email: {
+            required: true,
+            // Specify that email should be validated
+            // by the built-in "email" rule
+            email: true
+        },
+        password: {
+            required: true,
+            minlength: 5
         }
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
+    },
+    // Specify validation error messages
+    messages: {
+        firstname: "Please enter your firstname",
+        lastname: "Please enter your lastname",
+        password: {
+            required: "Please provide a password",
+            minlength: "Your password must be at least 5 characters long"
+        },
+        email: "Please enter a valid email address"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+        form.submit();
+    }
+});
