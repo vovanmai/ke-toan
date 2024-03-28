@@ -74,7 +74,7 @@ class CreateSiteMap extends Command
 
     private function createSiteMapForPage (&$siteMap)
     {
-        Page::orderBy('id', 'ASC')->chunk(100, function ($pages) use ($siteMap) {
+        Page::where('active', true)->orderBy('id', 'ASC')->chunk(100, function ($pages) use ($siteMap) {
             foreach ($pages as $page) {
                 $siteMap
                     ->add(
@@ -89,7 +89,7 @@ class CreateSiteMap extends Command
 
     private function createSiteMapForCourseCategory (&$siteMap)
     {
-        Category::orderBy('id', 'ASC')->where('type', Category::TYPE_COURSE)->chunk(100, function ($categories) use ($siteMap) {
+        Category::where('active', true)->orderBy('id', 'ASC')->where('type', Category::TYPE_COURSE)->chunk(100, function ($categories) use ($siteMap) {
             foreach ($categories as $category) {
                 $siteMap
                     ->add(
@@ -104,7 +104,7 @@ class CreateSiteMap extends Command
 
     private function createSiteMapForCourse (&$siteMap)
     {
-        Course::orderBy('id', 'ASC')->select('*')->with('category:id,slug')->chunk(100, function ($posts) use ($siteMap) {
+        Course::where('active', true)->orderBy('id', 'ASC')->select('*')->with('category:id,slug')->chunk(100, function ($posts) use ($siteMap) {
             foreach ($posts as $post) {
                 $siteMap
                     ->add(
@@ -126,7 +126,7 @@ class CreateSiteMap extends Command
 
     private function createSiteMapForPostCategory (&$siteMap)
     {
-        Category::orderBy('id', 'ASC')->where('type', Category::TYPE_POST)->chunk(100, function ($categories) use ($siteMap) {
+        Category::where('active', true)->orderBy('id', 'ASC')->where('type', Category::TYPE_POST)->chunk(100, function ($categories) use ($siteMap) {
             foreach ($categories as $category) {
                 $siteMap
                     ->add(
@@ -141,7 +141,7 @@ class CreateSiteMap extends Command
 
     private function createSiteMapForPost (&$siteMap)
     {
-        Post::orderBy('id', 'ASC')->select('*')->with('category:id,slug')->chunk(100, function ($posts) use ($siteMap) {
+        Post::where('active', true)->orderBy('id', 'ASC')->select('*')->with('category:id,slug')->chunk(100, function ($posts) use ($siteMap) {
             foreach ($posts as $post) {
                 $siteMap
                     ->add(
