@@ -63,11 +63,6 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-{{--    <div style="width: 100%; height: 100%; background: white; z-index: 10000; position: fixed" id="preload-content">--}}
-{{--        <i class="fa fa-spinner fa-spin" style="font-size: 25px;font-size: 50px;position: fixed;top: 50%;left: 50%;"></i>--}}
-{{--    </div>--}}
-
-{{--    <div id="preloading"></div>--}}
     <header class="main-header">
         <!-- Logo -->
         <a href="{{ route('admin.post.list') }}" class="logo">
