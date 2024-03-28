@@ -8,7 +8,7 @@
             @foreach($mainBanners as $banner)
                 <div class="swiper-slide">
                     <a href="{{ $banner->link }}" class="banner">
-                        <img src="{{ $banner->image['url'] }}" alt="{{ $banner->title }}">
+                        <img src="{{ $banner->image['url'] }}" alt="{{ $banner->title }}" loading="lazy">
                         @if($banner->link)
                             <button href="{{ $banner->link }}" type="button" class="banner-link btn btn-outline-info rounded-pill">
                                 Chi tiết <i class="fas fa-arrow-right"></i>

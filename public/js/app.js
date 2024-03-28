@@ -146,6 +146,7 @@ $('#request-question').validate({
 });
 
 var swiper = new Swiper(".main-banner-swiper", {
+    lazy: true,
     spaceBetween: 30,
     centeredSlides: true,
     autoplay: {
@@ -163,6 +164,7 @@ var swiper = new Swiper(".main-banner-swiper", {
 });
 
 var swiperCourseImage = new Swiper(".thumb-course-images", {
+    lazy: true,
     spaceBetween: 3,
     slidesPerView: 5,
     // Responsive breakpoints
@@ -185,6 +187,7 @@ var swiperCourseImage = new Swiper(".thumb-course-images", {
     },
 });
 new Swiper(".course-images", {
+    lazy: true,
     autoplay: {
         delay: 3000,
         disableOnInteraction: false,
