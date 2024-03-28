@@ -1,586 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-        <loc>http://laravel.test</loc>
+        <loc>https://www.rungduabaymauhoian.com</loc>
             <changefreq>daily</changefreq>
         <priority>1.0</priority>
             </url>
     <url>
-        <loc>http://laravel.test/gioi-thieu.html</loc>
-        <lastmod>2024-03-13T10:29:08+07:00</lastmod>
+        <loc>https://www.rungduabaymauhoian.com/dang-ki-hoc.html</loc>
+        <lastmod>2024-03-28T15:24:10+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>http://laravel.test/ke-toan-thue-2</loc>
-        <lastmod>2024-03-13T10:44:52+07:00</lastmod>
+        <loc>https://www.rungduabaymauhoian.com/quasi-facilis-molest.html</loc>
+        <lastmod>2024-03-28T15:23:32+07:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>https://www.rungduabaymauhoian.com/khoa-hoc-ke-toan-thue</loc>
+        <lastmod>2024-03-26T09:27:56+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
             </url>
     <url>
-        <loc>http://laravel.test/ke-toan-thuc-hanh</loc>
-        <lastmod>2024-03-13T10:44:59+07:00</lastmod>
+        <loc>https://www.rungduabaymauhoian.com/khoa-hoc-ke-toan-doanh-nghiep</loc>
+        <lastmod>2024-03-26T11:18:06+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.6</priority>
             </url>
     <url>
-        <loc>http://laravel.test/5</loc>
-        <lastmod>2024-03-19T15:28:12+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.6</priority>
-            </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thue-2/doloribus-ut-porro-c.html</loc>
-        <lastmod>2024-03-20T15:35:13+07:00</lastmod>
+        <loc>https://www.rungduabaymauhoian.com/khoa-hoc/khoa-hoc-ke-toan-thue/khoa-hoc-ke-toan-thue-thuc-hanh.html</loc>
+        <lastmod>2024-03-26T09:36:17+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710923704-1710923704102thiet-ke-chua-co-ten-1.jpg</image:loc>
-    <image:caption>Doloribus ut porro c</image:caption>
-    <image:license>http://laravel.test</image:license>
+    <image:loc>http://www.rungduabaymauhoian.com/storage/uploads/post_preview_1711420159-171142015982863b7565b7f08d0568919.jpg</image:loc>
+    <image:caption>Khóa học kế toán thuế thực hành</image:caption>
+    <image:license>https://www.rungduabaymauhoian.com</image:license>
 </image:image>
         </url>
     <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thue-2/accusamus-neque-tota.html</loc>
-        <lastmod>2024-03-20T15:33:18+07:00</lastmod>
+        <loc>https://www.rungduabaymauhoian.com/khoa-hoc/khoa-hoc-ke-toan-thue/khoa-hoc-ke-toan-thue-so-cap.html</loc>
+        <lastmod>2024-03-26T19:29:43+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710923588-17109235881116cf520ba-fc9a-4330-8c9c-8b05a62d62e1.png</image:loc>
-    <image:caption>Accusamus neque tota</image:caption>
-    <image:license>http://laravel.test</image:license>
+    <image:loc>http://www.rungduabaymauhoian.com/storage/uploads/post_preview_1711421207-171142120739391043495f7085b560219.jpg</image:loc>
+    <image:caption>Khóa học kế toán thuế sơ cấp</image:caption>
+    <image:license>https://www.rungduabaymauhoian.com</image:license>
 </image:image>
         </url>
     <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thuc-hanh/quasi-hic-reprehende.html</loc>
-        <lastmod>2024-03-20T15:31:21+07:00</lastmod>
+        <loc>https://www.rungduabaymauhoian.com/khoa-hoc/khoa-hoc-ke-toan-thue/khoa-hoc-ke-toan-doanh-nghiep.html</loc>
+        <lastmod>2024-03-28T16:08:09+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710923479-1710923479885818b6081-8eb5-4c53-9e45-243d7c9b4ae4.png</image:loc>
-    <image:caption>Quasi hic reprehende</image:caption>
-    <image:license>http://laravel.test</image:license>
+    <image:loc>http://www.rungduabaymauhoian.com/storage/uploads/course_preview_1711616887-171161688733963b7565b7f08d0568919.jpg</image:loc>
+    <image:caption>Khóa học kế toán doanh nghiệp</image:caption>
+    <image:license>https://www.rungduabaymauhoian.com</image:license>
 </image:image>
         </url>
     <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thuc-hanh/khoa-hoc-ke-toan-thuc-hanh-hom-nay.html</loc>
-        <lastmod>2024-03-20T15:28:21+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710923300-1710923300300ecf8b8db-1829-4e13-9e16-979f2dc73f27.png</image:loc>
-    <image:caption>Khóa học kế toán thực hành hôm nay</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/5/22222.html</loc>
-        <lastmod>2024-03-20T15:25:34+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710923132-171092313244016bc2474-4b66-4482-b436-e6562969da2b.png</image:loc>
-    <image:caption>22222</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thue-2/animi-iste-pariatur.html</loc>
-        <lastmod>2024-03-20T16:19:25+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710926342-171092634264978a841e8-875a-4af5-85d4-3e4fb85ca5e2.png</image:loc>
-    <image:caption>Animi iste pariatur</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thuc-hanh/khoa-hoc-ke-toan-thuc-hanh.html</loc>
-        <lastmod>2024-03-20T15:23:48+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710923016-1710923016370a91a044c-c5de-4b8d-9ec0-1fd8d8c3f130.png</image:loc>
-    <image:caption>Khóa học kế toán thực hành</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thuc-hanh/ke-toan-doanh-nghiep.html</loc>
-        <lastmod>2024-03-20T16:09:41+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710924956-171092495676284185baa-bb37-4520-a79d-ff5cd346a351.png</image:loc>
-    <image:caption>Kế toán doanh nghiệp</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/5/6.html</loc>
-        <lastmod>2024-03-20T15:41:38+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710924096-1710924096955thiet-ke-chua-co-ten-2.jpg</image:loc>
-    <image:caption>6</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thuc-hanh/khoa-hoc-ke-toan-so-cap.html</loc>
-        <lastmod>2024-03-20T15:49:05+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710924513-1710924513517salford-co-1.png</image:loc>
-    <image:caption>Khóa học kế toán sơ cấp</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thuc-hanh/khoa-hoc-ke-toan-nang-cao-khoa-hoc-ke-toan-nang-cao-khoa-hoc-ke-toan-nang-cao-khoa-hoc-ke-toan-nang-cao-khoa-hoc-ke-toan-nang-cao-khoa-hoc-ke-toan-nang-cao.html</loc>
-        <lastmod>2024-03-20T16:31:15+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710925569-1710925569179aa4d3869-572f-43e3-960f-241b94845429.jpg</image:loc>
-    <image:caption>Khóa học kế toán nâng cao Khóa học kế toán nâng cao	 Khóa học kế toán nâng cao Khóa học kế toán nâng cao Khóa học kế toán nâng cao Khóa học kế toán nâng cao</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/ke-toan-thuc-hanh/khoa-hoc-ke-toan-online.html</loc>
-        <lastmod>2024-03-20T16:19:14+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/c_preview_1710925272-17109252722453d30fa75-981d-49a5-81f3-51ed3f48f310.png</image:loc>
-    <image:caption>Khóa học kế toán online</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/khoa-hoc/5/dsaf.html</loc>
-        <lastmod>2024-03-20T16:44:51+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710927887-1710927887579thiet-ke-chua-co-ten-2.jpg</image:loc>
-    <image:caption>dsaf</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/dich-vu-ke-toan</loc>
-        <lastmod>2024-03-13T10:06:31+07:00</lastmod>
+        <loc>https://www.rungduabaymauhoian.com/d</loc>
+        <lastmod>2024-03-26T17:02:23+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.4</priority>
             </url>
     <url>
-        <loc>http://laravel.test/thanh-lap-cong-ty</loc>
-        <lastmod>2024-03-13T10:06:33+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.4</priority>
-            </url>
-    <url>
-        <loc>http://laravel.test/ke-toan-thue</loc>
-        <lastmod>2024-03-12T14:57:46+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.4</priority>
-            </url>
-    <url>
-        <loc>http://laravel.test/ke-toan-doanh-nghiep</loc>
-        <lastmod>2024-03-08T16:26:41+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.4</priority>
-            </url>
-    <url>
-        <loc>http://laravel.test/tin-tuc</loc>
-        <lastmod>2024-03-11T10:38:54+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.4</priority>
-            </url>
-    <url>
-        <loc>http://laravel.test/tin-noi-bo</loc>
-        <lastmod>2024-03-08T16:24:07+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.4</priority>
-            </url>
-    <url>
-        <loc>http://laravel.test/tuyen-dung</loc>
-        <lastmod>2024-03-12T15:27:20+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.4</priority>
-            </url>
-    <url>
-        <loc>http://laravel.test/thong-tin-bhxh</loc>
-        <lastmod>2024-03-13T10:27:14+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.4</priority>
-            </url>
-    <url>
-        <loc>http://laravel.test/tin-noi-bo/endo-khien-de-bruyne-kho-so-liverpool-co-chuoi-bat-bai-voi-sao-nhat-ban.html</loc>
-        <lastmod>2024-03-20T13:43:57+07:00</lastmod>
+        <loc>https://www.rungduabaymauhoian.com/d/mua-bao-hiem-suc-khoe-tai-hai-duong.html</loc>
+        <lastmod>2024-03-28T15:20:09+07:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
     <image:image>
-    <image:loc>http://laravel.test/storage/uploads/1710127961947hq720jpg.jpg</image:loc>
-    <image:caption>Endo khiến De Bruyne khổ sở, Liverpool có chuỗi bất bại với sao Nhật Bản</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/ke-toan-doanh-nghiep/khoa-hoc-ke-toan-ly-thuyet-phan-tich-bao-cao-tai-chinh.html</loc>
-        <lastmod>2024-03-20T14:06:29+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/1710225098503post1png.png</image:loc>
-    <image:caption>Khoá học kế toán lý thuyết phân tích báo cáo tài chính</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thanh-lap-cong-ty/dolores-nemo-nostrum.html</loc>
-        <lastmod>2024-03-20T14:06:28+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/1710305399249khoa-hoc-ke-toan-thuc-hanhjpg.jpg</image:loc>
-    <image:caption>Dolores nemo nostrum</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tuyen-dung/can-tuyen-mot-ke-toan-thue.html</loc>
-        <lastmod>2024-03-20T16:38:23+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710920431-thiet-ke-chua-co-ten1.png</image:loc>
-    <image:caption>Cần tuyển một kế toán thuế</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/ke-toan-doanh-nghiep/qui-expedita-non-ius.html</loc>
-        <lastmod>2024-03-20T14:06:28+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836097-1710836097052hq720.jpg</image:loc>
-    <image:caption>Qui expedita non ius</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/ke-toan-doanh-nghiep/qui-expedita-non-ius-2.html</loc>
-        <lastmod>2024-03-20T14:06:27+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836097-1710836097052hq720.jpg</image:loc>
-    <image:caption>Qui expedita non ius</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tuyen-dung/consequatur-molesti.html</loc>
-        <lastmod>2024-03-20T16:38:23+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710920398-tuyen-dung-cskh-t32023.png</image:loc>
-    <image:caption>Consequatur Molesti</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tin-tuc/consequat-nostrud-i.html</loc>
-        <lastmod>2024-03-20T13:43:49+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836273-17108362735681710132401507thiet-ke-chua-co-tenpng-1.webp</image:loc>
-    <image:caption>Consequat Nostrud i</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tin-tuc/expedita-enim-qui-pe.html</loc>
-        <lastmod>2024-03-20T13:43:48+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836338-17108363379781710132401507thiet-ke-chua-co-tenpng-1.webp</image:loc>
-    <image:caption>Expedita enim qui pe</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tuyen-dung/et-quia-eos-enim-il.html</loc>
-        <lastmod>2024-03-20T16:38:22+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710920304-khoa-hoc-ke-toan-thuc-hanh-1.jpg</image:loc>
-    <image:caption>Et quia eos enim il</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/ke-toan-doanh-nghiep/adipisci-sapiente-ex.html</loc>
-        <lastmod>2024-03-20T14:06:25+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836470-1710836470237anh-post.jpg</image:loc>
-    <image:caption>Adipisci sapiente ex</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tin-noi-bo/facilis-qui-veniam.html</loc>
-        <lastmod>2024-03-20T13:43:55+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836718-1710836718786khoa-hoc-ke-toan-thuc-hanhok.png</image:loc>
-    <image:caption>Facilis qui veniam</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thong-tin-bhxh/duis-incidunt-quam.html</loc>
-        <lastmod>2024-03-20T14:43:39+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836798-1710836798157bang-ke-chi-tiet.jpeg</image:loc>
-    <image:caption>Duis incidunt quam</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thanh-lap-cong-ty/qui-consectetur-maio.html</loc>
-        <lastmod>2024-03-20T14:06:23+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836867-17108368678101710132401507thiet-ke-chua-co-tenpng-1.webp</image:loc>
-    <image:caption>Qui consectetur maio</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/dich-vu-ke-toan/ullamco-incidunt-te.html</loc>
-        <lastmod>2024-03-20T14:06:23+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836947-1710836947003khoa-hoc-ke-toan-thuc-hanh-1.jpg</image:loc>
-    <image:caption>Ullamco incidunt te</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/dich-vu-ke-toan/ullamco-incidunt-te-2.html</loc>
-        <lastmod>2024-03-20T14:06:23+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710836947-1710836947003khoa-hoc-ke-toan-thuc-hanh-1.jpg</image:loc>
-    <image:caption>Ullamco incidunt te</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thong-tin-bhxh/dolores-molestiae-fa.html</loc>
-        <lastmod>2024-03-20T14:43:40+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710837074-1710837074128bang-ke-chi-tiet.jpeg</image:loc>
-    <image:caption>Dolores molestiae fa</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thong-tin-bhxh/dolores-molestiae-fa-2.html</loc>
-        <lastmod>2024-03-20T14:43:40+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710837074-1710837074128bang-ke-chi-tiet.jpeg</image:loc>
-    <image:caption>Dolores molestiae fa</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thong-tin-bhxh/ok.html</loc>
-        <lastmod>2024-03-20T14:46:57+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710920637-screenshot-from-2024-01-04-10-11-03.png</image:loc>
-    <image:caption>ok</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/dich-vu-ke-toan/a-minima-reprehender.html</loc>
-        <lastmod>2024-03-20T14:06:12+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710837425-1710837425545hq720.jpg</image:loc>
-    <image:caption>A minima reprehender</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/dich-vu-ke-toan/a-minima-reprehender-2.html</loc>
-        <lastmod>2024-03-20T14:06:13+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710837425-1710837425545hq720.jpg</image:loc>
-    <image:caption>A minima reprehender</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/dich-vu-ke-toan/magni-laborum-illo.html</loc>
-        <lastmod>2024-03-20T14:06:49+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710837531-1710837531577post1.png</image:loc>
-    <image:caption>Magni laborum Illo</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/ke-toan-thue/proident-consequatu.html</loc>
-        <lastmod>2024-03-20T14:06:13+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710837635-1710837635726nhan-vien-van-phong.webp</image:loc>
-    <image:caption>Proident consequatu</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thanh-lap-cong-ty/proident-consequatu-2.html</loc>
-        <lastmod>2024-03-20T14:06:14+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710837697-1710837697072post1.png</image:loc>
-    <image:caption>Proident consequatu</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thanh-lap-cong-ty/test.html</loc>
-        <lastmod>2024-03-20T14:06:14+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710838680-1710838680600khoa-hoc-ke-toan-thuc-hanh.jpg</image:loc>
-    <image:caption>test</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/ke-toan-doanh-nghiep/tes.html</loc>
-        <lastmod>2024-03-20T14:06:15+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710839647-1710839647811khoa-hoc-ke-toan-thuc-hanh-1.jpg</image:loc>
-    <image:caption>tes</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tin-noi-bo/dolorum-in-est-ut-ip.html</loc>
-        <lastmod>2024-03-20T13:43:55+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710902341-1710902341421khoa-hoc-ke-toan-thuc-hanhok.png</image:loc>
-    <image:caption>Dolorum in est ut ip</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thanh-lap-cong-ty/1.html</loc>
-        <lastmod>2024-03-20T14:06:15+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710903287-ke-toan-thuc-hanh-cho-sinh-vien.png</image:loc>
-    <image:caption>1</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/thanh-lap-cong-ty/hihi.html</loc>
-        <lastmod>2024-03-20T14:06:16+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710903648-khoa-hoc-ke-toan-thuc-hanh.jpg</image:loc>
-    <image:caption>hihi</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/dich-vu-ke-toan/d.html</loc>
-        <lastmod>2024-03-20T12:27:39+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710903737-screenshot-from-2023-12-12-15-30-56.png</image:loc>
-    <image:caption>d</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tin-noi-bo/kakaka.html</loc>
-        <lastmod>2024-03-20T13:43:41+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710904384-khoa-hoc-ke-toan-tong-hop-1jpg.webp</image:loc>
-    <image:caption>kakaka</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tuyen-dung/ke-toan-tong-hop.html</loc>
-        <lastmod>2024-03-20T16:37:55+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710927473-vff-4-7-edited-crop-1710926261624.webp</image:loc>
-    <image:caption>Kế Toán Tổng Hợp</image:caption>
-    <image:license>http://laravel.test</image:license>
-</image:image>
-        </url>
-    <url>
-        <loc>http://laravel.test/tin-noi-bo/dai-gia-tuan-qua-cat-giam-gan-3-800-lao-dong-dai-gia-det-may-bat-ngo-chuyen-huong-lam-bds.html</loc>
-        <lastmod>2024-03-20T16:47:12+07:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-    <image:image>
-    <image:loc>http://laravel.test/storage/uploads/post_preview_1710920879-khoa-hoc-ke-toan-thuc-hanh.jpg</image:loc>
-    <image:caption>Đại gia tuần qua: Cắt giảm gần 3.800 lao động, &quot;đại gia&quot; dệt may bất ngờ chuyển hướng làm BĐS</image:caption>
-    <image:license>http://laravel.test</image:license>
+    <image:loc>http://www.rungduabaymauhoian.com/storage/uploads/post_preview_1711613989-baohiembaohiem.jpg</image:loc>
+    <image:caption>Mua bảo hiểm sức khỏe tại Hải Dương</image:caption>
+    <image:license>https://www.rungduabaymauhoian.com</image:license>
 </image:image>
         </url>
 </urlset>
