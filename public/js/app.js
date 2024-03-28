@@ -25,11 +25,11 @@ $('#mobile-main-menu > ul > li .button-arrow').click(function() {
 });
 
 $('.hidden-menu').click(function () {
-    $('#mobile-main-menu').hide('slow')
+    $('#mobile-main-menu').hide(200)
 })
 
 $('#toggle-show-menu .toggle-button').click(function () {
-    $('#mobile-main-menu').show('slow')
+    $('#mobile-main-menu').show(200)
 })
 
 $(window).scroll(function() {

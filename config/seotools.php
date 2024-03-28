@@ -11,7 +11,7 @@ return [
         'defaults'       => [
             'title'        => 'Kế toán DPT: https://www.ketoandpt.com', // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
-            'description'  => 'Khám phá Rừng Dừa Bảy Mẫu Hội An với giá vé rẻ nhất của chúng tôi...', // set false to total remove
+            'description'  => 'Trung tâm kế toán chuyên nghiệp ', // set false to total remove
             'separator'    => ' - ',
             'keywords'     => [],
             'canonical'    => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
@@ -40,7 +40,7 @@ return [
             'description' => '', // set false to total remove
             'url'         => null, // Set null for using Url::current(), set false to total remove
             'type'        => '',
-            'site_name'   => 'Trung tâm đào tạo kế toán chuyên nghiệp DPT',
+            'site_name'   => 'Trung tâm đào tạo kếDPT toán chuyên nghiệp DPT',
             'images'      => [],
             'locale' => 'vi_VN',
         ],
@@ -51,7 +51,7 @@ return [
          */
         'defaults' => [
             'card'        => 'summary',
-            'site'        => 'Khám phá Rừng Dừa Bảy Mẫu Hội An với giá vé rẻ nhất của chúng tôi...',
+            'site'        => 'Trung tâm đào tạo kếDPT toán chuyên nghiệp DPT',
         ],
     ],
     'json-ld' => [
