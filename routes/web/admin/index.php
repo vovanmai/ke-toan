@@ -2,14 +2,14 @@
 use Illuminate\Support\Facades\Route;
 
 Route::namespace("Admin")->middleware('guard:admin')->prefix('admin')->group(function () {
+    Route::get('', function () {
+        return redirect()->route('admin.course.list');
+    });
     Route::post('login', 'AuthController@login')->name('admin.login');
+    Route::get('login', 'AuthController@loginView')->name('admin.login_view');
     Route::get('login', 'AuthController@loginView')->name('admin.login_view');
     Route::middleware(['auth', 'permission', 'active'])->group(function () {
         Route::get('logout', 'AuthController@logout')->name('admin.logout');
-
-        Route::post('upload-from-ckeditor', function (\Illuminate\Http\Request $request) {
-            dd($request->file('upload'));
-        });
 
         // Routes of common
         require __DIR__ . '/common.php';

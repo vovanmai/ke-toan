@@ -146,24 +146,22 @@ body {
 
 .sidebar {
     margin-bottom: 25px;
+    h3 {
+        background: #1758DA;
+        color: #fff;
+        font-size: 16px;
+        padding: 7px;
+        font-weight: 600;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    &.support-online h3 {
+        background: #e5b800;
+    }
 }
 
 .widget .widget-content {
     padding-top: 10px;
-}
-
-.sidebar h3 {
-    background: #1758DA;
-    color: #fff;
-    font-size: 16px;
-    padding: 7px;
-    font-weight: 600;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.sidebar.support-online h3 {
-    background: green;
 }
 
 .support-online .number-phone {

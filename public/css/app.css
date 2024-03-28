@@ -148,11 +148,6 @@ body {
 .sidebar {
   margin-bottom: 25px;
 }
-
-.widget .widget-content {
-  padding-top: 10px;
-}
-
 .sidebar h3 {
   background: #1758DA;
   color: #fff;
@@ -162,9 +157,12 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
 .sidebar.support-online h3 {
-  background: green;
+  background: #e5b800;
+}
+
+.widget .widget-content {
+  padding-top: 10px;
 }
 
 .support-online .number-phone {
