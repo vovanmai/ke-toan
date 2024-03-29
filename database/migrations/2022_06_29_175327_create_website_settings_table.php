@@ -28,6 +28,7 @@ class CreateWebsiteSettingsTable extends Migration
             $table->string('header_banner_height', 10)->nullable();
             $table->text('fb_fan_page_script')->nullable();
             $table->text('zalo_fan_page_chat_script')->nullable();
+            $table->string('zalo_group_chat', 100)->nullable();
             $table->text('google_map_address_company')->nullable();
             $table->unsignedBigInteger('total_view')->default(0);
             $table->timestamps();

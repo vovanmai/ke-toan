@@ -131,11 +131,21 @@ $('#request-question').validate({
         },
     },
     submitHandler: function() {
+        const reCaptcha = $('#request-question textarea[name=g-recaptcha-response]').val()
+
+        if (!reCaptcha) {
+            $('.show-error-recaptcha').text('Please verify that you are not a robot.')
+            return
+        } else {
+            $('.show-error-recaptcha').text('')
+        }
         const data = {
             name: $('#request-question input[name=name]').val(),
             phone: $('#request-question input[name=phone]').val(),
             content: $('#request-question textarea[name=content]').val(),
+            "g-recaptcha-response": reCaptcha,
         }
+
         $.post("support-and-consultation", data, function() {
             $('#request-question input[name=name]').val('')
             $('#request-question input[name=phone]').val('')

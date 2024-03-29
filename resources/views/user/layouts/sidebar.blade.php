@@ -57,6 +57,10 @@
                 <div class="mb-3">
                     <textarea class="form-control" name="content" placeholder="Nội dung"></textarea>
                 </div>
+                <div class="mb-3">
+                    {!! \NoCaptcha::display() !!}
+                    <div class="show-error-recaptcha"></div>
+                </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-secondary"><i class="far fa-paper-plane"></i> Gửi</button>
                 </div>

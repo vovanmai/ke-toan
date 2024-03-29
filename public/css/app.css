@@ -988,3 +988,13 @@ form label.error {
     -webkit-transform: rotate(0) scale(1) skew(1deg);
   }
 }
+.g-recaptcha {
+  transform: scale(0.77);
+  -webkit-transform: scal(0.77);
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+}
+
+.show-error-recaptcha {
+    color: red;
+}

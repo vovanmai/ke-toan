@@ -29,6 +29,7 @@ class WebsiteSetting extends AbstractModel
         'header_banner_height',
         'fb_fan_page_script',
         'zalo_fan_page_chat_script',
+        'zalo_group_chat',
         'google_map_address_company',
         'link_fan_page_facebook',
     ];
