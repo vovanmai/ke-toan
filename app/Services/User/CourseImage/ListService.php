@@ -25,6 +25,6 @@ class ListService
             ->orderByColumns([
                 'id' => 'DESC',
             ])
-            ->paginate(18);
+            ->all();
     }
 }

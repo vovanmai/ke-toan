@@ -235,6 +235,9 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <script src="{{ customAsset('assets/admin/dist/js/jquery.validate.min.js') }}"></script>
 <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+<!-- cdnjs -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
 <script src="/assets/admin/plugins/ckeditor.js"></script>
 <script src="{{ customAsset('assets/admin/dist/js/custom-ckeditor.js') }}"></script>
 <script src="{{ customAsset('assets/admin/dist/js/my-script.js') }}"></script>

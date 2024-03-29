@@ -844,51 +844,22 @@ form label.error {
   font-size: 18px;
   left: 5%;
   background: #117cf8;
-  animation-name: example;
   font-weight: 600;
   border: 2px solid white;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
   line-height: 25px;
+  animation: up-down 1.5s ease-in-out infinite alternate-reverse both;
 }
 
 .swiper-slide .banner .banner-link:hover {
   background: #0465d7;
 }
 
-@keyframes example {
+@keyframes up-down {
   0% {
-    margin-bottom: 0px;
-  }
-  10% {
-    margin-bottom: 2px;
-  }
-  20% {
-    margin-bottom: 4px;
-  }
-  30% {
-    margin-bottom: 6px;
-  }
-  40% {
-    margin-bottom: 8px;
-  }
-  50% {
-    margin-bottom: 10px;
-  }
-  60% {
-    margin-bottom: 8px;
-  }
-  70% {
-    margin-bottom: 6px;
-  }
-  80% {
-    margin-bottom: 4px;
-  }
-  90% {
-    margin-bottom: 2px;
+    transform: translateY(10px);
   }
   100% {
-    margin-bottom: 0px;
+    transform: translateY(-10px);
   }
 }
 .display-vertical a {

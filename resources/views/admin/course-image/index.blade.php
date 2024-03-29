@@ -65,7 +65,7 @@
                         <div class="course-images">
                             @foreach($items as $item)
                             <div class="image-{{ $item->id }}">
-                                <img target-id="{{ $item->id }}" loading="lazy" src="{{ $item->image['url'] ?? '' }}" alt="">
+                                <img class="lazy" target-id="{{ $item->id }}" loading="lazy" data-src="{{ $item->image['url'] ?? '' }}" alt="">
                             </div>
                             @endforeach
                         </div>
@@ -86,6 +86,9 @@
 
 @push('script')
     <script>
+        $('img.lazy').lazy({
+            effect: 'fadeIn',
+        });
         $('.input-daterange').datepicker({
             daysOfWeekHighlighted: "0",
             clearBtn: true,
