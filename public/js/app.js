@@ -134,7 +134,7 @@ $('#request-question').validate({
         const reCaptcha = $('#request-question textarea[name=g-recaptcha-response]').val()
 
         if (!reCaptcha) {
-            $('.show-error-recaptcha').text('Please verify that you are not a robot.')
+            $('.show-error-recaptcha').text('Vui lòng xác nhận bạn không phải là người máy.')
             return
         } else {
             $('.show-error-recaptcha').text('')

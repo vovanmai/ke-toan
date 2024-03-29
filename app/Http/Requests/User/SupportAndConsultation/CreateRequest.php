@@ -27,6 +27,7 @@ class CreateRequest extends FormRequest
             'name' => 'required|max:50',
             'phone' => 'required|max:11',
             'content' => 'required|max:1000',
+            'g-recaptcha-response' => 'required|captcha',
         ];
     }
 }

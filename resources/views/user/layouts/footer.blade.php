@@ -91,6 +91,6 @@
 <script src="/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="/js/swiper-bundle.min.js" type="text/javascript"></script>
 <script src="/js/app.js" type="text/javascript"></script>
-{!! NoCaptcha::renderJs() !!}
+{!! NoCaptcha::renderJs('vi') !!}
 </body>
 </html>
