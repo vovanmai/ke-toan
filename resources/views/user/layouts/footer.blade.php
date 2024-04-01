@@ -83,6 +83,17 @@
     <div id="to-top">
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </div>
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="show-toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header" style="color: green">
+                <i class="fas fa-check"></i>
+                <strong class="me-auto" style="margin-left: 5px">Thành công</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+            </div>
+        </div>
+    </div>
 </div>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0" nonce="6Eoz0Xhr"></script>

@@ -767,10 +767,6 @@ body {
   padding: 9px 22px;
 }
 
-.btn {
-  border-radius: 0px;
-}
-
 form label.error {
   color: red;
 }
@@ -996,5 +992,5 @@ form label.error {
 }
 
 .show-error-recaptcha {
-    color: red;
+  color: red;
 }

@@ -146,11 +146,30 @@ $('#request-question').validate({
             "g-recaptcha-response": reCaptcha,
         }
 
-        $.post("support-and-consultation", data, function() {
-            $('#request-question input[name=name]').val('')
-            $('#request-question input[name=phone]').val('')
-            $('#request-question textarea[name=content]').val('')
-            alert("Gửi thành công. Cảm ơn bạn đã gởi câu hỏi. Chúng tôi sẽ liên hệ bạn ngay sau khi tiếp nhận.");
+        $.ajax("support-and-consultation", {
+            data: data,
+            method: 'POST',
+            success: function() {
+                $('#request-question input[name=name]').val('')
+                $('#request-question input[name=phone]').val('')
+                $('#request-question textarea[name=content]').val('')
+                grecaptcha.reset();
+
+                $('#show-toast .toast-body').html(
+                    `<p style="margin: 0">Cảm ơn bạn đã gởi câu hỏi. </p>
+                    <p style="margin: 0">Chúng tôi sẽ liên hệ bạn ngay sau khi tiếp nhận.</p>`
+                )
+                const showToast = document.getElementById('show-toast')
+
+                if (showToast) {
+                    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(showToast)
+                    toastBootstrap.show()
+                }
+            },
+            error: function (error) {
+                grecaptcha.reset();
+                console.log(error.responseJSON)
+            }
         });
     }
 });
@@ -210,3 +229,4 @@ new Swiper(".course-images", {
         prevEl: ".swiper-button-prev",
     },
 });
+
