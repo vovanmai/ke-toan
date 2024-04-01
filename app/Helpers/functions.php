@@ -384,22 +384,15 @@ if (! function_exists('getWebsiteTitle')) {
     function getWebsiteTitle()
     {
         $names = [
-            'admin/users*' => 'Khách hàng',
-            'admin/admins*' => 'Admin',
-            'admin/contacts*' => 'Liên hệ',
-            'admin/categories*' => 'Danh mục sản phẩm',
-            'admin/products*' => 'Sản phẩm',
-            'admin/discounts*' => 'Giảm giá',
-            'admin/calendars*' => 'Lịch',
-            'admin/sliders*' => 'Quản lý banners',
-            'admin/orders*' => 'Đơn hàng',
+            'admin/course-categories*' => 'Danh mục khóa học',
             'admin/courses*' => 'Khóa học',
-            'admin/recruitments*' => 'Tuyển dụng',
-            'admin/recruitment-comments*' => 'Bình luận tuyển dụng',
+            'admin/categories*' => 'Danh mục baì viết',
             'admin/website-setting*' => 'Cài đặt',
             'admin/posts*' => 'Bài viết',
-            'admin/comments*' => 'Bình luận',
-            'admin/post-categories*' => 'Danh mục bài viết',
+            'admin/admins*' => 'Quản lý quản trị viên',
+            'admin/request-logs*' => 'Lịch sử truy cập',
+            'admin/pages*' => 'Trang',
+            'admin/course-images*' => 'Hình ảnh khóa học',
         ];
 
         $name = null;
@@ -410,7 +403,7 @@ if (! function_exists('getWebsiteTitle')) {
                 break;
             }
         }
-        return "QLHT" . ($name ? " | $name" : '');
+        return "DPT Management" . ($name ? " | $name" : '');
     }
 }
 

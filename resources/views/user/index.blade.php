@@ -46,7 +46,7 @@
             <div class="swiper-wrapper">
                 @foreach($courseImages as $courseImage)
                 <div class="swiper-slide">
-                    <img src="{{ $courseImage->image['url'] ?? null }}" loading="lazy">
+                    <img src="{{ $courseImage->image['url'] ?? null }}" loading="lazy" alt="Hình ảnh khóa học và sự kiện của Trung tâm kế toán chuyên nghiệp DPT">
                 </div>
                 @endforeach
             </div>
@@ -57,7 +57,7 @@
             <div class="swiper-wrapper">
                 @foreach($courseImages as $courseImage)
                     <div class="swiper-slide">
-                        <img src="{{ $courseImage->image['url'] ?? null }}" loading="lazy">
+                        <img src="{{ $courseImage->image['url'] ?? null }}" loading="lazy" alt="Hình ảnh khóa học và sự kiện của Trung tâm kế toán chuyên nghiệp DPT">
                     </div>
                 @endforeach
             </div>
