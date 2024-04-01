@@ -87,7 +87,7 @@ class CourseCategoryController extends BaseController
 
             return redirect()->route('admin.course_category.list');
         } catch (ValidatorException $ex) {
-            return redirect()->back()->withErrors($ex->getMessageBag());
+            return redirect()->back()->withInput()->withErrors($ex->getMessageBag());
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');
@@ -128,6 +128,8 @@ class CourseCategoryController extends BaseController
             session()->flash('error_msg', trans('message.admin.create_success'));
 
             return redirect()->route('admin.course_category.list');
+        } catch (ValidatorException $ex) {
+            return redirect()->back()->withInput()->withErrors($ex->getMessageBag());
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
             return redirect()->route('admin.error.error');

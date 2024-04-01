@@ -33,12 +33,10 @@
                                 <div class="col-md-6">
                                     <div style="border: 1px solid #d2d6de; padding: 10px 20px; height: 500px; overflow-y: auto;">
                                         @foreach($categories as $cat)
-                                            @if($editCategory->id != $cat->id)
-                                                @include('admin.component.edit-child-category', [
-                                                    'category' => $cat,
-                                                    'editCategory' => $editCategory,
-                                                ])
-                                            @endif
+                                            @include('admin.component.edit-child-category-other', [
+                                                'category' => $cat,
+                                                'editCategory' => $editCategory,
+                                            ])
                                         @endforeach
                                     </div>
                                     @error('parent_id')
@@ -51,7 +49,7 @@
                                     Tiêu đề<span class="required">(*)</span>
                                 </label>
                                 <div class="col-md-6">
-                                    <input type="text" value="{{ $editCategory->title }}" name="title" class="form-control">
+                                    <input type="text" value="{{ old("title") ??  $editCategory->title }}" name="title" class="form-control">
                                     @error('title')
                                     <span class="help-block">{{ $message }}</span>
                                     @enderror
@@ -62,7 +60,7 @@
                                     Mô tả<span class="required"></span>
                                 </label>
                                 <div class="col-md-6">
-                                    <textarea name="description" class="form-control" rows="3" placeholder="">{{ $editCategory->description }}</textarea>
+                                    <textarea name="description" class="form-control" rows="3" placeholder="">{{ old("description") ?? $editCategory->description }}</textarea>
                                     @error('description')
                                     <span class="help-block">{{ $message }}</span>
                                     @enderror
