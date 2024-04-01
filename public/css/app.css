@@ -78,6 +78,7 @@ body {
   float: left;
   margin-right: 15px;
   width: 27%;
+  transition: opacity 0.5s;
 }
 
 .featured-thumbnail:hover {
@@ -222,6 +223,7 @@ body {
      object-fit: cover;
   border: 1px solid #e6e6e6;
   padding: 3px;
+  transition: opacity 0.5s;
 }
 
 .post-inner .entry-thumb a img:hover {
