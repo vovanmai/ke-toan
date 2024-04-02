@@ -26,12 +26,20 @@ class CreateWebsiteSettingRequest extends FormRequest
     {
         return [
             'company_name' => 'nullable|max:255',
-            'company_tax_code' => 'nullable|max:20',
+            'company_tax_code' => [
+                'nullable',
+                'string',
+                'max:13',
+                'regex:/^([0-9]{10}|[0-9]{13})$/',
+            ],
             'hotline' => [
                 'nullable',
                 new PhoneNumber(),
             ],
-            'hotline_name' => 'nullable|max:20',
+            'hotline_name' => [
+                'nullable',
+                'max:20',
+            ],
             'company_email' => 'nullable|email|max:255',
             'company_address' => 'nullable|max:255',
             'company_website_domain' => 'nullable|max:255',
@@ -39,8 +47,14 @@ class CreateWebsiteSettingRequest extends FormRequest
             'header_banner' => 'nullable|array',
             'header_banner_width' => [
                 'nullable',
+                'max:20',
+                'regex:/^(auto|([1-9]{1}[0-9]{0,}px)|([1-9]{1}[0-9]{0,1}|100)%)$/',
             ],
-            'header_banner_height' => 'nullable',
+            'header_banner_height' => [
+                'nullable',
+                'max:20',
+                'regex:/^(auto|([1-9]{1}[0-9]{0,}px)|([1-9]{1}[0-9]{0,1}|100)%)$/',
+            ],
             'fb_fan_page_script' => [
                 'nullable',
 //                new CheckHtmlElement(),

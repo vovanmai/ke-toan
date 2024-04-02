@@ -22,7 +22,7 @@
             @foreach($courses as $course)
                 <a href="{{ route('user.course.detail', ['category' => $course->category->slug, 'slug' => $course->slug]) }}">
                     <img src="{{ $course['image']['url'] }}" alt="{{ $course->title }}">
-                    <p style="text-decoration: none;">
+                    <p title="{{ $course->title }}" style="text-decoration: none;">
                         {{ $course->title }}
                     </p>
                 </a>
@@ -36,7 +36,7 @@
             @foreach($posts as $post)
             <a href="{{ route('user.post.detail', ['category' => $post->category->slug, 'slug' => $post->slug]) }}">
                 <img src="{{ $post['image']['url'] }}" alt="{{ $post->title }}">
-                <p style="text-decoration: none;">
+                <p title="{{ $post->title }}" style="text-decoration: none;">
                     {{ $post->title }}
                 </p>
             </a>

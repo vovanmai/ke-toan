@@ -108,7 +108,7 @@ body {
 }
 
 .block .main-post .title {
-  line-height: 25px;
+  line-height: 20px;
 }
 
 .block .main-post .title a {
@@ -116,12 +116,20 @@ body {
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .main-post .description {
   line-height: 20px;
   font-size: 14px;
   margin-bottom: 0px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .block .main-post .title a:hover {
@@ -278,6 +286,9 @@ body {
   }
   #course-gallery .thumb-course-images .swiper-slide {
     height: 50px !important;
+  }
+  .featured-thumbnail {
+    width: 35%;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -487,7 +498,7 @@ body {
   background-color: #f2f2f2;
 }
 
-.ckeditor-content figure img {
+.ckeditor-content img {
   width: 100% !important;
   height: auto !important;
 }
@@ -747,6 +758,10 @@ body {
 
 .highlight-post p {
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .highlight-post a img {
@@ -883,6 +898,7 @@ form label.error {
   -webkit-line-clamp: 2;
   /* number of lines to show */
   -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 16px;
   font-weight: 600;
 }

@@ -178,5 +178,6 @@ return [
         'logo_height' => 'Chiều cao logo',
         'login_email' => 'Email',
         'login_password' => 'Mật khẩu',
+        'company_tax_code' => 'Mã số thuế',
     ],
 ];
