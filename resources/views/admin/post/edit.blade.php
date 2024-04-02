@@ -66,7 +66,7 @@
                                                     @php
                                                         $editCategory = $item->category;
                                                     @endphp
-                                                        @include('admin.component.edit-child-category-other', [
+                                                        @include('admin.component.edit-child-category', [
                                                             'category' => $cat,
                                                             'editCategory' => $editCategory,
                                                         ])

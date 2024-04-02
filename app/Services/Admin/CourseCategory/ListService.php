@@ -26,7 +26,7 @@ class ListService
         return $this->repository->search($filters)
             ->with([
                 'childrenRecursive' => function ($query) {
-                    $query->withCount('posts');
+                    $query->withCount('courses');
                 },
             ])
             ->whereNull('parent_id')

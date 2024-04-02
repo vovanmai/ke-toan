@@ -4,9 +4,11 @@
         <span style="margin-left: 10px">{{ $category->title }}</span>
     </div>
 
+    @if($category->childrenRecursive->isNotEmpty())
     <div style="margin-left: 15px;">
         @foreach($category->childrenRecursive as $category)
             @include('admin.component.search-child-category', ['category' => $category])
         @endforeach
     </div>
+    @endif
 </div>
