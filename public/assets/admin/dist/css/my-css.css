@@ -123,6 +123,7 @@ body {
     margin-right: 15px;
     margin-bottom: 15px;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .course-images > div > img {

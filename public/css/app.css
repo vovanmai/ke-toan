@@ -78,11 +78,14 @@ body {
   float: left;
   margin-right: 15px;
   width: 27%;
-  transition: opacity 0.5s;
+  overflow: hidden;
 }
-
-.featured-thumbnail:hover {
-  opacity: 0.8;
+.featured-thumbnail img {
+  transition: transform 0.7s ease;
+  transform-origin: center center;
+}
+.featured-thumbnail img:hover {
+  transform: scale(1.1);
 }
 
 .block {
@@ -99,7 +102,6 @@ body {
   border: 1px solid #e6e6e6;
   padding: 3px;
   margin-bottom: 0;
-  margin-top: 3px;
   margin-right: 0;
   height: auto;
   width: 100%;
