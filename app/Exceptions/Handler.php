@@ -78,7 +78,7 @@ class Handler extends ExceptionHandler
                     Response::HTTP_UNPROCESSABLE_ENTITY
                 );
             } else {
-                return redirect()->back()->withInput()->withErrors($e->getMessageBag());
+                return redirect()->back()->withInput()->withErrors($e->errors());
             }
         }
 

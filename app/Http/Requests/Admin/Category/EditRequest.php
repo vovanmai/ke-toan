@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests\Admin\Category;
 
+use App\Models\Category;
 use App\Rules\CheckSelfParentCat;
 use App\Services\Admin\CommonService;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class EditRequest extends FormRequest
 {
@@ -32,7 +34,11 @@ class EditRequest extends FormRequest
                 'exists:categories,id',
                 new CheckSelfParentCat($this->route()->id),
             ],
-            'title' => 'required|max:50',
+            'title' => [
+                'required',
+                'max:50',
+                Rule::unique('categories')->where('type', Category::TYPE_POST)->ignore($this->route('id'))
+            ],
         ];
     }
 }

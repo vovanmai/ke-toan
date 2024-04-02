@@ -1,6 +1,6 @@
 <div>
-    <div style="display: flex;align-items: center;">
-        <input class="radio" type="radio" @if(($old ?? null) == $category->id) checked @endif value="{{ $category->id }}" name="category_id" style="width: 18px;height: 18px;">
+    <div class="category" style="display: flex;align-items: center;">
+        <input class="radio" type="checkbox" @if(($old ?? null) == $category->id) checked @endif value="{{ $category->id }}" name="category_id" style="width: 18px;height: 18px;">
         <span style="margin-left: 10px">{{ $category->title }}</span>
     </div>
 

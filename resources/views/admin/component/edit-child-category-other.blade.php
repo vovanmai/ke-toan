@@ -1,7 +1,7 @@
 @if($editCategory->id != $cat->id)
     <div>
-        <div style="display: flex;align-items: center;">
-            <input class="radio" type="radio" value="{{ $category->id }}" @if($editCategory->parent_id == $category->id || $category->id == old('category_id')) checked @endif name="category_id" style="width: 18px;height: 18px;">
+        <div class="category" style="display: flex;align-items: center;">
+            <input class="radio" type="checkbox" value="{{ $category->id }}" @if($editCategory->parent_id == $category->id || $category->id == old('category_id')) checked @endif name="category_id" style="width: 18px;height: 18px;">
             <span style="margin-left: 10px">{{ $category->title }}</span>
         </div>
 

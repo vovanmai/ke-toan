@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin\CourseCategory;
 
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CreateRequest extends FormRequest
 {
@@ -25,7 +27,11 @@ class CreateRequest extends FormRequest
     {
         return [
             'category_id' => 'nullable|integer|exists:categories,id',
-            'title' => 'required|max:50',
+            'title' => [
+                'required',
+                'max:50',
+                Rule::unique('categories')->where('type', Category::TYPE_COURSE)
+            ],
         ];
     }
 }
