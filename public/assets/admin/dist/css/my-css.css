@@ -145,6 +145,12 @@ body {
     text-align: right;
 }
 
+#available-menu, #selected-menu {
+    border: 1px solid gray;
+    padding: 15px;
+    min-height: 500px
+}
+
 #available-menu div, #selected-menu div {
     border: 2px dotted gray;
     padding: 10px 15px;

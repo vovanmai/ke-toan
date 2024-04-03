@@ -81,7 +81,7 @@
         @endphp
         @foreach($pages as $page)
             <li>
-                <a class="{{ request()->is($page->slug) ? 'active' : ''}}" href="{{ route('user.page.detail', ['slug' => $page->slug]) }}">
+                <a class="{{ request()->is($page->slug . '.html') ? 'active' : ''}}" href="{{ route('user.page.detail', ['slug' => $page->slug]) }}">
                     <span>{{ $page->title }}</span>
                 </a>
             </li>

@@ -25,9 +25,9 @@
                                 <div style="display:flex;">
                                     <div style="width: 47%">
                                         <label for="">Menu hiện có</label>
-                                        <div id="available-menu" style="border: 1px solid gray; padding: 15px; min-height: 500px">
+                                        <div id="available-menu">
                                             @foreach($items as $item)
-                                                <div>{{ $item['name'] }}</div>
+                                                <div target-id="{{ $item['id'] }}" target-type="{{ $item['type'] }}">{{ $item['name'] }}</div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -43,7 +43,7 @@
                                     </div>
                                     <div style="width: 47%;">
                                         <label for="">Menu đã chọn</label>
-                                        <div id="selected-menu" style="border: 1px solid gray; padding: 15px; min-height: 500px">
+                                        <div id="selected-menu">
                                         </div>
                                     </div>
                                 </div>
@@ -53,8 +53,8 @@
                             <div class="text-center">
                                 <button type="reset" class="btn btn-default" style="margin-right: 10px">Reset</button>
                                 <span class="button-create">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i>Lưu</button>
-                                    </span>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-check"></i>Lưu</button>
+                                </span>
                             </div>
                         </div>
                     </form>
@@ -75,12 +75,26 @@
 
         new Sortable(availableMenu, {
             group: 'shared', // set both lists to same group
-            animation: 150
+            animation: 150,
         });
 
         new Sortable(selectedMenu, {
             group: 'shared',
-            animation: 150
+            animation: 150,
+        });
+
+        $("#create-main-menu-form").submit(function(e) {
+            e.preventDefault();
+            let data = []
+
+            $('#selected-menu > div').map((index, value) => {
+                const item = $(value)
+                data.push({
+                    id: item.attr('target-id'), 
+                    type: item.attr('target-type'),
+                })
+            })
+            console.log(data)
         });
     </script>
 @endpush
