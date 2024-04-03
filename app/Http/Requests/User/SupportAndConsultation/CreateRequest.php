@@ -25,7 +25,11 @@ class CreateRequest extends FormRequest
     {
         return [
             'name' => 'required|max:50',
-            'phone' => 'required|max:11',
+            'phone' => [
+                'required',
+                'max:11',
+                'regex:/^0[1-9]{1}[0-9]{8,9}$/'
+            ],
             'content' => 'required|max:1000',
             'g-recaptcha-response' => 'required|captcha',
         ];

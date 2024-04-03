@@ -144,3 +144,11 @@ body {
 .box-footer nav {
     text-align: right;
 }
+
+#available-menu div, #selected-menu div {
+    border: 2px dotted gray;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    cursor: grab;
+    font-weight: 600;
+}

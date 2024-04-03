@@ -109,7 +109,7 @@ $('#request-question').validate({
         },
         phone: {
             required: true,
-            regex: /^[0-9]{10,11}$/,
+            regex: /^0[1-9]{1}[0-9]{8,9}$/,
         },
         content: {
             required: true,

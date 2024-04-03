@@ -239,6 +239,7 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>
 <script src="/assets/admin/plugins/ckeditor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
 <script src="{{ customAsset('assets/admin/dist/js/custom-ckeditor.js') }}"></script>
 <script src="{{ customAsset('assets/admin/dist/js/my-script.js') }}"></script>
 <script>
