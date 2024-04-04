@@ -46,16 +46,19 @@ class ListService
             [
                 'id' => null,
                 'title' => 'Khóa học kế toán',
-                'type' => 'course'
+                'type' => 'course',
+                'children_recursive' => null
             ]
         ];
 
         $pages = $this->pageRepo->whereByField('active', true)
             ->orderBy('id', 'ASC')
-            ->all(['id', 'title', DB::raw("'page' as type")])
+            ->all(['id', 'title', DB::raw("'page' as type"), DB::raw('null as children_recursive')])
             ->toArray();
 
-        $categories = $this->catRepo->whereByField('active', true)
+        $categories = $this->catRepo->with([
+            'childrenRecursive',
+        ])->whereByField('active', true)
             ->whereNull('parent_id')
             ->whereByField('type', Category::TYPE_POST)
             ->orderBy('id', 'ASC')
@@ -98,6 +101,7 @@ class ListService
                     'id' => $data['id'] ?? null,
                     'title' => $data['title'] ?? null,
                     'type' => $item['target_type'],
+                    'children_recursive' => $data['children_recursive'] ?? null,
                 ];
             }
         }

@@ -17,7 +17,7 @@ class MainMenuController extends Controller
             $data = resolve(ListService::class)->handle();
 
             return view('admin.main-menu.create', $data);
-        } catch (Exception $exception) {dd($exception->getMessage());
+        } catch (Exception $exception) {
             return redirect()->route('admin.error.error');
         }
     }

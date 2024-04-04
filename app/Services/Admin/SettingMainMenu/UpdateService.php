@@ -2,7 +2,6 @@
 
 namespace App\Services\Admin\SettingMainMenu;
 
-use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Data\Repositories\Eloquent\MainMenuSettingRepository;
 use App\Models\MainMenuSetting;
 
@@ -13,15 +12,9 @@ class UpdateService
      */
     protected $mainMenuSettingRepo;
 
-    /**
-     * @var CategoryRepository
-     */
-    protected $catRepo;
-
     public function __construct(
         MainMenuSettingRepository $mainMenuSettingRepo
-    )
-    {
+    ) {
         $this->mainMenuSettingRepo = $mainMenuSettingRepo;
     }
 

@@ -26,18 +26,4 @@ class CategoryRepository extends AppBaseRepository
     {
         return Category::class;
     }
-
-    /**
-     * Get categories
-     *
-     * @return Collection
-     */
-    public function getCategories (array $filters)
-    {
-        return $this->with('childrenRecursive')
-            ->scopeQuery(function ($query) {
-                return $query->whereNull('parent_id');
-            })
-            ->all();
-    }
 }
