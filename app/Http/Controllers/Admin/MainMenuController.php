@@ -14,12 +14,10 @@ class MainMenuController extends Controller
     public function index (Request $request)
     {
         try {
-            $items = resolve(ListService::class)->handle();
+            $data = resolve(ListService::class)->handle();
 
-            return view('admin.main-menu.create', [
-                'items' => $items
-            ]);
-        } catch (Exception $exception) {
+            return view('admin.main-menu.create', $data);
+        } catch (Exception $exception) {dd($exception->getMessage());
             return redirect()->route('admin.error.error');
         }
     }
@@ -30,7 +28,7 @@ class MainMenuController extends Controller
             'data'
         ]);
         try {
-            $items = resolve(UpdateService::class)->handle($data);
+            resolve(UpdateService::class)->handle($data);
             return response()->success('Thành công');
         } catch (Exception $ex) {
             $this->rollback();

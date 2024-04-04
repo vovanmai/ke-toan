@@ -24,10 +24,10 @@
                             <div class="container">
                                 <div style="display:flex;">
                                     <div style="width: 47%">
-                                        <label for="">Menu hiện có</label>
+                                        <label for="">Danh mục hiện có</label>
                                         <div id="available-menu">
-                                            @foreach($items as $item)
-                                                <div target-id="{{ $item['id'] }}" target-type="{{ $item['type'] }}">{{ $item['name'] }}</div>
+                                            @foreach($availableMenu as $item)
+                                                <div target-id="{{ $item['id'] }}" target-type="{{ $item['type'] }}">{{ $item['title'] }}</div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -42,8 +42,11 @@
                                         </div>
                                     </div>
                                     <div style="width: 47%;">
-                                        <label for="">Menu đã chọn</label>
+                                        <label for="">Danh mục đã chọn</label>
                                         <div id="selected-menu">
+                                            @foreach($selectedMenu as $item)
+                                                <div target-id="{{ $item['id'] }}" target-type="{{ $item['type'] }}">{{ $item['title'] }}</div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -76,6 +79,7 @@
         new Sortable(availableMenu, {
             group: 'shared', // set both lists to same group
             animation: 150,
+            sort: false,
         });
 
         new Sortable(selectedMenu, {
@@ -90,11 +94,32 @@
             $('#selected-menu > div').map((index, value) => {
                 const item = $(value)
                 data.push({
-                    id: item.attr('target-id'), 
-                    type: item.attr('target-type'),
+                    target_id: item.attr('target-id'),
+                    target_type: item.attr('target-type'),
                 })
             })
             console.log(data)
+
+            $.ajax({
+                data: {
+                    data: data
+                },
+                type: 'POST',
+                cache:false,
+                url: `/admin/main-menu`,
+                success: function(response)
+                {
+                    toastr.success(response.message, 'Thành công');
+                },
+                error: function(error) {
+                    const responseError = error.responseJSON
+                    if (error.status == 422) {
+                        toastr.error(responseError.errors[0], 'Lỗi');
+                    } else {
+                        toastr.error(responseError.message, 'Lỗi');
+                    }
+                }
+            });
         });
     </script>
 @endpush

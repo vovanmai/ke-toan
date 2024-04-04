@@ -3,16 +3,15 @@
 namespace App\Services\Admin\SettingMainMenu;
 
 use App\Data\Repositories\Eloquent\CategoryRepository;
-use App\Data\Repositories\Eloquent\PageRepository;
-use App\Models\Category;
-use Illuminate\Support\Facades\DB;
+use App\Data\Repositories\Eloquent\MainMenuSettingRepository;
+use App\Models\MainMenuSetting;
 
 class UpdateService
 {
     /**
-     * @var PageRepository
+     * @var MainMenuSettingRepository
      */
-    protected $pageRepo;
+    protected $mainMenuSettingRepo;
 
     /**
      * @var CategoryRepository
@@ -20,12 +19,10 @@ class UpdateService
     protected $catRepo;
 
     public function __construct(
-        PageRepository $pageRepo,
-        CategoryRepository $catRepo
+        MainMenuSettingRepository $mainMenuSettingRepo
     )
     {
-        $this->pageRepo = $pageRepo;
-        $this->catRepo = $catRepo;
+        $this->mainMenuSettingRepo = $mainMenuSettingRepo;
     }
 
     /**
@@ -33,6 +30,9 @@ class UpdateService
      */
     public function handle (array $data)
     {
-        dd($data);
+        MainMenuSetting::truncate();
+        if (!empty($data['data'])) {
+            return $this->mainMenuSettingRepo->insert($data['data']);
+        }
     }
 }
