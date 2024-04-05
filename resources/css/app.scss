@@ -1,5 +1,15 @@
 $main-color: linear-gradient(90deg, #1849A9 0%, #1849A9 50.08%, #538DD5 100%);
 
+a {
+    color: #101828;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #1849a9;
+}
+
 html {
     height: 100%;
 }
@@ -1081,4 +1091,66 @@ form label.error {
             }
         }
     }
+    .post-body {
+        margin-top: 15px;
+        .highlight-post {
+            display: table;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #D0D5DD;
+            .post-thumbnail {
+                width: 40%;
+                margin-right: 15px;
+                float: left;
+                border-radius: 8px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    transition: transform 0.4s ease;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            .post-title-description {
+                > a {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: red;
+                    &:hover {
+                        color: #1849a9;
+                    }
+                }
+                > p {
+                    margin-top: 5px;
+                    font-size: 14px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    overflow: hidden;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .normal-post {
+            > div {
+                background: url("/img/bg-li.png") no-repeat left 3px;
+                padding-left: 25px;
+                margin-bottom: 15px;
+                a {
+                    font-size: 14px;
+                    font-weight: 700;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
 }
+

@@ -116,21 +116,98 @@
         @endif
     @endforeach
 
-    <div class="row index-post">
+    <div class="row g-3 index-post">
         <div class="col-md-6">
             <div class="box-post">
                 <div class="box-heading">
                     <div class="post-title">
-                        <a>Tu va</a>
+                        <a>Dich vụ kê toán thuế</a>
                     </div>
                     <div class="post-see-more">
                         <a href="/test"> Xem tất cả »» </a>
                     </div>
                 </div>
+                <div class="post-body">
+                    <div class="highlight-post">
+                        <a class="post-thumbnail">
+                            <img src="/storage/uploads/post_preview_1712290101-91043495f7085b560219.jpg" alt="">
+                        </a>
+                        <div class="post-title-description">
+                            <a href="">Dịch Vụ Kế Toán Thuế Trọn Gói Cho Doanh Nghiệp FDI</a>
+                            <p>Công văn số 06/SYT-KHTC của Sở Y tế ngày 03/01/2024 về việc kiểm tra, rà soát thủ tục ...</p>
+                        </div>
+                    </div>
+                    <div class="normal-post">
+                        <div>
+                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
+                        </div>
+                        <div>
+                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
+                        </div>
+                        <div>
+                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-6">
+            <div class="box-post">
+                <div class="box-heading">
+                    <div class="post-title">
+                        <a>Dich vụ kê toán thuế</a>
+                    </div>
+                    <div class="post-see-more">
+                        <a href="/test"> Xem tất cả »» </a>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <div class="highlight-post">
+                        <a class="post-thumbnail">
+                            <img src="/storage/uploads/post_preview_1712290101-91043495f7085b560219.jpg" alt="">
+                        </a>
+                        <div class="post-title-description">
+                            <a href="">Dịch Vụ Kế Toán Thuế Trọn Gói Cho Doanh Nghiệp FDI</a>
+                            <p>Công văn số 06/SYT-KHTC của Sở Y tế ngày 03/01/2024 về việc kiểm tra, rà soát thủ tục ...</p>
+                        </div>
+                    </div>
+                    <div class="normal-post">
+                        <div>
+                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box-post">
+                <div class="box-heading">
+                    <div class="post-title">
+                        <a>Dich vụ kê toán thuế</a>
+                    </div>
+                    <div class="post-see-more">
+                        <a href="/test"> Xem tất cả »» </a>
+                    </div>
+                </div>
+                <div class="post-body">
+                    <div class="highlight-post">
+                        <a class="post-thumbnail">
+                            <img src="/storage/uploads/post_preview_1712290101-91043495f7085b560219.jpg" alt="">
+                        </a>
+                        <div class="post-title-description">
+                            <a href="">Dịch Vụ Kế Toán Thuế Trọn Gói Cho Doanh Nghiệp FDI</a>
+                            <p>Công văn số 06/SYT-KHTC của Sở Y tế ngày 03/01/2024 về việc kiểm tra, rà soát thủ tục ...</p>
+                        </div>
+                    </div>
+                    <div class="normal-post">
+                        <div>
+                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

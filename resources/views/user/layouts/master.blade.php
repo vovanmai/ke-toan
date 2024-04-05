@@ -37,7 +37,7 @@
         <div id="main">
             @include('user.layouts.main-banner')
             <div class="container">
-                <div class="row">
+                <div class="row g-3">
                     <div class="col-sm-12 col-md-12 col-lg-9">
                         <div id="main-content">
                             @yield('content')

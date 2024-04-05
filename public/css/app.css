@@ -1,3 +1,13 @@
+a {
+  color: #101828;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #1849a9;
+}
+
 html {
   height: 100%;
 }
@@ -1061,4 +1071,61 @@ form label.error {
 }
 .index-post .box-post .box-heading .post-see-more a:hover {
   text-decoration: underline;
+}
+.index-post .box-post .post-body {
+  margin-top: 15px;
+}
+.index-post .box-post .post-body .highlight-post {
+  display: table;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #D0D5DD;
+}
+.index-post .box-post .post-body .highlight-post .post-thumbnail {
+  width: 40%;
+  margin-right: 15px;
+  float: left;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.index-post .box-post .post-body .highlight-post .post-thumbnail img {
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+.index-post .box-post .post-body .highlight-post .post-thumbnail img:hover {
+  transform: scale(1.1);
+}
+.index-post .box-post .post-body .highlight-post .post-title-description > a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 700;
+  color: red;
+}
+.index-post .box-post .post-body .highlight-post .post-title-description > a:hover {
+  color: #1849a9;
+}
+.index-post .box-post .post-body .highlight-post .post-title-description > p {
+  margin-top: 5px;
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.index-post .box-post .post-body .normal-post > div {
+  background: url("/img/bg-li.png") no-repeat left 3px;
+  padding-left: 25px;
+  margin-bottom: 15px;
+}
+.index-post .box-post .post-body .normal-post > div a {
+  font-size: 14px;
+  font-weight: 700;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
