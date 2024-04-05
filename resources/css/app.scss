@@ -1,4 +1,6 @@
 $main-color: linear-gradient(90deg, #1849A9 0%, #1849A9 50.08%, #538DD5 100%);
+$color-hover-link: #1849a9;
+$color-highlight-link: red;
 
 a {
     color: #101828;
@@ -77,7 +79,7 @@ body {
         margin-bottom: 22px;
         border-top-right-radius: 10px;
         .block-title {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             text-transform: uppercase;
             a {
@@ -99,56 +101,6 @@ body {
             }
         }
     }
-}
-
-.block .main-post {
-    display: table;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.block .main-post .featured-thumbnail {
-    float: left;
-    margin-right: 15px;
-    width: 27%;
-    overflow: hidden;
-    border-radius: 8px;
-    img {
-        height: auto;
-        width: 100%;
-        transition: transform 0.4s ease;
-        transform-origin: center center;
-        &:hover {
-            -webkit-transform: scale(1.1);
-            -ms-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-    }
-}
-
-.block .main-post .title {
-    line-height: 20px;
-}
-
-.block .main-post .title a {
-    color: #ff0000;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.main-post .description {
-    line-height: 20px;
-    font-size: 14px;
-    margin-bottom: 0px;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 .block .main-post .title a:hover {
@@ -180,7 +132,7 @@ body {
     .sidebar-title {
         background: $main-color;
         color: #fff;
-        font-size: 15px;
+        font-size: 16px;
         padding: 9px 14px;
         text-transform: uppercase;
         font-weight: 700;
@@ -219,9 +171,9 @@ body {
 }
 
 .post-list .category-name {
-    font-size: 15px;
+    font-size: 16px;
     background: $main-color;
-    padding: 10px 13px;
+    padding: 9px 14px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     color: #fff;
@@ -282,15 +234,14 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
     font-weight: 600;
+    &:hover {
+        color: $color-hover-link;
+    }
 }
 .entry-content .entry-meta {
     font-size: 12px;
     margin-bottom: 5px;
     color: grey;
-}
-
-.entry-content .entry-title a:hover {
-    color: #1758DA;
 }
 
 .entry-content .entry-description {
@@ -1079,6 +1030,9 @@ form label.error {
             a {
                 color: #fff;
                 font-weight: 700;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
         .post-see-more {
@@ -1107,6 +1061,7 @@ form label.error {
                 img {
                     width: 100%;
                     transition: transform 0.4s ease;
+                    object-fit: cover;
                     &:hover {
                         transform: scale(1.1);
                     }
@@ -1154,3 +1109,10 @@ form label.error {
     }
 }
 
+.breadcrumb {
+    .breadcrumb-item:last-child {
+        a {
+            font-weight: 700;
+        }
+    }
+}

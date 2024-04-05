@@ -72,142 +72,47 @@
             <div class="swiper-button-prev"></div>
         </div>
     </div>
-
-    @foreach($categories as $category)
-        @if($category->activePosts->isNotEmpty())
-            @php
-                $firstPost = $category->activePosts->first();
-                $olderPost = $category->activePosts->toArray();
-                unset($olderPost[0]);
-            @endphp
-
-            <div class="block">
-                <div class="heading-block">
-                    <div class="block-title">
-                        <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
-                    </div>
-                    <div class="block-see-more">
-                        <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}" title="{{ $category->title }}"> Xem tất cả »» </a>
-                    </div>
-                </div>
-                <div class="block-wrap display-horizontal">
-                    <div class="main-post">
-                        <a class="featured-thumbnail" href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}" title="{{ $firstPost->title }}" rel="nofollow">
-                            <img src="{{ $firstPost->image['url'] }}">
-                        </a>
-                        <h3 class="title">
-                            <a href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}" title="{{ $firstPost->title }}">{{ $firstPost->title }}</a>
-                        </h3>
-                        <p class="description">{{ $firstPost->short_description }}</p>
-                    </div>
-                    @if($olderPost)
-                        <div class="older-posts">
-                            <ul>
-                                @foreach($olderPost as $post)
-                                    <li>
-                                        <a href="{{ route('user.post.detail', ['slug' => $post['slug'], 'category' => $category->slug]) }}" title="{{ $post['title'] }}">{{ $post['title'] }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                </div>
-            </div>
-        @endif
-    @endforeach
-
     <div class="row g-3 index-post">
-        <div class="col-md-6">
-            <div class="box-post">
-                <div class="box-heading">
-                    <div class="post-title">
-                        <a>Dich vụ kê toán thuế</a>
-                    </div>
-                    <div class="post-see-more">
-                        <a href="/test"> Xem tất cả »» </a>
+        @foreach($categories as $category)
+            @if($category->activePosts->isNotEmpty())
+                @php
+                    $firstPost = $category->activePosts->first();
+                    $olderPost = $category->activePosts->toArray();
+                    unset($olderPost[0]);
+                @endphp
+                <div class="col-md-6">
+                    <div class="box-post">
+                        <div class="box-heading">
+                            <div class="post-title">
+                                <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
+                            </div>
+                            <div class="post-see-more">
+                                <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}"> Xem tất cả »» </a>
+                            </div>
+                        </div>
+                        <div class="post-body">
+                            <div class="highlight-post">
+                                <a href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}" class="post-thumbnail">
+                                    <img src="{{ $firstPost->image['url'] }}" alt="">
+                                </a>
+                                <div class="post-title-description">
+                                    <a href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}">{{ $firstPost->title }}</a>
+                                    <p>{{ $firstPost->short_description }}</p>
+                                </div>
+                            </div>
+                            <div class="normal-post">
+                                @if($olderPost)
+                                    @foreach($olderPost as $post)
+                                        <div>
+                                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="post-body">
-                    <div class="highlight-post">
-                        <a class="post-thumbnail">
-                            <img src="/storage/uploads/post_preview_1712290101-91043495f7085b560219.jpg" alt="">
-                        </a>
-                        <div class="post-title-description">
-                            <a href="">Dịch Vụ Kế Toán Thuế Trọn Gói Cho Doanh Nghiệp FDI</a>
-                            <p>Công văn số 06/SYT-KHTC của Sở Y tế ngày 03/01/2024 về việc kiểm tra, rà soát thủ tục ...</p>
-                        </div>
-                    </div>
-                    <div class="normal-post">
-                        <div>
-                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
-                        </div>
-                        <div>
-                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
-                        </div>
-                        <div>
-                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="box-post">
-                <div class="box-heading">
-                    <div class="post-title">
-                        <a>Dich vụ kê toán thuế</a>
-                    </div>
-                    <div class="post-see-more">
-                        <a href="/test"> Xem tất cả »» </a>
-                    </div>
-                </div>
-                <div class="post-body">
-                    <div class="highlight-post">
-                        <a class="post-thumbnail">
-                            <img src="/storage/uploads/post_preview_1712290101-91043495f7085b560219.jpg" alt="">
-                        </a>
-                        <div class="post-title-description">
-                            <a href="">Dịch Vụ Kế Toán Thuế Trọn Gói Cho Doanh Nghiệp FDI</a>
-                            <p>Công văn số 06/SYT-KHTC của Sở Y tế ngày 03/01/2024 về việc kiểm tra, rà soát thủ tục ...</p>
-                        </div>
-                    </div>
-                    <div class="normal-post">
-                        <div>
-                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="box-post">
-                <div class="box-heading">
-                    <div class="post-title">
-                        <a>Dich vụ kê toán thuế</a>
-                    </div>
-                    <div class="post-see-more">
-                        <a href="/test"> Xem tất cả »» </a>
-                    </div>
-                </div>
-                <div class="post-body">
-                    <div class="highlight-post">
-                        <a class="post-thumbnail">
-                            <img src="/storage/uploads/post_preview_1712290101-91043495f7085b560219.jpg" alt="">
-                        </a>
-                        <div class="post-title-description">
-                            <a href="">Dịch Vụ Kế Toán Thuế Trọn Gói Cho Doanh Nghiệp FDI</a>
-                            <p>Công văn số 06/SYT-KHTC của Sở Y tế ngày 03/01/2024 về việc kiểm tra, rà soát thủ tục ...</p>
-                        </div>
-                    </div>
-                    <div class="normal-post">
-                        <div>
-                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+            @endif
+        @endforeach
     </div>
 @endsection

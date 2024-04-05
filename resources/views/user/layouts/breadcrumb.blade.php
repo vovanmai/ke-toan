@@ -1,8 +1,6 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         @php
-            $title = $item->title ?? '';
-            $title = mb_strlen($title) > 30 ? mb_substr($title, 0, 30) . '...' : $title;
             $categories = $item->category ? $item->category->toArray() : [];
             $titles = [];
             $slugs = [];
@@ -24,6 +22,5 @@
                 <a href="{{ route('user.post.index', ['slug' => $slug]) }}">{{ $catTitle }}</a>
             </li>
         @endforeach
-        <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
     </ol>
 </nav>

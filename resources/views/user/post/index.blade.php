@@ -1,9 +1,11 @@
 @extends('user.layouts.master')
 @section('content')
     <div class="post-list">
-        <h2 class="category-name">
-            {{ $category->title }}
-        </h2>
+        <div class="category-name">
+            <a>
+                {{ $category->title }}
+            </a>
+        </div>
         <div class="post-wrap">
             @if($category->display_type === \App\Models\Category::TYPE_DISPLAY_LIST)
             <div class="display-horizontal">
