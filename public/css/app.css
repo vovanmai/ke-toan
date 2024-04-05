@@ -51,31 +51,43 @@ body {
   margin-top: 30px;
 }
 
-#main .block .block-title {
-  font-size: 16px;
-  background: #1758DA;
-  padding: 7px;
-  border-top-left-radius: 10px;
-  margin-bottom: 22px;
-  border-top-right-radius: 10px;
-}
-
 #main-content {
   margin-bottom: 20px;
 }
 
-#main .block .block-title a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-#main .block .block-title a:hover {
-  text-decoration: underline;
-}
-
 .block {
   margin-bottom: 25px;
+}
+.block .heading-block {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #1849A9 0%, #1849A9 50.08%, #538DD5 100%);
+  padding: 10px 15px;
+  border-top-left-radius: 10px;
+  margin-bottom: 22px;
+  border-top-right-radius: 10px;
+}
+.block .heading-block .block-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.block .heading-block .block-title a {
+  color: #fff;
+  text-decoration: none;
+}
+.block .heading-block .block-title a:hover {
+  text-decoration: underline;
+}
+.block .heading-block .block-see-more {
+  font-style: italic;
+}
+.block .heading-block .block-see-more a {
+  color: #fff;
+  text-decoration: none;
+}
+.block .heading-block .block-see-more a:hover {
+  text-decoration: underline;
 }
 
 .block .main-post {
@@ -872,15 +884,11 @@ form label.error {
   bottom: 10%;
   font-size: 18px;
   left: 5%;
-  background: #117cf8;
+  background: linear-gradient(90deg, #1849A9 0%, #1849A9 50.08%, #538DD5 100%);
   font-weight: 600;
   border: 2px solid white;
   line-height: 25px;
   animation: up-down 1.5s ease-in-out infinite alternate-reverse both;
-}
-
-.swiper-slide .banner .banner-link:hover {
-  background: #0465d7;
 }
 
 @keyframes up-down {

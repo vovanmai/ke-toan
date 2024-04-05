@@ -2,9 +2,14 @@
 @section('content')
     @if($courses->isNotEmpty())
     <div class="block">
-        <h2 class="block-title">
-            <a href="{{ route('user.course.list_all') }}">Khoá học kế toán</a>
-        </h2>
+        <div class="heading-block">
+            <div class="block-title">
+                <a href="{{ route('user.course.list_all') }}" title="Khoá học kế toán">Khoá học kế toán</a>
+            </div>
+            <div class="block-see-more">
+                <a href="{{ route('user.course.list_all') }}" title="Xem tất cả"> Xem tất cả »» </a>
+            </div>
+        </div>
         <div class="display-vertical">
             <div class="row g-3 g-lg-4">
                 @foreach($courses as $item)
@@ -36,9 +41,11 @@
     @endif
 
     <div id="course-gallery" class="block">
-        <h2 class="block-title">
-            <a>Hình ảnh khóa học & Sự kiện</a>
-        </h2>
+        <div class="heading-block">
+            <div class="block-title">
+                <a title="Hình ảnh khóa học & Sự kiện">Hình ảnh khóa học & Sự kiện</a>
+            </div>
+        </div>
         @php
             $courseImages = resolve(\App\Services\User\CourseImage\ListService::class)->handle();
         @endphp
