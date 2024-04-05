@@ -21,7 +21,9 @@
         <div class="widget-content">
             @foreach($courses as $course)
                 <a href="{{ route('user.course.detail', ['category' => $course->category->slug, 'slug' => $course->slug]) }}">
-                    <img src="{{ $course['image']['url'] }}" alt="{{ $course->title }}">
+                    <div class="image-thumbnail">
+                        <img src="{{ $course['image']['url'] }}" alt="{{ $course->title }}">
+                    </div>
                     <p title="{{ $course->title }}" style="text-decoration: none;">
                         {{ $course->title }}
                     </p>
@@ -35,7 +37,9 @@
         <div class="widget-content">
             @foreach($posts as $post)
             <a href="{{ route('user.post.detail', ['category' => $post->category->slug, 'slug' => $post->slug]) }}">
-                <img src="{{ $post['image']['url'] }}" alt="{{ $post->title }}">
+                <div class="image-thumbnail">
+                    <img src="{{ $post['image']['url'] }}" alt="{{ $post->title }}">
+                </div>
                 <p title="{{ $post->title }}" style="text-decoration: none;">
                     {{ $post->title }}
                 </p>
@@ -53,7 +57,7 @@
                 </div>
                 <div class="mb-3">
                     <input type="text" name="phone" placeholder="Số điện thoại" class="form-control">
-                </div>
+                </div>widget-content
                 <div class="mb-3">
                     <textarea class="form-control" name="content" placeholder="Nội dung"></textarea>
                 </div>
