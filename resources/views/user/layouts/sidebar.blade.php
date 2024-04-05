@@ -7,7 +7,9 @@
         $courses = resolve(\App\Services\User\Course\ListByViewService::class)->handle();
     @endphp
     <div class="widget sidebar support-online">
-        <h3>Hỗ trợ trực tuyến</h3>
+        <div class="sidebar-title support-online">
+            <a>Hỗ trợ trực tuyến</a>
+        </div>
         <div class="widget-content">
             <a class="number-phone" href="tel:{{ $newHotline }}">
                 <img style="width: 60px; height: 60px; margin-right: 10px" src="/img/hot-line.png" alt="">
@@ -17,7 +19,9 @@
     </div>
 
     <div class="widget sidebar highlight-post">
-        <h3>Khóa học nổi bật</h3>
+        <div class="sidebar-title">
+            <a>Khóa học nổi bật</a>
+        </div>
         <div class="widget-content">
             @foreach($courses as $course)
                 <a href="{{ route('user.course.detail', ['category' => $course->category->slug, 'slug' => $course->slug]) }}">
@@ -33,7 +37,9 @@
     </div>
 
     <div class="widget sidebar highlight-post">
-        <h3>Bài viết nổi bật</h3>
+        <div class="sidebar-title">
+            <a>Bài viết nổi bật</a>
+        </div>
         <div class="widget-content">
             @foreach($posts as $post)
             <a href="{{ route('user.post.detail', ['category' => $post->category->slug, 'slug' => $post->slug]) }}">
@@ -48,8 +54,10 @@
         </div>
     </div>
 
-    <div id="support-and-consultation">
-        <h5>HỖ TRỢ & TƯ VẤN</h5>
+    <div id="support-and-consultation" class="sidebar">
+        <div class="sidebar-title support">
+            <a>HỖ TRỢ & TƯ VẤN</a>
+        </div>
         <div style="border: 1px solid red; padding: 15px">
             <form id="request-question" action="javascript:void(0)">
                 <div class="mb-3">
@@ -57,7 +65,7 @@
                 </div>
                 <div class="mb-3">
                     <input type="text" name="phone" placeholder="Số điện thoại" class="form-control">
-                </div>widget-content
+                </div>
                 <div class="mb-3">
                     <textarea class="form-control" name="content" placeholder="Nội dung"></textarea>
                 </div>

@@ -82,9 +82,14 @@
             @endphp
 
             <div class="block">
-                <h2 class="block-title">
-                    <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
-                </h2>
+                <div class="heading-block">
+                    <div class="block-title">
+                        <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
+                    </div>
+                    <div class="block-see-more">
+                        <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}" title="{{ $category->title }}"> Xem tất cả »» </a>
+                    </div>
+                </div>
                 <div class="block-wrap display-horizontal">
                     <div class="main-post">
                         <a class="featured-thumbnail" href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}" title="{{ $firstPost->title }}" rel="nofollow">
@@ -110,4 +115,22 @@
             </div>
         @endif
     @endforeach
+
+    <div class="row index-post">
+        <div class="col-md-6">
+            <div class="box-post">
+                <div class="box-heading">
+                    <div class="post-title">
+                        <a>Tu va</a>
+                    </div>
+                    <div class="post-see-more">
+                        <a href="/test"> Xem tất cả »» </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
 @endsection
