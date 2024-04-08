@@ -82,6 +82,7 @@
                                         <label>
                                             Chi tiết<span class="required">(*)</span>
                                         </label>
+                                        @include('admin.component.upload-file-ckeditor')
                                         <div class="field-container">
                                             <textarea name="description" id="description-editor"></textarea>
                                         </div>
