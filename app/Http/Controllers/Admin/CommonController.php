@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Log;
 use Exception;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -85,6 +86,27 @@ class CommonController extends BaseController
         try {
             Storage::delete(getFileContainFolder() . '/' . $storeName);
             return response()->success('Thành công');
+        } catch (Exception $ex) {
+            Log::info($ex->getMessage());
+            return response()->error('Có lỗi khi truy cập đến máy chủ.');
+        }
+    }
+
+    public function uploadFileIntoCkeditor (Request $request)
+    {
+        $file = $request->file('file');
+
+
+        try {
+            $fileInfo = pathinfo($file->getClientOriginalName());
+
+            $storeName = time() . '-' . Str::slug($fileInfo['filename']) . '.' . $fileInfo['extension'];
+
+            $file->storeAs(getFileContainFolder(), $storeName);
+
+            return response()->success('Thành công', [
+                'url' => URL::to('/' . config('filesystems.file_get_folder') . '/' . $storeName),
+            ]);
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
             return response()->error('Có lỗi khi truy cập đến máy chủ.');

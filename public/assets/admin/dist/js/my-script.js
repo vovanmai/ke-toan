@@ -150,3 +150,33 @@ $(".category input:checkbox").on('click', function() {
         $box.prop("checked", false);
     }
 });
+
+
+$(".file-into-ckeditor input").on('change', function(e) {
+    ///// Your code
+    const file = $(this).prop('files')[0]
+
+    var formData = new FormData();
+
+    formData.append('file', file);
+
+    $.ajax({
+        data: formData,
+        type: 'POST',
+        url: "/admin/upload-into-ckeditor",
+        processData: false,
+        contentType: false,
+        cache:false,
+        success: function(response)
+        {
+            const selection = editor.model.document.selection;
+            const cursorPosition = selection.getFirstPosition();
+            editor.model.change(writer => {
+                writer.insertText(response.data.url, cursorPosition);
+            });
+        },
+        error: function(error) {
+            toastr.error("Máy chủ bị lỗi.", 'Lỗi')
+        }
+    });
+});

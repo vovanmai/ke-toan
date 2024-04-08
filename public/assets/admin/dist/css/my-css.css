@@ -158,3 +158,33 @@ body {
     cursor: grab;
     font-weight: 600;
 }
+
+.ck-editor a {
+    text-decoration: underline;
+    color: #0a53be;
+}
+
+.file-into-ckeditor > input[type='file'] {
+    display: none
+}
+
+.file-into-ckeditor > label {
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: 0;
+    user-select: none;
+    border: 1px solid grey;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 29%);
+    padding: 8px 13px;
+    border-radius: 5px;
+}
+
+.file-into-ckeditor > label:hover {
+    border-color: hsl(0, 0%, 21%);
+}
+
+.file-into-ckeditor > label:active {
+    background-color: hsl(0, 0%, 96%);
+}
