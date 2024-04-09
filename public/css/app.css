@@ -1128,16 +1128,22 @@ form label.error {
   height: 0;
   margin-left: 5px;
 }
+#lv-navbar .menu > ul > li > a.active {
+  background: red;
+}
 #lv-navbar .menu > ul > li > ul {
   overflow: hidden;
+  display: none;
   margin: 0;
   padding: 0;
   position: absolute;
   z-index: 1000;
   background: white;
   font-size: 14px;
-  width: 200px;
+  min-width: 200px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  border: 1px solid #ccc;
+  animation: 0.2s slideup;
 }
 #lv-navbar .menu > ul > li > ul > li {
   list-style: none;
@@ -1151,6 +1157,24 @@ form label.error {
 #lv-navbar .menu > ul > li > ul > li a:hover {
   color: red;
 }
+#lv-navbar .menu > ul > li > ul > li a.active {
+  color: red;
+}
 #lv-navbar .menu > ul > li > ul > li:not(:last-child) a {
   border-bottom: 1px dashed #ccc;
+}
+
+.show-submenu {
+  display: block !important;
+}
+
+@keyframes slideup {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

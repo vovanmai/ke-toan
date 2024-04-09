@@ -1151,7 +1151,6 @@ form label.error {
                     &:hover {
                         background-color: red !important;
                     }
-
                     .arrow {
                         display: inline-block;
                         vertical-align: middle;
@@ -1162,17 +1161,23 @@ form label.error {
                         height: 0;
                         margin-left: 5px;
                     }
+                    &.active {
+                        background: red;
+                    }
                 }
                 > ul {
                     overflow: hidden;
+                    display: none;
                     margin: 0;
                     padding: 0;
                     position: absolute;
                     z-index: 1000;
                     background: white;
                     font-size: 14px;
-                    width: 200px;
+                    min-width: 200px;
                     box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+                    border: 1px solid #ccc;
+                    animation: .2s slideup;
                     > li {
                         list-style: none;
                         a {
@@ -1183,6 +1188,9 @@ form label.error {
                             &:hover {
                                 color: red;
                             }
+                            &.active {
+                                color: red;
+                            }
                         }
                         &:not(:last-child) a {
                             border-bottom: 1px dashed #ccc;
@@ -1191,5 +1199,20 @@ form label.error {
                 }
             }
         }
+    }
+}
+
+.show-submenu {
+    display: block !important;
+}
+
+@keyframes slideup {
+    from {
+        transform: translateY(25px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
