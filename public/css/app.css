@@ -297,7 +297,6 @@ body {
 .page-link {
   font-size: 14px;
   color: #2588DE;
-  border-radius: 50%;
 }
 
 .active > .page-link, .page-link.active {
@@ -311,15 +310,6 @@ body {
 }
 .pagination-block .pagination {
   margin: 0;
-}
-.pagination-block .pagination li {
-  margin-right: 5px;
-}
-.pagination-block .pagination .page-item:first-child .page-link {
-  border-radius: 50%;
-}
-.pagination-block .pagination .page-item:last-child .page-link {
-  border-radius: 50%;
 }
 
 #mobile-main-menu {

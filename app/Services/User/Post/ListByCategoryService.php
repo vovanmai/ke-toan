@@ -66,7 +66,7 @@ class ListByCategoryService
             ->whereIn('category_id', $categoryIds)
             ->whereByField('active', true)
             ->orderBy('id', 'DESC')
-            ->paginate(1);
+            ->paginate(5);
 
         return [
             'category' => $category,
