@@ -153,8 +153,15 @@ $(".category input:checkbox").on('click', function() {
 
 
 $(".file-into-ckeditor input").on('change', function(e) {
+    $('.file-into-ckeditor .loading').show()
     ///// Your code
     const file = $(this).prop('files')[0]
+
+    const size = (file.size / (1024*1024)).toFixed(2);
+
+    if (size > 100) {
+        toastr.warning("", `Tệp của bạn tải lên khá lớn ${size} Mb. Vui lòng chờ.`)
+    }
 
     var formData = new FormData();
 
@@ -169,6 +176,7 @@ $(".file-into-ckeditor input").on('change', function(e) {
         cache:false,
         success: function(response)
         {
+            $('.file-into-ckeditor .loading').hide()
             const selection = editor.model.document.selection;
             const cursorPosition = selection.getFirstPosition();
             editor.model.change(writer => {
@@ -176,6 +184,7 @@ $(".file-into-ckeditor input").on('change', function(e) {
             });
         },
         error: function(error) {
+            $('.file-into-ckeditor .loading').hide()
             toastr.error("Máy chủ bị lỗi.", 'Lỗi')
         }
     });

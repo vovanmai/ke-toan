@@ -37,6 +37,7 @@ Route::get('clear', function () {
 });
 
 Route::get('test', function () {
+    phpinfo();
     return view('welcome');
 });
 

@@ -174,17 +174,23 @@ body {
     cursor: pointer;
     outline: 0;
     user-select: none;
-    border: 1px solid grey;
-    background-color: hsl(0, 0%, 100%);
+    border: 1px solid #dcdbdb;
     color: hsl(0, 0%, 29%);
     padding: 8px 13px;
     border-radius: 5px;
 }
 
 .file-into-ckeditor > label:hover {
-    border-color: hsl(0, 0%, 21%);
+    border-color: #b4b4b4;
 }
 
 .file-into-ckeditor > label:active {
     background-color: hsl(0, 0%, 96%);
+}
+
+.file-into-ckeditor .loading {
+    width: 20px;
+    height: 20px;
+    display: none;
+    margin-right: 5px;
 }

@@ -69,7 +69,7 @@ class Handler extends ExceptionHandler
      * @throws \Throwable
      */
     public function render($request, Throwable $e)
-    {
+    {dd($e->getMessage());
         if ($e instanceof ValidationException) {
             if ($request->expectsJson()) {
                 return response()->error(
