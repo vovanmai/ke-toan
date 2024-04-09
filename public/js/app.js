@@ -220,3 +220,18 @@ $('#lv-navbar ul > li').hover(function() {
     // khi thẻ menu li bị out không hover nữa thì drop down menu thuộc thẻ li đó sẽ trượt lên(ẩn)
     $('ul', this).removeClass('show-submenu');
 });
+
+
+const headerBannerTop = document.querySelector("#banner-top");
+const header = document.querySelector("#lv-navbar");
+const toggleClass = "is-sticky";
+
+
+window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > headerBannerTop.offsetHeight) {
+        header.classList.add(toggleClass);
+    } else {
+        header.classList.remove(toggleClass);
+    }
+});

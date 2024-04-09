@@ -18,12 +18,12 @@
                 }
             @endphp
             @if($headerBanner)
-                <a href="/">
+                <a href="/" id="banner-top">
                     <img style="{{ $style }}" src="{{ $headerBanner['url'] }}">
                 </a>
             @endif
             <div id="toggle-show-menu">
-                <div style="background: #2588DE; color: white; padding: 10px 7px; display: flex; justify-content: space-between; align-items: center">
+                <div>
                     <a href="/" style="color: white; font-weight: bold; text-decoration: none">
                         <i class="fa fa-home" aria-hidden="true"></i> Trang chủ
                     </a>

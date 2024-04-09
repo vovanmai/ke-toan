@@ -1,6 +1,3 @@
-
-
-
 <div id="lv-navbar">
     <div class="menu">
         <ul>
@@ -19,7 +16,7 @@
                 $pageCats = $cats['page_cats'] ?? [];
             @endphp
             <li>
-                <a title="Khóa học kế toán" class="{{ request()->is('khoa-hoc-ke-toan/*') ? 'active' : ''}}" href="{{ route('user.course.list_all') }}">
+                <a title="Khóa học kế toán" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}" href="{{ route('user.course.list_all') }}">
                     <span class="title">
                         Khóa học kế toán
                     </span>

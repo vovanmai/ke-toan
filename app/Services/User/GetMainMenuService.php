@@ -60,7 +60,6 @@ class GetMainMenuService
             ->whereByField('type', Category::TYPE_POST)
             ->whereByField('active', true)
             ->whereByField('show_on_menu', true)
-            ->orderBy('order', 'ASC')
             ->orderBy('id', 'ASC')
             ->whereNull('parent_id')
             ->all([

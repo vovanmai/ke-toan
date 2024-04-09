@@ -24,7 +24,7 @@
                             <div style="font-size: 13px; color: gray; border-top: 1px solid #e9e9e9">
                                 <div style="padding: 7px 10px">
                                         <span>
-                                            <i class="far fa-clock"></i> {{ $item->created_at->format('d/m/Y H:i') }}
+                                            <i class="far fa-clock"></i> {{ $item->created_at->format('d/m/Y') }}
                                         </span>
                                     |
                                     <span>

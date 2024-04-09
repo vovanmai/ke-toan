@@ -289,7 +289,7 @@ body {
     #toggle-show-menu {
         display: block !important;
     }
-    #menu-wrap {
+    #lv-navbar {
         display: none !important;
     }
     body {
@@ -307,9 +307,9 @@ body {
 }
 
 .page-link {
-    padding: 1px 8px;
     font-size: 14px;
     color: #2588DE;
+    border-radius: 50%;
 }
 
 .active>.page-link, .page-link.active {
@@ -317,9 +317,21 @@ body {
 }
 
 .pagination-block {
-    justify-content: end;
+    justify-content: center;
     margin-bottom: 20px;
     margin-top: 20px;
+    .pagination {
+        margin: 0;
+        li {
+            margin-right: 5px;
+        }
+        .page-item:first-child .page-link {
+            border-radius: 50%;
+        }
+        .page-item:last-child .page-link {
+            border-radius: 50%;
+        }
+    }
 }
 
 #mobile-main-menu {
@@ -331,6 +343,11 @@ body {
     background: white;
     z-index: 10000;
     display: none;
+    > div {
+        background: $main-color-background;
+        padding: 7px 15px;
+        color: white;
+    }
 }
 
 #mobile-main-menu ul {
@@ -374,6 +391,14 @@ body {
 
 #toggle-show-menu {
     display: none;
+    > div {
+        background: $main-color-background;
+        color: white;
+        padding: 10px 7px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .ckeditor-content {
@@ -1130,5 +1155,27 @@ form label.error {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+.is-sticky {
+    position: fixed;
+    max-width: 1280px;
+    margin: auto;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: slideDown 0.5s ease-out;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    background: blue;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
     }
 }
