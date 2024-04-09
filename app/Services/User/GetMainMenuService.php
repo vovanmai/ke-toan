@@ -42,13 +42,44 @@ class GetMainMenuService
             ->orderBy('id', 'ASC')
             ->whereNull('parent_id')
             ->all([
-                'id',
                 'title',
                 'slug',
             ]);
 
+        $postCats = $this->catRepo->with([
+            'childrenRecursive' => function ($query) {
+                return $query->where('active', true)
+                    ->where('show_on_menu', true)
+                    ->select([
+                        'id',
+                        'title',
+                        'slug',
+                        'parent_id',
+                    ]);
+            }])
+            ->whereByField('type', Category::TYPE_POST)
+            ->whereByField('active', true)
+            ->whereByField('show_on_menu', true)
+            ->orderBy('order', 'ASC')
+            ->orderBy('id', 'ASC')
+            ->whereNull('parent_id')
+            ->all([
+                'id',
+                'title',
+                'slug',
+                'parent_id',
+            ]);
+
+        $pageCats = $this->pageRepo
+            ->whereByField('active', true)
+            ->whereByField('show_on_menu', true)
+            ->orderBy('id', 'ASC')
+            ->all(['slug', 'title']);
+
         return [
-            'course_cats' => $courseCats
+            'course_cats' => $courseCats,
+            'post_cats' => $postCats,
+            'page_cats' => $pageCats,
         ];
     }
 }

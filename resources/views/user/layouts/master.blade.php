@@ -32,44 +32,6 @@
             </div>
             @include('user.layouts.main-menu')
             @include('user.layouts.mobile-main-menu')
-
-            <div id="lv-navbar">
-                <div class="menu">
-                    <ul>
-                        <li>
-                            <a href="/">
-                                <span class="title">
-                                    <i class="fas fa-home"></i>
-                                    Trang chủ
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/">
-                                <span class="title">
-                                    Giới thiệu
-                                </span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="">
-                                        Tin tức
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        Giải trí
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="three-dot-menu">
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div id="main">

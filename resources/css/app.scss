@@ -322,88 +322,6 @@ body {
     margin-top: 20px;
 }
 
-#menu {
-    padding: 0px;
-    display: table;
-    width: 100%;
-    list-style: none;
-    background: #2588DE;
-    margin: 0;
-}
-#menu .active {
-    background: #215e93;
-}
-
-#menu ul {
-    padding: 0px;
-}
-
-#menu li {
-    text-align: left;
-    color: #fff;
-}
-#menu li a {
-    text-decoration: none;
-    font-size: 16px;
-    display: block;
-    padding: 12px 15px;
-    color: #fff;
-    background-color: #2588DE;
-    font-weight: 600;
-}
-#menu > li {
-    float: left;
-    position: relative;
-}
-#menu > li > ul.dropdown_menu {
-    position: absolute;
-    list-style: none;
-    display: none;
-    width: 221px;
-}
-#menu > li:hover > a {
-    background-color: #215e93;
-}
-#menu > li:hover > ul.dropdown_menu {
-    z-index: 100;
-}
-#menu ul.dropdown_menu > li {
-    position: relative;
-}
-#menu ul.dropdown_menu > li > ul.submenu {
-    position: absolute;
-    display: none;
-    list-style: none;
-    width: 200px;
-    left: 200px;
-}
-#menu ul.dropdown_menu > li:hover > a {
-    background-color: #215e93 !important;
-}
-#menu ul.dropdown_menu > li:hover > ul.submenu {
-    z-index: 100;
-}
-#menu ul.submenu > li:hover > a {
-    background-color: #215e93 !important;
-}
-#menu .arrow {
-    width: 0;
-    height: 0;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 5px;
-}
-#menu .arrow-down {
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 7px solid #fff;
-}
-#menu .arrow-right {
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 7px solid #fff;
-}
-
 #mobile-main-menu {
     position: fixed;
     top: 0;
@@ -1128,9 +1046,7 @@ form label.error {
 
 #lv-navbar {
     width: 100%;
-    margin-top: 50px;
     background: $main-color-background;
-
     .menu {
         display: flex;
         justify-content: space-between;
