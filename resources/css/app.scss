@@ -1,6 +1,7 @@
 $main-color: linear-gradient(90deg, #1849A9 0%, #1849A9 50.08%, #538DD5 100%);
 $color-hover-link: #1849a9;
 $color-highlight-link: red;
+$main-color-background: #1849a9;
 
 a {
     color: #101828;
@@ -1120,6 +1121,75 @@ form label.error {
     .breadcrumb-item:last-child {
         a {
             font-weight: 700;
+        }
+    }
+}
+
+
+#lv-navbar {
+    width: 100%;
+    margin-top: 50px;
+    background: $main-color-background;
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        > ul {
+            margin: 0;
+            padding: 0;
+            > li {
+                list-style: none;
+                float: left;
+                position: relative;
+                > a {
+                    padding: 13px 10px;
+                    display: inline-block;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    color: white;
+                    transition: background-color 0.2s;
+                    &:hover {
+                        background-color: red !important;
+                    }
+
+                    .arrow {
+                        display: inline-block;
+                        vertical-align: middle;
+                        border-right: 4px solid transparent;
+                        border-left: 4px solid transparent;
+                        border-top: 4px dashed;
+                        width: 0;
+                        height: 0;
+                        margin-left: 5px;
+                    }
+                }
+                > ul {
+                    overflow: hidden;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    z-index: 1000;
+                    background: white;
+                    font-size: 14px;
+                    width: 200px;
+                    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+                    > li {
+                        list-style: none;
+                        a {
+                            padding: 0 10px;
+                            line-height: 36px;
+                            white-space: nowrap;
+                            display: block;
+                            &:hover {
+                                color: red;
+                            }
+                        }
+                        &:not(:last-child) a {
+                            border-bottom: 1px dashed #ccc;
+                        }
+                    }
+                }
+            }
         }
     }
 }

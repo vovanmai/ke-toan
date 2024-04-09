@@ -1088,3 +1088,69 @@ form label.error {
 .breadcrumb .breadcrumb-item:last-child a {
   font-weight: 700;
 }
+
+#lv-navbar {
+  width: 100%;
+  margin-top: 50px;
+  background: #1849a9;
+}
+#lv-navbar .menu {
+  display: flex;
+  justify-content: space-between;
+}
+#lv-navbar .menu > ul {
+  margin: 0;
+  padding: 0;
+}
+#lv-navbar .menu > ul > li {
+  list-style: none;
+  float: left;
+  position: relative;
+}
+#lv-navbar .menu > ul > li > a {
+  padding: 13px 10px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
+  transition: background-color 0.2s;
+}
+#lv-navbar .menu > ul > li > a:hover {
+  background-color: red !important;
+}
+#lv-navbar .menu > ul > li > a .arrow {
+  display: inline-block;
+  vertical-align: middle;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-top: 4px dashed;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+}
+#lv-navbar .menu > ul > li > ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1000;
+  background: white;
+  font-size: 14px;
+  width: 200px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+#lv-navbar .menu > ul > li > ul > li {
+  list-style: none;
+}
+#lv-navbar .menu > ul > li > ul > li a {
+  padding: 0 10px;
+  line-height: 36px;
+  white-space: nowrap;
+  display: block;
+}
+#lv-navbar .menu > ul > li > ul > li a:hover {
+  color: red;
+}
+#lv-navbar .menu > ul > li > ul > li:not(:last-child) a {
+  border-bottom: 1px dashed #ccc;
+}
