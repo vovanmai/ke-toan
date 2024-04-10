@@ -1223,5 +1223,17 @@ form label.error {
             background-repeat: no-repeat;
             background-position: 0 0;
         }
+        .search-item-body {
+            .list {
+                .item {
+                    background: url(/img/bg-li.png) no-repeat left 3px;
+                    padding-left: 25px;
+                    margin-bottom: 15px;
+                    a {
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
     }
 }

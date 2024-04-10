@@ -38,29 +38,33 @@ class SearchService
         $keyword = mb_strtolower($keyword);
         $keyword = "%{$keyword}%";
 
-
-        $courses = $this->courseRepo->scopeQuery(function ($query) use ($keyword) {
-            return $query->where(function ($query) use ($keyword) {
-                return $query->where(DB::raw('lower(title)'), 'like', $keyword)
-                    ->orWhere(DB::raw('lower(short_description)'), 'like', $keyword);
-            });
-        })->whereByField('active', true)
-        ->all([
-            'title',
-            'slug',
-            'short_description',
-        ]);
-
-        $posts = $this->postRepo->scopeQuery(function ($query) use ($keyword) {
-            return $query->where(function ($query) use ($keyword) {
-                return $query->where(DB::raw('lower(title)'), 'like', $keyword)
-                    ->orWhere(DB::raw('lower(short_description)'), 'like', $keyword);
-            });
-        })->whereByField('active', true)
+        $courses = $this->courseRepo->with(['category'])
+            ->scopeQuery(function ($query) use ($keyword) {
+                return $query->where(function ($query) use ($keyword) {
+                    return $query->where(DB::raw('lower(title)'), 'like', $keyword);
+    //                    ->orWhere(DB::raw('lower(short_description)'), 'like', $keyword);
+                });
+            })->whereByField('active', true)
             ->all([
                 'title',
                 'slug',
                 'short_description',
+                'category_id',
+            ]);
+
+
+        $posts = $this->postRepo->with(['category'])
+            ->scopeQuery(function ($query) use ($keyword) {
+                return $query->where(function ($query) use ($keyword) {
+                    return $query->where(DB::raw('lower(title)'), 'like', $keyword);
+    //                    ->orWhere(DB::raw('lower(short_description)'), 'like', $keyword);
+                });
+            })->whereByField('active', true)
+            ->paginate(5, [
+                'title',
+                'slug',
+                'short_description',
+                'category_id',
             ]);
 
         return [
