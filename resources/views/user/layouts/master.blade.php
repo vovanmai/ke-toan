@@ -38,12 +38,12 @@
             @include('user.layouts.main-banner')
             <div class="container">
                 <div class="row g-3">
-                    <div class="col-sm-12 col-md-12 col-lg-9">
+                    <div class="col-sm-7 col-md-8 col-lg-9">
                         <div id="main-content">
                             @yield('content')
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-3">
+                    <div class="col-sm-5 col-md-4 col-lg-3">
                         @include('user.layouts.sidebar')
                     </div>
                 </div>

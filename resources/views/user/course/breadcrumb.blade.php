@@ -27,6 +27,5 @@
                 <a href="{{ route('user.course.index', ['category' => $slug]) }}">{{ $catTitle }}</a>
             </li>
         @endforeach
-        <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
     </ol>
 </nav>

@@ -69,8 +69,21 @@
             </li>
             @endforeach
         </ul>
-        <div class="three-dot-menu">
-            <i class="fas fa-ellipsis-v"></i>
+        <div>
+            <ul>
+                <li>
+                    <a id="search-button">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <div id="search-form">
+                        <form action="">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

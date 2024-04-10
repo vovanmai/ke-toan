@@ -1130,11 +1130,32 @@ form label.error {
                 }
             }
         }
+        > div > ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            > li {
+                position: relative;
+                > a {
+                    padding: 13px 10px;
+                    display: block;
+                    color: white;
+                    cursor: pointer;
+                }
+                > div {
+                    position: absolute;
+                    right: 0;
+                    z-index: 1000;
+                    min-width: 200px;
+                    animation: .2s slideup;
+                    display: none;
+                    input {
+                        background: #efefef;
+                    }
+                }
+            }
+        }
     }
-}
-
-.show-submenu {
-    display: block !important;
 }
 
 @keyframes slideup {

@@ -1081,9 +1081,30 @@ form label.error {
 #lv-navbar .menu > ul > li > ul > li:not(:last-child) a {
   border-bottom: 1px dashed #ccc;
 }
-
-.show-submenu {
-  display: block !important;
+#lv-navbar .menu > div > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#lv-navbar .menu > div > ul > li {
+  position: relative;
+}
+#lv-navbar .menu > div > ul > li > a {
+  padding: 13px 10px;
+  display: block;
+  color: white;
+  cursor: pointer;
+}
+#lv-navbar .menu > div > ul > li > div {
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  min-width: 200px;
+  animation: 0.2s slideup;
+  display: none;
+}
+#lv-navbar .menu > div > ul > li > div input {
+  background: #efefef;
 }
 
 @keyframes slideup {

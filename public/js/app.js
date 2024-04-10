@@ -129,7 +129,7 @@ $('#request-question').validate({
             "g-recaptcha-response": reCaptcha,
         }
 
-        $.ajax("support-and-consultation", {
+        $.ajax("/support-and-consultation", {
             data: data,
             method: 'POST',
             success: function() {
@@ -215,10 +215,10 @@ new Swiper(".course-images", {
 
 $('#lv-navbar ul > li').hover(function() {
     // khi thẻ menu li bị hover thì drop down menu thuộc thẻ li đó sẽ trượt xuống(hiện)
-    $('ul', this).addClass('show-submenu');
+    $('ul', this).addClass('d-block');
 }, function() {
     // khi thẻ menu li bị out không hover nữa thì drop down menu thuộc thẻ li đó sẽ trượt lên(ẩn)
-    $('ul', this).removeClass('show-submenu');
+    $('ul', this).removeClass('d-block');
 });
 
 
@@ -235,3 +235,14 @@ window.addEventListener("scroll", () => {
         header.classList.remove(toggleClass);
     }
 });
+
+
+$('#search-button').click(function () {
+    if ($('i', this).hasClass('fa-search')) {
+        $('#search-form').addClass('d-block')
+        $('#search-button').html(`<i class="fa fa-times"></i>`)
+    } else {
+        $('#search-form').removeClass('d-block')
+        $('#search-button').html(`<i class="fa fa-search"></i>`)
+    }
+})
