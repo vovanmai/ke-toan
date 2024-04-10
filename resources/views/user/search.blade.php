@@ -34,9 +34,11 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="d-flex pagination-block">
-                            {!! $result['posts']->onEachSide(1)->links() !!}
-                        </div>
+                        @if($result['posts']->lastPage() > 1)
+                            <div class="d-flex pagination-block">
+                                {!! $result['posts']->onEachSide(1)->links() !!}
+                            </div>
+                        @endif
                     </div>
                 </div>
                 @endif

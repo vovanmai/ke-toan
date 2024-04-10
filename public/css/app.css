@@ -1170,6 +1170,9 @@ form label.error {
   background-repeat: no-repeat;
   background-position: 0 0;
 }
+.search-result-wrapper .search-item .search-item-body {
+  margin-top: 20px;
+}
 .search-result-wrapper .search-item .search-item-body .list .item {
   background: url(/img/bg-li.png) no-repeat left 3px;
   padding-left: 25px;

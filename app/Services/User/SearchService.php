@@ -60,7 +60,7 @@ class SearchService
     //                    ->orWhere(DB::raw('lower(short_description)'), 'like', $keyword);
                 });
             })->whereByField('active', true)
-            ->paginate(5, [
+            ->paginate(20, [
                 'title',
                 'slug',
                 'short_description',

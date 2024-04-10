@@ -78,7 +78,7 @@
                     <div id="search-form">
                         <form action="{{ route('user.search') }}" method="GET">
                             <div class="input-group">
-                                <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm..." aria-label="Keyword" aria-describedby="basic-addon1">
+                                <input value="{{ $keyword ?? null }}" type="text" name="keyword" class="form-control" placeholder="Tìm kiếm..." aria-label="Keyword" aria-describedby="basic-addon1">
                             </div>
                         </form>
                     </div>
