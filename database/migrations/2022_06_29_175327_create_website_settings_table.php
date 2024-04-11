@@ -15,6 +15,7 @@ class CreateWebsiteSettingsTable extends Migration
     {
         Schema::create('website_settings', function (Blueprint $table) {
             $table->id();
+            $table->jsonb('main_menu')->nullable();
             $table->string('company_name')->nullable();
             $table->string('company_tax_code', 20)->nullable();
             $table->string('hotline')->nullable();

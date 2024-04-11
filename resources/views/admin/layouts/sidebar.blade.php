@@ -294,6 +294,11 @@
                 </a>
             </li>
 
+            <li class="{{ request()->is('admin/main-menu') ? 'active' : '' }}">
+                <a href="{{ route('admin.main_menu.index') }}">
+                    <i class="fa fa-fw fa-gears"></i> <span>Thiết lập menu</span>
+                </a>
+            </li>
             <li class="{{ request()->is('admin/website-setting*') ? 'active' : '' }}">
                 <a href="{{ route('admin.website_setting.edit') }}">
                     <i class="fa fa-fw fa-gears"></i> <span>Cài đặt</span>

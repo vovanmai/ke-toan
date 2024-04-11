@@ -9,6 +9,36 @@
                     </span>
                 </a>
             </li>
+
+            @php
+                $mainMenu = app('web_setting')->main_menu ?? [];
+            @endphp
+
+
+            @foreach($mainMenu as $item)
+                @if($item['type'] === 'course')
+                    <li>
+                        <a title="Khóa học kế toán" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}" href="{{ route('user.course.list_all') }}">
+                    <span class="title">
+                        Khóa học kế toán
+                    </span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul>
+                            @foreach($item['children_recursive'] as $item)
+                                <li>
+                                    <a title="{{ $item['title'] }}" class="{{ request()->is('khoa-hoc-ke-toan/' . $item['slug']) ? 'active' : ''}}" href="{{ route('user.course.index', ['category' => $item['slug']]) }}">
+                                        {{ $item['title'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @elseif($item['type'] === 'course')
+                    
+                @elseif($item['type'] === 'page')
+                @endif
+            @endforeach
             @php
                 $cats = app('main_menu');
                 $courseCats = $cats['course_cats'] ?? [];

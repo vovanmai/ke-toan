@@ -56,9 +56,8 @@ class ListService
             ->all(['id', 'title', DB::raw("'page' as type"), DB::raw('null as children_recursive')])
             ->toArray();
 
-        $categories = $this->catRepo->with([
-            'childrenRecursive',
-        ])->whereByField('active', true)
+        $categories = $this->catRepo
+            ->whereByField('active', true)
             ->whereNull('parent_id')
             ->whereByField('type', Category::TYPE_POST)
             ->orderBy('id', 'ASC')

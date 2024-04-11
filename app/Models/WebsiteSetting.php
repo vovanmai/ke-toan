@@ -17,6 +17,7 @@ class WebsiteSetting extends AbstractModel
      * @var array
      */
     protected $fillable = [
+        'main_menu',
         'company_name',
         'company_tax_code',
         'hotline',
@@ -41,6 +42,7 @@ class WebsiteSetting extends AbstractModel
      */
     protected $casts = [
         'header_banner' => 'array',
+        'main_menu' => 'array',
     ];
 
     public function getHeaderBannerAttribute()
