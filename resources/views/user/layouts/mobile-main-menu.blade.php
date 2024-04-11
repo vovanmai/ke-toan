@@ -25,7 +25,7 @@
 
         <li>
             <div class="d-flex justify-content-between align-items-center">
-                <a href="{{ route('user.course.list_all') }}" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}">
+                <a title="Khóa học kế toán" href="{{ route('user.course.list_all') }}" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}">
                     <span>Khóa học kế toán</span>
                 </a>
                 <div class="button-arrow">
@@ -35,7 +35,7 @@
             <ul class="sub-menu">
                 @foreach($courseCats as $courseCat)
                     <li>
-                        <a href="{{ route('user.course.index', ['category' => $courseCat->slug]) }}" class="{{ request()->is('khoa-hoc-ke-toan/' . $courseCat->slug) ? 'active' : ''}}">
+                        <a title="{{ $courseCat->title }}" href="{{ route('user.course.index', ['category' => $courseCat->slug]) }}" class="{{ request()->is('khoa-hoc-ke-toan/' . $courseCat->slug) ? 'active' : ''}}">
                             <span>{{ $courseCat->title }}</span>
                         </a>
                     </li>
@@ -62,7 +62,7 @@
                     <ul class="sub-menu">
                         @foreach($firstCat->childrenRecursive as $secondCat)
                         <li>
-                            <a href="{{ route('user.post.index', ['slug' => $secondCat->slug]) }}" class="{{ request()->is('danh-muc/' . $secondCat->slug) ? 'active' : ''}}">
+                            <a href="{{ route('user.post.index', ['slug' => $secondCat->slug]) }}" class="{{ request()->is($secondCat->slug) ? 'active' : ''}}">
                                 <span>{{ $secondCat->title }}</span>
                             </a>
                         </li>

@@ -84,7 +84,7 @@
                     <div class="box-post">
                         <div class="box-heading">
                             <div class="post-title">
-                                <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
+                                <a title="{{ $category->title }}" href="{{ route('user.post.index', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
                             </div>
                             <div class="post-see-more">
                                 <a href="{{ route('user.post.index', ['slug' => $category->slug]) }}"> Xem tất cả »» </a>
@@ -96,7 +96,7 @@
                                     <img src="{{ $firstPost->image['url'] }}" alt="">
                                 </a>
                                 <div class="post-title-description">
-                                    <a href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}">{{ $firstPost->title }}</a>
+                                    <a title="{{ $firstPost->title }}" href="{{ route('user.post.detail', ['slug' => $firstPost->slug, 'category' => $category->slug]) }}">{{ $firstPost->title }}</a>
                                     <p>{{ $firstPost->short_description }}</p>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                 @if($olderPost)
                                     @foreach($olderPost as $post)
                                         <div>
-                                            <a href="">Sự khác biệt của dịch vụ kế toán thuế trọn gói cho công ty nước ngoài do Kế toán Lê Ánh cung cấp</a>
+                                            <a title="{{ $post['title'] }}" href="{{ route('user.post.detail', ['slug' => $post['slug'], 'category' => $post['category']['slug'] ?? '']) }}">{{ $post['title'] }}</a>
                                         </div>
                                     @endforeach
                                 @endif

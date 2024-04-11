@@ -59,7 +59,9 @@ class IndexService
                 }
             });
 
-            $category->activePosts = $this->repository->whereIn('category_id', $catIds)
+            $category->activePosts = $this->repository
+                ->with(['category:slug,title,id'])
+                ->whereIn('category_id', $catIds)
                 ->whereByField('active', true)
                 ->orderBy('id', 'DESC')
                 ->limit(4);

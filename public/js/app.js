@@ -241,6 +241,7 @@ $('#search-button').click(function () {
     if ($('i', this).hasClass('fa-search')) {
         $('#search-form').addClass('d-block')
         $('#search-button').html(`<i class="fa fa-times"></i>`)
+        $('#search-form input').focus()
     } else {
         $('#search-form').removeClass('d-block')
         $('#search-button').html(`<i class="fa fa-search"></i>`)
