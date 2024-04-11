@@ -42,14 +42,8 @@ class UpdateService
      */
     public function handle (array $data)
     {
-        MainMenuSetting::truncate();
-        if (!empty($data['data'])) {
-            $this->mainMenuSettingRepo->insert($data['data']);
-        }
 
-        $selectedMenus = $this->mainMenuSettingRepo->orderBy('id', 'ASC')->all();
-
-        $groupByType = $selectedMenus->groupBy('target_type')->toArray();
+        $groupByType = collect($data['data'])->groupBy('target_type')->toArray();
 
         $categoryCourse = [
             'id' => null,
@@ -99,17 +93,17 @@ class UpdateService
 
         $menus = [];
 
-        foreach ($selectedMenus as $item) {
-            if ($item->target_type === 'course') {
+        foreach ($data['data'] as $item) {
+            if ($item['target_type'] === 'course') {
                 $menus[] = $categoryCourse;
             }
 
-            if ($item->target_type === 'post') {
-                $menus[] = $postCats[$item->target_id] ?? null;
+            if ($item['target_type'] === 'post') {
+                $menus[] = $postCats[$item['target_id']] ?? null;
             }
 
-            if ($item->target_type === 'page') {
-                $menus[] = $pages[$item->target_id] ?? null;
+            if ($item['target_type'] === 'page') {
+                $menus[] = $pages[$item['target_id']] ?? null;
             }
         }
 

@@ -44,7 +44,7 @@
                                     <div style="width: 47%;">
                                         <label for="">Danh mục đã chọn</label>
                                         <div id="selected-menu">
-                                            @foreach($selectedMenu as $item)
+                                            @foreach(app('web_setting')->main_menu ?? [] as $item)
                                                 <div target-id="{{ $item['id'] }}" target-type="{{ $item['type'] }}">{{ $item['title'] }}</div>
                                             @endforeach
                                         </div>

@@ -14,7 +14,6 @@
                 $mainMenu = app('web_setting')->main_menu ?? [];
             @endphp
 
-
             @foreach($mainMenu as $item)
                 @if($item['type'] === 'course')
                     <li>
@@ -34,12 +33,39 @@
                             @endforeach
                         </ul>
                     </li>
-                @elseif($item['type'] === 'course')
-                    
+                @elseif($item['type'] === 'post')
+                    <li>
+                        <a title="{{ $item['title'] }}" class="{{ request()->is($item['slug']) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $item['slug']]) }}">
+                    <span class="title">
+                        {{ $item['title'] }}
+                    </span>
+                            @if(!empty($item['children_recursive']))
+                                <span class="arrow"></span>
+                            @endif
+                        </a>
+                        @if(!empty($item['children_recursive']))
+                            <ul>
+                                @foreach($item['children_recursive'] as $item)
+                                    <li>
+                                        <a title="{{ $item['title'] }}" class="{{ request()->is($item['slug']) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $item['slug']]) }}">
+                                            {{ $item['title'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    </li>
                 @elseif($item['type'] === 'page')
+                    <li>
+                        <a title="{{ $item['title'] }}" class="{{ request()->is($item['slug'] . '.html') ? 'active' : ''}}" href="{{ route('user.page.detail', ['slug' => $item['slug']]) }}">
+                    <span class="title">
+                        {{ $item['title'] }}
+                    </span>
+                        </a>
+                    </li>
                 @endif
             @endforeach
-            @php
+            {{--@php
                 $cats = app('main_menu');
                 $courseCats = $cats['course_cats'] ?? [];
                 $postCats = $cats['post_cats'] ?? [];
@@ -97,7 +123,7 @@
                     </span>
                 </a>
             </li>
-            @endforeach
+            @endforeach--}}
         </ul>
         <div>
             <ul>

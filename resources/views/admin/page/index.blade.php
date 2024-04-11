@@ -77,7 +77,6 @@
                                     <th>Tiêu đề</th>
                                     <th>Đường dẫn</th>
                                     <th class="text-center">Active</th>
-                                    <th class="text-center">Hiển thị trên menu</th>
                                     <th class="text-center" style="width: 8%">Lượt xem</th>
                                     <th class="text-center">Người tạo</th>
                                     <th class="text-center">Ngày tạo</th>
@@ -99,13 +98,6 @@
                                                 <img onclick="changeActive({{ $item->id }}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">
                                             @else
                                                 <img onclick="changeActive({{ $item->id }}, 1)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/inactive.png" alt="">
-                                            @endif
-                                        </td>
-                                        <td class="is-show-on-menu text-center">
-                                            @if($item->show_on_menu)
-                                                <img onclick="changeShowOnMenu({{ $item->id }}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">
-                                            @else
-                                                <img onclick="changeShowOnMenu({{ $item->id }}, 1)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/inactive.png" alt="">
                                             @endif
                                         </td>
                                         <td class="text-center">

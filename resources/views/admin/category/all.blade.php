@@ -80,18 +80,6 @@
                                         @endif
                                     </span>
                                     ||
-                                    <div class="show-on-menu" style="display: inline-block; width: 171px">
-                                        @if($item->show_on_menu)
-                                            <a style="color: green" href="javascript:void(0)" onclick="changeShowOnMenu({{ $item->id }}, 0)">
-                                                <i class="fa fa-check"> Hiển thị trên menu</i>
-                                            </a>
-                                        @else
-                                            <a style="color: gray" href="javascript:void(0)" onclick="changeShowOnMenu({{ $item->id }}, 1)">
-                                                <i class="fa fa-ban"> Không hiển thị trên menu</i>
-                                            </a>
-                                        @endif
-                                    </div>
-                                    ||
                                     <a style="color: #367fa9" href="{{ route('admin.category.edit', ['id' => $item->id]) }}">
                                         <i class="fa fa-edit"></i> Sửa
                                     </a>
@@ -119,18 +107,6 @@
                                                 </a>
                                             @endif
                                         </span>
-                                        ||
-                                        <div class="show-on-menu" style="display: inline-block; width: 171px">
-                                            @if($item->show_on_menu)
-                                                <a style="color: green" href="javascript:void(0)" onclick="changeShowOnMenu({{ $item->id }}, 0)">
-                                                <i class="fa fa-check"> Hiển thị trên menu</i>
-                                            </a>
-                                            @else
-                                                <a style="color: gray" href="javascript:void(0)" onclick="changeShowOnMenu({{ $item->id }}, 1)">
-                                                <i class="fa fa-ban"> Không hiển thị trên menu</i>
-                                            </a>
-                                            @endif
-                                        </div>
                                         ||
                                         <a style="color: #367fa9" href="{{ route('admin.category.edit', ['id' => $item->id]) }}">
                                             <i class="fa fa-edit"></i> Sửa

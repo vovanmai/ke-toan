@@ -30,7 +30,7 @@ class MainMenuController extends Controller
         try {
             resolve(UpdateService::class)->handle($data);
             return response()->success('Thành công');
-        } catch (Exception $ex) {
+        } catch (Exception $ex) {dd($ex);
             $this->rollback();
             Log::info($ex->getMessage());
             return response()->error('Máy chủ bị lỗi');

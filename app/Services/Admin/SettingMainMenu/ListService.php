@@ -66,13 +66,10 @@ class ListService
 
         $data = array_merge($data, $categories, $pages);
 
-        $allMenus = collect($data)->groupBy('type')->toArray();
-
-        $allSelectedMenu = $this->mainMenuRepo->orderBy('id', 'ASC')->all();
+        $allSelectedMenu = collect(app('web_setting')->main_menu ?? [])->groupBy('type')->toArray();
 
         return [
-            'availableMenu' => $this->getAvailableMenu($data, $allSelectedMenu->groupBy('target_type')->toArray()),
-            'selectedMenu' => $this->getSelectedMenu($allSelectedMenu, $allMenus),
+            'availableMenu' => $this->getAvailableMenu($data, $allSelectedMenu),
         ];
     }
 
@@ -80,30 +77,11 @@ class ListService
     {
         $availableMenu = [];
         foreach ($data as $key => $item) {
-            $ids = collect($selectedMenu[$item['type']] ?? [])->pluck('target_id')->toArray();
+            $ids = collect($selectedMenu[$item['type']] ?? [])->pluck('id')->toArray();
             if (!in_array($item['id'], $ids)) {
                 $availableMenu[] = $item;
             }
         }
         return $availableMenu;
-    }
-
-    private function getSelectedMenu(Collection $allSelectedMenu, $allMenus): array
-    {
-        $selectedMenu = $allSelectedMenu->toArray();
-        $array = [];
-
-        foreach ($selectedMenu as $item) {
-            $data = array_column($allMenus[$item['target_type']] ?? [], null, 'id')[$item['target_id']] ?? [];
-            if ($data) {
-                $array[] = [
-                    'id' => $data['id'] ?? null,
-                    'title' => $data['title'] ?? null,
-                    'type' => $item['target_type'],
-                    'children_recursive' => $data['children_recursive'] ?? null,
-                ];
-            }
-        }
-        return $array;
     }
 }
