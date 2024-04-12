@@ -50,7 +50,6 @@ class ListByCategoryService
                     'id',
                     'title',
                     'slug',
-                    'display_type',
                 ]
             );
 

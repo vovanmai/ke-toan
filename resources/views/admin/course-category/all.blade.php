@@ -89,6 +89,32 @@
                                     </a>
                                 </div>
                             </div>
+                                @foreach($item->childrenRecursive as $item)
+                                    <div style="margin-left: 50px" class="children-cat cat-{{ $item->id }}">
+                                        <span class="">{{ $item->title }}</span>
+                                        <div class="pull-right">
+                                        <span class="active">
+                                            @if($item->active)
+                                                <a style="color: green" href="javascript:void(0)" onclick="changeActive({{ $item->id }}, 0)">
+                                                    <i class="fa fa-check"> Active</i>
+                                                </a>
+                                            @else
+                                                <a style="color: gray" href="javascript:void(0)" onclick="changeActive({{ $item->id }}, 1)">
+                                                    <i class="fa fa-ban"> Inactive</i>
+                                                </a>
+                                            @endif
+                                        </span>
+                                            ||
+                                            <a style="color: #367fa9" href="{{ route('admin.course_category.edit', ['id' => $item->id]) }}">
+                                                <i class="fa fa-edit"></i> Sửa
+                                            </a>
+                                            ||
+                                            <a style="color: red" href="javascript:void(0)" onclick="deleteCategory({{ $item->id }})">
+                                                <i class="fa fa-trash"></i> Xóa
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
                             @endforeach
                         </div>
                     </div>

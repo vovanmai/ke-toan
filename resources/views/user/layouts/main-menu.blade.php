@@ -18,17 +18,25 @@
                 @if($item['type'] === 'course')
                     <li>
                         <a title="Khóa học kế toán" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}" href="{{ route('user.course.list_all') }}">
-                    <span class="title">
-                        Khóa học kế toán
-                    </span>
+                            <span class="title">
+                                Khóa học kế toán
+                            </span>
                             <span class="arrow"></span>
                         </a>
                         <ul>
                             @foreach($item['children_recursive'] as $item)
                                 <li>
                                     <a title="{{ $item['title'] }}" class="{{ request()->is('khoa-hoc-ke-toan/' . $item['slug']) ? 'active' : ''}}" href="{{ route('user.course.index', ['category' => $item['slug']]) }}">
-                                        {{ $item['title'] }}
+                                        <span class="title">
+                                            {{ $item['title'] }}
+                                        </span>
+                                        <span class="arrow"></span>
                                     </a>
+                                    <ul>
+                                        <li>
+                                            12232
+                                        </li>
+                                    </ul>
                                 </li>
                             @endforeach
                         </ul>

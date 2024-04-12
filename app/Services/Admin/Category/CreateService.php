@@ -36,11 +36,6 @@ class CreateService
 
         $data['description'] = empty($data['description']) ? $data['title'] : $data['description'];
         $data['active'] = true;
-        $data['display_type'] = Category::TYPE_DISPLAY_LIST;
-
-        $maxOrder = $this->repository->orderBy('order', 'DESC')->first(['order']);
-
-        $data['order'] = isset($maxOrder->order) ? $maxOrder->order + 1 : 0;
         $data['type'] = $data['type'] ?? Category::TYPE_POST;
 
         return $this->repository->create($data);

@@ -213,12 +213,12 @@ new Swiper(".course-images", {
     },
 });
 
-$('#lv-navbar ul > li').hover(function() {
+$('#lv-navbar .menu > ul > li').hover(function() {
     // khi thẻ menu li bị hover thì drop down menu thuộc thẻ li đó sẽ trượt xuống(hiện)
-    $('ul', this).addClass('d-block');
+    $('> ul', this).addClass('d-block');
 }, function() {
     // khi thẻ menu li bị out không hover nữa thì drop down menu thuộc thẻ li đó sẽ trượt lên(ẩn)
-    $('ul', this).removeClass('d-block');
+    $('> ul', this).removeClass('d-block');
 });
 
 

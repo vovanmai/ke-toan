@@ -47,13 +47,20 @@ class UpdateService
             'id' => null,
             'title' => 'Khóa học kế toán',
             'type' => 'course',
-            'children_recursive' => $this->catRepo->whereByField('active', true)
+            'children_recursive' => $this->catRepo
+                ->with([
+                    'childrenRecursive:slug,title,parent_id'
+                ])
+                ->whereByField('active', true)
                 ->whereByField('type', Category::TYPE_COURSE)
+                ->whereNull('parent_id')
                 ->orderBy('id', 'ASC')
                 ->all([
+                    'id',
                     'title',
                     'slug',
                 ])
+                ->toArray()
         ];
 
         $postCatIds = array_column($groupByType['post'] ?? [], 'target_id');

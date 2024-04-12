@@ -9,11 +9,10 @@ class Category extends AbstractModel
 {
     use Sluggable, HasEagerLimit;
 
-    const MAX_GRADE = 2;
-    const MAX_GRADE_COURSE = 1;
+    const MAX_GRADE = 3;
+    const MAX_GRADE_COURSE = 2;
 
     const TYPE_DISPLAY_LIST = 1;
-    const TYPE_DISPLAY_GRID = 2;
 
 
     const TYPE_POST = 1;
@@ -37,8 +36,6 @@ class Category extends AbstractModel
         'parent_id',
         'active',
         'type',
-        'display_type',
-        'order',
     ];
 
     /**

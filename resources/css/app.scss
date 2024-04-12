@@ -1112,16 +1112,30 @@ form label.error {
                     animation: .2s slideup;
                     > li {
                         list-style: none;
+                        position: relative;
                         a {
                             padding: 0 10px;
                             line-height: 36px;
                             white-space: nowrap;
-                            display: block;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
                             &:hover {
                                 color: red;
                             }
                             &.active {
                                 color: red;
+                            }
+                            > .arrow {
+                                display: inline-block;
+                                vertical-align: middle;
+                                border-right: 4px solid transparent;
+                                border-left: 4px solid transparent;
+                                border-top: 4px dashed;
+                                width: 0;
+                                height: 0;
+                                margin-left: 5px;
+                                transform: rotate(-90deg);
                             }
                         }
                         &:not(:last-child) a {

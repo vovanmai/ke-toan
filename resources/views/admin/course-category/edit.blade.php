@@ -26,7 +26,7 @@
                         </div>
                     <!-- /.box-header -->
                         <div class="box-body">
-                            {{--<div class="form-group @error('parent_id') has-error @enderror">
+                            <div class="form-group @error('parent_id') has-error @enderror">
                                 <label class="col-md-3 control-label">
                                     Danh mục cha<span class="required"></span>
                                 </label>
@@ -43,7 +43,7 @@
                                     <span class="help-block">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>--}}
+                            </div>
                             <div class="form-group @error('title') has-error @enderror">
                                 <label class="col-md-3 control-label">
                                     Tiêu đề<span class="required">(*)</span>

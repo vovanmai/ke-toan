@@ -20,8 +20,6 @@ class CreateCategoriesTable extends Migration
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('parent_id')->index()->nullable();
-            $table->unsignedInteger('order')->default(1);
-            $table->unsignedInteger('display_type')->default(\App\Models\Category::TYPE_DISPLAY_LIST);
             $table->unsignedSmallInteger('type')->default(\App\Models\Category::TYPE_POST);
             $table->timestamps();
 

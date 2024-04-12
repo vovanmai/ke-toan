@@ -1066,18 +1066,32 @@ form label.error {
 }
 #lv-navbar .menu > ul > li > ul > li {
   list-style: none;
+  position: relative;
 }
 #lv-navbar .menu > ul > li > ul > li a {
   padding: 0 10px;
   line-height: 36px;
   white-space: nowrap;
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 #lv-navbar .menu > ul > li > ul > li a:hover {
   color: red;
 }
 #lv-navbar .menu > ul > li > ul > li a.active {
   color: red;
+}
+#lv-navbar .menu > ul > li > ul > li a > .arrow {
+  display: inline-block;
+  vertical-align: middle;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-top: 4px dashed;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  transform: rotate(-90deg);
 }
 #lv-navbar .menu > ul > li > ul > li:not(:last-child) a {
   border-bottom: 1px dashed #ccc;

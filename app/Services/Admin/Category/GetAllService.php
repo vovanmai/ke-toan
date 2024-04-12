@@ -23,7 +23,7 @@ class GetAllService
     public function handle (int $type = Category::TYPE_POST)
     {
         return $this->repository->with([
-            'children' => function ($query) {
+            'childrenRecursive' => function ($query) {
                 return $query->select(['*'])->withCount('activePosts');
             }])
             ->whereByField('type', $type)
