@@ -240,29 +240,5 @@
                 }
             });
         }
-
-        function changeShowOnMenu (id, active) {
-            $.ajax({
-                data: {
-                    show_on_menu: active
-                },
-                type: 'POST',
-                dataType: "JSON",
-                url: `/admin/pages/${id}/show-on-menu`,
-                success: function(response)
-                {
-                    if (active) {
-                        var image = `<img onclick="changeShowOnMenu(${id}, 0)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/active.jpg" alt="">`
-                    } else {
-                        var image = `<img onclick="changeShowOnMenu(${id}, 1)" style="height: 28px; width: 28px; cursor: pointer" src="/assets/admin/dist/img/inactive.png" alt="">`
-                    }
-
-                    $(`.tr-item-${id} .is-show-on-menu`).html(image)
-                },
-                error: function(error) {
-                    toastr.error("Có lỗi trong khi truy cập đến máy chủ.", 'Lỗi');
-                }
-            });
-        }
     </script>
 @endpush

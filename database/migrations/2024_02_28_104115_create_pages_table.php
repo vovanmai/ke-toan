@@ -19,7 +19,6 @@ class CreatePagesTable extends Migration
             $table->string('slug')->unique();
             $table->string('short_description')->nullable();
             $table->boolean('active')->default(true);
-            $table->boolean('show_on_menu')->default(true);
             $table->text('description')->nullable();
             $table->unsignedBigInteger('admin_id')->nullable()->index();
             $table->unsignedBigInteger('total_view')->default(0);

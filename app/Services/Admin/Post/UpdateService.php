@@ -2,13 +2,9 @@
 
 namespace App\Services\Admin\Post;
 
-use App\Data\Repositories\Eloquent\ImageRepository;
 use App\Data\Repositories\Eloquent\PostRepository;
-use App\Models\Image;
-use App\Models\Post;
 use App\Models\Product;
 use App\Services\Admin\Traits\RemoveFileTrait;
-use App\Services\Common\Image\CreateOrUpdateImageService;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class UpdateService
@@ -20,17 +16,10 @@ class UpdateService
      */
     protected $postRepository;
 
-    /**
-     * @var ImageRepository
-     */
-    protected $imageRepository;
-
     public function __construct(
-        PostRepository $postRepository,
-        ImageRepository $imageRepository
+        PostRepository $postRepository
     ) {
         $this->postRepository = $postRepository;
-        $this->imageRepository = $imageRepository;
     }
 
     /**

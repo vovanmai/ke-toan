@@ -17,7 +17,6 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('title')->index();
             $table->boolean('active')->default(true);
-            $table->boolean('show_on_menu')->default(true);
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('parent_id')->index()->nullable();

@@ -1,4 +1,3 @@
-
 <div id="mobile-main-menu">
     <div class="d-flex justify-content-between align-items-center">
         <h2 style="font-weight: 600; margin-bottom: 0px">Danh mục</h2>
@@ -18,9 +17,6 @@
 
         @php
             $cats = app('web_setting')->main_menu ?? [];
-            $courseCats = $cats['course_cats'] ?? [];
-            $postCats = $cats['post_cats'] ?? [];
-            $pageCats = $cats['page_cats'] ?? [];
         @endphp
 
         @foreach($cats as $item)

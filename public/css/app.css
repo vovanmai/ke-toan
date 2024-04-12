@@ -319,8 +319,9 @@ body {
   bottom: 0;
   left: 0;
   background: white;
-  z-index: 10000;
+  z-index: 1000;
   display: none;
+  animation: left-to-right 0.4s ease-out;
 }
 #mobile-main-menu > div {
   background: #1849a9;
@@ -1109,11 +1110,21 @@ form label.error {
 
 @keyframes slideup {
   from {
-    transform: translateY(25px);
+    transform: translateY(250px);
     opacity: 0;
   }
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes left-to-right {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
     opacity: 1;
   }
 }

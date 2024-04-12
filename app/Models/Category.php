@@ -36,7 +36,6 @@ class Category extends AbstractModel
         'description',
         'parent_id',
         'active',
-        'show_on_menu',
         'type',
         'display_type',
         'order',

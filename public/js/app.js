@@ -8,11 +8,11 @@ $('#mobile-main-menu > ul > li .button-arrow').click(function() {
 });
 
 $('.hidden-menu').click(function () {
-    $('#mobile-main-menu').hide(200)
+    $('#mobile-main-menu').removeClass('d-block')
 })
 
 $('#toggle-show-menu .toggle-button').click(function () {
-    $('#mobile-main-menu').show(200)
+    $('#mobile-main-menu').addClass('d-block')
 })
 
 $(window).scroll(function() {

@@ -35,7 +35,6 @@ class CreateService
         }
 
         $data['description'] = empty($data['description']) ? $data['title'] : $data['description'];
-        $data['show_on_menu'] = true;
         $data['active'] = true;
         $data['display_type'] = Category::TYPE_DISPLAY_LIST;
 

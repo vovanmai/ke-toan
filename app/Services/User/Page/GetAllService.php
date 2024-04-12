@@ -29,7 +29,6 @@ class GetAllService
     {
         $pages = $this->repository
             ->whereByField('active', true)
-            ->whereByField('show_on_menu', true)
             ->orderBy('id', 'ASC')
             ->all(['slug', 'title']);
 
