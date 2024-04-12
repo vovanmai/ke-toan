@@ -31,9 +31,5 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('web_setting', function () {
             return WebsiteSetting::first();
         });
-
-        $this->app->singleton('main_menu', function () {
-            return resolve(GetMainMenuService::class)->handle();
-        });
     }
 }

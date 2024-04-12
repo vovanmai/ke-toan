@@ -17,70 +17,66 @@
         </li>
 
         @php
-            $cats = app('main_menu');
+            $cats = app('web_setting')->main_menu ?? [];
             $courseCats = $cats['course_cats'] ?? [];
             $postCats = $cats['post_cats'] ?? [];
             $pageCats = $cats['page_cats'] ?? [];
         @endphp
 
-        <li>
-            <div class="d-flex justify-content-between align-items-center">
-                <a title="Khóa học kế toán" href="{{ route('user.course.list_all') }}" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}">
-                    <span>Khóa học kế toán</span>
-                </a>
-                <div class="button-arrow">
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-            </div>
-            <ul class="sub-menu">
-                @foreach($courseCats as $courseCat)
-                    <li>
-                        <a title="{{ $courseCat->title }}" href="{{ route('user.course.index', ['category' => $courseCat->slug]) }}" class="{{ request()->is('khoa-hoc-ke-toan/' . $courseCat->slug) ? 'active' : ''}}">
-                            <span>{{ $courseCat->title }}</span>
+        @foreach($cats as $item)
+            @if($item['type'] === 'course')
+                <li>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a title="Khóa học kế toán" href="{{ route('user.course.list_all') }}" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}">
+                            <span>{{ $item['title'] }}</span>
                         </a>
-                    </li>
-                @endforeach
-            </ul>
-        </li>
-
-        @foreach($postCats as $firstCat)
-            @php
-                $hasSubMenu = $firstCat->childrenRecursive->isNotEmpty()
-            @endphp
-            <li>
-                <div class="d-flex justify-content-between align-items-center">
-                    <a href="{{ route('user.post.index', ['slug' => $firstCat->slug]) }}" class="{{ request()->is($firstCat->slug) ? 'active' : ''}}">
-                        <span>{{ $firstCat->title }}</span>
-                    </a>
-                    @if($hasSubMenu)
-                    <div class="button-arrow">
-                        <i class="fas fa-chevron-down"></i>
+                        <div class="button-arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
-                    @endif
-                </div>
-                @if($hasSubMenu)
                     <ul class="sub-menu">
-                        @foreach($firstCat->childrenRecursive as $secondCat)
-                        <li>
-                            <a href="{{ route('user.post.index', ['slug' => $secondCat->slug]) }}" class="{{ request()->is($secondCat->slug) ? 'active' : ''}}">
-                                <span>{{ $secondCat->title }}</span>
-                            </a>
-                        </li>
+                        @foreach($item['children_recursive'] as $item)
+                            <li>
+                                <a title="{{ $item['title'] }}" href="{{ route('user.course.index', ['category' => $item['slug']]) }}" class="{{ request()->is('khoa-hoc-ke-toan/' . $item['slug']) ? 'active' : ''}}">
+                                    <span>{{ $item['title'] }}</span>
+                                </a>
+                            </li>
                         @endforeach
                     </ul>
-                @endif
-            </li>
-
-        @endforeach
-
-        @foreach($pageCats as $page)
-            <li>
-                <div class="d-flex justify-content-between align-items-center">
-                    <a class="{{ request()->is($page->slug . '.html') ? 'active' : ''}}" href="{{ route('user.page.detail', ['slug' => $page->slug]) }}">
-                        <span>{{ $page->title }}</span>
-                    </a>
-                </div>
-            </li>
+                </li>
+            @elseif($item['type'] === 'post')
+                <li>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{{ route('user.post.index', ['slug' => $item['slug']]) }}" class="{{ request()->is($item['slug']) ? 'active' : ''}}">
+                            <span>{{ $item['title'] }}</span>
+                        </a>
+                        @if(!empty($item['children_recursive']))
+                            <div class="button-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        @endif
+                    </div>
+                    @if(!empty($item['children_recursive']))
+                        <ul class="sub-menu">
+                            @foreach($item['children_recursive'] as $item)
+                                <li>
+                                    <a href="{{ route('user.post.index', ['slug' => $item['slug']]) }}" class="{{ request()->is($item['slug']) ? 'active' : ''}}">
+                                        <span>{{ $item['title'] }}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </li>
+            @elseif($item['type'] === 'page')
+                <li>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="{{ request()->is($item['slug'] . '.html') ? 'active' : ''}}" href="{{ route('user.page.detail', ['slug' => $item['slug']]) }}">
+                            <span>{{ $item['title'] }}</span>
+                        </a>
+                    </div>
+                </li>
+            @endif
         @endforeach
     </ul>
 </div>
