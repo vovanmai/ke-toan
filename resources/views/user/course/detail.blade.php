@@ -10,7 +10,8 @@
         <div class="addition-info" style="display: flex; justify-content: space-between">
             <div>
                 <span>
-                    <i class="far fa-clock"></i> {{ $item->created_at->format('d/m/Y H:i') }}
+                    <i class="far fa-clock"></i>
+                    {{ ucfirst($item->updated_at->translatedFormat('l')) . ' ' . $item->updated_at->translatedFormat('d/m/Y H:i') }}
                 </span>
                 |
                 <span>
