@@ -9,6 +9,7 @@ use App\Services\User\SupportAndConsultation\CreateService;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 
 class SupportAndConsultationController extends Controller
 {
@@ -23,6 +24,7 @@ class SupportAndConsultationController extends Controller
         } catch (ForbiddenException $exception) {
             return response()->error($exception->getMessage(), [], Response::HTTP_FORBIDDEN);
         } catch (Exception $exception) {
+            Log::error($exception);
             return response()->error('Máy chủ bị lỗi', $exception);
         }
     }

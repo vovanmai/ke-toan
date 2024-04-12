@@ -98,7 +98,6 @@
                     target_type: item.attr('target-type'),
                 })
             })
-            console.log(data)
 
             $.ajax({
                 data: {

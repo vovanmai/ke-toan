@@ -11,13 +11,14 @@ use Log;
 
 class MainMenuController extends Controller
 {
-    public function index (Request $request)
+    public function index ()
     {
         try {
             $data = resolve(ListService::class)->handle();
 
             return view('admin.main-menu.create', $data);
         } catch (Exception $exception) {
+            Log::error($exception->getMessage());
             return redirect()->route('admin.error.error');
         }
     }
@@ -30,9 +31,9 @@ class MainMenuController extends Controller
         try {
             resolve(UpdateService::class)->handle($data);
             return response()->success('Thành công');
-        } catch (Exception $ex) {dd($ex);
+        } catch (Exception $ex) {
             $this->rollback();
-            Log::info($ex->getMessage());
+            Log::error($ex->getMessage());
             return response()->error('Máy chủ bị lỗi');
         }
     }

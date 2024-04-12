@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class UpdateService
 {
-    /**
-     * @var MainMenuSettingRepository
-     */
-    protected $mainMenuSettingRepo;
 
     /**
      * @var CategoryRepository
@@ -28,22 +24,24 @@ class UpdateService
     protected $pageRepo;
 
     public function __construct(
-        MainMenuSettingRepository $mainMenuSettingRepo,
         CategoryRepository $catRepo,
         PageRepository $pageRepo
     ) {
-        $this->mainMenuSettingRepo = $mainMenuSettingRepo;
         $this->catRepo = $catRepo;
         $this->pageRepo = $pageRepo;
     }
 
     /**
-     * @return
+     * @param array $data
+     * @return void
      */
     public function handle (array $data)
     {
+        $data = $data['data'] ?? [];
 
-        $groupByType = collect($data['data'])->groupBy('target_type')->toArray();
+        if (empty($data)) return;
+
+        $groupByType = collect($data)->groupBy('target_type')->toArray();
 
         $categoryCourse = [
             'id' => null,
@@ -93,7 +91,7 @@ class UpdateService
 
         $menus = [];
 
-        foreach ($data['data'] as $item) {
+        foreach ($data as $item) {
             if ($item['target_type'] === 'course') {
                 $menus[] = $categoryCourse;
             }

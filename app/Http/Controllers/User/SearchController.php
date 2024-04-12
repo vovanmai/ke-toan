@@ -19,7 +19,7 @@ class SearchController extends Controller
                 'keyword' => $keyword,
                 'result' => $result,
             ]);
-        } catch (Exception $exception) {dd($exception);
+        } catch (Exception $exception) {
             Log::error($exception);
             return redirect()->route('user.error.error');
         }

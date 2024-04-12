@@ -6,7 +6,6 @@ use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Data\Repositories\Eloquent\MainMenuSettingRepository;
 use App\Data\Repositories\Eloquent\PageRepository;
 use App\Models\Category;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class ListService
@@ -21,19 +20,12 @@ class ListService
      */
     protected $catRepo;
 
-    /**
-     * @var MainMenuSettingRepository
-     */
-    protected $mainMenuRepo;
-
     public function __construct(
         PageRepository $pageRepo,
-        MainMenuSettingRepository $mainMenuRepo,
         CategoryRepository $catRepo
     )
     {
         $this->pageRepo = $pageRepo;
-        $this->mainMenuRepo = $mainMenuRepo;
         $this->catRepo = $catRepo;
     }
 
@@ -47,7 +39,6 @@ class ListService
                 'id' => null,
                 'title' => 'Khóa học kế toán',
                 'type' => 'course',
-                'children_recursive' => null
             ]
         ];
 
