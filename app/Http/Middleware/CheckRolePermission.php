@@ -24,10 +24,14 @@ class CheckRolePermission
             Admin::ROLE_EDITOR => [
                 'admin/admins*',
                 'admin/website-setting*',
+                'admin/main-menu*',
+                'admin/request-logs*',
             ],
             Admin::ROLE_VIEWER => [
                 'admin/admins*',
                 'admin/website-setting*',
+                'admin/main-menu*',
+                'admin/request-logs*',
             ],
         ];
 
