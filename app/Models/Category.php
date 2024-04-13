@@ -73,9 +73,19 @@ class Category extends AbstractModel
         return $this->children()->with('childrenRecursive');
     }
 
+    public function activeChildrenRecursive()
+    {
+        return $this->children()->where('active', true)->with('activeChildrenRecursive');
+    }
+
     public function parentRecursive()
     {
         return $this->parent()->with('parentRecursive');
+    }
+
+    public function activeParentRecursive()
+    {
+        return $this->parent()->where('active', true)->with('activeParentRecursive');
     }
 
     /**

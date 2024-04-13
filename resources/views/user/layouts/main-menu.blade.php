@@ -20,21 +20,21 @@
                     </span>
                     <span class="arrow"></span>
                 </a>
-                @if(!empty($item['children_recursive']))
+                @if(!empty($item['active_children_recursive']))
                     <ul class="lv-dropdown-menu">
-                        @foreach($item['children_recursive'] as $item)
+                        @foreach($item['active_children_recursive'] as $item)
                         <li class="lv-dropdown-menu-item">
                             <a title="{{ $item['title'] }}" class="{{ request()->is('khoa-hoc-ke-toan/' . $item['slug']) ? 'active' : ''}}" href="{{ route('user.course.index', ['category' => $item['slug']]) }}">
                                 <span class="title">
                                    {{ $item['title'] }}
                                 </span>
-                                @if(!empty($item['children_recursive']))
+                                @if(!empty($item['active_children_recursive']))
                                     <span class="arrow"></span>
                                 @endif
                             </a>
-                            @if(!empty($item['children_recursive']))
+                            @if(!empty($item['active_children_recursive']))
                             <ul>
-                                @foreach($item['children_recursive'] as $item)
+                                @foreach($item['active_children_recursive'] as $item)
                                 <li>
                                     <a title="{{ $item['title'] }}" class="{{ request()->is('khoa-hoc-ke-toan/' . $item['slug']) ? 'active' : ''}}" href="{{ route('user.course.index', ['category' => $item['slug']]) }}">
                                         <span class="title">
@@ -56,25 +56,25 @@
                         <span class="title">
                             {{ $item['title'] }}
                         </span>
-                        @if(!empty($item['children_recursive']))
+                        @if(!empty($item['active_children_recursive']))
                             <span class="arrow"></span>
                         @endif
                     </a>
-                    @if(!empty($item['children_recursive']))
+                    @if(!empty($item['active_children_recursive']))
                         <ul class="lv-dropdown-menu">
-                            @foreach($item['children_recursive'] as $item)
+                            @foreach($item['active_children_recursive'] as $item)
                                 <li class="lv-dropdown-menu-item">
                                     <a title="{{ $item['title'] }}" class="{{ request()->is($item['slug']) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $item['slug']]) }}">
                                 <span class="title">
                                    {{ $item['title'] }}
                                 </span>
-                                        @if(!empty($item['children_recursive']))
+                                        @if(!empty($item['active_children_recursive']))
                                             <span class="arrow"></span>
                                         @endif
                                     </a>
-                                    @if(!empty($item['children_recursive']))
+                                    @if(!empty($item['active_children_recursive']))
                                         <ul>
-                                            @foreach($item['children_recursive'] as $item)
+                                            @foreach($item['active_children_recursive'] as $item)
                                                 <li>
                                                     <a title="{{ $item['title'] }}" class="{{ request()->is($item['slug']) ? 'active' : ''}}" href="{{ route('user.post.index', ['slug' => $item['slug']]) }}">
                                                         <span class="title">

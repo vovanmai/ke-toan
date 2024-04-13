@@ -43,7 +43,7 @@ class IndexService
         $this->increaseViewCount();
 
         $categories = $this->catRepo
-            ->with('childrenRecursive')
+            ->with('activeChildrenRecursive')
             ->whereByField('active', true)
             ->whereNull('parent_id')
             ->orderBy('order', 'ASC')

@@ -31,10 +31,20 @@ class ListByCatService
      */
     public function handle ($slug)
     {
-        $cat = $this->catRepository->firstOrFailWhere(['slug' => $slug, 'active' => true]);
+        $cat = $this->catRepository->with([
+            'activeChildrenRecursive'
+        ])->firstOrFailWhere(['slug' => $slug, 'active' => true])->toArray();
+
+        $catIds = [];
+        array_walk_recursive($cat, function ($item, $key) use (&$catIds) {
+            if ($key == 'id') {
+                $catIds[] = $item;
+            }
+        });
 
         $items = $this->repository->orderBy('id', 'DESC')
-            ->whereByField('category_id', $cat->id)
+            ->whereIn('category_id', $catIds)
+            ->whereByField('active', true)
             ->with('category')
             ->paginate(9);
 

@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <ul class="sub-menu">
-                        @foreach($item['children_recursive'] as $item)
+                        @foreach($item['active_children_recursive'] as $item)
                             <li>
                                 <a title="{{ $item['title'] }}" href="{{ route('user.course.index', ['category' => $item['slug']]) }}" class="{{ request()->is('khoa-hoc-ke-toan/' . $item['slug']) ? 'active' : ''}}">
                                     <span>{{ $item['title'] }}</span>
@@ -46,15 +46,15 @@
                         <a href="{{ route('user.post.index', ['slug' => $item['slug']]) }}" class="{{ request()->is($item['slug']) ? 'active' : ''}}">
                             <span>{{ $item['title'] }}</span>
                         </a>
-                        @if(!empty($item['children_recursive']))
+                        @if(!empty($item['active_children_recursive']))
                             <div class="button-arrow">
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         @endif
                     </div>
-                    @if(!empty($item['children_recursive']))
+                    @if(!empty($item['active_children_recursive']))
                         <ul class="sub-menu">
-                            @foreach($item['children_recursive'] as $item)
+                            @foreach($item['active_children_recursive'] as $item)
                                 <li>
                                     <a href="{{ route('user.post.index', ['slug' => $item['slug']]) }}" class="{{ request()->is($item['slug']) ? 'active' : ''}}">
                                         <span>{{ $item['title'] }}</span>
