@@ -1011,7 +1011,7 @@ form label.error {
 
 @keyframes slideup {
   from {
-    transform: translateY(250px);
+    transform: translateY(25px);
     opacity: 0;
   }
   to {
@@ -1129,11 +1129,14 @@ form label.error {
   height: 0;
   margin-left: 5px;
 }
+#lv-navbar .menu > li > a.active {
+  background: red;
+}
 #lv-navbar .menu > li .lv-dropdown-menu {
   display: none;
   position: absolute;
   background: white;
-  font-size: 14px;
+  font-size: 16px;
   min-width: 250px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   border: 1px solid #ccc;
@@ -1165,6 +1168,9 @@ form label.error {
   height: 0;
   margin-left: 5px;
   transform: rotate(-90deg);
+}
+#lv-navbar .menu > li .lv-dropdown-menu .lv-dropdown-menu-item a.active {
+  color: red;
 }
 #lv-navbar .menu > li .lv-dropdown-menu .lv-dropdown-menu-item ul {
   display: none;

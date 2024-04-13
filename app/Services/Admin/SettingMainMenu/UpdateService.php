@@ -49,7 +49,7 @@ class UpdateService
             'type' => 'course',
             'children_recursive' => $this->catRepo
                 ->with([
-                    'childrenRecursive:slug,title,parent_id'
+                    'childrenRecursive:id,slug,title,parent_id'
                 ])
                 ->whereByField('active', true)
                 ->whereByField('type', Category::TYPE_COURSE)
@@ -67,7 +67,7 @@ class UpdateService
 
         $postCats = $this->catRepo
             ->with([
-                'childrenRecursive:slug,title,parent_id'
+                'childrenRecursive:id,slug,title,parent_id'
             ])
             ->whereByField('type', Category::TYPE_POST)
             ->whereByField('active', true)
