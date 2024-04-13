@@ -1059,120 +1059,6 @@ form label.error {
     }
 }
 
-
-#lv-navbar {
-    width: 100%;
-    background: $main-color-background;
-    .menu {
-        display: flex;
-        justify-content: space-between;
-        > ul {
-            margin: 0;
-            padding: 0;
-            > li {
-                list-style: none;
-                float: left;
-                position: relative;
-                > a {
-                    padding: 13px 10px;
-                    display: inline-block;
-                    text-transform: uppercase;
-                    font-weight: 700;
-                    color: white;
-                    transition: background-color 0.2s;
-                    &:hover {
-                        background-color: red !important;
-                    }
-                    .arrow {
-                        display: inline-block;
-                        vertical-align: middle;
-                        border-right: 4px solid transparent;
-                        border-left: 4px solid transparent;
-                        border-top: 4px dashed;
-                        width: 0;
-                        height: 0;
-                        margin-left: 5px;
-                    }
-                    &.active {
-                        background: red;
-                    }
-                }
-                > ul {
-                    overflow: hidden;
-                    display: none;
-                    margin: 0;
-                    padding: 0;
-                    position: absolute;
-                    z-index: 1000;
-                    background: white;
-                    font-size: 14px;
-                    min-width: 200px;
-                    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-                    border: 1px solid #ccc;
-                    animation: .2s slideup;
-                    > li {
-                        list-style: none;
-                        position: relative;
-                        a {
-                            padding: 0 10px;
-                            line-height: 36px;
-                            white-space: nowrap;
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            &:hover {
-                                color: red;
-                            }
-                            &.active {
-                                color: red;
-                            }
-                            > .arrow {
-                                display: inline-block;
-                                vertical-align: middle;
-                                border-right: 4px solid transparent;
-                                border-left: 4px solid transparent;
-                                border-top: 4px dashed;
-                                width: 0;
-                                height: 0;
-                                margin-left: 5px;
-                                transform: rotate(-90deg);
-                            }
-                        }
-                        &:not(:last-child) a {
-                            border-bottom: 1px dashed #ccc;
-                        }
-                    }
-                }
-            }
-        }
-        > div > ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            > li {
-                position: relative;
-                > a {
-                    padding: 13px 10px;
-                    display: block;
-                    color: white;
-                    cursor: pointer;
-                }
-                > div {
-                    position: absolute;
-                    right: 0;
-                    z-index: 1000;
-                    min-width: 200px;
-                    animation: .2s slideup;
-                    display: none;
-                    input {
-                        background: #efefef;
-                    }
-                }
-            }
-        }
-    }
-}
-
 @keyframes slideup {
     from {
         transform: translateY(250px);
@@ -1258,6 +1144,127 @@ form label.error {
                     margin-bottom: 15px;
                     a {
                         font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#lv-navbar {
+    background: #1849a9;
+    display: flex;
+    justify-content: space-between;
+    ul, li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .menu {
+        > li {
+            float: left;
+            position: relative;
+            > a {
+                padding: 13px 10px;
+                display: inline-block;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: white;
+                transition: background-color 0.2s;
+                &:hover {
+                    background: red;
+                }
+                .arrow {
+                    display: inline-block;
+                    vertical-align: middle;
+                    border-right: 4px solid transparent;
+                    border-left: 4px solid transparent;
+                    border-top: 4px dashed;
+                    width: 0;
+                    height: 0;
+                    margin-left: 5px;
+                }
+            }
+            .lv-dropdown-menu {
+                display: none;
+                position: absolute;
+                background: white;
+                font-size: 14px;
+                min-width: 250px;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+                border: 1px solid #ccc;
+                animation: 0.2s slideup;
+                z-index: 1;
+                .lv-dropdown-menu-item {
+                    position: relative;
+                    &:not(:last-child) {
+                        border-bottom: 1px dashed #ccc;
+                    }
+                    a {
+                        padding: 10px 15px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        &:hover {
+                            color: red;
+                        }
+                        .arrow {
+                            display: inline-block;
+                            vertical-align: middle;
+                            border-right: 4px solid transparent;
+                            border-left: 4px solid transparent;
+                            border-top: 4px dashed;
+                            width: 0;
+                            height: 0;
+                            margin-left: 5px;
+                            transform: rotate(-90deg);
+                        }
+                    }
+                    ul {
+                        display: none;
+                        position: absolute;
+                        background: white;
+                        top: -1px;
+                        left: 100%;
+                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+                        border: 1px solid #ccc;
+                        animation: 0.2s slideup;
+                        li {
+                            min-width: 250px;
+                            &:not(:last-child) {
+                                border-bottom: 1px dashed #ccc;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .other-options {
+        > ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            > li {
+                position: relative;
+                > a {
+                    padding: 13px 10px;
+                    display: block;
+                    color: white;
+                    cursor: pointer;
+                    &:hover {
+                        color: white;
+                    }
+                }
+                > div {
+                    position: absolute;
+                    right: 0;
+                    z-index: 1000;
+                    min-width: 200px;
+                    animation: .2s slideup;
+                    display: none;
+                    input {
+                        background: #efefef;
                     }
                 }
             }
