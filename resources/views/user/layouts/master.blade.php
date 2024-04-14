@@ -1,5 +1,6 @@
 @include('user.layouts.header')
 <body>
+@include('user.layouts.lv-mobile-main-menu')
 <div class="wrapper">
     <div class="container-layout">
         <div id="header">

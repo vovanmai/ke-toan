@@ -1,5 +1,8 @@
 @extends('user.layouts.master')
 @section('content')
+    <div>
+        <button id="show-drawer">show</button>
+    </div>
     @if($courses->isNotEmpty())
     <div class="block">
         <div class="heading-block">

@@ -248,3 +248,9 @@ $('#search-button').click(function () {
         $('#search-button').html(`<i class="fa fa-search"></i>`)
     }
 })
+
+
+$('#show-drawer').click(function () {
+    $('#lv-mobile-main-menu').show()
+    $('body').addClass('lv-popup-parent--hidden')
+})
