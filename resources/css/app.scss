@@ -457,7 +457,7 @@ body {
     position: fixed;
     bottom: 145px;
     width: 167px;
-    z-index: 10001;
+    z-index: 1001;
     height: 80px;
     right: -10px;
 }
@@ -528,7 +528,7 @@ body {
     position: fixed;
     bottom: 240px;
     width: 167px;
-    z-index: 10001;
+    z-index: 1001;
     height: 80px;
     right: -10px;
 }
@@ -1279,45 +1279,29 @@ form label.error {
 }
 
 #lv-mobile-main-menu {
-    z-index: 99999;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0,0,0,.4);
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    display: none;
-    animation: fade-in 1s;
-    .lv-drawer-container {
-        width: 350px;
-        background: #0a53be;
+    width: 350px;
+    background: #12367c;
+    color: white;
+    ul, li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
     }
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0
+    .offcanvas-header {
+        border-bottom: 1px solid white;
+        display: flex; justify-content: space-between;
+        i {
+            font-size: 25px;
+        }
     }
-
-    to {
-        opacity: 1
+    .mobile-menu {
+        margin-top: 15px;
+        a {
+            color: white;
+            display: flex;
+            padding: 15px 0px;
+            border-top: 1px solid white;
+            font-weight: 600;
+        }
     }
-}
-
-@keyframes ltr-drawer-in {
-    0% {
-        transform: translate(-100%)
-    }
-
-    to {
-        transform: translate(0)
-    }
-}
-
-
-.lv-popup-parent--hidden {
-    overflow: hidden;
 }

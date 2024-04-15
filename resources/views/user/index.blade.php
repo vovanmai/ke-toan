@@ -1,8 +1,10 @@
 @extends('user.layouts.master')
 @section('content')
-    <div>
-        <button id="show-drawer">show</button>
-    </div>
+    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#lv-mobile-main-menu">
+        Link with href
+    </a>
+
+
     @if($courses->isNotEmpty())
     <div class="block">
         <div class="heading-block">

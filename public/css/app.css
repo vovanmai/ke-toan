@@ -439,7 +439,7 @@ body {
   position: fixed;
   bottom: 145px;
   width: 167px;
-  z-index: 10001;
+  z-index: 1001;
   height: 80px;
   right: -10px;
 }
@@ -513,7 +513,7 @@ body {
   position: fixed;
   bottom: 240px;
   width: 167px;
-  z-index: 10001;
+  z-index: 1001;
   height: 80px;
   right: -10px;
 }
@@ -1218,40 +1218,30 @@ form label.error {
 }
 
 #lv-mobile-main-menu {
-  z-index: 99999;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.4);
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  display: none;
-  animation: fade-in 1s;
-}
-#lv-mobile-main-menu .lv-drawer-container {
   width: 350px;
-  background: #0a53be;
+  background: #12367c;
+  color: white;
 }
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+#lv-mobile-main-menu ul, #lv-mobile-main-menu li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-@keyframes ltr-drawer-in {
-  0% {
-    transform: translate(-100%);
-  }
-  to {
-    transform: translate(0);
-  }
+#lv-mobile-main-menu .offcanvas-header {
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
 }
-.lv-popup-parent--hidden {
-  overflow: hidden;
+#lv-mobile-main-menu .offcanvas-header i {
+  font-size: 25px;
+}
+#lv-mobile-main-menu .mobile-menu {
+  margin-top: 15px;
+}
+#lv-mobile-main-menu .mobile-menu a {
+  color: white;
+  display: flex;
+  padding: 15px 0px;
+  border-top: 1px solid white;
+  font-weight: 600;
 }

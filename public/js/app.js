@@ -251,6 +251,12 @@ $('#search-button').click(function () {
 
 
 $('#show-drawer').click(function () {
-    $('#lv-mobile-main-menu').show()
+    $('#lv-mobile-main-menu').addClass('is-show-drawer')
     $('body').addClass('lv-popup-parent--hidden')
+})
+
+
+$('#lv-mobile-main-menu button').click(function () {
+    $('#lv-mobile-main-menu').removeClass('is-show-drawer')
+    $('body').removeClass('lv-popup-parent--hidden')
 })

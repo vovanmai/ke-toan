@@ -11,6 +11,10 @@
     </style>
 </head>
 <body>
+#a.result A
+#b.result B
+#c.result C
+#d.result D
     <ul style="display: inline-block; border: 1px solid red">
         <li style="position: relative">
             <a style="display: inline-block; padding: 15px; border: 1px solid green">
