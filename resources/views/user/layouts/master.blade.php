@@ -28,7 +28,9 @@
                     <a href="/" style="color: white; font-weight: bold; text-decoration: none">
                         <i class="fa fa-home" aria-hidden="true"></i> Trang chủ
                     </a>
-                    <i style="font-size: 20px" class="fa fa-bars toggle-button" aria-hidden="true"></i>
+                    <a data-bs-toggle="offcanvas" href="#lv-mobile-main-menu" style="color: white">
+                        <i style="font-size: 20px" class="fa fa-bars" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
             @include('user.layouts.main-menu')

@@ -250,13 +250,8 @@ $('#search-button').click(function () {
 })
 
 
-$('#show-drawer').click(function () {
-    $('#lv-mobile-main-menu').addClass('is-show-drawer')
-    $('body').addClass('lv-popup-parent--hidden')
+$('#lv-mobile-main-menu .arrow').click(function () {
+    const test = $(this).closest('li')
+    $('> ul', test).slideToggle()
 })
 
-
-$('#lv-mobile-main-menu button').click(function () {
-    $('#lv-mobile-main-menu').removeClass('is-show-drawer')
-    $('body').removeClass('lv-popup-parent--hidden')
-})

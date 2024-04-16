@@ -1197,7 +1197,7 @@ form label.error {
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
                 border: 1px solid #ccc;
                 animation: 0.2s slideup;
-                z-index: 1;
+                z-index: 100;
                 .lv-dropdown-menu-item {
                     position: relative;
                     &:not(:last-child) {
@@ -1296,12 +1296,62 @@ form label.error {
     }
     .mobile-menu {
         margin-top: 15px;
-        a {
-            color: white;
-            display: flex;
-            padding: 15px 0px;
-            border-top: 1px solid white;
+        a.active {
             font-weight: 600;
+        }
+        > ul > li {
+            > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: 1px solid white;
+                a {
+                    padding: 10px 0px;
+                    color: white;
+                    flex: 1;
+                }
+                .arrow {
+                    padding: 5px;
+                }
+            }
+
+            .mb-dropdown-menu {
+                background: white;
+                display: none;
+                .mb-dropdown-menu-item {
+                    > div {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        a {
+                            padding: 10px 0px 10px 15px;
+                            color: black;
+                            flex: 1;
+                        }
+                        .arrow {
+                            padding: 5px;
+                            color: black;
+                        }
+                    }
+
+                    .cat-third {
+                        display: none;
+                        margin-left: 20px;
+                        border-left: 1px solid #4F81BC;
+                        .cat-third-item {
+                            a {
+                                padding: 10px 0px 10px 15px;
+                                color: black;
+                                display: block;
+                            }
+                            .arrow {
+                                padding: 5px;
+                                color: black;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
