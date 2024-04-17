@@ -46,7 +46,6 @@ class IndexService
             ->with('activeChildrenRecursive')
             ->whereByField('active', true)
             ->whereNull('parent_id')
-            ->orderBy('order', 'ASC')
             ->orderBy('id', 'ASC')
             ->all();
 
