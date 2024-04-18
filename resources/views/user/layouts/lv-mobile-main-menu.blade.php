@@ -13,6 +13,16 @@
         </form>
         <div class="mobile-menu">
             <ul>
+                <li>
+                    <div>
+                        <a href="{{ route('user.index') }}" class="{{ request()->is('/') ? 'active' : ''}}">
+                                <span class="title">
+                                    <i class="fa fa-home"></i>
+                                    Trang chủ
+                                </span>
+                        </a>
+                    </div>
+                </li>
                 @php
                     $cats = app('web_setting')->main_menu ?? [];
                 @endphp
