@@ -58,7 +58,7 @@
         <div class="sidebar-title support">
             <a>HỖ TRỢ & TƯ VẤN</a>
         </div>
-        <div style="border: 1px solid red; padding: 15px">
+        <div style="border: 1px solid #e5b800; padding: 15px">
             <form id="request-question" action="javascript:void(0)">
                 <div class="mb-3">
                     <input type="text" name="name" placeholder="Họ và tên" class="form-control">
@@ -81,7 +81,9 @@
     </div>
 
     <div class="widget sidebar">
-        <h3>Fanpage</h3>
+        <div class="sidebar-title">
+            Facebook
+        </div>
         <div class="widget-content">
             {!! $webSetting->fb_fan_page_script ?? null !!}
         </div>

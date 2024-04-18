@@ -39,9 +39,9 @@
             <div class="col-md-12">
                 <div style="padding-top: 20px">
                     <h5 class="text-center" style="color: white; font-weight: bold">{{ $setting->company_name ?? null }}</h5>
-                    <h6 class="text-center" style="color: white">Mã số thuế : {{ $setting->company_tax_code ?? null }}</h6>
                     <h6 class="text-center" style="color: white">Địa chỉ : {{ $setting->company_address ?? null }}</h6>
                     <h6 class="text-center" style="color: white">Hotline : <a style="color: white" href="tel:{{$newHotline}}">{{ $hotline ?? null }}</a> </h6>
+                    <h6 class="text-center" style="color: white">Mã số thuế : {{ $setting->company_tax_code ?? null }}</h6>
                     <h6 class="text-center" style="color: white">Website : <a style="color: white" href="{{$setting->company_website_domain ?? null}}">{{ $setting->company_website_domain ?? null }}</a> </h6>
                     <p style="color: white" class="text-center">Bản quyền © Kế toán DPT</p>
                 </div>
@@ -66,7 +66,7 @@
         </a>
     </div>
 
-    <div class="facebook-chat">
+    {{--<div class="facebook-chat">
         <div>
             <a href="https://www.facebook.com/mai.vo.773124">
                 <div style="background-color: rgb(49, 204, 70); border: 2.5px solid white; border-radius: 50%; height: 10px; width: 10px; position: absolute;bottom: 0px; right: 0px"></div>
@@ -79,7 +79,7 @@
                 </div>
             </a>
         </div>
-    </div>
+    </div>--}}
     <div id="to-top">
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </div>
