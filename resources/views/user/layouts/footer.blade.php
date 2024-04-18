@@ -41,7 +41,9 @@
                     <h5 class="text-center" style="color: white; font-weight: bold">{{ $setting->company_name ?? null }}</h5>
                     <h6 class="text-center" style="color: white">Địa chỉ : {{ $setting->company_address ?? null }}</h6>
                     <h6 class="text-center" style="color: white">Hotline : <a style="color: white" href="tel:{{$newHotline}}">{{ $hotline ?? null }}</a> </h6>
-                    <h6 class="text-center" style="color: white">Mã số thuế : {{ $setting->company_tax_code ?? null }}</h6>
+                    <h6 class="text-center" style="color: white">Mã số thuế :
+                        <strong> {{ $setting->company_tax_code ?? null }}</strong>
+                    </h6>
                     <h6 class="text-center" style="color: white">Website : <a style="color: white" href="{{$setting->company_website_domain ?? null}}">{{ $setting->company_website_domain ?? null }}</a> </h6>
                     <p style="color: white" class="text-center">Bản quyền © Kế toán DPT</p>
                 </div>
