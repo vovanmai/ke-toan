@@ -53,7 +53,7 @@ class AuthController extends BaseController
         }
         return redirect()
             ->back()
-            ->with('error_message', 'Thông tin đăng nhập không chính xác.')
+            ->with('error_message', 'Thông tin đăng nhập không chính xác. Vui lòng liên hệ Super Admin để được hỗ trợ.')
             ->withInput();
     }
 

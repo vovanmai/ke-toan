@@ -20,7 +20,7 @@ class CheckActive
 
         if (!$user->active) {
             Auth::logout();
-            session()->flash('error_message', 'Tài khoản của bạn đã bị vô hiệu hóa.');
+            session()->flash('error_message', 'Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ Super Admin để được hỗ trợ.');
             return redirect()->route('admin.login');
         }
 
