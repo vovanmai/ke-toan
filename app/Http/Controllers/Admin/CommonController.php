@@ -40,6 +40,8 @@ class CommonController extends BaseController
                     $image = Image::make($file);
                     $image->resize($resizeWidth, $resizeHeight);
                     $image->save(storage_path('/app/' . getFileContainFolder() . '/' . $storeName));
+                } else {
+                    $file->storeAs(getFileContainFolder(), $storeName);
                 }
             } else {
                 $file->storeAs(getFileContainFolder(), $storeName);
