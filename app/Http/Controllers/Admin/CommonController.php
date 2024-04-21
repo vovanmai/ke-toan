@@ -32,25 +32,27 @@ class CommonController extends BaseController
 
             $size = $file->getSize();
 
+            if ($extension !== 'svg') {
+                $originHeight = Image::make($file)->height();
+                $originWidth = Image::make($file)->width();
 
-            $originHeight = Image::make($file)->height();
-            $originWidth = Image::make($file)->width();
-
-            if ($resizeHeight || $resizeWidth) {
-                $image = Image::make($file);
-                $image->resize($resizeWidth, $resizeHeight);
-                $image->save(storage_path('/app/' . getFileContainFolder() . '/' . $storeName));
+                if ($resizeHeight || $resizeWidth) {
+                    $image = Image::make($file);
+                    $image->resize($resizeWidth, $resizeHeight);
+                    $image->save(storage_path('/app/' . getFileContainFolder() . '/' . $storeName));
+                }
             } else {
                 $file->storeAs(getFileContainFolder(), $storeName);
             }
+
 
             return response()->success('Thành công', [
                 'store_name' => $storeName,
                 'name' => $originName,
                 'size' => $size,
                 'extension' => $extension,
-                'origin_height' => $originHeight,
-                'origin_width' => $originWidth,
+                'origin_height' => $originHeight ?? null,
+                'origin_width' => $originWidth ?? null,
             ]);
         } catch (Exception $ex) {
             Log::info($ex->getMessage());
