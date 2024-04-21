@@ -57,14 +57,14 @@
         </a>
     </div>
 
-    <div class="zalo">
-        <a href="https://zalo.me/{{$hotline}}" style="position: relative">
-            <div class="zalo-number" style="display: none;"> 0818790015</div>
-            <div class="zalo-quick-alo-ph-circle"></div>
-            <div class="zalo-quick-alo-ph-circle-fill"></div>
-            <div class="zalo-quick-alo-ph-img-circle"> </div>
-        </a>
-    </div>
+{{--    <div class="zalo">--}}
+{{--        <a href="https://zalo.me/{{$hotline}}" style="position: relative">--}}
+{{--            <div class="zalo-number" style="display: none;"> 0818790015</div>--}}
+{{--            <div class="zalo-quick-alo-ph-circle"></div>--}}
+{{--            <div class="zalo-quick-alo-ph-circle-fill"></div>--}}
+{{--            <div class="zalo-quick-alo-ph-img-circle"> </div>--}}
+{{--        </a>--}}
+{{--    </div>--}}
 
     {{--<div class="facebook-chat">
         <div>
@@ -94,6 +94,7 @@
             </div>
         </div>
     </div>
+    {!! app('web_setting')->zalo_fan_page_chat_script ?? null !!}
 </div>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v19.0" nonce="6Eoz0Xhr"></script>
