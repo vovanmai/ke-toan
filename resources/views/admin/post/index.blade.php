@@ -93,6 +93,7 @@
                                     <th style="width: 10%">Danh mục</th>
                                     <th class="text-center">Active</th>
                                     <th class="text-center" style="width: 8%">Lượt xem</th>
+                                    <th>Người tạo</th>
                                     <th>Ngày tạo</th>
                                     <th>Ngày cập nhập</th>
                                     <th style="width: 15%">Action</th>
@@ -124,6 +125,9 @@
                                         </td>
                                         <td class="text-center">
                                             {{ $item->total_view }}
+                                        </td>
+                                        <td class="text-center">
+                                            {{ $item->admin->name ?? null }}
                                         </td>
                                         <td>
                                             <div>
