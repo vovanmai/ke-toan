@@ -68,7 +68,7 @@
 
     <div class="facebook-chat">
         <div>
-            <a href="https://www.m.me/291532950711872">
+            <a target="_blank" href="https://www.m.me/291532950711872">
                 <div style="background-color: rgb(49, 204, 70); border: 2.5px solid white; border-radius: 50%; height: 14px; width: 14px; position: absolute;bottom: 0px; right: 0px"></div>
                 <div style="display: flex; align-items: center;">
                     <div style="width: 60px; height: 60px; background-color: #0A7CFF; display: flex; justify-content: center; align-items: center; border-radius:60px">
