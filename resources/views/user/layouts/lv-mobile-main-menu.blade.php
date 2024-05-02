@@ -33,7 +33,7 @@
                         <div>
                             <a href="{{ route('user.course.list_all') }}" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}">
                                 <span class="title">
-                                    Khóa học kế toán
+                                    Đào tạo kế toán
                                 </span>
                             </a>
                             @if($item['active_children_recursive'])

@@ -2,7 +2,7 @@
 @section('content')
     <div class="post-list">
         <h2 class="category-name">
-            {{ $category->title ?? 'Khóa học kế toán' }}
+            {{ $category->title ?? 'Đào tạo kế toán' }}
         </h2>
         <div class="post-wrap">
             <div class="display-vertical">

@@ -23,7 +23,7 @@
             @if($item['type'] === 'course')
                 <li>
                     <div class="d-flex justify-content-between align-items-center">
-                        <a title="Khóa học kế toán" href="{{ route('user.course.list_all') }}" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}">
+                        <a title="Đào tạo kế toán" href="{{ route('user.course.list_all') }}" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}">
                             <span>{{ $item['title'] }}</span>
                         </a>
                         <div class="button-arrow">

@@ -20,7 +20,7 @@
             <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('user.course.list_all') }}">Khóa học kế toán</a>
+            <a href="{{ route('user.course.list_all') }}">Đào tạo kế toán</a>
         </li>
         @foreach($cats as $slug => $catTitle)
             <li class="breadcrumb-item">

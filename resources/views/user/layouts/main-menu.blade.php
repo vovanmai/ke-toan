@@ -14,9 +14,9 @@
         @foreach($mainMenu as $item)
             @if($item['type'] === 'course')
             <li>
-                <a title="Khóa học kế toán" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}" href="{{ route('user.course.list_all') }}">
+                <a title="Đào tạo kế toán" class="{{ request()->is('khoa-hoc-ke-toan*') ? 'active' : ''}}" href="{{ route('user.course.list_all') }}">
                     <span class="title">
-                        Khóa học kế toán
+                        Đào tạo kế toán
                     </span>
                     <span class="arrow"></span>
                 </a>

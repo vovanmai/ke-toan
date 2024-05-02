@@ -45,7 +45,7 @@ class UpdateService
 
         $categoryCourse = [
             'id' => null,
-            'title' => 'Khóa học kế toán',
+            'title' => 'Đào tạo kế toán',
             'type' => 'course',
             'active_children_recursive' => $this->catRepo
                 ->with([

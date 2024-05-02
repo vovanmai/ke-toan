@@ -37,7 +37,7 @@ class ListService
         $data = [
             [
                 'id' => null,
-                'title' => 'Khóa học kế toán',
+                'title' => 'Đào tạo kế toán',
                 'type' => 'course',
             ]
         ];
