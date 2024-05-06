@@ -11,6 +11,8 @@ Route::namespace("Admin")->middleware('guard:admin')->prefix('admin')->group(fun
     Route::middleware(['auth', 'permission', 'active'])->group(function () {
         Route::get('logout', 'AuthController@logout')->name('admin.logout');
 
+        Route::get('logs', 'LogController@index')->name('admin.log.index');
+
         // Routes of common
         require __DIR__ . '/common.php';
 

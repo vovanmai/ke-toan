@@ -305,6 +305,13 @@
                 </a>
             </li>
 
+            <li class="{{ request()->is('admin/logs*') ? 'active' : '' }}">
+                <a href="{{ route('admin.log.index') }}">
+{{--                    <i class="fa fa-fw fa-gears"></i>--}}
+                    <span>Logs</span>
+                </a>
+            </li>
+
             {{--<li class="treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
