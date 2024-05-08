@@ -23,7 +23,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">
-                        <pre style="height: 800px">{{ $content ?? '' }}</pre>
+                        <pre style="height: 700px">{{ $content ?? '' }}</pre>
                     </div>
                 </div>
                 <!-- /.box -->
