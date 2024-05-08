@@ -8,8 +8,8 @@ use App\Models\Page;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\SitemapIndex;
 use Spatie\Sitemap\Tags\Url;
 
 class CreateSiteMap extends Command
@@ -46,6 +46,7 @@ class CreateSiteMap extends Command
     public function handle()
     {
         try {
+            Log::info('[START][' . Carbon::now()->format('Y-m-d H:i:s') . '] Generate site map');
             $siteMap = Sitemap::create()
                 ->add(
                     Url::create(route('user.index'))
@@ -64,9 +65,9 @@ class CreateSiteMap extends Command
 
 
             $siteMap->writeToFile(public_path('sitemap.xml'));
-
+            Log::info('[END][' . Carbon::now()->format('Y-m-d H:i:s') . '] Generate site map');
         } catch (\Exception $exception) {
-            dd($exception);
+            Log::error($exception);
         }
 
         return 0;
