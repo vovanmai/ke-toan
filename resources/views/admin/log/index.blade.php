@@ -23,7 +23,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <div style="margin-bottom: 25px">Size: <span>{{ $size ?? 0 }} KB</span></div>
+                        <div style="margin-bottom: 25px">Size: <span>{{ round(($size ?? 0) / 1024) }} KB</span></div>
                         <pre style="height: 700px; overflow: scroll">{{ $content ?? '' }}</pre>
                     </div>
                 </div>
