@@ -22,8 +22,9 @@
                         </div>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body table-responsive">
-                        <pre style="height: 700px">{{ $content ?? '' }}</pre>
+                    <div class="box-body">
+                        <div style="margin-bottom: 25px">Size: <span>{{ $size ?? 0 }} KB</span></div>
+                        <pre style="height: 700px; overflow: scroll">{{ $content ?? '' }}</pre>
                     </div>
                 </div>
                 <!-- /.box -->

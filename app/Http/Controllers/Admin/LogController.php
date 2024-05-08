@@ -30,7 +30,9 @@ class LogController extends BaseController
         try {
             $directory = storage_path('logs/laravel.log');
             $content = File::get($directory);
+            $size = File::size($directory);
             return view('admin.log.index', [
+                'size' => $size,
                 'content' => $content,
             ]);
         } catch (Exception $exception) {
