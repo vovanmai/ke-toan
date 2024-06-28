@@ -42,7 +42,7 @@ class MyUploadAdapter {
         // integration to choose the right communication channel. This example uses
         // a POST request with JSON as a data structure but your configuration
         // could be different.
-        xhr.open( 'POST', 'http://laravel.test/admin/upload-from-ckeditor', true );
+        xhr.open( 'POST', '/admin/upload-from-ckeditor', true );
         xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content)
         xhr.responseType = 'json';
     }
