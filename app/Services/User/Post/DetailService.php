@@ -6,6 +6,7 @@ use App\Data\Repositories\Eloquent\CategoryRepository;
 use App\Data\Repositories\Eloquent\PostRepository;
 use App\Models\Post;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 
 class DetailService
@@ -65,9 +66,9 @@ class DetailService
         $lock = Cache::lock("post_{$ip}_{$post->id}", 60);
 
         if ($lock->get()) {
-            $post->total_view++;
-
-            $post->save();
+            DB::table('posts')->where('id', $post->id)->update([
+                'total_view' => DB::raw('total_view + 1'),
+            ]);
         }
     }
 }
