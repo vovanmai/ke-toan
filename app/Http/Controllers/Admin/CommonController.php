@@ -43,7 +43,7 @@ class CommonController extends BaseController
                     //     $constraint->aspectRatio();
                     //     $constraint->upsize();
                     // });
-                    $image->fit(450, 300);
+                    $image->fit(450, 300, null, 'center');
                     $image->save(storage_path('/app/' . getFileContainFolder() . '/' . $storeName));
                 } else {
                     $file->storeAs(getFileContainFolder(), $storeName);
