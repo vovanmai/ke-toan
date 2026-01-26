@@ -39,10 +39,11 @@ class CommonController extends BaseController
                 if ($resizeHeight || $resizeWidth) {
                     $image = Image::make($file);
                     #$image->resize($resizeWidth, $resizeHeight);
-                    $image->resize($resizeWidth, $resizeHeight, function ($constraint) {
-                        $constraint->aspectRatio();
-                        $constraint->upsize();
-                    });
+                    // $image->resize($resizeWidth, $resizeHeight, function ($constraint) {
+                    //     $constraint->aspectRatio();
+                    //     $constraint->upsize();
+                    // });
+                    $image->fit(450, 300);
                     $image->save(storage_path('/app/' . getFileContainFolder() . '/' . $storeName));
                 } else {
                     $file->storeAs(getFileContainFolder(), $storeName);
