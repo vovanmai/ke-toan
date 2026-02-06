@@ -27,25 +27,6 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/vendor/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
     <link href="/css/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.lazyload.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.arrows.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/carousel/carousel.thumbs.css"
-    />
+    @stack('styles')
     <link href="/css/app.css" rel="stylesheet" type="text/css" />
 </head>

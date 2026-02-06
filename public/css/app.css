@@ -1305,11 +1305,7 @@ form label.error {
   --f-arrow-svg-stroke-width: 2px;
   --f-arrow-border-radius: 50%;
   aspect-ratio: 5/3;
-}
-
-#my-gallery .f-carousel__slide {
-  width: 100%;
-  flex: 0 0 100%;
+  background: rgba(0, 0, 0, 0.12);
 }
 
 #my-gallery img {
