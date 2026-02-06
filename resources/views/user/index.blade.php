@@ -40,7 +40,9 @@
     </div>
     @endif
 
-    <div id="course-gallery" class="block">
+    @include('user.gallery')
+
+    {{-- <div id="course-gallery" class="block">
         <div class="heading-block">
             <div class="block-title">
                 <a title="Hình ảnh khóa học & Sự kiện">Hình ảnh khóa học & Sự kiện</a>
@@ -71,7 +73,7 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
-    </div>
+    </div> --}}
     <div class="row g-3 index-post">
         @foreach($categories as $category)
             @if($category->activePosts->isNotEmpty())
